@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct CoinCounterView: View {
+
     var body: some View {
         HStack(alignment: .center) {
             Image("AllCoinsIcon")
                 .resizable()
-                .frame(width: 25, height: 25, alignment: .leading)
-            Text("541")                .fontWeight(.black)
+                .frame(width: 17, height: 17, alignment: .leading)
+            Text("541")
+                .fontWeight(.black)
+                .foregroundColor(Color("DarkGray"))
         }
-        .padding(.all)
+        .frame(width: 90, height: 40)
         .background(Color.white)
-        .cornerRadius(9999)
+        .cornerRadius(999)
         
     }
     

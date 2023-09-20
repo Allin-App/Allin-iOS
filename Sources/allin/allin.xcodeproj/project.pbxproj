@@ -107,6 +107,7 @@
 		D98C4D622AB9D017007A6B4D /* AllIn */ = {
 			isa = PBXGroup;
 			children = (
+				ECF816C72ABB51E300DE30A4 /* Extensions */,
 				D92EC5782ABAC6B900CCD30E /* Views */,
 				D98C4D632AB9D017007A6B4D /* AllInApp.swift */,
 				D98C4D652AB9D017007A6B4D /* ContentView.swift */,
@@ -139,6 +140,13 @@
 				D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */,
 			);
 			path = AllInUITests;
+			sourceTree = "<group>";
+		};
+		ECF816C72ABB51E300DE30A4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

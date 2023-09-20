@@ -15,14 +15,21 @@ struct TopBarView: View {
         GeometryReader { geometry in
             ZStack() {
                 HStack(){
+                    Image("menu")
+                        .resizable()
+                        .frame(width: 26,height: 15)
+                        .padding(.leading, 30)
+                    Spacer()
+                    
                     CoinCounterView()
                         
                 }
                 .frame(width: geometry.size.width,alignment: .trailing)
+                .padding(.trailing, 20)
                 
                 Image("Icon")
                     .resizable()
-                    .frame(width: 45, height: 45, alignment: .bottom)
+                    .frame(width: 40, height: 40, alignment: .bottom)
                     .padding(.all, 22)
                 
             }
