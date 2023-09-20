@@ -25,8 +25,6 @@ struct TopBarView: View {
                         
                 }
                 .frame(width: geometry.size.width,alignment: .trailing)
-                .padding(.trailing, 20)
-                
                 Image("Icon")
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .bottom)

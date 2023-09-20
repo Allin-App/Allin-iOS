@@ -16,6 +16,9 @@
 		D98C4D7F2AB9D019007A6B4D /* AllInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C4D7E2AB9D019007A6B4D /* AllInUITests.swift */; };
 		D98C4D812AB9D019007A6B4D /* AllInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */; };
 		D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C4D8D2AB9D440007A6B4D /* TopBarView.swift */; };
+		EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD52ABBA24000363986 /* Extensions.swift */; };
+		EC87FCD92ABBA60900363986 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD82ABBA60900363986 /* Colors.swift */; };
+		EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		D98C4D7E2AB9D019007A6B4D /* AllInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITests.swift; sourceTree = "<group>"; };
 		D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D98C4D8D2AB9D440007A6B4D /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		EC87FCD52ABBA24000363986 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = allin/Extensions/Extensions.swift; sourceTree = SOURCE_ROOT; };
+		EC87FCD82ABBA60900363986 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = allin/Ressources/Colors.swift; sourceTree = SOURCE_ROOT; };
+		EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingBetCard.swift; path = allin/Views/TrendingBetCard.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 			children = (
 				D98C4D8D2AB9D440007A6B4D /* TopBarView.swift */,
 				D92EC57B2ABADA2800CCD30E /* CoinCounterView.swift */,
+				EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 		D98C4D622AB9D017007A6B4D /* AllIn */ = {
 			isa = PBXGroup;
 			children = (
+				EC87FCD72ABBA5F200363986 /* Ressources */,
 				ECF816C72ABB51E300DE30A4 /* Extensions */,
 				D92EC5782ABAC6B900CCD30E /* Views */,
 				D98C4D632AB9D017007A6B4D /* AllInApp.swift */,
@@ -142,9 +150,18 @@
 			path = AllInUITests;
 			sourceTree = "<group>";
 		};
+		EC87FCD72ABBA5F200363986 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				EC87FCD82ABBA60900363986 /* Colors.swift */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
 		ECF816C72ABB51E300DE30A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EC87FCD52ABBA24000363986 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,10 +296,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */,
+				EC87FCD92ABBA60900363986 /* Colors.swift in Sources */,
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
 				D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */,
 				D98C4D642AB9D017007A6B4D /* AllInApp.swift in Sources */,
+				EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

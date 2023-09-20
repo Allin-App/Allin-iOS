@@ -16,11 +16,11 @@ struct CoinCounterView: View {
                 .frame(width: 17, height: 17, alignment: .leading)
             Text("541")
                 .fontWeight(.black)
-                .foregroundColor(Color("DarkGray"))
+                .foregroundColor(AllinColor.darkGray)
         }
         .frame(width: 90, height: 40)
         .background(Color.white)
-        .cornerRadius(999)
+        .cornerRadius(9999, corners: [.topLeft, .bottomLeft])
         
     }
     
