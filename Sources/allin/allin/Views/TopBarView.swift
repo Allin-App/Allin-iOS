@@ -13,12 +13,20 @@ struct TopBarView: View {
         let TopBarColorBlue = Color(red: 25/255, green: 159/255, blue: 238/255)
         let TopBarColorPurple = Color(red: 170/255, green: 126/255, blue: 243/255)
         GeometryReader { geometry in
-            HStack() {
+            ZStack() {
+                HStack(){
+                    CoinCounterView()
+                        
+                }
+                .frame(width: geometry.size.width,alignment: .trailing)
+                
                 Image("Icon")
                     .resizable()
                     .frame(width: 45, height: 45, alignment: .bottom)
+                    .padding(.all, 22)
+                
             }
-            .frame(width: geometry.size.width, height: 120)
+            .frame(width: geometry.size.width, height: 120, alignment: .bottom)
             .background(LinearGradient(gradient:
                        Gradient(colors:[TopBarColorPink,TopBarColorPurple,TopBarColorBlue]),
                                        startPoint: .bottomLeading, endPoint: .topTrailing))
