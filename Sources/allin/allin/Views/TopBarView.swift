@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TopBarView: View {
+    
+    @Binding var showMenu: Bool
+    
     var body: some View {
         let TopBarColorPink = Color(red: 249/255, green: 81/255, blue: 168/255)
         let TopBarColorBlue = Color(red: 25/255, green: 159/255, blue: 238/255)
@@ -15,14 +18,14 @@ struct TopBarView: View {
         GeometryReader { geometry in
             ZStack() {
                 HStack(){
-                    Image("menu")
-                        .resizable()
-                        .frame(width: 26,height: 15)
-                        .padding(.leading, 30)
+                    Button(action: {withAnimation{ self.showMenu = !self.showMenu }}) {
+                        Image("menu")
+                            .resizable()
+                            .frame(width: 26,height: 15)
+                            .padding(.leading, 30)
+                    }
                     Spacer()
-                    
                     CoinCounterView()
-                        
                 }
                 .frame(width: geometry.size.width,alignment: .trailing)
                 Image("Icon")
@@ -33,7 +36,7 @@ struct TopBarView: View {
             }
             .frame(width: geometry.size.width, height: 120, alignment: .bottom)
             .background(LinearGradient(gradient:
-                       Gradient(colors:[TopBarColorPink,TopBarColorPurple,TopBarColorBlue]),
+                                        Gradient(colors:[TopBarColorPink,TopBarColorPurple,TopBarColorBlue]),
                                        startPoint: .bottomLeading, endPoint: .topTrailing))
         }
     }

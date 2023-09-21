@@ -12,4 +12,6 @@ struct AllinColor {
     static let darkGray = Color("DarkGray")
     static let darkerGray = Color("DarkerGray")
     static let pinkAccentText = Color("PinkAccentText")
+    static let darkLight = Color("DarkLight")
+
 }
