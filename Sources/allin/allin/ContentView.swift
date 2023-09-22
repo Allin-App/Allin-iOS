@@ -52,7 +52,7 @@ struct Home: View {
         VStack(alignment: .center, spacing: 0) {
             TopBarView(showMenu: self.$showMenu)
             ScrollView{
-                TrendingBetCard()
+                TrendingBetCard().padding(.top,20)
             }
             
             Spacer()
