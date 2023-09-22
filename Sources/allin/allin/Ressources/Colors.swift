@@ -12,6 +12,7 @@ struct AllinColor {
     static let darkGray = Color("DarkGray")
     static let darkerGray = Color("DarkerGray")
     static let pinkAccentText = Color("PinkAccentText")
+    static let darkLight = Color("DarkLight")
     static let backgroundWhite = Color("BackgroundWhite")
     static let blueAccent = Color("BlueAccent")
     static let gradiantCard = LinearGradient(
