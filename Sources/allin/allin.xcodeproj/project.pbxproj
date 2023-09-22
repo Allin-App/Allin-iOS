@@ -53,6 +53,8 @@
 		D98C4D7E2AB9D019007A6B4D /* AllInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITests.swift; sourceTree = "<group>"; };
 		D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D98C4D8D2AB9D440007A6B4D /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		EC0EA7AF2ABDAAD1006BA4A0 /* PlusJakartaSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlusJakartaSans.ttf; sourceTree = "<group>"; };
+		EC0EA7B02ABDACED006BA4A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC46D7DC2ABCCC270030AC04 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = allin/Views/MenuView.swift; sourceTree = SOURCE_ROOT; };
 		EC46D7DE2ABCE0A20030AC04 /* ParameterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParameterMenuView.swift; path = allin/Views/ParameterMenuView.swift; sourceTree = SOURCE_ROOT; };
 		EC87FCD52ABBA24000363986 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = allin/Extensions/Extensions.swift; sourceTree = SOURCE_ROOT; };
@@ -120,6 +122,8 @@
 		D98C4D622AB9D017007A6B4D /* AllIn */ = {
 			isa = PBXGroup;
 			children = (
+				EC0EA7B02ABDACED006BA4A0 /* Info.plist */,
+				EC0EA7AD2ABDAAAC006BA4A0 /* Fonts */,
 				EC87FCD72ABBA5F200363986 /* Ressources */,
 				ECF816C72ABB51E300DE30A4 /* Extensions */,
 				D92EC5782ABAC6B900CCD30E /* Views */,
@@ -154,6 +158,14 @@
 				D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */,
 			);
 			path = AllInUITests;
+			sourceTree = "<group>";
+		};
+		EC0EA7AD2ABDAAAC006BA4A0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EC0EA7AF2ABDAAD1006BA4A0 /* PlusJakartaSans.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		EC87FCD72ABBA5F200363986 /* Ressources */ = {
@@ -472,6 +484,7 @@
 				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AllIn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +514,7 @@
 				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AllIn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

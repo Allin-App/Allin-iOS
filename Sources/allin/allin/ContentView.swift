@@ -26,10 +26,10 @@ struct ContentView: View {
             ZStack(alignment: .leading) {
                 Home(showMenu: self.$showMenu)
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                    .offset(x: self.showMenu ? geometry.size.width/1.25:0)
+                    .offset(x: self.showMenu ? geometry.size.width/1.21:0)
                 if self.showMenu {
                     MenuView()
-                        .frame(width: geometry.size.width*0.8)
+                        .frame(width: geometry.size.width*0.83)
                         .transition(.move(edge: .leading))
                 }
             }

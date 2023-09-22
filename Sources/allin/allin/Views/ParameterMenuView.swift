@@ -18,9 +18,9 @@ struct ParameterMenuView: View {
             Image(icon)
             VStack(alignment: .leading){
                 Text(title)
-                    .betTextStyle(weight: .bold, color: .white, size: 13)
+                    .betTextStyle(weight: .bold, color: .white, size: 14)
                 Text(description)
-                    .betTextStyle(weight: .bold, color: AllinColor.DescriptionColorMenu, size: 9)
+                    .betTextStyle(weight: .regular, color: AllinColor.DescriptionColorMenu, size: 9)
             }
             Spacer()
             Image("ChevronRightIcon")

@@ -32,7 +32,7 @@ struct MenuView: View {
         }
         .frame(maxWidth: .infinity,alignment: .leading)
         .background(AllinColor.darkerGray)
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.bottom)
         
     }
 }

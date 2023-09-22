@@ -13,27 +13,27 @@ struct TopBarView: View {
     
     var body: some View {
         ZStack{
-                HStack{
-                    Button(action: {withAnimation{ self.showMenu = !self.showMenu }}) {
-                        Image("menu")
-                            .resizable()
-                            .frame(width: 26,height: 15)
-                            .padding(.leading, 30)
-                    }
-                    Spacer()
-                    CoinCounterView()
+            HStack{
+                Button(action: {withAnimation{ self.showMenu = !self.showMenu }}) {
+                    Image("menu")
+                        .resizable()
+                        .frame(width: 26,height: 15)
+                        .padding(.leading, 20)
                 }
-                .frame(alignment: .top)
-                Image("Icon")
-                    .resizable()
-                    .frame(width: 40, height: 40, alignment: .bottom)
-                
+                Spacer()
+                CoinCounterView()
             }
-            .padding([.bottom], 20)
-            .padding([.top], 10)
-            .background(LinearGradient(gradient:
-                                        Gradient(colors:[AllinColor.TopBarColorPink,AllinColor.TopBarColorPurple,AllinColor.TopBarColorBlue]),
-                                       startPoint: .bottomLeading, endPoint: .topTrailing))
+            .frame(alignment: .top)
+            Image("Icon")
+                .resizable()
+                .frame(width: 40, height: 40, alignment: .bottom)
+            
+        }
+        .padding([.bottom], 20)
+        .padding([.top], 10)
+        .background(LinearGradient(gradient:
+                                    Gradient(colors:[AllinColor.TopBarColorPink,AllinColor.TopBarColorPurple,AllinColor.TopBarColorBlue]),
+                                   startPoint: .bottomLeading, endPoint: .topTrailing))
     }
-        
-    }
+    
+}
