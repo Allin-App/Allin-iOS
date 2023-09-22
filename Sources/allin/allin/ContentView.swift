@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 0) {
             TopBarView()
-            TrendingBetCard()}
-        .edgesIgnoringSafeArea(.top)
+            ScrollView{
+                TrendingBetCard().padding(.top, 20)
+            }.background(AllinColor.backgroundWhite)
+            }
+        .edgesIgnoringSafeArea([.bottom])
         .frame(alignment: .top)
-        
     }
 }
 
