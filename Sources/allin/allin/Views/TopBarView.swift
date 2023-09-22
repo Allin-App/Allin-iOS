@@ -12,9 +12,6 @@ struct TopBarView: View {
     @Binding var showMenu: Bool
     
     var body: some View {
-        let TopBarColorPink = Color(red: 249/255, green: 81/255, blue: 168/255)
-        let TopBarColorBlue = Color(red: 25/255, green: 159/255, blue: 238/255)
-        let TopBarColorPurple = Color(red: 170/255, green: 126/255, blue: 243/255)
         ZStack{
                 HStack{
                     Button(action: {withAnimation{ self.showMenu = !self.showMenu }}) {
@@ -35,7 +32,7 @@ struct TopBarView: View {
             .padding([.bottom], 20)
             .padding([.top], 10)
             .background(LinearGradient(gradient:
-                                        Gradient(colors:[TopBarColorPink,TopBarColorPurple,TopBarColorBlue]),
+                                        Gradient(colors:[AllinColor.TopBarColorPink,AllinColor.TopBarColorPurple,AllinColor.TopBarColorBlue]),
                                        startPoint: .bottomLeading, endPoint: .topTrailing))
     }
         

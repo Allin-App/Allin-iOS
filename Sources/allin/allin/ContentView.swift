@@ -50,7 +50,7 @@ struct Home: View {
     @Binding var showMenu: Bool
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 0) {
             TopBarView(showMenu: self.$showMenu)
             ScrollView{
                 TrendingBetCard()
