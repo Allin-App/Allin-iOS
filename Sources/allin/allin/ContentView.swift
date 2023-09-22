@@ -53,21 +53,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-struct Home: View {
-    
-    @Binding var showMenu: Bool
-    
-    var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            TopBarView(showMenu: self.$showMenu)
-            ScrollView{
-                TrendingBetCard()
-            }
-            
-            Spacer()
-        }
-        .edgesIgnoringSafeArea(.bottom)
-    }
-    
-}

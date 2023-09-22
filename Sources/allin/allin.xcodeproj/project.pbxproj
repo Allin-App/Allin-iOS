@@ -21,6 +21,7 @@
 		EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD52ABBA24000363986 /* Extensions.swift */; };
 		EC87FCD92ABBA60900363986 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD82ABBA60900363986 /* Colors.swift */; };
 		EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */; };
+		EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		EC87FCD52ABBA24000363986 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = allin/Extensions/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		EC87FCD82ABBA60900363986 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = allin/Ressources/Colors.swift; sourceTree = SOURCE_ROOT; };
 		EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingBetCard.swift; path = allin/Views/TrendingBetCard.swift; sourceTree = SOURCE_ROOT; };
+		EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = allin/Screens/HomeScreen.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		D98C4D622AB9D017007A6B4D /* AllIn */ = {
 			isa = PBXGroup;
 			children = (
+				EC9A45AE2ABDF47A00125D41 /* Screens */,
 				EC0EA7B02ABDACED006BA4A0 /* Info.plist */,
 				EC0EA7AD2ABDAAAC006BA4A0 /* Fonts */,
 				EC87FCD72ABBA5F200363986 /* Ressources */,
@@ -174,6 +177,14 @@
 				EC87FCD82ABBA60900363986 /* Colors.swift */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		EC9A45AE2ABDF47A00125D41 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		ECF816C72ABB51E300DE30A4 /* Extensions */ = {
@@ -320,6 +331,7 @@
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
 				D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */,
+				EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */,
 				EC46D7DF2ABCE0A20030AC04 /* ParameterMenuView.swift in Sources */,
 				D98C4D642AB9D017007A6B4D /* AllInApp.swift in Sources */,
 				EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */,
