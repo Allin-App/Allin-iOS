@@ -71,7 +71,6 @@ struct TrendingBetCard: View {
         }
         .frame(height: 127, alignment: .topLeading)
         .background(AllinColor.darkerGray)
-        
         .overlay(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .stroke(AllinColor.gradiantCard, lineWidth: 5)

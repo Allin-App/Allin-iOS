@@ -10,19 +10,20 @@ import SwiftUI
 struct MenuView: View {
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 10) {
             
-            ParameterMenuView(icon: "VideoGame", title: "CREER UN BET")
-                .padding(.top, 100)
+            ParameterMenuView(icon: "VideoGame", title: "CREER UN BET", description: "Créez un nouveau BET et faites participer vos amis.")
+                .padding([.leading,.trailing], 13)
             
-            ParameterMenuView(icon: "Eyes", title: "HISTORIQUE DES BETS")
-                .padding(.top, 30)
+            ParameterMenuView(icon: "Eyes", title: "HISTORIQUE DES BETS", description: "Consultez vos paris en cours et terminés.")
+                .padding([.leading,.trailing], 13)
             
-            ParameterMenuView(icon: "Friends", title: "AMIS")
-                .padding(.top, 30)
+            ParameterMenuView(icon: "Friends", title: "AMIS", description: "Défiez vos porches en les ajoutant en amis.")
+                .padding([.leading,.trailing], 13)
             
-            ParameterMenuView(icon: "Money", title: "BET EN COURS")
-                .padding(.top, 30)
+            ParameterMenuView(icon: "Money", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
+                .padding([.leading,.trailing], 13)
+
             Spacer()
             Image("GearIcon")
                 .resizable()

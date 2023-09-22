@@ -18,6 +18,8 @@ struct AllinColor {
     static let TopBarColorPink = Color("TopBarColorPink")
     static let TopBarColorBlue = Color("TopBarColorBlue")
     static let TopBarColorPurple = Color("TopBarColorPurple")
+    static let DescriptionColorMenu = Color("DescriptionColorMenu")
+    static let BorderColorMenu = Color("BorderColorMenu")
     static let gradiantCard = LinearGradient(
         gradient: Gradient(colors: [AllinColor.pinkAccentText, AllinColor.blueAccent]),
         startPoint: .bottomLeading,

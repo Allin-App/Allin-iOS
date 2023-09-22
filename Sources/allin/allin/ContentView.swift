@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        let drag = DragGesture()
+        let closeDrag = DragGesture()
             .onEnded {
                 if $0.translation.width < -100 {
                     withAnimation{
@@ -33,8 +33,7 @@ struct ContentView: View {
                         .transition(.move(edge: .leading))
                 }
             }
-            .gesture(drag)
-
+            .gesture(closeDrag)
         }
     }
 }
