@@ -27,7 +27,6 @@ struct TopBarView: View {
                     CoinCounterView()
                 }
                 .frame(alignment: .top)
-                .padding(.leading, 20)
                 Image("Icon")
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .bottom)

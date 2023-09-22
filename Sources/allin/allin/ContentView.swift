@@ -26,7 +26,7 @@ struct ContentView: View {
             ZStack(alignment: .leading) {
                 Home(showMenu: self.$showMenu)
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                    .offset(x: self.showMenu ? geometry.size.width/1.3:0)
+                    .offset(x: self.showMenu ? geometry.size.width/1.25:0)
                 if self.showMenu {
                     MenuView()
                         .frame(width: geometry.size.width*0.8)
@@ -34,6 +34,7 @@ struct ContentView: View {
                 }
             }
             .gesture(drag)
+
         }
     }
 }
@@ -51,8 +52,13 @@ struct Home: View {
     var body: some View {
         VStack(alignment: .center) {
             TopBarView(showMenu: self.$showMenu)
-            TrendingBetCard()}
-        .edgesIgnoringSafeArea(.top)
+            ScrollView{
+                TrendingBetCard()
+            }
+            
+            Spacer()
+        }
+        .edgesIgnoringSafeArea(.bottom)
     }
     
 }
