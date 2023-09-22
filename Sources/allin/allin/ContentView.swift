@@ -21,12 +21,22 @@ struct ContentView: View {
                     }
                 }
             }
+        let openDrag = DragGesture()
+            .onEnded {
+                if $0.translation.width > 100 {
+                    withAnimation{
+                        self.showMenu = true
+                    }
+                }
+            }
         
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Home(showMenu: self.$showMenu)
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .offset(x: self.showMenu ? geometry.size.width/1.21:0)
+                    .gesture(openDrag)
+                
                 if self.showMenu {
                     MenuView()
                         .frame(width: geometry.size.width*0.83)
