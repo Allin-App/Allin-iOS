@@ -24,6 +24,7 @@
 		EC87FCD92ABBA60900363986 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD82ABBA60900363986 /* Colors.swift */; };
 		EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */; };
 		EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */; };
+		ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC54432AC0C39E00195760 /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EC87FCD82ABBA60900363986 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = allin/Ressources/Colors.swift; sourceTree = SOURCE_ROOT; };
 		EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingBetCard.swift; path = allin/Views/TrendingBetCard.swift; sourceTree = SOURCE_ROOT; };
 		EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = allin/Screens/HomeScreen.swift; sourceTree = SOURCE_ROOT; };
+		ECFC54432AC0C39E00195760 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = allin/Screens/LoginScreen.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */,
 				EC50BF952ABF4D3300197685 /* SplashScreen.swift */,
 				EC50BF972ABF541B00197685 /* WelcomeScreen.swift */,
+				ECFC54432AC0C39E00195760 /* LoginScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */,
 				EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */,
 				EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */,
 				EC87FCD92ABBA60900363986 /* Colors.swift in Sources */,
