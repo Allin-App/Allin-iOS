@@ -15,12 +15,13 @@ struct Home: View {
         VStack(alignment: .center, spacing: 0) {
             TopBarView(showMenu: self.$showMenu)
             ScrollView{
-                TrendingBetCard()
-            }
+                TrendingBetCard().padding(.top,25)
+                BetCard()
+            }.padding([.leading,.trailing],25)
             
             Spacer()
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.bottom).background(AllinColor.backgroundWhite)
     }
     
 }

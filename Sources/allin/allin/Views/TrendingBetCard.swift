@@ -76,7 +76,6 @@ struct TrendingBetCard: View {
                 .stroke(AllinColor.gradiantCard, lineWidth: 5)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .padding([.leading, .trailing], 20)
     }
 }
 
