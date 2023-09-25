@@ -14,7 +14,7 @@ struct TopBarView: View {
     var body: some View {
         ZStack{
             HStack{
-                Button(action: {withAnimation{ self.showMenu = !self.showMenu }}) {
+                Button(action: {withAnimation{ self.showMenu.toggle() }}) {
                     Image("menu")
                         .resizable()
                         .frame(width: 26,height: 15)

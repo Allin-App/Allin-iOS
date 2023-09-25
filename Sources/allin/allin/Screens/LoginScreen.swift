@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Login: View {
     
+    @State private var isPasswordVisible = true
     @State private var username: String = ""
     @State private var password: String = ""
     var body: some View {
@@ -34,13 +35,31 @@ struct Login: View {
                     )
                     .padding(.bottom, 8)
                 
-                TextField("", text: $password, prompt: Text("Mot de passe").foregroundColor(.gray))
+                Group {
+                    if isPasswordVisible {
+                        SecureField("", text: $password, prompt: Text("Mot de passe").foregroundColor(.gray))
+                    } else {
+                        TextField("", text: $password, prompt: Text("Mot de passe").foregroundColor(.gray))
+                    }
+                }
                     .padding()
                     .background(Color.white.cornerRadius(9))
                     .frame(width: 300)
                     .overlay(
                         RoundedRectangle(cornerRadius: 9, style: .continuous)
                             .stroke(AllinColor.StrokeGrayColor, lineWidth: 1)
+                    )
+                    .overlay(
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                isPasswordVisible.toggle()
+                            }) {
+                                Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                                    .foregroundColor(.gray)
+                            }
+                            .padding(.trailing, 8)
+                        }
                     )
                     .foregroundColor(.black)
                 
