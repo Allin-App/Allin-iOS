@@ -24,6 +24,7 @@
 		EC87FCD92ABBA60900363986 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD82ABBA60900363986 /* Colors.swift */; };
 		EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */; };
 		EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */; };
+		ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */; };
 		ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC54432AC0C39E00195760 /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		EC87FCD82ABBA60900363986 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = allin/Ressources/Colors.swift; sourceTree = SOURCE_ROOT; };
 		EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingBetCard.swift; path = allin/Views/TrendingBetCard.swift; sourceTree = SOURCE_ROOT; };
 		EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = allin/Screens/HomeScreen.swift; sourceTree = SOURCE_ROOT; };
+		ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterScreen.swift; path = allin/Screens/RegisterScreen.swift; sourceTree = SOURCE_ROOT; };
 		ECFC54432AC0C39E00195760 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = allin/Screens/LoginScreen.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 				EC50BF952ABF4D3300197685 /* SplashScreen.swift */,
 				EC50BF972ABF541B00197685 /* WelcomeScreen.swift */,
 				ECFC54432AC0C39E00195760 /* LoginScreen.swift */,
+				ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				EC50BF962ABF4D3300197685 /* SplashScreen.swift in Sources */,
 				EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */,
 				EC46D7DF2ABCE0A20030AC04 /* ParameterMenuView.swift in Sources */,
+				ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */,
 				EC50BF982ABF541B00197685 /* WelcomeScreen.swift in Sources */,
 				D98C4D642AB9D017007A6B4D /* AllInApp.swift in Sources */,
 				EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */,
