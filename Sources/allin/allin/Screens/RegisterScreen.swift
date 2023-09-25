@@ -16,7 +16,7 @@ struct Register: View {
     @State private var passwordConfirm: String = ""
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 15) {
                     Spacer()
                     VStack {
