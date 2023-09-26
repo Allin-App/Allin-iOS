@@ -27,7 +27,7 @@ struct BetCard: View {
                 }
             }.frame(width: .infinity).padding(.all,15)
                 
-                .background(.white).cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
+                .background(AllinColor.BetCardBackground).cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
@@ -55,8 +55,13 @@ struct BetCard: View {
                             )
                         }
                     }
-                .accentColor(.white)
-                .buttonStyle(.borderedProminent).padding([.top],5)
+                
+                .accentColor(AllinColor.BetCardBackground)
+                .buttonStyle(.borderedProminent).cornerRadius(4.0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12).stroke(AllinColor.DelimiterGray , lineWidth: 1)
+                ).padding([.top],5)
+                
             }.frame(width: .infinity).padding(.all,8)
                 
                 .background(AllinColor.CapsuleGray).cornerRadius(20, corners: [.bottomLeft,.bottomRight]).padding(.bottom,0).border(width: 1, edges: [.top], color: AllinColor.DelimiterGray)
