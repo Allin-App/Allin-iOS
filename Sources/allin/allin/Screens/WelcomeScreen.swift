@@ -61,19 +61,24 @@ struct Welcome: View {
                         .padding([.leading,.trailing], 40)
                     Spacer()
                     Spacer()
-                    Button(action: {}) {
+                    NavigationLink(destination: Register().navigationBarBackButtonHidden(true))
+                    {
                         Text("Rejoindre")
                             .betTextStyle(weight: .bold, color: AllinColor.StartBackground, size: 17)
+                            .frame(width: geometry.size.width*0.85, height: 50)
+                            .background(AllinColor.LightPurple)
+                            .cornerRadius(30)
                     }
-                    .frame(width: geometry.size.width*0.85, height: 50)
-                    .background(AllinColor.LightPurple)
-                    .cornerRadius(30)
+                    
                     HStack(spacing: 0) {
                         Text("Tu as déja un compte? ")
                             .betTextStyle(weight: .regular, color: AllinColor.LightPurple, size: 16)
-                        Text("Connexion")
-                            .betTextStyle(weight: .semibold, color: AllinColor.LightPurple, size: 16)
-                            .underline()
+                        NavigationLink(destination: Login().navigationBarBackButtonHidden(true))
+                        {
+                            Text("Connexion")
+                                .betTextStyle(weight: .semibold, color: AllinColor.LightPurple, size: 16)
+                                .underline()
+                        }
                     }
                     Spacer()
                 }

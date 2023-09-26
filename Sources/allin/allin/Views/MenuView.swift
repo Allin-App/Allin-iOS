@@ -12,8 +12,11 @@ struct MenuView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
-            ParameterMenuView(icon: "VideoGame", title: "CREER UN BET", description: "Créez un nouveau BET et faites participer vos amis.")
-                .padding([.leading,.trailing], 13)
+            NavigationLink(destination: Home(page: "CreationBet").navigationBarBackButtonHidden(true))
+            {
+                ParameterMenuView(icon: "VideoGame", title: "CREER UN BET", description: "Créez un nouveau BET et faites participer vos amis.")
+                    .padding([.leading,.trailing], 13)
+            }
             
             ParameterMenuView(icon: "Eyes", title: "HISTORIQUE DES BETS", description: "Consultez vos paris en cours et terminés.")
                 .padding([.leading,.trailing], 13)
