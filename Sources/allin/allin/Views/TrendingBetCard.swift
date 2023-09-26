@@ -70,13 +70,12 @@ struct TrendingBetCard: View {
             }
         }
         .frame(height: 127, alignment: .topLeading)
-        .background(AllinColor.darkerGray)
+        .background(AllinColor.TrendingBetCardBackground)
         .overlay(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .stroke(AllinColor.gradiantCard, lineWidth: 5)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .padding([.leading, .trailing], 20)
     }
 }
 

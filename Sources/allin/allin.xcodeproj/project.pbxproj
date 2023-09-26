@@ -16,6 +16,10 @@
 		D98C4D7F2AB9D019007A6B4D /* AllInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C4D7E2AB9D019007A6B4D /* AllInUITests.swift */; };
 		D98C4D812AB9D019007A6B4D /* AllInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */; };
 		D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C4D8D2AB9D440007A6B4D /* TopBarView.swift */; };
+		EC2C1EEB2AC08BE80091D57C /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1EEA2AC08BE80091D57C /* BetCard.swift */; };
+		EC2C1EED2AC093820091D57C /* TextCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1EEC2AC093820091D57C /* TextCapsule.swift */; };
+		EC2C1EEF2AC098D30091D57C /* UsersPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1EEE2AC098D30091D57C /* UsersPreview.swift */; };
+		EC3737E42AC2F5FB00E6BDB5 /* ChoiceCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */; };
 		EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46D7DC2ABCCC270030AC04 /* MenuView.swift */; };
 		EC46D7DF2ABCE0A20030AC04 /* ParameterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46D7DE2ABCE0A20030AC04 /* ParameterMenuView.swift */; };
 		EC50BF962ABF4D3300197685 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC50BF952ABF4D3300197685 /* SplashScreen.swift */; };
@@ -60,6 +64,10 @@
 		D98C4D802AB9D019007A6B4D /* AllInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D98C4D8D2AB9D440007A6B4D /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		EC0EA7AF2ABDAAD1006BA4A0 /* PlusJakartaSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PlusJakartaSans.ttf; sourceTree = "<group>"; };
+		EC2C1EEA2AC08BE80091D57C /* BetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BetCard.swift; path = allin/Views/BetCard.swift; sourceTree = SOURCE_ROOT; };
+		EC2C1EEC2AC093820091D57C /* TextCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextCapsule.swift; path = allin/Views/TextCapsule.swift; sourceTree = SOURCE_ROOT; };
+		EC2C1EEE2AC098D30091D57C /* UsersPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersPreview.swift; path = allin/Views/UsersPreview.swift; sourceTree = SOURCE_ROOT; };
+		EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChoiceCapsule.swift; path = allin/Views/ChoiceCapsule.swift; sourceTree = SOURCE_ROOT; };
 		EC46D7DC2ABCCC270030AC04 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = allin/Views/MenuView.swift; sourceTree = SOURCE_ROOT; };
 		EC46D7DE2ABCE0A20030AC04 /* ParameterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParameterMenuView.swift; path = allin/Views/ParameterMenuView.swift; sourceTree = SOURCE_ROOT; };
 		EC50BF952ABF4D3300197685 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreen.swift; path = allin/Screens/SplashScreen.swift; sourceTree = SOURCE_ROOT; };
@@ -106,6 +114,10 @@
 				EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */,
 				EC46D7DC2ABCCC270030AC04 /* MenuView.swift */,
 				EC46D7DE2ABCE0A20030AC04 /* ParameterMenuView.swift */,
+				EC2C1EEA2AC08BE80091D57C /* BetCard.swift */,
+				EC2C1EEC2AC093820091D57C /* TextCapsule.swift */,
+				EC2C1EEE2AC098D30091D57C /* UsersPreview.swift */,
+				EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,10 +353,13 @@
 				ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */,
 				EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */,
 				EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */,
+				EC2C1EEB2AC08BE80091D57C /* BetCard.swift in Sources */,
 				EC87FCD92ABBA60900363986 /* Colors.swift in Sources */,
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
 				ECDF624C2AC205E100BA8213 /* BetScreen.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
+				EC3737E42AC2F5FB00E6BDB5 /* ChoiceCapsule.swift in Sources */,
+				EC2C1EED2AC093820091D57C /* TextCapsule.swift in Sources */,
 				D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */,
 				EC50BF962ABF4D3300197685 /* SplashScreen.swift in Sources */,
 				EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */,
@@ -352,6 +367,7 @@
 				ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */,
 				EC50BF982ABF541B00197685 /* WelcomeScreen.swift in Sources */,
 				D98C4D642AB9D017007A6B4D /* AllInApp.swift in Sources */,
+				EC2C1EEF2AC098D30091D57C /* UsersPreview.swift in Sources */,
 				EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

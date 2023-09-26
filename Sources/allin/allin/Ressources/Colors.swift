@@ -24,10 +24,24 @@ struct AllinColor {
     static let TopBarColorPurple = Color("TopBarColorPurple")
     static let StrokeGrayColor = Color("StrokeGrayColor")
     static let DescriptionColorMenu = Color("DescriptionColorMenu")
+    static let lightGray = Color("LightGray")
     static let BorderColorMenu = Color("BorderColorMenu")
+    static let PrimaryTextColor = Color("PrimaryTextColor")
+    static let DelimiterGray = Color("DelimiterGray")
+    static let CapsuleGray = Color("CapsuleGray")
+    static let LightGray_200 = Color("LightGray_200")
+    static let TrendingBetCardBackground = Color("TrendingBetCardBackground")
+    static let BetCardBackground = Color("BetCardBackground")
+
+
     static let gradiantCard = LinearGradient(
         gradient: Gradient(colors: [AllinColor.pinkAccentText, AllinColor.blueAccent]),
         startPoint: .bottomLeading,
         endPoint: .topTrailing
+    )
+    static let fadeInGradiantCard = LinearGradient(
+        gradient: Gradient(colors: [AllinColor.backgroundWhite.opacity(0), AllinColor.backgroundWhite.opacity(0.9),AllinColor.backgroundWhite]),
+        startPoint: .bottom,
+        endPoint: .top
     )
 }
