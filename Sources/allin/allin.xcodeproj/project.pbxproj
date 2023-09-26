@@ -25,6 +25,7 @@
 		EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */; };
 		EC9A45B02ABDF4A800125D41 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */; };
 		ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */; };
+		ECDF624C2AC205E100BA8213 /* BetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF624B2AC205E100BA8213 /* BetScreen.swift */; };
 		ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC54432AC0C39E00195760 /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingBetCard.swift; path = allin/Views/TrendingBetCard.swift; sourceTree = SOURCE_ROOT; };
 		EC9A45AF2ABDF4A800125D41 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = allin/Screens/HomeScreen.swift; sourceTree = SOURCE_ROOT; };
 		ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterScreen.swift; path = allin/Screens/RegisterScreen.swift; sourceTree = SOURCE_ROOT; };
+		ECDF624B2AC205E100BA8213 /* BetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BetScreen.swift; path = allin/Screens/BetScreen.swift; sourceTree = SOURCE_ROOT; };
 		ECFC54432AC0C39E00195760 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = allin/Screens/LoginScreen.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 				EC50BF972ABF541B00197685 /* WelcomeScreen.swift */,
 				ECFC54432AC0C39E00195760 /* LoginScreen.swift */,
 				ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */,
+				ECDF624B2AC205E100BA8213 /* BetScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */,
 				EC87FCD92ABBA60900363986 /* Colors.swift in Sources */,
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
+				ECDF624C2AC205E100BA8213 /* BetScreen.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
 				D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */,
 				EC50BF962ABF4D3300197685 /* SplashScreen.swift in Sources */,

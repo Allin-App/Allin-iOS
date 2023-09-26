@@ -23,7 +23,6 @@ struct Register: View {
                         if (pseudo != "") {
                             Text("Bonjour "+pseudo+",")
                                 .betTextStyle(weight: .semibold, color: AllinColor.StartTextColor, size: 40)
-                                .lineLimit(1)
                                 .padding([.trailing, .leading], 30)
                         } else {
                             Text("Bonjour,")
@@ -116,7 +115,6 @@ struct Register: View {
                                 Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
                                     .foregroundColor(.gray)
                             }
-                            .padding(.bottom, 8)
                             .padding(.trailing, 8)
                         }
                     )
@@ -138,8 +136,11 @@ struct Register: View {
                     HStack(spacing: 0) {
                         Text("Tu as déjà un compte? ")
                             .betTextStyle(weight: .regular, color: AllinColor.StartTextColor, size: 16)
-                        Text("Se connecter")
-                            .betTextStyle(weight: .semibold, color: AllinColor.PurpleText, size: 16)
+                        NavigationLink(destination: Login().navigationBarBackButtonHidden(true))
+                        {
+                            Text("Se connecter")
+                                .betTextStyle(weight: .semibold, color: AllinColor.PurpleText, size: 16)
+                        }
                     }
                     
                 }

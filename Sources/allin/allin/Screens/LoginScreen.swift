@@ -42,49 +42,53 @@ struct Login: View {
                         TextField("", text: $password, prompt: Text("Mot de passe").foregroundColor(.gray))
                     }
                 }
-                    .padding()
-                    .background(Color.white.cornerRadius(9))
-                    .frame(width: 300)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 9, style: .continuous)
-                            .stroke(AllinColor.StrokeGrayColor, lineWidth: 1)
-                    )
-                    .overlay(
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                isPasswordVisible.toggle()
-                            }) {
-                                Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
-                                    .foregroundColor(.gray)
-                            }
-                            .padding(.trailing, 8)
+                .padding()
+                .background(Color.white.cornerRadius(9))
+                .frame(width: 300)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 9, style: .continuous)
+                        .stroke(AllinColor.StrokeGrayColor, lineWidth: 1)
+                )
+                .overlay(
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            isPasswordVisible.toggle()
+                        }) {
+                            Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                                .foregroundColor(.gray)
                         }
-                    )
-                    .foregroundColor(.black)
+                        .padding(.trailing, 8)
+                    }
+                )
+                .foregroundColor(.black)
                 
                 Text("Mot de passe oublié?")
                     .frame(alignment: .trailing)
                     .padding(.bottom, 20)
                     .padding(.leading, 150)
                     .betTextStyle(weight: .medium, color: AllinColor.StartTextColor, size: 14)
-
-                Button(action: {}) {
+                
+                NavigationLink(destination: Home(page: "Bet").navigationBarBackButtonHidden(true))
+                {
                     Text("Se connecter")
                         .betTextStyle(weight: .bold, color: .white, size: 17)
+                        .frame(width: 300, height: 60)
+                        .background(LinearGradient(gradient:
+                                                    Gradient(colors:[AllinColor.TopBarColorPink,AllinColor.TopBarColorPurple,AllinColor.TopBarColorBlue]),
+                                                   startPoint: .leading, endPoint: .trailing))
+                        .cornerRadius(13)
                 }
-                .frame(width: 300, height: 60)
-                .background(LinearGradient(gradient:
-                                            Gradient(colors:[AllinColor.TopBarColorPink,AllinColor.TopBarColorPurple,AllinColor.TopBarColorBlue]),
-                                           startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(13)
                 
                 Spacer()
                 HStack(spacing: 0) {
                     Text("Pas encore inscrit? ")
                         .betTextStyle(weight: .regular, color: AllinColor.StartTextColor, size: 16)
-                    Text("S'inscrire")
-                        .betTextStyle(weight: .semibold, color: AllinColor.PurpleText, size: 16)
+                    NavigationLink(destination: Register().navigationBarBackButtonHidden(true))
+                    {
+                        Text("S'inscrire")
+                            .betTextStyle(weight: .semibold, color: AllinColor.PurpleText, size: 16)
+                    }
                 }
                 
             }
