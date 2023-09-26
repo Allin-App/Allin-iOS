@@ -12,7 +12,7 @@ struct MenuView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
-            NavigationLink(destination: Home(page: "CreationBet").navigationBarBackButtonHidden(true))
+            NavigationLink(destination: Home(page: "Bet").navigationBarBackButtonHidden(true))
             {
                 ParameterMenuView(icon: "VideoGame", title: "CREER UN BET", description: "Créez un nouveau BET et faites participer vos amis.")
                     .padding([.leading,.trailing], 13)
@@ -26,7 +26,7 @@ struct MenuView: View {
             
             ParameterMenuView(icon: "Money", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
                 .padding([.leading,.trailing], 13)
-
+            
             Spacer()
             Image("GearIcon")
                 .resizable()

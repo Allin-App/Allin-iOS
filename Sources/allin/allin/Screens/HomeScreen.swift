@@ -2,54 +2,58 @@
 //  HomeScreen.swift
 //  AllIn
 //
-//  Created by étudiant on 22/09/2023.
+//  Created by étudiant on 26/09/2023.
 //
 
 import SwiftUI
 
 struct Home: View {
     
-    @Binding var showMenu: Bool
+    @State var showMenu = false
+    var page: String
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            TopBarView(showMenu: self.$showMenu)
-            ScrollView(showsIndicators: false){
-                LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
-                    
-                    TrendingBetCard().padding(.top,25).padding([.leading,.trailing],25)
-                    
-                    Section {
-                        VStack(spacing: 20){
-                            BetCard()
-                            BetCard()
-                            BetCard()
-                        }.padding([.leading,.trailing],25)
-                    } header: {
-                        ZStack{
-                            AllinColor.fadeInGradiantCard
-                            ScrollView(.horizontal,showsIndicators: false){
-                                HStack{
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                }.padding(.leading,25).padding([.top,.bottom],15)
-                                
-                            }
-                        }
-                        
+        
+        let closeDrag = DragGesture()
+            .onEnded {
+                if $0.translation.width < -100 {
+                    withAnimation{
+                        self.showMenu = false
                     }
-                    
                 }
             }
-            
-            Spacer()
+        let openDrag = DragGesture()
+            .onEnded {
+                if $0.translation.width > 100 {
+                    withAnimation{
+                        self.showMenu = true
+                    }
+                }
+            }
+        
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Group{
+                    switch page {
+                    case "Bet":
+                        Bet(showMenu: self.$showMenu)
+                        
+                    default:
+                        Bet(showMenu: self.$showMenu)
+                    }
+                }
+                Bet(showMenu: self.$showMenu)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .offset(x: self.showMenu ? geometry.size.width/1.21:0)
+                    .gesture(openDrag)
+                
+                if self.showMenu {
+                    MenuView()
+                        .frame(width: geometry.size.width*0.83)
+                        .transition(.move(edge: .leading))
+                }
+            }
+            .gesture(closeDrag)
         }
-        .edgesIgnoringSafeArea(.bottom).background(AllinColor.backgroundWhite)
     }
-    
 }
