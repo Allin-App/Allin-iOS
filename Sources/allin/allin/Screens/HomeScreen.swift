@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     
     @Binding var showMenu: Bool
+    @State private var showingSheet = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -30,6 +31,12 @@ struct Home: View {
                             AllinColor.fadeInGradiantCard
                             ScrollView(.horizontal,showsIndicators: false){
                                 HStack{
+                                    Button("Show Sheet") {
+                                                showingSheet.toggle()
+                                            }
+                                            .sheet(isPresented: $showingSheet) {
+                                                WinModal()
+                                            }
                                     ChoiceCapsule()
                                     ChoiceCapsule()
                                     ChoiceCapsule()
