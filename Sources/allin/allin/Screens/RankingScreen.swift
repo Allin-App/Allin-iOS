@@ -24,7 +24,7 @@ struct Ranking: View {
                         Text("Pseudo")
                             .fontWeight(.bold)
                             .padding(.bottom, 4)
-                            .font(.system(size: 18))
+                            .font(.system(size: 16))
                             .lineLimit(1)
                         Divider()
                             .background(AllinColor.Gray_100)
@@ -39,10 +39,10 @@ struct Ranking: View {
                                 .padding(.trailing, 18)
                             Spacer()
                         }
-                        .frame(width: 167)
+                        .frame(width: 170)
                         .background(AllinColor.VeryLightGray)
                     }
-                    .frame(width: 167, height: 110)
+                    .frame(width: 170, height: 110)
                     .background(AllinColor.RankingRowBackground)
                     .cornerRadius(41.5, corners: .topLeft)
                     .cornerRadius(8, corners: .topRight)
@@ -71,7 +71,7 @@ struct Ranking: View {
                         Text("Pseudo")
                             .fontWeight(.bold)
                             .padding(.bottom, 4)
-                            .font(.system(size: 16))
+                            .font(.system(size: 15))
                             .lineLimit(1)
                         Divider()
                             .background(AllinColor.Gray_100)
@@ -86,10 +86,10 @@ struct Ranking: View {
                                 .padding(.trailing, 18)
                             Spacer()
                         }
-                        .frame(width: 167)
+                        .frame(width: 170)
                         .background(AllinColor.VeryLightGray)
                     }
-                    .frame(width: 167, height: 95)
+                    .frame(width: 170, height: 95)
                     .background(AllinColor.RankingRowBackground)
                     .cornerRadius(27.5, corners: .topRight)
                     .cornerRadius(8, corners: .topLeft)
@@ -117,9 +117,11 @@ struct Ranking: View {
             .padding([.leading,.trailing,.top],20)
             
             ScrollView(showsIndicators: false){
-                RankingRowView(number: 3, image: "DefaultUserIcon", pseudo: "Lucas", allCoins: 541)
-                RankingRowView(number: 4, image: "DefaultUserIcon", pseudo: "Arthur", allCoins: 542)
-            }.padding(.top, 15)
+                VStack(spacing: 10) {
+                    RankingRowView(number: 3, image: "DefaultUserIcon", pseudo: "Lucas", allCoins: 541)
+                    RankingRowView(number: 4, image: "DefaultUserIcon", pseudo: "Arthur", allCoins: 542)
+                }
+            }.padding(.top, 10)
             Spacer()
         }
         .edgesIgnoringSafeArea(.bottom).background(AllinColor.backgroundWhite)
