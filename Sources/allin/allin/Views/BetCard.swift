@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BetCard: View {
+
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
@@ -66,6 +67,7 @@ struct BetCard: View {
                 
                 .background(AllinColor.CapsuleGray).cornerRadius(20, corners: [.bottomLeft,.bottomRight]).padding(.bottom,0).border(width: 1, edges: [.top], color: AllinColor.DelimiterGray)
         }
+
 
     }
 }

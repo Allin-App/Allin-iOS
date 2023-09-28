@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct WinModal: View {
+    @Environment(\.dismiss) var dismiss
+
     @State var xOffset: CGFloat = 0
     var body: some View {
         ZStack{
-            Image("BackGradiant2").resizable()
-            ZStack{
                 GeometryReader { geometry in
                     let size = geometry.size.width / 20
                     
@@ -160,20 +160,32 @@ struct WinModal: View {
                                 Spacer()
                             }
                             
-                            Image("Close_icon").resizable().frame(width: 25, height: 25)
+                            Image("Close_icon").resizable().frame(width: 25, height: 25).onTapGesture {
+                                dismiss()
+                            }
                                 
                         }
                         HStack{
                             Text("FÉLICITATIONS").font(.system(size: 20)).foregroundColor(.white).fontWeight(.semibold).italic()
                             Text("PSEUDO!").padding(.top,9).font(.system(size: 33)).fontWeight(.heavy).foregroundColor(.white)
                         }.rotationEffect(.degrees(-4)).padding(.top,40)
+                        Spacer()
+                        AllcoinsCapsule()
+                        Spacer()
+                        RecapBetCard()
+                        Spacer()
+                       
+                        
                         
                         
                     }.padding([.all],20)
                 }
                 
-            }
-        }.edgesIgnoringSafeArea(.all)
+            }.background(
+                Image("ModalBackground")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         
     }
 }
@@ -214,7 +226,7 @@ struct InfiniteScroller<Content: View>: View {
             withAnimation(.linear(duration: 25).repeatForever(autoreverses: false)) {
                 xOffset = +contentWidth
             }
-        }.frame(width: 1000).rotationEffect(.degrees(-30)).opacity(0.04)
+        }.frame(width: 1200).rotationEffect(.degrees(-30)).opacity(0.04)
     }
 }
 

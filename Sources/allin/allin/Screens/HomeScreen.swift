@@ -25,18 +25,18 @@ struct Home: View {
                             BetCard()
                             BetCard()
                             BetCard()
+                            Button("Show Sheet") {
+                                        showingSheet.toggle()
+                                    }
+                                    .sheet(isPresented: $showingSheet) {
+                                        WinModal()
+                                    }
                         }.padding([.leading,.trailing],25)
                     } header: {
                         ZStack{
                             AllinColor.fadeInGradiantCard
                             ScrollView(.horizontal,showsIndicators: false){
                                 HStack{
-                                    Button("Show Sheet") {
-                                                showingSheet.toggle()
-                                            }
-                                            .sheet(isPresented: $showingSheet) {
-                                                WinModal()
-                                            }
                                     ChoiceCapsule()
                                     ChoiceCapsule()
                                     ChoiceCapsule()
