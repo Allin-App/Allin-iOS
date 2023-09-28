@@ -18,11 +18,17 @@ struct MenuView: View {
                     .padding([.leading,.trailing], 13)
             }
             
-            ParameterMenuView(icon: "Eyes", title: "HISTORIQUE DES BETS", description: "Consultez vos paris en cours et terminés.")
-                .padding([.leading,.trailing], 13)
+            NavigationLink(destination: Home(page: "Ranking").navigationBarBackButtonHidden(true))
+            {
+                ParameterMenuView(icon: "Eyes", title: "HISTORIQUE DES BETS", description: "Consultez vos paris en cours et terminés.")
+                    .padding([.leading,.trailing], 13)
+            }
             
-            ParameterMenuView(icon: "Friends", title: "AMIS", description: "Défiez vos porches en les ajoutant en amis.")
-                .padding([.leading,.trailing], 13)
+            NavigationLink(destination: Home(page: "Friends").navigationBarBackButtonHidden(true))
+            {
+                ParameterMenuView(icon: "Friends", title: "AMIS", description: "Défiez vos porches en les ajoutant en amis.")
+                    .padding([.leading,.trailing], 13)
+            }
             
             ParameterMenuView(icon: "Money", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
                 .padding([.leading,.trailing], 13)

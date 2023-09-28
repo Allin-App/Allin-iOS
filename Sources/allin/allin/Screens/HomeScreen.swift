@@ -38,11 +38,16 @@ struct Home: View {
                     case "Bet":
                         Bet(showMenu: self.$showMenu)
                         
+                    case "Ranking":
+                        Ranking(showMenu: self.$showMenu)
+                        
+                    case "Friends":
+                        Friends(showMenu: self.$showMenu)
+                        
                     default:
                         Bet(showMenu: self.$showMenu)
                     }
                 }
-                Bet(showMenu: self.$showMenu)
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .offset(x: self.showMenu ? geometry.size.width/1.21:0)
                     .gesture(openDrag)

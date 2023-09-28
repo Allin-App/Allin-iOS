@@ -29,6 +29,10 @@
 		EC87FCD92ABBA60900363986 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCD82ABBA60900363986 /* Colors.swift */; };
 		EC87FCDB2ABBA6AC00363986 /* TrendingBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */; };
 		EC9A45B02ABDF4A800125D41 /* BetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A45AF2ABDF4A800125D41 /* BetScreen.swift */; };
+		ECA701092AC3FE3300532444 /* RankingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA701082AC3FE3300532444 /* RankingScreen.swift */; };
+		ECA7010B2AC4003400532444 /* RankingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA7010A2AC4003400532444 /* RankingRowView.swift */; };
+		ECA7010D2AC4948600532444 /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA7010C2AC4948600532444 /* FriendsScreen.swift */; };
+		ECA7010F2AC4949D00532444 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA7010E2AC4949D00532444 /* FriendView.swift */; };
 		ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */; };
 		ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC54432AC0C39E00195760 /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +81,10 @@
 		EC87FCD82ABBA60900363986 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = allin/Ressources/Colors.swift; sourceTree = SOURCE_ROOT; };
 		EC87FCDA2ABBA6AC00363986 /* TrendingBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrendingBetCard.swift; path = allin/Views/TrendingBetCard.swift; sourceTree = SOURCE_ROOT; };
 		EC9A45AF2ABDF4A800125D41 /* BetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BetScreen.swift; path = allin/Screens/BetScreen.swift; sourceTree = SOURCE_ROOT; };
+		ECA701082AC3FE3300532444 /* RankingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RankingScreen.swift; path = allin/Screens/RankingScreen.swift; sourceTree = SOURCE_ROOT; };
+		ECA7010A2AC4003400532444 /* RankingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RankingRowView.swift; path = allin/Views/RankingRowView.swift; sourceTree = SOURCE_ROOT; };
+		ECA7010C2AC4948600532444 /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsScreen.swift; path = allin/Screens/FriendsScreen.swift; sourceTree = SOURCE_ROOT; };
+		ECA7010E2AC4949D00532444 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendView.swift; path = allin/Views/FriendView.swift; sourceTree = SOURCE_ROOT; };
 		ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterScreen.swift; path = allin/Screens/RegisterScreen.swift; sourceTree = SOURCE_ROOT; };
 		ECFC54432AC0C39E00195760 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = allin/Screens/LoginScreen.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -118,6 +126,8 @@
 				EC2C1EEC2AC093820091D57C /* TextCapsule.swift */,
 				EC2C1EEE2AC098D30091D57C /* UsersPreview.swift */,
 				EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */,
+				ECA7010A2AC4003400532444 /* RankingRowView.swift */,
+				ECA7010E2AC4949D00532444 /* FriendView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +218,8 @@
 				ECFC54432AC0C39E00195760 /* LoginScreen.swift */,
 				ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */,
 				EC8601F42AC37919004262C8 /* HomeScreen.swift */,
+				ECA701082AC3FE3300532444 /* RankingScreen.swift */,
+				ECA7010C2AC4948600532444 /* FriendsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -350,10 +362,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA7010B2AC4003400532444 /* RankingRowView.swift in Sources */,
+				ECA701092AC3FE3300532444 /* RankingScreen.swift in Sources */,
 				ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */,
 				EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */,
 				EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */,
 				EC2C1EEB2AC08BE80091D57C /* BetCard.swift in Sources */,
+				ECA7010F2AC4949D00532444 /* FriendView.swift in Sources */,
 				EC87FCD92ABBA60900363986 /* Colors.swift in Sources */,
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
@@ -365,6 +380,7 @@
 				EC46D7DF2ABCE0A20030AC04 /* ParameterMenuView.swift in Sources */,
 				ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */,
 				EC50BF982ABF541B00197685 /* WelcomeScreen.swift in Sources */,
+				ECA7010D2AC4948600532444 /* FriendsScreen.swift in Sources */,
 				EC8601F52AC37919004262C8 /* HomeScreen.swift in Sources */,
 				D98C4D642AB9D017007A6B4D /* AllInApp.swift in Sources */,
 				EC2C1EEF2AC098D30091D57C /* UsersPreview.swift in Sources */,
