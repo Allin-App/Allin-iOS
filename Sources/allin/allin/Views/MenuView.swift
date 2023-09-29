@@ -12,6 +12,59 @@ struct MenuView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
+            HStack() {
+                Spacer()
+                VStack(){
+                    Image("DefaultUserIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(180)
+                    Text("Pseudo")
+                        .fontWeight(.medium)
+                        .font(.system(size: 17))
+                        .foregroundColor(.white)
+                }
+                Spacer()
+            }
+            .padding(.bottom, 10)
+            
+            HStack(spacing: 30) {
+                Spacer()
+                VStack(){
+                    Text("114")
+                        .fontWeight(.heavy)
+                        .font(.system(size: 15))
+                        .foregroundColor(.white)
+                    Text("Bets")
+                        .fontWeight(.regular)
+                        .font(.system(size: 12))
+                        .foregroundColor(AllinColor.DescriptionColorMenu)
+                }
+                VStack(){
+                    Text("343")
+                        .fontWeight(.heavy)
+                        .font(.system(size: 15))
+                        .foregroundColor(.white)
+                    Text("Meilleur gain")
+                        .fontWeight(.regular)
+                        .font(.system(size: 12))
+                        .foregroundColor(AllinColor.DescriptionColorMenu)
+                }
+                VStack(){
+                    Text("5")
+                        .fontWeight(.heavy)
+                        .font(.system(size: 15))
+                        .foregroundColor(.white)
+                    Text("Amis")
+                        .fontWeight(.regular)
+                        .font(.system(size: 12))
+                        .foregroundColor(AllinColor.DescriptionColorMenu)
+                }
+                Spacer()
+            }
+            .padding(.bottom, 15)
+            
             NavigationLink(destination: Home(page: "Bet").navigationBarBackButtonHidden(true))
             {
                 ParameterMenuView(icon: "VideoGame", title: "CREER UN BET", description: "Créez un nouveau BET et faites participer vos amis.")
