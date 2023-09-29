@@ -10,7 +10,8 @@ import SwiftUI
 struct Bet: View {
     
     @Binding var showMenu: Bool
-    
+    @State private var showingSheet = false
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             TopBarView(showMenu: self.$showMenu)
