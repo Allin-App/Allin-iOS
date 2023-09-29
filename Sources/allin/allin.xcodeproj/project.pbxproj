@@ -20,6 +20,9 @@
 		EC2C1EED2AC093820091D57C /* TextCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1EEC2AC093820091D57C /* TextCapsule.swift */; };
 		EC2C1EEF2AC098D30091D57C /* UsersPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C1EEE2AC098D30091D57C /* UsersPreview.swift */; };
 		EC3737E42AC2F5FB00E6BDB5 /* ChoiceCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */; };
+		EC3737E62AC41DB000E6BDB5 /* WinModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3737E52AC41DB000E6BDB5 /* WinModal.swift */; };
+		EC3737E82AC5A53B00E6BDB5 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3737E72AC5A53B00E6BDB5 /* AllcoinsCapsule.swift */; };
+		EC3737EA2AC5A58B00E6BDB5 /* RecapBetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3737E92AC5A58B00E6BDB5 /* RecapBetCard.swift */; };
 		EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46D7DC2ABCCC270030AC04 /* MenuView.swift */; };
 		EC46D7DF2ABCE0A20030AC04 /* ParameterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46D7DE2ABCE0A20030AC04 /* ParameterMenuView.swift */; };
 		EC50BF962ABF4D3300197685 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC50BF952ABF4D3300197685 /* SplashScreen.swift */; };
@@ -72,6 +75,9 @@
 		EC2C1EEC2AC093820091D57C /* TextCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextCapsule.swift; path = allin/Views/TextCapsule.swift; sourceTree = SOURCE_ROOT; };
 		EC2C1EEE2AC098D30091D57C /* UsersPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersPreview.swift; path = allin/Views/UsersPreview.swift; sourceTree = SOURCE_ROOT; };
 		EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChoiceCapsule.swift; path = allin/Views/ChoiceCapsule.swift; sourceTree = SOURCE_ROOT; };
+		EC3737E52AC41DB000E6BDB5 /* WinModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WinModal.swift; path = allin/Screens/WinModal.swift; sourceTree = SOURCE_ROOT; };
+		EC3737E72AC5A53B00E6BDB5 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllcoinsCapsule.swift; path = allin/Views/AllcoinsCapsule.swift; sourceTree = SOURCE_ROOT; };
+		EC3737E92AC5A58B00E6BDB5 /* RecapBetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecapBetCard.swift; path = allin/Views/RecapBetCard.swift; sourceTree = SOURCE_ROOT; };
 		EC46D7DC2ABCCC270030AC04 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = allin/Views/MenuView.swift; sourceTree = SOURCE_ROOT; };
 		EC46D7DE2ABCE0A20030AC04 /* ParameterMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParameterMenuView.swift; path = allin/Views/ParameterMenuView.swift; sourceTree = SOURCE_ROOT; };
 		EC50BF952ABF4D3300197685 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreen.swift; path = allin/Screens/SplashScreen.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +134,8 @@
 				EC3737E32AC2F5FB00E6BDB5 /* ChoiceCapsule.swift */,
 				ECA7010A2AC4003400532444 /* RankingRowView.swift */,
 				ECA7010E2AC4949D00532444 /* FriendView.swift */,
+				EC3737E72AC5A53B00E6BDB5 /* AllcoinsCapsule.swift */,
+				EC3737E92AC5A58B00E6BDB5 /* RecapBetCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 				EC8601F42AC37919004262C8 /* HomeScreen.swift */,
 				ECA701082AC3FE3300532444 /* RankingScreen.swift */,
 				ECA7010C2AC4948600532444 /* FriendsScreen.swift */,
+				EC3737E52AC41DB000E6BDB5 /* WinModal.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -370,9 +379,12 @@
 				EC2C1EEB2AC08BE80091D57C /* BetCard.swift in Sources */,
 				ECA7010F2AC4949D00532444 /* FriendView.swift in Sources */,
 				EC87FCD92ABBA60900363986 /* Colors.swift in Sources */,
+				EC3737E82AC5A53B00E6BDB5 /* AllcoinsCapsule.swift in Sources */,
+				EC3737EA2AC5A58B00E6BDB5 /* RecapBetCard.swift in Sources */,
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
 				EC3737E42AC2F5FB00E6BDB5 /* ChoiceCapsule.swift in Sources */,
+				EC3737E62AC41DB000E6BDB5 /* WinModal.swift in Sources */,
 				EC2C1EED2AC093820091D57C /* TextCapsule.swift in Sources */,
 				D98C4D8E2AB9D440007A6B4D /* TopBarView.swift in Sources */,
 				EC50BF962ABF4D3300197685 /* SplashScreen.swift in Sources */,
