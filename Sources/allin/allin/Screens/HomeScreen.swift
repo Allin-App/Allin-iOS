@@ -44,6 +44,9 @@ struct Home: View {
                     case "Friends":
                         Friends(showMenu: self.$showMenu)
                         
+                    case "CreationBet":
+                        CreationBet(showMenu: self.$showMenu)
+                        
                     default:
                         Bet(showMenu: self.$showMenu)
                     }

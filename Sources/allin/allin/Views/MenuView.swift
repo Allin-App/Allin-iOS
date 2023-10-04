@@ -83,8 +83,11 @@ struct MenuView: View {
                     .padding([.leading,.trailing], 13)
             }
             
-            ParameterMenuView(icon: "Money", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
-                .padding([.leading,.trailing], 13)
+            NavigationLink(destination: Home(page: "CreationBet").navigationBarBackButtonHidden(true))
+            {
+                ParameterMenuView(icon: "Money", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
+                    .padding([.leading,.trailing], 13)
+            }
             
             Spacer()
             Image("GearIcon")
