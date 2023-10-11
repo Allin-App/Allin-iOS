@@ -39,6 +39,8 @@
 		ECA7010B2AC4003400532444 /* RankingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA7010A2AC4003400532444 /* RankingRowView.swift */; };
 		ECA7010D2AC4948600532444 /* FriendsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA7010C2AC4948600532444 /* FriendsScreen.swift */; };
 		ECA7010F2AC4949D00532444 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA7010E2AC4949D00532444 /* FriendView.swift */; };
+		ECCD6DD92AD7228B00F947C4 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD6DD82AD7228B00F947C4 /* Singleton.swift */; };
+		ECCD6DDB2AD7233F00F947C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD6DDA2AD7233F00F947C4 /* User.swift */; };
 		ECDF624A2AC1CAFD00BA8213 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */; };
 		ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC54432AC0C39E00195760 /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,8 @@
 		ECA7010A2AC4003400532444 /* RankingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RankingRowView.swift; path = allin/Views/RankingRowView.swift; sourceTree = SOURCE_ROOT; };
 		ECA7010C2AC4948600532444 /* FriendsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsScreen.swift; path = allin/Screens/FriendsScreen.swift; sourceTree = SOURCE_ROOT; };
 		ECA7010E2AC4949D00532444 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendView.swift; path = allin/Views/FriendView.swift; sourceTree = SOURCE_ROOT; };
+		ECCD6DD82AD7228B00F947C4 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Singleton.swift; path = allin/Models/Singleton.swift; sourceTree = SOURCE_ROOT; };
+		ECCD6DDA2AD7233F00F947C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = allin/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		ECDF62492AC1CAFD00BA8213 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterScreen.swift; path = allin/Screens/RegisterScreen.swift; sourceTree = SOURCE_ROOT; };
 		ECFC54432AC0C39E00195760 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = allin/Screens/LoginScreen.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -170,6 +174,7 @@
 		D98C4D622AB9D017007A6B4D /* AllIn */ = {
 			isa = PBXGroup;
 			children = (
+				ECCD6DD72AD7227500F947C4 /* Models */,
 				EC55565B2AD6E59C00E5CA3F /* Services */,
 				EC9A45AE2ABDF47A00125D41 /* Screens */,
 				EC0EA7AD2ABDAAAC006BA4A0 /* Fonts */,
@@ -248,6 +253,15 @@
 				EC000A7A2AC7450200A8BE26 /* CreationBetScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		ECCD6DD72AD7227500F947C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECCD6DD82AD7228B00F947C4 /* Singleton.swift */,
+				ECCD6DDA2AD7233F00F947C4 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		ECF816C72ABB51E300DE30A4 /* Extensions */ = {
@@ -392,6 +406,7 @@
 				EC31955E2ACD3B8E00D0A4DC /* ConfidentialityView.swift in Sources */,
 				ECA701092AC3FE3300532444 /* RankingScreen.swift in Sources */,
 				ECFC54442AC0C39E00195760 /* LoginScreen.swift in Sources */,
+				ECCD6DDB2AD7233F00F947C4 /* User.swift in Sources */,
 				EC87FCD62ABBA24000363986 /* Extensions.swift in Sources */,
 				EC46D7DD2ABCCC270030AC04 /* MenuView.swift in Sources */,
 				EC2C1EEB2AC08BE80091D57C /* BetCard.swift in Sources */,
@@ -401,6 +416,7 @@
 				EC3737EA2AC5A58B00E6BDB5 /* RecapBetCard.swift in Sources */,
 				EC55565D2AD6E5B900E5CA3F /* AuthService.swift in Sources */,
 				D98C4D662AB9D017007A6B4D /* ContentView.swift in Sources */,
+				ECCD6DD92AD7228B00F947C4 /* Singleton.swift in Sources */,
 				D92EC57C2ABADA2800CCD30E /* CoinCounterView.swift in Sources */,
 				EC3737E42AC2F5FB00E6BDB5 /* ChoiceCapsule.swift in Sources */,
 				EC3737E62AC41DB000E6BDB5 /* WinModal.swift in Sources */,

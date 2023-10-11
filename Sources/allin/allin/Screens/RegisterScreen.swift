@@ -10,18 +10,20 @@ import SwiftUI
 struct Register: View {
     
     @State private var isPasswordVisible = true
-    @State private var pseudo: String = ""
     @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
     @State private var passwordConfirm: String = ""
+    @State private var isRegisterSuccessful = false
+
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 15) {
                     Spacer()
                     VStack {
-                        if (pseudo != "") {
-                            Text("Bonjour "+pseudo+",")
+                        if (username != "") {
+                            Text("Bonjour "+username+",")
                                 .betTextStyle(weight: .semibold, color: AllinColor.StartTextColor, size: 40)
                                 .padding([.trailing, .leading], 30)
                         } else {
@@ -40,7 +42,7 @@ struct Register: View {
                         .betTextStyle(weight: .regular, color: AllinColor.StartTextColor, size: 20)
                         .padding(.bottom, 60)
                     
-                    TextField("", text: $pseudo, prompt: Text("Pseudo").foregroundColor(.gray))
+                    TextField("", text: $username, prompt: Text("Pseudo").foregroundColor(.gray))
                         .padding()
                         .background(Color.white.cornerRadius(9))
                         .frame(width: 300)
@@ -51,7 +53,7 @@ struct Register: View {
                         )
                         .padding(.bottom, 8)
                     
-                    TextField("", text: $username, prompt: Text("Email").foregroundColor(.gray))
+                    TextField("", text: $email, prompt: Text("Email").foregroundColor(.gray))
                         .padding()
                         .background(Color.white.cornerRadius(9))
                         .frame(width: 300)
@@ -67,6 +69,7 @@ struct Register: View {
                             SecureField("", text: $password, prompt: Text("Mot de passe").foregroundColor(.gray))
                         } else {
                             TextField("", text: $password, prompt: Text("Mot de passe").foregroundColor(.gray))
+                                .autocapitalization(.none)
                         }
                     }
                     .padding()
@@ -97,6 +100,7 @@ struct Register: View {
                             SecureField("", text: $passwordConfirm, prompt: Text("Confirmation du Mot de passe").foregroundColor(.gray))
                         } else {
                             TextField("", text: $passwordConfirm, prompt: Text("Confirmation du Mot de passe").foregroundColor(.gray))
+                                .autocapitalization(.none)
                         }
                     }
                     .padding()
@@ -121,7 +125,9 @@ struct Register: View {
                     .foregroundColor(.black)
                     .padding(.bottom, 50)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        register(email: email, username: username, password: password)
+                    }) {
                         Text("S'inscrire")
                             .betTextStyle(weight: .bold, color: .white, size: 17)
                     }
@@ -129,6 +135,10 @@ struct Register: View {
                     .background(LinearGradient(gradient:
                                                 Gradient(colors:[AllinColor.TopBarColorPink,AllinColor.TopBarColorPurple,AllinColor.TopBarColorBlue]),
                                                startPoint: .leading, endPoint: .trailing))
+                    .background(
+                        NavigationLink("", destination: Home(page: "Bet").navigationBarBackButtonHidden(true), isActive: $isRegisterSuccessful)
+                            .opacity(0)
+                    )
                     .cornerRadius(13)
                     
                     Spacer()
@@ -148,6 +158,20 @@ struct Register: View {
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             .background(AllinColor.StartBackground)
+        }
+    }
+    
+    func register(email: String, username: String, password: String) {
+        let api = AuthService()
+
+        api.register(email: email, password: password, username: username) { statusCode in
+            DispatchQueue.main.async {
+                if statusCode == 201 {
+                    isRegisterSuccessful = true
+                } else {
+
+                }
+            }
         }
     }
     

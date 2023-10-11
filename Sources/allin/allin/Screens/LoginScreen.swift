@@ -12,6 +12,10 @@ struct Login: View {
     @State private var isPasswordVisible = true
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var showErrorAlert = false
+    @State private var errorAlertMessage = ""
+    @State private var isLoginSuccessful = false
+
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 15) {
@@ -33,6 +37,7 @@ struct Login: View {
                         RoundedRectangle(cornerRadius: 9, style: .continuous)
                             .stroke(AllinColor.StrokeGrayColor, lineWidth: 1)
                     )
+                    .autocapitalization(.none)
                     .padding(.bottom, 8)
                 
                 Group {
@@ -69,8 +74,9 @@ struct Login: View {
                     .padding(.leading, 150)
                     .betTextStyle(weight: .medium, color: AllinColor.StartTextColor, size: 14)
                 
-                NavigationLink(destination: Home(page: "Bet").navigationBarBackButtonHidden(true))
-                {
+                Button(action: {
+                        login(email: username, password: password)
+                    }) {
                     Text("Se connecter")
                         .betTextStyle(weight: .bold, color: .white, size: 17)
                         .frame(width: 300, height: 60)
@@ -79,6 +85,10 @@ struct Login: View {
                                                    startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(13)
                 }
+                .background(
+                    NavigationLink("", destination: Home(page: "Bet").navigationBarBackButtonHidden(true), isActive: $isLoginSuccessful)
+                        .opacity(0)
+                )
                 
                 Spacer()
                 HStack(spacing: 0) {
@@ -95,6 +105,9 @@ struct Login: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
             .background(AllinColor.StartBackground)
         }
+        .alert(isPresented: $showErrorAlert) {
+            Alert(title: Text("Erreur de connexion"), message: Text(errorAlertMessage), dismissButton: .default(Text("OK")))
+        }
     }
     
     func login(email: String, password: String) {
@@ -103,7 +116,7 @@ struct Login: View {
         api.login(email: email, password: password) { statusCode in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-
+                    isLoginSuccessful = true
                 } else {
                     errorAlertMessage = "La connexion a échoué. Veuillez réessayer."
                     showErrorAlert = true

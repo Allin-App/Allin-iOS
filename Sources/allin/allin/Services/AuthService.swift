@@ -6,17 +6,19 @@
 //
 
 import Foundation
+
 class AuthService {
     
     let baseURL : String = "https://codefirst.iut.uca.fr/containers/AllDev-api/"
     
     public func login(email : String, password : String, completion : @escaping (Int)-> ()){
-        let url = URL(string: baseURL+"/users/login")!
+        let url = URL(string: baseURL+"users/login")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let json = [
-            "email":email,
+            "username":email,
             "password":password,
         ]
         
@@ -35,11 +37,13 @@ class AuthService {
         let url = URL(string: baseURL+"/users/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
         let json = [
             "email":email,
             "username":username,
             "password":password,
+            "nbCoins": "0"
         ]
         
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
