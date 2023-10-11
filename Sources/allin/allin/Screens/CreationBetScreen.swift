@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreationBet: View {
     
+    @State private var selectedTab = 0
     @Binding var showMenu: Bool
     @State var selectedConfidentiality = true
     @State private var theme: String = ""
@@ -22,11 +23,20 @@ struct CreationBet: View {
         let endDate = calendar.date(byAdding: .year, value: 10, to: startDate)!
         return startDate ... endDate
     }()
+    @State private var response = ""
+    @State private var values: [String] = []
+    
+    @State private var selectedOption = 0
+    let options: [(String, String)] = [
+            ("globe", "image1"),
+            ("futbol", "image2"),
+            ("paintbrush", "image3")
+        ]
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             TopBarView(showMenu: self.$showMenu)
-            TabView {
+            TabView(selection: $selectedTab) {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 5) {
                         VStack() {
@@ -104,31 +114,30 @@ struct CreationBet: View {
                         .accentColor(AllinColor.PrimaryTextColor)
                         .labelsHidden()
                         .padding(.bottom, 10)
-                        VStack() {
-                            HStack(spacing: 5) {
-                                Text("Date de fin du BET")
-                                    .font(.system(size: 17))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(AllinColor.TitleCreationBetColor)
-                                Image("circle-question-regular")
-                                    .resizable()
-                                    .frame(width: 14, height: 14)
-                                Spacer()
+                        VStack(alignment: .leading, spacing: 5) {
+                            VStack() {
+                                HStack(spacing: 5) {
+                                    Text("Date de fin du BET")
+                                        .font(.system(size: 17))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(AllinColor.TitleCreationBetColor)
+                                    Image("circle-question-regular")
+                                        .resizable()
+                                        .frame(width: 14, height: 14)
+                                    Spacer()
+                                }
+                                .padding(.leading, 10)
                             }
-                            .padding(.leading, 10)
-                            HStack() {
-                                DatePicker(
-                                        "",
-                                         selection: $endDate,
-                                         in: dateRange,
-                                         displayedComponents: [.date, .hourAndMinute]
-                                    )
-                                .accentColor(AllinColor.PrimaryTextColor)
-                                .labelsHidden()
-                                Spacer()
-                            }
+                            DatePicker(
+                                    "",
+                                     selection: $endDate,
+                                     in: dateRange,
+                                     displayedComponents: [.date, .hourAndMinute]
+                                )
+                            .accentColor(AllinColor.PrimaryTextColor)
+                            .labelsHidden()
+                            .padding(.bottom, 40)
                         }
-                        .padding(.bottom, 40)
                         VStack {
                             HStack(spacing: 5) {
                                 Text("Confidentialité du BET")
@@ -142,12 +151,12 @@ struct CreationBet: View {
                             }
                             .padding(.leading, 10)
                             HStack(spacing: 5) {
-                                ConfidentialityView(image: "globe", text: "Public", selected: selectedConfidentiality)
+                                ConfidentialityView(image: "globe-solid", text: "Public", selected: selectedConfidentiality)
                                     .onTapGesture {
                                         selectedConfidentiality = true
                                     }
                                     .padding(.trailing, 5)
-                                ConfidentialityView(image: "lock", text: "Privé", selected: !selectedConfidentiality)
+                                ConfidentialityView(image: "lock-solid", text: "Privé", selected: !selectedConfidentiality)
                                     .onTapGesture {
                                         selectedConfidentiality = false
                                     }
@@ -200,14 +209,126 @@ struct CreationBet: View {
                             Spacer()
                         }
                     }
-                    .padding([.leading,.trailing, .top, .bottom], 30)
+                    .padding([.leading, .trailing, .bottom], 30)
+                    .padding(.top, 50)
                 }
+                .tag(0)
                 
-                Text("Hello")
+                VStack(alignment: .leading, spacing: 5) {
+                    Picker("Sélectionnez une option", selection: $selectedOption) {
+                        ForEach(0..<options.count, id: \.self) { index in
+                            let (imageName, text) = options[index]
+                            HStack {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
+                                Text(text)
+
+                            }
+                            .background(Color.white)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    
+                    
+                    Text("Les utilisateurs devront répondre au pari avec OUI ou NON.")
+                        .font(.system(size: 13))
+                        .fontWeight(.bold)
+                        .padding(.leading, 35)
+                        .foregroundColor(AllinColor.PurpleLight)
+                    Text("Aucune autre réponse ne sera acceptée.")
+                        .font(.system(size: 13))
+                        .fontWeight(.bold)
+                        .padding(.leading, 35)
+                        .foregroundColor(AllinColor.PurpleLight)
+                    
+                    VStack {
+                        HStack(spacing: 0) {
+                            TextField("", text: $response, prompt: Text("Intitulé de réponse").foregroundColor(AllinColor.PlaceholderLightGrayColor).font(.system(size: 16)).fontWeight(.medium))
+                                .padding()
+                                .background(
+                                    Rectangle()
+                                        .fill(Color.white)
+                                        .cornerRadius(9, corners: [.topLeft, .bottomLeft])
+                                        .frame(height: 38)
+                                )
+                                .frame(width: 250, height: 38)
+                                .foregroundColor(.black)
+
+                            
+                            Button(action: {
+                                if !response.isEmpty {
+                                    values.append(response)
+                                    response = ""
+                                }
+                            }) {
+                                Text("Ajouter")
+                                    .foregroundColor(.white)
+                            }
+                            .frame(width: 95, height: 40)
+                            .background(AllinColor.PrimaryTextColor)
+                            .cornerRadius(10, corners: [.bottomRight, .topRight])
+                            .cornerRadius(2, corners: [.bottomLeft, .topLeft])
+                        }
+                        HStack(spacing: 10) {
+                            ForEach(values, id: \.self) { text in
+                                HStack {
+                                    Text(text)
+                                        .foregroundColor(.white)
+                                    Button(action: {
+                                        if let index = values.firstIndex(of: text) {
+                                            values.remove(at: index)
+                                        }
+                                    }) {
+                                        Image("cross")
+                                            .resizable()
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(.white)
+                                    }
+                                }
+                                .padding(5)
+                                .padding([.leading, .trailing], 8)
+                                .background(AllinColor.PrimaryTextColor)
+                                .cornerRadius(16)
+                            }
+                        }
+                    }
+                    .padding()
+                    Spacer()
+                }
+                .padding([.leading, .trailing, .bottom], 30)
+                .padding(.top, 50)
+                .tag(1)
             }
+            .overlay(
+                HStack {
+                    Button(action: {
+                        selectedTab = 0
+                    }) {
+                        Text("Question")
+                            .font(.system(size: 16))
+                            .padding()
+                            .fontWeight(selectedTab == 0 ? .bold : .semibold)
+                            .foregroundColor(selectedTab == 0 ? AllinColor.TitleCreationBetColor : Color.gray)
+                            .offset(y: 0)
+                    }
+                    Button(action: {
+                        selectedTab = 1
+                    }) {
+                        Text("Réponses")
+                            .font(.system(size: 16))
+                            .padding()
+                            .fontWeight(selectedTab == 1 ? .bold : .semibold)
+                            .foregroundColor(selectedTab == 1 ? AllinColor.TitleCreationBetColor : Color.gray)
+                            .offset(y: 0)
+                    }
+                }
+            , alignment: .top)
             .tabViewStyle(PageTabViewStyle())
             Spacer()
         }
         .edgesIgnoringSafeArea(.bottom).background(AllinColor.backgroundWhite)
     }
+    
 }

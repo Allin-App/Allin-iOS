@@ -34,6 +34,7 @@ struct AllinColor {
     static let PurpleLight = Color("PurpleLight")
     static let TitleCreationBetColor = Color("TitleCreationBetColor")
     static let PlaceholderGrayColor = Color("PlaceholderGrayColor")
+    static let PlaceholderLightGrayColor = Color("PlaceholderLightGrayColor")
     static let BorderColorMenu = Color("BorderColorMenu")
     static let PrimaryTextColor = Color("PrimaryTextColor")
     static let DelimiterGray = Color("DelimiterGray")

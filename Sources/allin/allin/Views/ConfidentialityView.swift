@@ -15,10 +15,10 @@ struct ConfidentialityView: View {
 
     var body: some View {
         HStack() {
-            Image(systemName: image)
+            Image(selected ? image : image+"-purple")
                 .resizable()
-                .frame(width: 18, height: 18)
-                .foregroundColor(selected ? .white : AllinColor.PrimaryTextColor)
+                .scaledToFit()
+                .padding(.vertical, 12)
 
             Text(text)
                 .font(.system(size: 17))
