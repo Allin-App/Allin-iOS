@@ -97,5 +97,20 @@ struct Login: View {
         }
     }
     
+    func login(email: String, password: String) {
+        let api = AuthService()
+
+        api.login(email: email, password: password) { statusCode in
+            DispatchQueue.main.async {
+                if statusCode == 200 {
+
+                } else {
+                    errorAlertMessage = "La connexion a échoué. Veuillez réessayer."
+                    showErrorAlert = true
+                }
+            }
+        }
+    }
 }
+
 
