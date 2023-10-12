@@ -255,6 +255,11 @@ struct CreationBet: View {
                                 )
                                 .frame(width: 250, height: 38)
                                 .foregroundColor(.black)
+                                .onChange(of: response) { newValue in
+                                            if newValue.count > 20 {
+                                                response = String(newValue.prefix(20))
+                                            }
+                                        }
 
                             
                             Button(action: {

@@ -65,6 +65,11 @@ struct Register: View {
                                     .stroke(AllinColor.StrokeGrayColor, lineWidth: 1)
                             )
                             .padding(.bottom, 8)
+                            .onChange(of: username) { newValue in
+                                        if newValue.count > 25 {
+                                            username = String(newValue.prefix(25))
+                                        }
+                                    }
                     }
                     
                     VStack {
@@ -84,6 +89,11 @@ struct Register: View {
                                     .stroke(AllinColor.StrokeGrayColor, lineWidth: 1)
                             )
                             .padding(.bottom, 8)
+                            .onChange(of: email) { newValue in
+                                        if newValue.count > 50 {
+                                            email = String(newValue.prefix(50))
+                                        }
+                                    }
                     }
                     
                     VStack {
@@ -201,26 +211,32 @@ struct Register: View {
     
     func register(email: String, username: String, password: String, confirmPassword: String) {
         cleanError()
-        if (password != confirmPassword) {
+        if password != confirmPassword {
             errorPassword = true
             errorPasswordMessage = "Les mots de passes doivent être identiques."
             return
         }
-        if (username.isEmpty) {
+        if username.isEmpty {
             errorUsername = true
             errorUsernameMessage = "Le pseudo ne peut pas être vide."
             return
         }
         
-        if (email.isEmpty) {
+        if email.isEmpty {
             errorMail = true
             errorMailMessage = "Le mail ne peut pas être vide."
             return
         }
         
-        if (password.isEmpty || confirmPassword.isEmpty) {
+        if password.isEmpty || confirmPassword.isEmpty {
             errorPassword = true
             errorPasswordMessage = "Veuillez renseigner le mot de passe sur les deux champs."
+            return
+        }
+        
+        if isValidEmail(email: email) {
+            errorMail = true
+            errorMailMessage = "L'adresse e-mail n'est pas valide."
             return
         }
         
@@ -233,6 +249,15 @@ struct Register: View {
 
                 }
             }
+        }
+    }
+    
+    func isValidEmail(email: String) -> Bool
+    {
+        if(email.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) != nil) {
+            return false
+        } else {
+            return true
         }
     }
     
