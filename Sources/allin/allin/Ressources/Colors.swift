@@ -19,6 +19,7 @@ struct AllinColor {
     static let StartBackground = Color("StartBackground")
     static let blueAccent = Color("BlueAccent")
     static let TopBarColorPink = Color("TopBarColorPink")
+    static let GrayTextColor = Color("GrayTextColor")
     static let VeryLightGray = Color("VeryLightGray")
     static let StartTextColor = Color("StartTextColor")
     static let LightPurple = Color("LightPurple")

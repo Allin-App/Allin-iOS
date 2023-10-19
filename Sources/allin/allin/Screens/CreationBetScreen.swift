@@ -27,10 +27,10 @@ struct CreationBet: View {
     @State private var values: [String] = []
     
     @State private var selectedOption = 0
-    let options: [(String, String)] = [
-            ("globe", "image1"),
-            ("futbol", "image2"),
-            ("paintbrush", "image3")
+    let options: [(Int, String, String)] = [
+            (0, "globe", "Oui / Non"),
+            (1, "futbol", "Pari sportif"),
+            (2, "paintbrush", "Réponses personnalisées")
         ]
     
     var body: some View {
@@ -55,7 +55,7 @@ struct CreationBet: View {
                                 .padding()
                                 .background(
                                     RoundedRectangle(cornerRadius: 9)
-                                        .fill(Color.white)
+                                        .fill(.white)
                                         .frame(height: 40)
                                 )
                                 .frame(width: 350, height: 40)
@@ -215,91 +215,106 @@ struct CreationBet: View {
                 .tag(0)
                 
                 VStack(alignment: .leading, spacing: 5) {
-                    Picker("Sélectionnez une option", selection: $selectedOption) {
-                        ForEach(0..<options.count, id: \.self) { index in
-                            let (imageName, text) = options[index]
-                            HStack {
-                                Image(imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30, height: 30)
-                                Text(text)
-
-                            }
-                            .background(Color.white)
-                        }
+                    
+                    VStack() {
+                        DropDownMenuView(selectedOption: $selectedOption, options: options)
                     }
-                    .pickerStyle(MenuPickerStyle())
+                    .padding([.bottom], 15)
                     
-                    
-                    Text("Les utilisateurs devront répondre au pari avec OUI ou NON.")
-                        .font(.system(size: 13))
-                        .fontWeight(.bold)
-                        .padding(.leading, 35)
-                        .foregroundColor(AllinColor.PurpleLight)
-                    Text("Aucune autre réponse ne sera acceptée.")
-                        .font(.system(size: 13))
-                        .fontWeight(.bold)
-                        .padding(.leading, 35)
-                        .foregroundColor(AllinColor.PurpleLight)
-                    
-                    VStack {
-                        HStack(spacing: 0) {
-                            TextField("", text: $response, prompt: Text("Intitulé de réponse").foregroundColor(AllinColor.PlaceholderLightGrayColor).font(.system(size: 16)).fontWeight(.medium))
-                                .padding()
-                                .background(
-                                    Rectangle()
-                                        .fill(Color.white)
-                                        .cornerRadius(9, corners: [.topLeft, .bottomLeft])
-                                        .frame(height: 38)
-                                )
-                                .frame(width: 250, height: 38)
-                                .foregroundColor(.black)
-                                .onChange(of: response) { newValue in
+                
+                    Group {
+                        switch selectedOption {
+                        case 0:
+                            Text("Les utilisateurs devront répondre au pari avec OUI ou NON.")
+                                .font(.system(size: 13))
+                                .fontWeight(.bold)
+                                .padding(.leading, 40)
+                                .foregroundColor(AllinColor.PurpleLight)
+                            Text("Aucune autre réponse ne sera acceptée.")
+                                .font(.system(size: 13))
+                                .fontWeight(.bold)
+                                .padding(.leading, 40)
+                                .foregroundColor(AllinColor.PurpleLight)
+                        case 2:
+                            Text("Vous allez renseigner les différentes réponses disponibles dans ce pari.")
+                                .font(.system(size: 13))
+                                .fontWeight(.bold)
+                                .padding(.leading, 40)
+                                .foregroundColor(AllinColor.PurpleLight)
+                            Text("Faites attention a etre claire et éviter toutes incertitudes")
+                                .font(.system(size: 13))
+                                .fontWeight(.bold)
+                                .padding(.leading, 40)
+                                .padding(.bottom, 15)
+                                .foregroundColor(AllinColor.PurpleLight)
+                            VStack(spacing: 5) {
+                                HStack(spacing: 0) {
+                                    TextField("", text: $response, prompt: Text("Intitulé de réponse").foregroundColor(AllinColor.PlaceholderLightGrayColor).font(.system(size: 16)).fontWeight(.medium))
+                                        .padding()
+                                        .background(
+                                            Rectangle()
+                                                .fill(Color.white)
+                                                .cornerRadius(9, corners: [.topLeft, .bottomLeft])
+                                                .frame(height: 38)
+                                        )
+                                        .frame(width: 250, height: 38)
+                                        .foregroundColor(.black)
+                                        .onChange(of: response) { newValue in
                                             if newValue.count > 20 {
                                                 response = String(newValue.prefix(20))
                                             }
                                         }
-
-                            
-                            Button(action: {
-                                if !response.isEmpty {
-                                    values.append(response)
-                                    response = ""
-                                }
-                            }) {
-                                Text("Ajouter")
-                                    .foregroundColor(.white)
-                            }
-                            .frame(width: 95, height: 40)
-                            .background(AllinColor.PrimaryTextColor)
-                            .cornerRadius(10, corners: [.bottomRight, .topRight])
-                            .cornerRadius(2, corners: [.bottomLeft, .topLeft])
-                        }
-                        HStack(spacing: 10) {
-                            ForEach(values, id: \.self) { text in
-                                HStack {
-                                    Text(text)
-                                        .foregroundColor(.white)
+                                    
+                                    
                                     Button(action: {
-                                        if let index = values.firstIndex(of: text) {
-                                            values.remove(at: index)
+                                        if !response.isEmpty && values.count < 5 {
+                                            values.append(response)
+                                            response = ""
                                         }
                                     }) {
-                                        Image("cross")
-                                            .resizable()
-                                            .frame(width: 10, height: 10)
+                                        Text("Ajouter")
                                             .foregroundColor(.white)
                                     }
+                                    .frame(width: 95, height: 40)
+                                    .background(AllinColor.PrimaryTextColor)
+                                    .cornerRadius(10, corners: [.bottomRight, .topRight])
+                                    .cornerRadius(2, corners: [.bottomLeft, .topLeft])
                                 }
-                                .padding(5)
-                                .padding([.leading, .trailing], 8)
-                                .background(AllinColor.PrimaryTextColor)
-                                .cornerRadius(16)
+                                HStack {
+                                    Spacer()
+                                    Text("encore \(5 - values.count) max.")
+                                        .font(.system(size: 12))
+                                        .fontWeight(.regular)
+                                        .foregroundColor(AllinColor.GrayTextColor)
+                                }
+                                HStack(spacing: 10) {
+                                    ForEach(values, id: \.self) { text in
+                                        HStack {
+                                            Text(text)
+                                                .foregroundColor(.white)
+                                                .lineLimit(1)
+                                            Button(action: {
+                                                if let index = values.firstIndex(of: text) {
+                                                    values.remove(at: index)
+                                                }
+                                            }) {
+                                                Image("cross")
+                                                    .resizable()
+                                                    .frame(width: 10, height: 10)
+                                                    .foregroundColor(.white)
+                                            }
+                                        }
+                                        .padding(5)
+                                        .padding([.leading, .trailing], 8)
+                                        .background(AllinColor.PrimaryTextColor)
+                                        .cornerRadius(16)
+                                    }
+                                }
                             }
+                        default:
+                            Text("En attente")
                         }
                     }
-                    .padding()
                     Spacer()
                 }
                 .padding([.leading, .trailing, .bottom], 30)
@@ -335,5 +350,4 @@ struct CreationBet: View {
         }
         .edgesIgnoringSafeArea(.bottom).background(AllinColor.backgroundWhite)
     }
-    
 }

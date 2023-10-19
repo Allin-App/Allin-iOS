@@ -254,11 +254,7 @@ struct Register: View {
     
     func isValidEmail(email: String) -> Bool
     {
-        if(email.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) != nil) {
-            return false
-        } else {
-            return true
-        }
+        return email.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) == nil
     }
     
     func cleanError() {
@@ -266,5 +262,4 @@ struct Register: View {
         errorMail = false
         errorUsername = false
     }
-    
 }
