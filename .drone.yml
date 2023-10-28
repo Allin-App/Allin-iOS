@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: Swift-ALLIN
+
+trigger:
+    event:
+        - push
+
+steps:
+  - name: build
+    image: swift:latest
+    commands:
+        - cd Sources/allin
+        - swift build
+
+  - name: test
+    image: swift:latest
+    commands:
+        - cd Sources/allin
+        - swift test
+    depends_on: [build]
