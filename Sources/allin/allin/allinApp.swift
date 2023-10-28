@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct AllInApp: App {
+    let DI = DependencyInjection.shared
+    init() {
+        DI.addSingleton(IAuthService.self, AuthService())
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

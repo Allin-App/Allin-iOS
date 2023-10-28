@@ -21,7 +21,7 @@ struct Register: View {
     @State private var errorMailMessage: String = ""
     @State private var errorUsernameMessage: String = ""
     @State private var errorPasswordMessage: String = ""
-
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {

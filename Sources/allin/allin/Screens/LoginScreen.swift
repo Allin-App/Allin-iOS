@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Login: View {
     
+    @Inject private var authService: IAuthService
     @State private var isPasswordVisible = true
     @State private var username: String = ""
     @State private var password: String = ""
@@ -111,9 +112,8 @@ struct Login: View {
     }
     
     func login(email: String, password: String) {
-        let api = AuthService()
 
-        api.login(email: email, password: password) { statusCode in
+        authService.login(email: email, password: password) { statusCode in
             DispatchQueue.main.async {
                 if statusCode == 200 {
                     isLoginSuccessful = true

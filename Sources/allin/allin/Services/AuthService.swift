@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthService {
+class AuthService: IAuthService {
     
     let baseURL : String = "https://codefirst.iut.uca.fr/containers/AllDev-api/"
     
