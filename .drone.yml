@@ -10,12 +10,12 @@ steps:
   - name: build
     image: swift:latest
     commands:
-        - cd Sources/allin
+        - cd Sources/allin/allin
         - swift build
 
   - name: test
     image: swift:latest
     commands:
-        - cd Sources/allin
+        - cd Sources/allin/allinTests 
         - swift test
     depends_on: [build]
