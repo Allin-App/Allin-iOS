@@ -2,20 +2,21 @@
 //  User.swift
 //  AllIn
 //
-//  Created by étudiant on 11/10/2023.
+//  Created by Emre on 11/10/2023.
 //
 
 import Foundation
 
 class User {
     
-    public var Username: String
-    public var Email: String
-    public var NbCoins: Int
-
-    public init(Username: String, andEmail Email: String, NbCoins: Int) {
-        self.Username = Username
-        self.Email = Email
-        self.NbCoins = NbCoins
+    public var username: String
+    public var email: String
+    public var nbCoins: Int
+    
+    public init(username: String, email: String, nbCoins: Int)
+    {
+        self.username = username
+        self.email = email
+        self.nbCoins = nbCoins
     }
 }

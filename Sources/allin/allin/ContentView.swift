@@ -2,16 +2,29 @@
 //  ContentView.swift
 //  AllIn
 //
-//  Created by Emre KARTAL on 19/09/2023.
+//  Created by Emre on 19/09/2023.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     
+    @Inject var authService: IAuthService
+    @ObservedObject var loggedState = AppStateContainer.shared.loggedState
+    
     var body: some View {
-        NavigationView {
-            Welcome()
+        VStack {
+            NavigationView {
+                if loggedState.connectedUser {
+                    MainView(page: "Bet")
+                } else {
+                    WelcomeView()
+                }
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+        }
+        .onAppear {
+            //authService.refreshAuthentication() { status in }
         }
     }
 }
@@ -19,5 +32,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
