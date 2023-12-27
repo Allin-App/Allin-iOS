@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DependencyInjection
 
 @main
 struct AllInApp: App {

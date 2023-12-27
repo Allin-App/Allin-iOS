@@ -37,7 +37,6 @@
 		EC6B96B72B24B4CC00FC1C58 /* AllInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96B62B24B4CC00FC1C58 /* AllInUITests.swift */; };
 		EC6B96B92B24B4CC00FC1C58 /* AllInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96B82B24B4CC00FC1C58 /* AllInUITestsLaunchTests.swift */; };
 		EC6B96C72B24B5A100FC1C58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96C62B24B5A100FC1C58 /* User.swift */; };
-		EC6B96C92B24B69B00FC1C58 /* DependancyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96C82B24B69B00FC1C58 /* DependancyInjection.swift */; };
 		EC6B96CC2B24B7E500FC1C58 /* IAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96CB2B24B7E500FC1C58 /* IAuthService.swift */; };
 		EC6B96CF2B24B8D900FC1C58 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96CE2B24B8D900FC1C58 /* Config.swift */; };
 		EC6B96D12B24BAE800FC1C58 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96D02B24BAE800FC1C58 /* AuthService.swift */; };
@@ -49,6 +48,8 @@
 		EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89F7BC2B250D66003821CE /* LoginView.swift */; };
 		ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */; };
 		ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */; };
+		ECB357312B3CA69300045D41 /* DependencyInjection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB357302B3CA69300045D41 /* DependencyInjection.framework */; };
+		ECB357322B3CA69300045D41 /* DependencyInjection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECB357302B3CA69300045D41 /* DependencyInjection.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC672B2F1ADF002A6654 /* LoginViewModel.swift */; };
 		ECB7BC6A2B2F410A002A6654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC692B2F410A002A6654 /* AppDelegate.swift */; };
 		ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6B2B2F43EE002A6654 /* AppState.swift */; };
@@ -71,6 +72,20 @@
 			remoteInfo = AllIn;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ECB357332B3CA69300045D41 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ECB357322B3CA69300045D41 /* DependencyInjection.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
@@ -106,7 +121,6 @@
 		EC6B96B62B24B4CC00FC1C58 /* AllInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITests.swift; sourceTree = "<group>"; };
 		EC6B96B82B24B4CC00FC1C58 /* AllInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EC6B96C62B24B5A100FC1C58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		EC6B96C82B24B69B00FC1C58 /* DependancyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependancyInjection.swift; sourceTree = "<group>"; };
 		EC6B96CB2B24B7E500FC1C58 /* IAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAuthService.swift; sourceTree = "<group>"; };
 		EC6B96CE2B24B8D900FC1C58 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC6B96D02B24BAE800FC1C58 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -118,6 +132,8 @@
 		EC89F7BC2B250D66003821CE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownFriends.swift; sourceTree = "<group>"; };
+		ECB3572E2B3CA3C300045D41 /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECB357302B3CA69300045D41 /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7BC672B2F1ADF002A6654 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ECB7BC692B2F410A002A6654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB7BC6B2B2F43EE002A6654 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -129,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB357312B3CA69300045D41 /* DependencyInjection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +173,7 @@
 				EC6B96AB2B24B4CC00FC1C58 /* AllInTests */,
 				EC6B96B52B24B4CC00FC1C58 /* AllInUITests */,
 				EC6B96992B24B4CC00FC1C58 /* Products */,
+				ECB3572D2B3CA3BD00045D41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				EC6B96C62B24B5A100FC1C58 /* User.swift */,
-				EC6B96C82B24B69B00FC1C58 /* DependancyInjection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +308,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		ECB3572D2B3CA3BD00045D41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECB357302B3CA69300045D41 /* DependencyInjection.framework */,
+				ECB3572E2B3CA3C300045D41 /* DependencyInjection.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ECB7BC662B2F1AAD002A6654 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +336,7 @@
 				EC6B96942B24B4CC00FC1C58 /* Sources */,
 				EC6B96952B24B4CC00FC1C58 /* Frameworks */,
 				EC6B96962B24B4CC00FC1C58 /* Resources */,
+				ECB357332B3CA69300045D41 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -449,7 +476,6 @@
 				EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */,
 				EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */,
 				EC650A422B25C817003AFCAD /* Friend.swift in Sources */,
-				EC6B96C92B24B69B00FC1C58 /* DependancyInjection.swift in Sources */,
 				EC7A882F2B28E6BE004F226A /* ConfidentialityButton.swift in Sources */,
 				ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */,
 				EC650A4C2B25E9C7003AFCAD /* RankingView.swift in Sources */,

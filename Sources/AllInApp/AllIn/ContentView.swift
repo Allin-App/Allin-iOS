@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DependencyInjection
 
 struct ContentView: View {
     
