@@ -15,17 +15,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
-                if loggedState.connectedUser {
+            if loggedState.connectedUser {
+                NavigationView {
                     MainView(page: "Bet")
-                } else {
+                }
+                .navigationViewStyle(StackNavigationViewStyle())
+            } else {
+                NavigationView {
                     WelcomeView()
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             }
-            .navigationViewStyle(StackNavigationViewStyle())
         }
         .onAppear {
-            //authService.refreshAuthentication() { status in }
+            authService.refreshAuthentication()
         }
     }
 }

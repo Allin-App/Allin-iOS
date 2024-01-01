@@ -9,26 +9,25 @@ import SwiftUI
 
 struct CreationBetView: View {
     
+    @StateObject private var viewModel = CreationBetViewModel()
+    @Binding var showMenu: Bool
+    @State private var selectedTab = 0
+    
+    // Popovers
     @State private var showTitlePopover: Bool = false
     @State private var showDescriptionPopover: Bool = false
     @State private var showRegistrationEndDatePopover: Bool = false
     @State private var showBetEndDatePopover: Bool = false
     @State private var showConfidentialityPopover: Bool = false
     
-    @State private var selectedTab = 0
-    @Binding var showMenu: Bool
-    @State var selectedConfidentiality = true
-    @State private var theme: String = ""
-    @State private var description: String = ""
-    @State var present = false
-    @State private var endRegisterDate = Date()
-    @State private var endBetDate = Date()
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
         let startDate = Date()
         let endDate = calendar.date(byAdding: .year, value: 10, to: startDate)!
         return startDate ... endDate
     }()
+    let screenWidth = UIScreen.main.bounds.width
+    
     @State private var response = ""
     @State private var values: [String] = []
     
@@ -40,8 +39,7 @@ struct CreationBetView: View {
     ]
     
     @State var groupedItems: [[String]] = [[String]] ()
-    let screenWidth = UIScreen.main.bounds.width
-    
+
     private func updateGroupedItems() {
         
         var updatedGroupedItems: [[String]] = [[String]] ()
@@ -99,7 +97,7 @@ struct CreationBetView: View {
                             .frame(width:  340)
                             .padding(.leading, 10)
                             
-                            TextField("", text: $theme, prompt: Text("Études, sport, soirée...")
+                            TextField("", text: $viewModel.theme, prompt: Text("Études, sport, soirée...")
                                 .foregroundColor(AllInColors.lightGrey300Color)
                                 .font(.system(size: 14))
                                 .fontWeight(.light))
@@ -134,7 +132,7 @@ struct CreationBetView: View {
                         .frame(width: 340)
                         .padding(.leading, 10)
                         
-                        TextField("", text: $description, prompt: Text("David sera absent Lundi matin en cours ?")
+                        TextField("", text: $viewModel.description, prompt: Text("David sera absent Lundi matin en cours ?")
                             .foregroundColor(AllInColors.lightGrey300Color)
                             .font(.system(size: 14))
                             .fontWeight(.light), axis: .vertical)
@@ -171,7 +169,7 @@ struct CreationBetView: View {
                         HStack(spacing: 5) {
                             DatePicker(
                                 "",
-                                selection: $endRegisterDate,
+                                selection: $viewModel.endRegisterDate,
                                 in: dateRange,
                                 displayedComponents: [.date, .hourAndMinute]
                             )
@@ -201,7 +199,7 @@ struct CreationBetView: View {
                             }
                             DatePicker(
                                 "",
-                                selection: $endBetDate,
+                                selection: $viewModel.endBetDate,
                                 in: dateRange,
                                 displayedComponents: [.date, .hourAndMinute]
                             )
@@ -227,15 +225,15 @@ struct CreationBetView: View {
                             .padding(.leading, 10)
                             
                             HStack(spacing: 5) {
-                                ConfidentialityButton(image: "globe", text: "Public", selected: !selectedConfidentiality)
+                                ConfidentialityButton(image: "globe", text: "Public", selected: viewModel.isPublic)
                                     .onTapGesture {
-                                        selectedConfidentiality = false
+                                        viewModel.isPublic = true
                                     }
                                     .padding(.trailing, 5)
                                 
-                                ConfidentialityButton(image: "lock", text: "Privé", selected: selectedConfidentiality)
+                                ConfidentialityButton(image: "lock", text: "Privé", selected: !viewModel.isPublic)
                                     .onTapGesture {
-                                        selectedConfidentiality = true
+                                        viewModel.isPublic = false
                                     }
                                 Spacer()
                             }
@@ -243,10 +241,10 @@ struct CreationBetView: View {
                         .frame(width: 340)
                         .padding(.bottom, 10)
                         
-
+                        
                         VStack(spacing: 10) {
                             
-                            if self.selectedConfidentiality {
+                            if !self.viewModel.isPublic {
                                 DropDownFriends()
                                     .padding(.bottom, 30)
                             }
@@ -277,7 +275,9 @@ struct CreationBetView: View {
                         Spacer()
                         HStack() {
                             Spacer()
-                            Button(action: {}) {
+                            Button(action: {
+                                viewModel.create()
+                            }) {
                                 Text("Publier le bet")
                                     .font(.system(size: 24))
                                     .fontWeight(.bold)

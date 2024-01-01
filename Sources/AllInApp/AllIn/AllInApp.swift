@@ -7,6 +7,9 @@
 
 import SwiftUI
 import DependencyInjection
+import Model
+import ViewModel
+import StubLib
 
 @main
 struct AllInApp: App {
@@ -16,6 +19,7 @@ struct AllInApp: App {
     
     init() {
         DI.addSingleton(IAuthService.self, AuthService())
+        DI.addSingleton(ManagerVM.self, ManagerVM(withModel: Manager(withBetDataManager: BetStubManager(), withUserDataManager: UserStubManager(username: "Imri"))))
     }
     
     var body: some Scene {

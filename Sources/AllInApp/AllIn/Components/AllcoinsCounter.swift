@@ -13,7 +13,7 @@ struct AllcoinsCounter: View {
             Image("allcoinIcon")
                 .resizable()
                 .frame(width: 17, height: 17, alignment: .leading)
-            Text("541")
+            Text(String(AppStateContainer.shared.user?.nbCoins ?? 0))
                 .fontWeight(.black)
                 .foregroundColor(AllInColors.primaryColor)
         }

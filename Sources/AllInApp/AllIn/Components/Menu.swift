@@ -19,7 +19,7 @@ struct Menu: View {
                         .scaledToFit()
                         .frame(width: 100, height: 100)
                         .cornerRadius(180)
-                    Text("Pseudo")
+                    Text(AppStateContainer.shared.user?.username.capitalized ?? "")
                         .fontWeight(.medium)
                         .font(.system(size: 17))
                         .foregroundColor(.white)
