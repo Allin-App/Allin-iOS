@@ -2,7 +2,7 @@
 //  BetStubManager.swift
 //  
 //
-//  Created by étudiant on 31/12/2023.
+//  Created by Emre on 31/12/2023.
 //
 
 import Foundation

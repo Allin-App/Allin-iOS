@@ -2,7 +2,7 @@
 //  BetDataManager.swift
 //  
 //
-//  Created by étudiant on 29/12/2023.
+//  Created by Emre on 29/12/2023.
 //
 
 import Foundation

@@ -25,23 +25,46 @@ class CreationBetViewModel: ObservableObject {
     @Published var endBetDateFieldError: String?
     
     func create() {
+        
+        guard checkAndSetError(forTheme: true, forDescription: true, forEndRegisterDate: true, forEndBetDate: true) else {
+            return
+        }
+        
+        resetAllFieldErrors()
+        
         manager.addBet()
     }
     
-    func checkAndSetError(forLogin checkLogin: Bool, forPassword checkPassword: Bool) -> Bool {
-        /*var newLoginIdentifierFieldError: String?
-        var newLoginPasswordFieldError: String?
+    func checkAndSetError(forTheme checkTheme: Bool, forDescription checkDescription: Bool, forEndRegisterDate checkEndRegisterDate: Bool, forEndBetDate checkEndBetDate: Bool) -> Bool {
+        
+        var newThemeFieldError: String?
+        var newDescriptionFieldError: String?
+        var newEndRegisterDateFieldError: String?
+        var newEndBetDateFieldError: String?
+        
         var hasError = false
         
-        // Login
-        if checkLogin, loginIdentifier.isEmpty {
-            newLoginIdentifierFieldError = "Veuillez saisir votre identifiant."
+        // Theme
+        if checkTheme, theme.isEmpty {
+            newThemeFieldError = "Veuillez saisir le thème."
             hasError = true
         }
         
-        // Password
-        if checkPassword, loginPassword.isEmpty {
-            newLoginPasswordFieldError = "Veuillez saisir votre mot de passe."
+        // Description
+        if checkDescription, description.isEmpty {
+            newDescriptionFieldError = "Veuillez saisir la description."
+            hasError = true
+        }
+        
+        // End Register Date
+        if checkEndRegisterDate, endRegisterDate < Date() {
+            newEndRegisterDateFieldError = "La date de fin des inscriptions doit être ultérieure à la date actuelle."
+            hasError = true
+        }
+        
+        // End Bet Date
+        if checkEndBetDate, endBetDate < endRegisterDate {
+            newEndBetDateFieldError = "La date de fin des paris doit être ultérieure à la date de fin des inscriptions."
             hasError = true
         }
         
@@ -51,9 +74,11 @@ class CreationBetViewModel: ObservableObject {
         }
         
         withAnimation {
-            loginIdentifierFieldError = newLoginIdentifierFieldError
-            loginPasswordFieldError = newLoginPasswordFieldError
-        }*/
+            themeFieldError = newThemeFieldError
+            descriptionFieldError = newDescriptionFieldError
+            endRegisterDateFieldError = newEndRegisterDateFieldError
+            endBetDateFieldError = newEndBetDateFieldError
+        }
         return false
     }
     
