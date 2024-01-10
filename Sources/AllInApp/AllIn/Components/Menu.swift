@@ -87,6 +87,11 @@ struct Menu: View {
                 ParameterMenu(image: "moneyImage", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
                     .padding([.leading,.trailing], 13)
             }
+            NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
+            {
+                ParameterMenu(image: "rankingImage", title: "CLASSEMENT", description: "Consultez votre classement parmis vos amis.")
+                    .padding([.leading,.trailing], 13)
+            }
             
             Spacer()
             Image("gearIcon")

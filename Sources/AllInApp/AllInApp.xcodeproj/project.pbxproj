@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122278B82B4BDE1100E632AA /* DependencyInjection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122278B72B4BDE1100E632AA /* DependencyInjection.framework */; };
+		1257EB1F2B4BE008005509B0 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 1257EB1E2B4BE008005509B0 /* Model */; };
+		1257EB212B4BE008005509B0 /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = 1257EB202B4BE008005509B0 /* StubLib */; };
+		1257EB232B4BE008005509B0 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = 1257EB222B4BE008005509B0 /* ViewModel */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
 		EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193792B25C12B005D81E6 /* BetCard.swift */; };
 		EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */; };
@@ -45,17 +49,13 @@
 		EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882C2B28D8A1004F226A /* CreationBetView.swift */; };
 		EC7A882F2B28E6BE004F226A /* ConfidentialityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */; };
 		EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89F7BC2B250D66003821CE /* LoginView.swift */; };
-		EC8B9CCE2B42C9D3002806F3 /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC8B9CCD2B42C9D3002806F3 /* StubLib */; };
 		ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */; };
 		ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */; };
 		ECB26A132B406A9400FE06B3 /* BetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB26A122B406A9400FE06B3 /* BetViewModel.swift */; };
-		ECB26A152B406B4800FE06B3 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = ECB26A142B406B4800FE06B3 /* ViewModel */; };
 		ECB26A172B4073F100FE06B3 /* CreationBetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB26A162B4073F100FE06B3 /* CreationBetViewModel.swift */; };
 		ECB26A192B40744F00FE06B3 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB26A182B40744F00FE06B3 /* RankingViewModel.swift */; };
 		ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB26A1A2B40746C00FE06B3 /* FriendsViewModel.swift */; };
-		ECB357312B3CA69300045D41 /* DependencyInjection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB357302B3CA69300045D41 /* DependencyInjection.framework */; };
 		ECB357322B3CA69300045D41 /* DependencyInjection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECB357302B3CA69300045D41 /* DependencyInjection.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		ECB357352B3E13A400045D41 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = ECB357342B3E13A400045D41 /* Model */; };
 		ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC672B2F1ADF002A6654 /* LoginViewModel.swift */; };
 		ECB7BC6A2B2F410A002A6654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC692B2F410A002A6654 /* AppDelegate.swift */; };
 		ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6B2B2F43EE002A6654 /* AppState.swift */; };
@@ -95,6 +95,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
+		122278BB2B4BDEC300E632AA /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sources; path = ../StubLib/Sources; sourceTree = "<group>"; };
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
 		EC0193792B25C12B005D81E6 /* BetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCard.swift; sourceTree = "<group>"; };
 		EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCounter.swift; sourceTree = "<group>"; };
@@ -316,6 +319,9 @@
 		ECB3572D2B3CA3BD00045D41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				122278BB2B4BDEC300E632AA /* Sources */,
+				122278B92B4BDE9500E632AA /* Package.swift */,
+				122278B72B4BDE1100E632AA /* DependencyInjection.framework */,
 				ECB357302B3CA69300045D41 /* DependencyInjection.framework */,
 				ECB3572E2B3CA3C300045D41 /* DependencyInjection.framework */,
 			);
@@ -675,6 +681,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllIn/Preview Content\"";
+				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "All In";
@@ -706,6 +713,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllIn/Preview Content\"";
+				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "All In";
@@ -843,11 +851,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC8B9CCD2B42C9D3002806F3 /* StubLib */ = {
+		1257EB1E2B4BE008005509B0 /* Model */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Model;
+		};
+		1257EB202B4BE008005509B0 /* StubLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StubLib;
 		};
-		ECB26A142B406B4800FE06B3 /* ViewModel */ = {
+		1257EB222B4BE008005509B0 /* ViewModel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ViewModel;
 		};
