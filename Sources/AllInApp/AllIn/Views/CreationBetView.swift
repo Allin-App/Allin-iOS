@@ -9,26 +9,25 @@ import SwiftUI
 
 struct CreationBetView: View {
     
+    @StateObject private var viewModel = CreationBetViewModel()
+    @Binding var showMenu: Bool
+    @State private var selectedTab = 0
+    
+    // Popovers
     @State private var showTitlePopover: Bool = false
     @State private var showDescriptionPopover: Bool = false
     @State private var showRegistrationEndDatePopover: Bool = false
     @State private var showBetEndDatePopover: Bool = false
     @State private var showConfidentialityPopover: Bool = false
     
-    @State private var selectedTab = 0
-    @Binding var showMenu: Bool
-    @State var selectedConfidentiality = true
-    @State private var theme: String = ""
-    @State private var description: String = ""
-    @State var present = false
-    @State private var endRegisterDate = Date()
-    @State private var endBetDate = Date()
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
         let startDate = Date()
         let endDate = calendar.date(byAdding: .year, value: 10, to: startDate)!
         return startDate ... endDate
     }()
+    let screenWidth = UIScreen.main.bounds.width
+    
     @State private var response = ""
     @State private var values: [String] = []
     
@@ -40,8 +39,7 @@ struct CreationBetView: View {
     ]
     
     @State var groupedItems: [[String]] = [[String]] ()
-    let screenWidth = UIScreen.main.bounds.width
-    
+
     private func updateGroupedItems() {
         
         var updatedGroupedItems: [[String]] = [[String]] ()
@@ -99,23 +97,29 @@ struct CreationBetView: View {
                             .frame(width:  340)
                             .padding(.leading, 10)
                             
-                            TextField("", text: $theme, prompt: Text("Études, sport, soirée...")
-                                .foregroundColor(AllInColors.lightGrey300Color)
-                                .font(.system(size: 14))
-                                .fontWeight(.light))
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 9)
-                                    .fill(AllInColors.componentBackgroundColor)
-                                    .frame(height: 40)
-                            )
-                            .frame(width: 350, height: 40)
-                            .foregroundColor(.black)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .stroke(AllInColors.delimiterGrey, lineWidth: 1)
-                            )
-                            .padding(.bottom, 5)
+                            VStack {
+                                if let themeError = $viewModel.themeFieldError.wrappedValue {
+                                    Text(themeError)
+                                        .textStyle(weight: .bold, color: .red, size: 10)
+                                }
+                                TextField("", text: $viewModel.theme, prompt: Text("Études, sport, soirée...")
+                                    .foregroundColor(AllInColors.lightGrey300Color)
+                                    .font(.system(size: 14))
+                                    .fontWeight(.light))
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 9)
+                                        .fill(AllInColors.componentBackgroundColor)
+                                        .frame(height: 40)
+                                )
+                                .frame(width: 350, height: 40)
+                                .foregroundColor(.black)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .stroke(AllInColors.delimiterGrey, lineWidth: 1)
+                                )
+                                .padding(.bottom, 5)
+                            }
                         }
                         
                         HStack(spacing: 5) {
@@ -134,24 +138,30 @@ struct CreationBetView: View {
                         .frame(width: 340)
                         .padding(.leading, 10)
                         
-                        TextField("", text: $description, prompt: Text("David sera absent Lundi matin en cours ?")
-                            .foregroundColor(AllInColors.lightGrey300Color)
-                            .font(.system(size: 14))
-                            .fontWeight(.light), axis: .vertical)
-                        .lineLimit(4, reservesSpace: true)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 9)
-                                .fill(AllInColors.componentBackgroundColor)
-                                .frame(height: 110)
-                        )
-                        .frame(width: 350, height: 110)
-                        .foregroundColor(.black)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .stroke(AllInColors.delimiterGrey, lineWidth: 1)
-                        )
-                        .padding(.bottom, 30)
+                        VStack {
+                            if let descriptionError = $viewModel.descriptionFieldError.wrappedValue {
+                                Text(descriptionError)
+                                    .textStyle(weight: .bold, color: .red, size: 10)
+                            }
+                            TextField("", text: $viewModel.description, prompt: Text("David sera absent Lundi matin en cours ?")
+                                .foregroundColor(AllInColors.lightGrey300Color)
+                                .font(.system(size: 14))
+                                .fontWeight(.light), axis: .vertical)
+                            .lineLimit(4, reservesSpace: true)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 9)
+                                    .fill(AllInColors.componentBackgroundColor)
+                                    .frame(height: 110)
+                            )
+                            .frame(width: 350, height: 110)
+                            .foregroundColor(.black)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .stroke(AllInColors.delimiterGrey, lineWidth: 1)
+                            )
+                            .padding(.bottom, 30)
+                        }
                         
                         HStack(spacing: 5) {
                             Text("Date de fin des inscriptions")
@@ -168,19 +178,25 @@ struct CreationBetView: View {
                         .frame(width:  340)
                         .padding(.leading, 10)
                         
-                        HStack(spacing: 5) {
-                            DatePicker(
-                                "",
-                                selection: $endRegisterDate,
-                                in: dateRange,
-                                displayedComponents: [.date, .hourAndMinute]
-                            )
-                            .accentColor(AllInColors.lightPurpleColor)
-                            .labelsHidden()
-                            .padding(.bottom, 10)
-                            Spacer()
+                        VStack {
+                            if let endRegisterError = $viewModel.endRegisterDateFieldError.wrappedValue {
+                                Text(endRegisterError)
+                                    .textStyle(weight: .bold, color: .red, size: 10)
+                            }
+                            HStack(spacing: 5) {
+                                DatePicker(
+                                    "",
+                                    selection: $viewModel.endRegisterDate,
+                                    in: dateRange,
+                                    displayedComponents: [.date, .hourAndMinute]
+                                )
+                                .accentColor(AllInColors.lightPurpleColor)
+                                .labelsHidden()
+                                .padding(.bottom, 10)
+                                Spacer()
+                            }
+                            .frame(width:  340)
                         }
-                        .frame(width:  340)
                         
                         VStack(alignment: .leading, spacing: 5) {
                             VStack() {
@@ -199,15 +215,25 @@ struct CreationBetView: View {
                                 }
                                 .padding(.leading, 10)
                             }
-                            DatePicker(
-                                "",
-                                selection: $endBetDate,
-                                in: dateRange,
-                                displayedComponents: [.date, .hourAndMinute]
-                            )
-                            .accentColor(AllInColors.lightPurpleColor)
-                            .labelsHidden()
-                            .padding(.bottom, 40)
+                            
+                            VStack {
+                                if let endBetError = $viewModel.endBetDateFieldError.wrappedValue {
+                                    Text(endBetError)
+                                        .textStyle(weight: .bold, color: .red, size: 10)
+                                }
+                                HStack(spacing: 5) {
+                                    DatePicker(
+                                        "",
+                                        selection: $viewModel.endBetDate,
+                                        in: dateRange,
+                                        displayedComponents: [.date, .hourAndMinute]
+                                    )
+                                    .accentColor(AllInColors.lightPurpleColor)
+                                    .labelsHidden()
+                                    .padding(.bottom, 40)
+                                    Spacer()
+                                }
+                            }
                         }
                         .frame(width: 340)
                         
@@ -227,15 +253,15 @@ struct CreationBetView: View {
                             .padding(.leading, 10)
                             
                             HStack(spacing: 5) {
-                                ConfidentialityButton(image: "globe", text: "Public", selected: !selectedConfidentiality)
+                                ConfidentialityButton(image: "globe", text: "Public", selected: viewModel.isPublic)
                                     .onTapGesture {
-                                        selectedConfidentiality = false
+                                        viewModel.isPublic = true
                                     }
                                     .padding(.trailing, 5)
                                 
-                                ConfidentialityButton(image: "lock", text: "Privé", selected: selectedConfidentiality)
+                                ConfidentialityButton(image: "lock", text: "Privé", selected: !viewModel.isPublic)
                                     .onTapGesture {
-                                        selectedConfidentiality = true
+                                        viewModel.isPublic = false
                                     }
                                 Spacer()
                             }
@@ -243,10 +269,10 @@ struct CreationBetView: View {
                         .frame(width: 340)
                         .padding(.bottom, 10)
                         
-
+                        
                         VStack(spacing: 10) {
                             
-                            if self.selectedConfidentiality {
+                            if !self.viewModel.isPublic {
                                 DropDownFriends()
                                     .padding(.bottom, 30)
                             }
@@ -277,7 +303,9 @@ struct CreationBetView: View {
                         Spacer()
                         HStack() {
                             Spacer()
-                            Button(action: {}) {
+                            Button(action: {
+                                viewModel.create()
+                            }) {
                                 Text("Publier le bet")
                                     .font(.system(size: 24))
                                     .fontWeight(.bold)

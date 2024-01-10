@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BetView: View {
     
+    @StateObject private var viewModel = BetViewModel()
     @Binding var showMenu: Bool
     @State private var showingSheet = false
     

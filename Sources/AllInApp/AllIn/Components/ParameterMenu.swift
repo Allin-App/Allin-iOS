@@ -16,6 +16,8 @@ struct ParameterMenu: View {
     var body: some View {
         HStack {
             Image(image)
+                .resizable()
+                .frame(width: 28, height: 28)
             VStack(alignment: .leading){
                 Text(title)
                     .textStyle(weight: .bold, color: .white, size: 14)

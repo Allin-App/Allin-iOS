@@ -2,9 +2,21 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Model">
+      location = "group:Api">
    </FileRef>
    <FileRef
       location = "group:AllInApp/AllInApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:StubLib">
+   </FileRef>
+   <FileRef
+      location = "group:ViewModel">
+   </FileRef>
+   <FileRef
+      location = "group:DependencyInjection/DependencyInjection.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Model">
    </FileRef>
 </Workspace>

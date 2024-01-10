@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Model
 
 class AppStateContainer: ObservableObject {
     static let shared = AppStateContainer()
     let loggedState: LoggedState = LoggedState()
     var onlineStatus: OnlineStatus = OnlineStatus()
+    var user: User?
     
     @AppStorage("authenticationRefresh") var authenticationRefresh: String?
 }

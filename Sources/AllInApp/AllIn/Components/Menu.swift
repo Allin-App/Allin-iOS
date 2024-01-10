@@ -19,7 +19,7 @@ struct Menu: View {
                         .scaledToFit()
                         .frame(width: 100, height: 100)
                         .cornerRadius(180)
-                    Text("Pseudo")
+                    Text(AppStateContainer.shared.user?.username.capitalized ?? "")
                         .fontWeight(.medium)
                         .font(.system(size: 17))
                         .foregroundColor(.white)
@@ -85,6 +85,11 @@ struct Menu: View {
             NavigationLink(destination: MainView(page: "Bet").navigationBarBackButtonHidden(true))
             {
                 ParameterMenu(image: "moneyImage", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
+                    .padding([.leading,.trailing], 13)
+            }
+            NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
+            {
+                ParameterMenu(image: "rankingImage", title: "CLASSEMENT", description: "Consultez votre classement parmis vos amis.")
                     .padding([.leading,.trailing], 13)
             }
             

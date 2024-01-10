@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import DependencyInjection
 
 class LoginViewModel: ObservableObject {
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Model
 
 class AuthService: IAuthService {
     
@@ -30,9 +31,14 @@ class AuthService: IAuthService {
                            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                            let token = json["token"] as? String {
                             AppStateContainer.shared.authenticationRefresh = token;
+                            self.initializeUser(withToken: token) { status in
+                                if status != 200 {
+                                    completion(status)
+                                    AppStateContainer.shared.authenticationRefresh = nil;
+                                }
+                            }
                         }
                     }
-                    
                     completion(httpResponse.statusCode)
                 }
             }.resume()
@@ -56,18 +62,32 @@ class AuthService: IAuthService {
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
                 print ("ALLIN : Process REGISTER")
                 if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 201 {
+                        if let data = data,
+                           let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                           let token = json["token"] as? String {
+                            AppStateContainer.shared.authenticationRefresh = token;
+                            self.initializeUser(withToken: token) { status in
+                                if status != 200 {
+                                    completion(status)
+                                    AppStateContainer.shared.authenticationRefresh = nil;
+                                }
+                            }
+                        }
+                    }
                     completion(httpResponse.statusCode)
                 }
             }.resume()
         }
     }
     
-    func refreshAuthentication(completion: @escaping (Int) -> ()) {
+    func refreshAuthentication() {
         
         guard let token = AppStateContainer.shared.authenticationRefresh else {
-            completion(401)
             return
         }
+        
+        print(token)
         
         let url = URL(string: Config.allInApi + "users/token")!
         var request = URLRequest(url: url)
@@ -76,13 +96,45 @@ class AuthService: IAuthService {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let httpResponse = response as? HTTPURLResponse {
-                completion(httpResponse.statusCode)
+            if let data = data,
+               let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 200 {
-                    AppStateContainer.shared.loggedState.connectedUser = true
+                    if let userJson = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let user = User.mapUser(from: userJson) {
+                        AppStateContainer.shared.user = user
+                        AppStateContainer.shared.loggedState.connectedUser = true
+                    }
+                } else {
+                    AppStateContainer.shared.authenticationRefresh = nil
                 }
             }
         }.resume()
     }
+    
+    private func initializeUser(withToken token: String, completion: @escaping (Int) -> ()) {
+        let url = URL(string: Config.allInApi + "users/token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data,
+               let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    if let userJson = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let user = User.mapUser(from: userJson) {
+                        completion(httpResponse.statusCode)
+                        AppStateContainer.shared.user = user
+                    }
+                } else {
+                    completion(httpResponse.statusCode)
+                }
+            } else {
+                completion(500)
+            }
+        }.resume()
+    }
+    
     
 }
