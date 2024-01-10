@@ -7,6 +7,10 @@
 
 import Foundation
 import Model
+import ViewModel
+import DependencyInjection
+import Api
+import StubLib
 
 class AuthService: IAuthService {
     
@@ -35,6 +39,8 @@ class AuthService: IAuthService {
                                 if status != 200 {
                                     completion(status)
                                     AppStateContainer.shared.authenticationRefresh = nil;
+                                } else {
+                                    self.initManagerVM(token: token)
                                 }
                             }
                         }
@@ -71,6 +77,8 @@ class AuthService: IAuthService {
                                 if status != 200 {
                                     completion(status)
                                     AppStateContainer.shared.authenticationRefresh = nil;
+                                } else {
+                                    self.initManagerVM(token: token)
                                 }
                             }
                         }
@@ -86,9 +94,7 @@ class AuthService: IAuthService {
         guard let token = AppStateContainer.shared.authenticationRefresh else {
             return
         }
-        
-        print(token)
-        
+                
         let url = URL(string: Config.allInApi + "users/token")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -103,6 +109,7 @@ class AuthService: IAuthService {
                        let user = User.mapUser(from: userJson) {
                         AppStateContainer.shared.user = user
                         AppStateContainer.shared.loggedState.connectedUser = true
+                        self.initManagerVM(token: token)
                     }
                 } else {
                     AppStateContainer.shared.authenticationRefresh = nil
@@ -136,5 +143,8 @@ class AuthService: IAuthService {
         }.resume()
     }
     
+    private func initManagerVM(token: String) {
+        DependencyInjection.shared.addSingleton(ManagerVM.self, ManagerVM(withModel: Manager(withBetDataManager: BetStubManager(), withUserDataManager: UserApiManager(withUserToken: token))))
+    }
     
 }
