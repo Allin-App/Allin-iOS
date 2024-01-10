@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		122278B82B4BDE1100E632AA /* DependencyInjection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122278B72B4BDE1100E632AA /* DependencyInjection.framework */; };
-		1257EB1F2B4BE008005509B0 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 1257EB1E2B4BE008005509B0 /* Model */; };
-		1257EB212B4BE008005509B0 /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = 1257EB202B4BE008005509B0 /* StubLib */; };
-		1257EB232B4BE008005509B0 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = 1257EB222B4BE008005509B0 /* ViewModel */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
 		EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193792B25C12B005D81E6 /* BetCard.swift */; };
 		EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */; };
@@ -20,6 +16,9 @@
 		EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770A2B24D9160060E34D /* WelcomeView.swift */; };
 		EC30770D2B24DB7A0060E34D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770C2B24DB7A0060E34D /* Extensions.swift */; };
 		EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770E2B24FCB00060E34D /* RegisterView.swift */; };
+		EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = ECB357342B3E13A400045D41 /* Model */; };
+		EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2D2B4EC04B00853949 /* ViewModel */; };
+		EC4F0D302B4EC05D00853949 /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2F2B4EC05D00853949 /* StubLib */; };
 		EC650A422B25C817003AFCAD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A412B25C817003AFCAD /* Friend.swift */; };
 		EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A432B25CDF3003AFCAD /* ParameterMenu.swift */; };
 		EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A452B25D686003AFCAD /* RankingRow.swift */; };
@@ -158,11 +157,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8B9CCE2B42C9D3002806F3 /* StubLib in Frameworks */,
-				ECB357352B3E13A400045D41 /* Model in Frameworks */,
+				EC4F0D302B4EC05D00853949 /* StubLib in Frameworks */,
+				EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */,
 				ECCD244A2B4DE8010071FA9E /* Api in Frameworks */,
-				ECB357312B3CA69300045D41 /* DependencyInjection.framework in Frameworks */,
-				ECB26A152B406B4800FE06B3 /* ViewModel in Frameworks */,
+				EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,9 +358,9 @@
 			name = AllIn;
 			packageProductDependencies = (
 				ECB357342B3E13A400045D41 /* Model */,
-				ECB26A142B406B4800FE06B3 /* ViewModel */,
-				EC8B9CCD2B42C9D3002806F3 /* StubLib */,
 				ECCD24492B4DE8010071FA9E /* Api */,
+				EC4F0D2D2B4EC04B00853949 /* ViewModel */,
+				EC4F0D2F2B4EC05D00853949 /* StubLib */,
 			);
 			productName = AllIn;
 			productReference = EC6B96982B24B4CC00FC1C58 /* AllIn.app */;
@@ -851,17 +849,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1257EB1E2B4BE008005509B0 /* Model */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Model;
-		};
-		1257EB202B4BE008005509B0 /* StubLib */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StubLib;
-		};
-		1257EB222B4BE008005509B0 /* ViewModel */ = {
+		EC4F0D2D2B4EC04B00853949 /* ViewModel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ViewModel;
+		};
+		EC4F0D2F2B4EC05D00853949 /* StubLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StubLib;
 		};
 		ECB357342B3E13A400045D41 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
