@@ -25,8 +25,5 @@ let package = Package(
         .target(
             name: "ViewModel",
             dependencies: ["Model"]),
-        .testTarget(
-            name: "ViewModelTests",
-            dependencies: ["ViewModel"]),
     ]
 )

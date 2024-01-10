@@ -60,6 +60,7 @@
 		ECB7BC6A2B2F410A002A6654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC692B2F410A002A6654 /* AppDelegate.swift */; };
 		ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6B2B2F43EE002A6654 /* AppState.swift */; };
 		ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */; };
+		ECCD244A2B4DE8010071FA9E /* Api in Frameworks */ = {isa = PBXBuildFile; productRef = ECCD24492B4DE8010071FA9E /* Api */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 			files = (
 				EC8B9CCE2B42C9D3002806F3 /* StubLib in Frameworks */,
 				ECB357352B3E13A400045D41 /* Model in Frameworks */,
+				ECCD244A2B4DE8010071FA9E /* Api in Frameworks */,
 				ECB357312B3CA69300045D41 /* DependencyInjection.framework in Frameworks */,
 				ECB26A152B406B4800FE06B3 /* ViewModel in Frameworks */,
 			);
@@ -354,6 +356,7 @@
 				ECB357342B3E13A400045D41 /* Model */,
 				ECB26A142B406B4800FE06B3 /* ViewModel */,
 				EC8B9CCD2B42C9D3002806F3 /* StubLib */,
+				ECCD24492B4DE8010071FA9E /* Api */,
 			);
 			productName = AllIn;
 			productReference = EC6B96982B24B4CC00FC1C58 /* AllIn.app */;
@@ -851,6 +854,10 @@
 		ECB357342B3E13A400045D41 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Model;
+		};
+		ECCD24492B4DE8010071FA9E /* Api */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Api;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

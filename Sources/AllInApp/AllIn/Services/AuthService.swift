@@ -62,7 +62,7 @@ class AuthService: IAuthService {
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
                 print ("ALLIN : Process REGISTER")
                 if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 200 {
+                    if httpResponse.statusCode == 201 {
                         if let data = data,
                            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                            let token = json["token"] as? String {

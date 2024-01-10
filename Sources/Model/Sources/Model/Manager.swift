@@ -16,4 +16,8 @@ public struct Manager {
         self.userDataManager = userDataManager
     }
     
+    public func addBet(bet: Bet) {
+        userDataManager.addBet(bet: bet)
+    }
+    
 }

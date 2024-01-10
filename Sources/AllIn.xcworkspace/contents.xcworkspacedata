@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Api">
+   </FileRef>
+   <FileRef
       location = "group:AllInApp/AllInApp.xcodeproj">
    </FileRef>
    <FileRef

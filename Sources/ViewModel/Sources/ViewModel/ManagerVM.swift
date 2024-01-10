@@ -19,7 +19,7 @@ public class ManagerVM: ObservableObject {
         
     }
     
-    public func addBet() {
-        
+    public func addBet(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, creator: User) {
+        model.addBet(bet: BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, totalStakes: 0, isPublic: isPublic, invited: [], author: creator, registered: []))
     }
 }

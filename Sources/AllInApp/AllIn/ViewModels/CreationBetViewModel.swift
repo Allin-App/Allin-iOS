@@ -32,7 +32,9 @@ class CreationBetViewModel: ObservableObject {
         
         resetAllFieldErrors()
         
-        manager.addBet()
+        if let user = AppStateContainer.shared.user {
+            manager.addBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: user)
+        }
     }
     
     func checkAndSetError(forTheme checkTheme: Bool, forDescription checkDescription: Bool, forEndRegisterDate checkEndRegisterDate: Bool, forEndBetDate checkEndBetDate: Bool) -> Bool {

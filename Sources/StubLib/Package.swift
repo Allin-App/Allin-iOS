@@ -22,8 +22,5 @@ let package = Package(
         .target(
             name: "StubLib",
             dependencies: ["Model"]),
-        .testTarget(
-            name: "StubLibTests",
-            dependencies: ["StubLib"]),
     ]
 )

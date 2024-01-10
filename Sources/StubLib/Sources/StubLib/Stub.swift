@@ -27,7 +27,7 @@ struct Stub {
         users.append(user2)
         user1.addFriend(user: user2)
         
-        var user3 = User(username: "Arthur", email: "arthur.valin@etu.uca.fr", nbCoins: 30, friends: [user2])
+        let user3 = User(username: "Arthur", email: "arthur.valin@etu.uca.fr", nbCoins: 30, friends: [user2])
         users.append(user3)
         user2.addFriend(user: user3)
 
