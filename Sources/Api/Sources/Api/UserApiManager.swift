@@ -30,18 +30,8 @@ public struct UserApiManager: UserDataManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let json: [String: Any] = [
-            "theme": bet.theme,
-            "sentenceBet": bet.phrase,
-            "endRegistration": dateFormatter.string(from: bet.endRegisterDate),
-            "endBet": dateFormatter.string(from: bet.endBetDate),
-            "isPrivate": String(bet.isPublic),
-            "response": [],
-            "createdBy": token
-        ]
+        var json = FactoryApiBet().toResponse(bet: bet)
+        json["createdBy"] = token
                 
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in

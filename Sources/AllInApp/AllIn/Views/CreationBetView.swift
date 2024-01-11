@@ -39,7 +39,7 @@ struct CreationBetView: View {
     ]
     
     @State var groupedItems: [[String]] = [[String]] ()
-
+    
     private func updateGroupedItems() {
         
         var updatedGroupedItems: [[String]] = [[String]] ()
@@ -71,6 +71,9 @@ struct CreationBetView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
+            NavigationLink(destination: MainView(page: "Bet").navigationBarBackButtonHidden(true), isActive: $viewModel.betAdded) {
+                EmptyView()
+            }
             TopBar(showMenu: self.$showMenu)
             TabView(selection: $selectedTab) {
                 

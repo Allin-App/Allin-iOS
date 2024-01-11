@@ -10,31 +10,31 @@ import Foundation
 /// A class representing a betting entity, including details about the bet theme, participants, and deadlines.
 public class Bet: ObservableObject {
     /// The theme or topic of the bet.
-    public var theme: String
+    public private(set) var theme: String
     
     /// The specific phrase or question related to the bet.
-    public var phrase:  String
+    public private(set) var phrase:  String
     
     /// The deadline for users to register for the bet.
-    public var endRegisterDate: Date
+    public private(set) var endRegisterDate: Date
     
     /// The deadline for the actual betting to take place.
-    public var endBetDate: Date
+    public private(set) var endBetDate: Date
     
     /// The total stakes or amount involved in the bet.
-    public var totalStakes: Int
+    public private(set) var totalStakes: Int
     
     /// Indicates whether the bet is public or private.
-    public var isPublic: Bool
+    public private(set) var isPublic: Bool
     
     /// List of users who are invited to participate in the bet.
-    public var invited: [User]
+    public private(set) var invited: [User]
     
     /// The user who created the bet.
-    public var author: User
+    public private(set) var author: User
     
     /// List of users who have registered for the bet.
-    public var registered: [User]
+    public private(set) var registered: [User]
 
     /// Custom Constructor
     ///

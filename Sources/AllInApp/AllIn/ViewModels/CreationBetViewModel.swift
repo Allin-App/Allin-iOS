@@ -18,6 +18,7 @@ class CreationBetViewModel: ObservableObject {
     @Published var isPublic = true
     @Published var endRegisterDate = Date()
     @Published var endBetDate = Date()
+    @Published var betAdded = false
     
     @Published var themeFieldError: String?
     @Published var descriptionFieldError: String?
@@ -35,6 +36,8 @@ class CreationBetViewModel: ObservableObject {
         if let user = AppStateContainer.shared.user {
             manager.addBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: user)
         }
+        
+        betAdded = true
     }
     
     func checkAndSetError(forTheme checkTheme: Bool, forDescription checkDescription: Bool, forEndRegisterDate checkEndRegisterDate: Bool, forEndBetDate checkEndBetDate: Bool) -> Bool {
