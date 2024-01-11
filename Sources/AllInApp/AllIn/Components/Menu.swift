@@ -70,7 +70,7 @@ struct Menu: View {
                     .padding([.leading,.trailing], 13)
             }
             
-            NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
+            NavigationLink(destination: MainView(page: "Historic").navigationBarBackButtonHidden(true))
             {
                 ParameterMenu(image: "eyesImage", title: "HISTORIQUE DES BETS", description: "Consultez vos paris en cours et terminés.")
                     .padding([.leading,.trailing], 13)
