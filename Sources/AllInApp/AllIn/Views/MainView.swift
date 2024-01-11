@@ -37,16 +37,14 @@ struct MainView: View {
                     switch page {
                     case "Bet":
                         BetView(showMenu: self.$showMenu)
-                        
+                    case "Historic":
+                        HistoricBetView(showMenu: self.$showMenu)
                     case "Ranking":
                         RankingView(showMenu: self.$showMenu)
-                        
                     case "Friends":
                         FriendsView(showMenu: self.$showMenu)
-                        
                     case "CreationBet":
                         CreationBetView(showMenu: self.$showMenu)
-                        
                     default:
                         BetView(showMenu: self.$showMenu)
                     }
