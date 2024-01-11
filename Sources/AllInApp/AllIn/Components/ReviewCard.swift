@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ReviewCard: View {
+    
+    var amountBetted: Int
+    var isAWin: Bool
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
@@ -19,7 +22,7 @@ struct ReviewCard: View {
                 Text("Etudes").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
                 Text("Emre va réussir son TP de CI/CD mercredi?").font(.system(size: 20)).fontWeight(.bold)
                 HStack{
-                    Text("Commence le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
+                    Text("Fini le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
                     TextCapsule()
                     TextCapsule()
                     Spacer()
@@ -30,44 +33,38 @@ struct ReviewCard: View {
             .padding(.all,15)
             .background(AllInColors.componentBackgroundColor).cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
             
-            VStack(alignment: .leading,spacing: 2){
-                HStack{
+            VStack(alignment: .center,spacing:0){
+                HStack(){
                     Spacer()
-                    UsersPreview()
-                    Text(" 4 joueurs en attente").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color).fontWeight(.medium)
-                    
-                    Spacer()
-                    
-                }.padding(0)
-                Button {
-                    
-                } label: {
-                    Text("Participer")
-                        .font(.system(size: 30))
+                    Text(amountBetted.description)
+                        .foregroundColor(AllInColors.whiteColor)
+                        .font(.system(size: 25))
                         .fontWeight(.bold)
-                        .frame(maxWidth: .infinity).padding(10)
-                        .multilineTextAlignment(.center)
-                        .overlay {
-                            AllInColors.primaryGradient.frame(width: 170)
-                                .mask(
-                                    Text("Participer")
-                                        .font(.system(size: 30))
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity).padding(10)
-                                )
-                        }
+                    Image("allcoinWhiteIcon")
+                        .resizable()
+                        .frame(width: 20, height: 20, alignment: .bottom)
+                    Text(isAWin ? "Gagnés!" : "Perdus!")
+                        .foregroundColor(AllInColors.whiteColor)
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
+                    Spacer()
+
                 }
-                .accentColor(AllInColors.componentBackgroundColor)
-                .buttonStyle(.borderedProminent).cornerRadius(4.0)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12).stroke(AllInColors.delimiterGrey, lineWidth: 1)
-                ).padding([.top],5)
+                .frame(width: .infinity)
+                .padding(.all,10)
+                
+                    
+                        
+                
                 
             }
             .frame(width: .infinity)
-            .padding(.all,8)
-            .background(AllInColors.underComponentBackgroundColor)
-            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
+            .padding(.all,2)
+            .background(
+                isAWin ?
+                AnyView(AllInColors.primaryGradient) :
+                AnyView(Color.black)
+            )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
     }

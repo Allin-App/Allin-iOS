@@ -23,8 +23,8 @@ struct HistoricBetView: View {
                     .textStyle(weight: .bold, color: AllInColors.grey500Color, size: 25)
                     .padding([.top],15)
                 VStack(spacing: 20){
-                    ReviewCard()
-                    ReviewCard()
+                    ReviewCard(amountBetted: 110, isAWin: true)
+                    ReviewCard(amountBetted: 3, isAWin: false)
                 }
                 .padding([.trailing, .leading, .bottom],25)
             }
