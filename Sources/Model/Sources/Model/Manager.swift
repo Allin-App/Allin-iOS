@@ -19,5 +19,4 @@ public struct Manager {
     public func addBet(bet: Bet) {
         userDataManager.addBet(bet: bet)
     }
-    
 }

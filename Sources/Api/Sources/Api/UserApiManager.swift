@@ -42,9 +42,7 @@ public struct UserApiManager: UserDataManager {
             "response": [],
             "createdBy": token
         ]
-        
-        print (json)
-        
+                
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
                 print ("ALLIN : Add BET")

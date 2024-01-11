@@ -113,7 +113,7 @@ struct CreationBetView: View {
                                         .frame(height: 40)
                                 )
                                 .frame(width: 350, height: 40)
-                                .foregroundColor(.black)
+                                .foregroundColor(AllInColors.primaryTextColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                                         .stroke(AllInColors.delimiterGrey, lineWidth: 1)
@@ -155,7 +155,7 @@ struct CreationBetView: View {
                                     .frame(height: 110)
                             )
                             .frame(width: 350, height: 110)
-                            .foregroundColor(.black)
+                            .foregroundColor(AllInColors.primaryTextColor)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
                                     .stroke(AllInColors.delimiterGrey, lineWidth: 1)

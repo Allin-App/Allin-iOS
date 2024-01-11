@@ -58,7 +58,7 @@ class AuthService: IAuthService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let json = [
-            "email": email,
+            "email": email.lowercased(),
             "username": username.lowercased(),
             "password": password,
             "nbCoins": "0"
