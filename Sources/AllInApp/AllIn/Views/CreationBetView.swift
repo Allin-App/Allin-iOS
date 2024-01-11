@@ -39,7 +39,7 @@ struct CreationBetView: View {
     ]
     
     @State var groupedItems: [[String]] = [[String]] ()
-
+    
     private func updateGroupedItems() {
         
         var updatedGroupedItems: [[String]] = [[String]] ()
@@ -71,6 +71,9 @@ struct CreationBetView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
+            NavigationLink(destination: MainView(page: "Bet").navigationBarBackButtonHidden(true), isActive: $viewModel.betAdded) {
+                EmptyView()
+            }
             TopBar(showMenu: self.$showMenu)
             TabView(selection: $selectedTab) {
                 
@@ -113,7 +116,7 @@ struct CreationBetView: View {
                                         .frame(height: 40)
                                 )
                                 .frame(width: 350, height: 40)
-                                .foregroundColor(.black)
+                                .foregroundColor(AllInColors.primaryTextColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                                         .stroke(AllInColors.delimiterGrey, lineWidth: 1)
@@ -155,7 +158,7 @@ struct CreationBetView: View {
                                     .frame(height: 110)
                             )
                             .frame(width: 350, height: 110)
-                            .foregroundColor(.black)
+                            .foregroundColor(AllInColors.primaryTextColor)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
                                     .stroke(AllInColors.delimiterGrey, lineWidth: 1)

@@ -7,7 +7,15 @@
 
 import Foundation
 
-public struct CustomBetResponse {
+/// A class representing a user's response to a custom bet.
+public class CustomBetResponse {
+    /// The name or description of the custom bet response.
     public var name: String
     
+    /// Custom Constructor
+    ///
+    /// - Parameter name: The name or description of the custom bet response.
+    public init(name: String) {
+        self.name = name
+    }
 }
