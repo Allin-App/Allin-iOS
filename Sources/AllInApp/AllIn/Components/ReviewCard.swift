@@ -23,8 +23,7 @@ struct ReviewCard: View {
                 Text("Emre va réussir son TP de CI/CD mercredi?").font(.system(size: 20)).fontWeight(.bold)
                 HStack{
                     Text("Fini le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                    TextCapsule()
-                    TextCapsule()
+                    TextCapsule(date: Date())
                     Spacer()
                     
                 }

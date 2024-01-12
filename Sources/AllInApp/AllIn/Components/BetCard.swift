@@ -6,22 +6,25 @@
 //
 
 import SwiftUI
+import Model
 
 struct BetCard: View {
+    
+    var bet: Bet
+    
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par Lucas").font(.system(size: 10)).foregroundColor(AllInColors.grey800Color)
+                    Text("proposé par " + bet.author.username.capitalized).font(.system(size: 10)).foregroundColor(AllInColors.grey800Color)
                     
                 }
-                Text("Etudes").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                Text("Emre va réussir son TP de CI/CD mercredi?").font(.system(size: 20)).fontWeight(.bold)
+                Text(bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
+                Text(bet.phrase).font(.system(size: 20)).fontWeight(.bold)
                 HStack{
                     Text("Commence le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                    TextCapsule()
-                    TextCapsule()
+                    TextCapsule(date: bet.endRegisterDate)
                     Spacer()
                     
                 }
@@ -34,7 +37,7 @@ struct BetCard: View {
                 HStack{
                     Spacer()
                     UsersPreview()
-                    Text(" 4 joueurs en attente").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color).fontWeight(.medium)
+                    Text(String(bet.registered.count) + " joueurs en attente").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color).fontWeight(.medium)
                     
                     Spacer()
                     
@@ -75,7 +78,15 @@ struct BetCard: View {
 
 struct BetCard_Previews: PreviewProvider {
     static var previews: some View {
-        BetCard()
+        BetCard(bet: BinaryBet(theme: "Football - Finale de la Ligue des Champions",
+                phrase: "Le gagnant de la finale sera l'équipe avec le plus de tirs au but.",
+                endRegisterDate: Date().addingTimeInterval(86400),
+                endBetDate: Date().addingTimeInterval(172800),
+                totalStakes: 100,
+                isPublic: true,
+                invited: [],
+                author: User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75, friends: []),
+                registered: []))
             .preferredColorScheme(.dark)
     }
 }

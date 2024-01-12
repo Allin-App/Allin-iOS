@@ -11,12 +11,16 @@ import Model
 public class ManagerVM: ObservableObject {
     @Published var model: Manager
     
+    @Published public var bets: [Bet] = []
+    
     public init(withModel model: Manager) {
         self.model = model
     }
     
     public func getPublicBets() {
-        
+        model.getBets(withIndex: 0, withCount: 20) { bets in
+            self.bets = bets
+        }
     }
     
     public func addBet(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, creator: User) {

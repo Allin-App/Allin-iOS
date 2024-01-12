@@ -12,8 +12,8 @@ public struct BetStubManager: BetDataManager {
     
     public init() {}
     
-    public func getBets(withIndex index: Int, withCount count: Int) -> [Bet] {
-        return Stub.shared.bets
+    public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+        completion(Stub.shared.bets)
     }
     
     public func getUsers(username: String) -> [User] {

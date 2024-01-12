@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Model
 
 struct BetView: View {
     
@@ -16,7 +17,6 @@ struct BetView: View {
     var body: some View {
         
         VStack(alignment: .center, spacing: 0) {
-            
             TopBar(showMenu: self.$showMenu)
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
@@ -25,8 +25,9 @@ struct BetView: View {
                     
                     Section {
                         VStack(spacing: 20){
-                            BetCard()
-                            BetCard()
+                            ForEach(viewModel.bets, id: \.id) { (bet: Bet) in
+                                BetCard(bet: bet)
+                            }
                             Button("Show Sheet") {
                                 showingSheet.toggle()
                             }

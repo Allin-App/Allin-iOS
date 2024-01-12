@@ -30,9 +30,8 @@ public class FactoryApiBet: FactoryBet {
               let phrase = json["sentenceBet"] as? String,
               let endRegisterDateString = json["endRegistration"] as? String,
               let endBetDateString = json["endBet"] as? String,
-              let isPublicString = json["isPrivate"] as? String,
-              let createdBy = json["createdBy"] as? User, // Assuming User object can be parsed from JSON
-              let type = json["type"] as? Int else {
+              let isPublic = json["isPrivate"] as? Bool,
+              let createdBy = json["createdBy"] as? String else {
             return nil
         }
         
@@ -43,10 +42,8 @@ public class FactoryApiBet: FactoryBet {
               let endBetDate = dateFormatter.date(from: endBetDateString) else {
             return nil
         }
-        
-        let isPublic = (isPublicString.lowercased() == "true")
-        
-        return toModel(theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: createdBy, type: type)
+                
+        return toModel(theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: 0)
     }
     
     public func toModel(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, creator: User, type: Int) -> Bet {
