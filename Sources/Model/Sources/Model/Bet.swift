@@ -8,7 +8,11 @@
 import Foundation
 
 /// A class representing a betting entity, including details about the bet theme, participants, and deadlines.
-public class Bet: ObservableObject {
+public class Bet: ObservableObject, Identifiable {
+    
+    /// The id for the bet.
+    public var id = UUID()
+    
     /// The theme or topic of the bet.
     public private(set) var theme: String
     

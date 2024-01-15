@@ -31,8 +31,7 @@ struct RecapBetCard: View {
                     Text("Fini le ")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
-                    TextCapsule()
-                    TextCapsule()
+                    TextCapsule(date: Date())
                     Spacer()
                 }
             }

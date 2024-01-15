@@ -19,4 +19,10 @@ public struct Manager {
     public func addBet(bet: Bet) {
         userDataManager.addBet(bet: bet)
     }
+    
+    public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+        betDataManager.getBets(withIndex: index, withCount: count) { bets in
+            completion(bets)
+        }
+    }
 }
