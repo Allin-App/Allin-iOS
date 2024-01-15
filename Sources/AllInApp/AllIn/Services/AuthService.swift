@@ -60,8 +60,7 @@ class AuthService: IAuthService {
         let json = [
             "email": email.lowercased(),
             "username": username.lowercased(),
-            "password": password,
-            "nbCoins": "0"
+            "password": password
         ]
         
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){

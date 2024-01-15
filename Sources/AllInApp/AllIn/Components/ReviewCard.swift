@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ReviewCard: View {
+    @State var showDetails: Bool = false
     
     var amountBetted: Int
     var isAWin: Bool
@@ -65,6 +66,11 @@ struct ReviewCard: View {
                 AnyView(Color.black)
             )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+        }
+        .onTapGesture {
+            showDetails.toggle()
+        }.fullScreenCover(isPresented: $showDetails) {
+            DetailsView(isModalPresented: $showDetails)
         }
     }
 }

@@ -12,7 +12,7 @@ struct BetView: View {
     
     @StateObject private var viewModel = BetViewModel()
     @Binding var showMenu: Bool
-    @State private var showingSheet = false
+    @State var showingSheet: Bool  = false
     
     var body: some View {
         
@@ -30,9 +30,6 @@ struct BetView: View {
                             }
                             Button("Show Sheet") {
                                 showingSheet.toggle()
-                            }
-                            .sheet(isPresented: $showingSheet) {
-                                WinModal()
                             }
                         }
                         .padding([.leading,.trailing],25)
@@ -57,16 +54,21 @@ struct BetView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showingSheet) {
+                WinModal()
+            }
             Spacer()
         }
         .edgesIgnoringSafeArea(.bottom)
         .background(AllInColors.backgroundColor)
+        
     }
 }
+
 
 struct BetView_Previews: PreviewProvider {
     static var previews: some View {
         BetView(showMenu: .constant(false))
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
 }
