@@ -9,7 +9,30 @@ import SwiftUI
 
 struct ParticipateButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            
+        } label: {
+            Text("Participer")
+                .font(.system(size: 30))
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity).padding(10)
+                .multilineTextAlignment(.center)
+                .overlay {
+                    AllInColors.primaryGradient.frame(width: 170)
+                        .mask(
+                            Text("Participer")
+                                .font(.system(size: 30))
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity).padding(10)
+                        )
+                }
+        }
+        .accentColor(AllInColors.componentBackgroundColor)
+        .buttonStyle(.borderedProminent).cornerRadius(4.0)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12).stroke(AllInColors.delimiterGrey, lineWidth: 1)
+        )
+        
     }
 }
 

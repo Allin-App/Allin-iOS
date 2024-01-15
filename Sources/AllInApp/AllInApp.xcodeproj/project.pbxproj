@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123590B42B51792000F7AEBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B32B51792000F7AEBD /* DetailsView.swift */; };
+		123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B52B5537E200F7AEBD /* ResultBanner.swift */; };
+		123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B72B5541BA00F7AEBD /* ParticipateButton.swift */; };
 		1244EF602B4EC31E00374ABF /* HistoricBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */; };
 		1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF612B4EC67000374ABF /* ReviewCard.swift */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
@@ -99,6 +102,9 @@
 		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
 		122278BB2B4BDEC300E632AA /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sources; path = ../StubLib/Sources; sourceTree = "<group>"; };
+		123590B32B51792000F7AEBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		123590B52B5537E200F7AEBD /* ResultBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBanner.swift; sourceTree = "<group>"; };
+		123590B72B5541BA00F7AEBD /* ParticipateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateButton.swift; sourceTree = "<group>"; };
 		1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetView.swift; sourceTree = "<group>"; };
 		1244EF612B4EC67000374ABF /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
@@ -290,6 +296,7 @@
 				EC650A512B2794DD003AFCAD /* BetView.swift */,
 				EC7A882C2B28D8A1004F226A /* CreationBetView.swift */,
 				1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */,
+				123590B32B51792000F7AEBD /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +323,8 @@
 				ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */,
 				ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */,
 				1244EF612B4EC67000374ABF /* ReviewCard.swift */,
+				123590B52B5537E200F7AEBD /* ResultBanner.swift */,
+				123590B72B5541BA00F7AEBD /* ParticipateButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -496,6 +505,7 @@
 				EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */,
 				EC650A522B2794DD003AFCAD /* BetView.swift in Sources */,
 				EC6B969C2B24B4CC00FC1C58 /* AllInApp.swift in Sources */,
+				123590B42B51792000F7AEBD /* DetailsView.swift in Sources */,
 				ECB26A192B40744F00FE06B3 /* RankingViewModel.swift in Sources */,
 				EC650A502B2793D5003AFCAD /* TextCapsule.swift in Sources */,
 				EC650A482B25DCFF003AFCAD /* UsersPreview.swift in Sources */,
@@ -518,12 +528,14 @@
 				EC3077072B24CB840060E34D /* SplashView.swift in Sources */,
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,
 				ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */,
+				123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */,
 				ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */,
 				ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */,
 				1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */,
 				EC6B96D52B24BE0E00FC1C58 /* MainView.swift in Sources */,
 				EC650A562B279D68003AFCAD /* WinModal.swift in Sources */,
 				EC6B96D12B24BAE800FC1C58 /* AuthService.swift in Sources */,
+				123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */,
 				EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */,
 				EC650A542B279545003AFCAD /* ChoiceCapsule.swift in Sources */,
 				ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */,

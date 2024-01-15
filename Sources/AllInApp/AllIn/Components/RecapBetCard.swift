@@ -11,6 +11,7 @@ struct RecapBetCard: View {
     
     @GestureState private var longPressTap = false
     @State private var isPressed = false
+    @State var showDetails: Bool = false
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
@@ -104,6 +105,11 @@ struct RecapBetCard: View {
                 .padding(.bottom,0).border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }.scaleEffect(longPressTap ? 0.97 : 1.0)
             .animation(.easeInOut, value: longPressTap)
+            .onTapGesture {
+                showDetails.toggle()
+            }.fullScreenCover(isPresented: $showDetails) {
+                DetailsView(isModalPresented: $showDetails)
+            }
             .gesture(
                 LongPressGesture(minimumDuration: 0.5)
                     .updating($longPressTap) { value, state, _ in

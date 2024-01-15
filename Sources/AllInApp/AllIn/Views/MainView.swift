@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @State var showMenu = false
+
     var page: String
     
     var body: some View {
@@ -58,6 +59,7 @@ struct MainView: View {
                         .frame(width: geometry.size.width*0.83)
                         .transition(.move(edge: .leading))
                 }
+                
             }
             .gesture(closeDrag)
         }

@@ -47,6 +47,7 @@ struct AllInColors {
     static let lightGrey300Color = Color("LightGrey300Color")
     static let componentBackgroundColor = Color("ComponentBackgroundColor")
     static let underComponentBackgroundColor = Color("UnderComponentBackgroundColor")
+    static let winBannerBackground = Color("WinBannerBackground")
     
     // Gradients
     static let primaryGradient = LinearGradient(
