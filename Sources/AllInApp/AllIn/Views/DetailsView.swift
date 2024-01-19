@@ -5,6 +5,45 @@ struct DetailsView: View {
     @Binding var isModalPresented: Bool
     @State var isModalParticipated: Bool = false
     @State var progressValue: Float = 0.2
+    var isFinished: Bool {
+        viewModel.betDetail?.finalAnswer == nil ? false : true
+    }
+    
+    var isDisabled: Bool {
+        if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
+            let currentDate = Date()
+
+            switch currentDate.compare(endRegisterDate) {
+                case .orderedAscending:
+                return false
+                case .orderedDescending:
+                return true
+                case .orderedSame:
+                return true
+            }
+            
+        } else {
+            return true
+        }
+    }
+    
+    var StatusValues: (String, Color) {
+        if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
+            let currentDate = Date()
+
+            switch currentDate.compare(endRegisterDate) {
+                case .orderedAscending:
+                return ("En cours...", AllInColors.purpleAccentColor)
+                case .orderedDescending:
+                return ("En attente...",AllInColors.pink100)
+                case .orderedSame:
+                return ("Fin des inscriptions...",AllInColors.grey50Color)
+            }
+            
+        } else {
+            return ("Statut indisponible", AllInColors.whiteColor)
+        }
+    }
 
     var id: String
     @StateObject private var viewModel: DetailsViewModel
@@ -20,7 +59,7 @@ struct DetailsView: View {
             ZStack(alignment: .bottom) {
                 VStack(alignment: .center) {
                     HStack{
-                        Text("Terminé!").font(.system(size: 25)).fontWeight(.bold).padding(.bottom, 10).foregroundStyle(AllInColors.blackTitleColor).opacity(0.7)
+                        Text(StatusValues.0).font(.system(size: 25)).fontWeight(.bold).padding(.bottom, 10).foregroundStyle(Color.black).opacity(0.4)
                         Spacer()
                         Image("closeIcon")
                             .resizable()
@@ -32,7 +71,7 @@ struct DetailsView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 15)
-                .background(Color.green)
+                .background(StatusValues.1)
                 .transition(.slideInFromBottom(yOffset:0))
                 VStack(spacing: 0) {
                     VStack(alignment: .leading,spacing: 5){
@@ -73,7 +112,9 @@ struct DetailsView: View {
                     .padding(.all,15).padding(.vertical, 10)
                     .background(AllInColors.componentBackgroundColor)
                     .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
-                    ResultBanner()
+                    if isFinished {
+                        ResultBanner()
+                    }
                     VStack(alignment: .leading, spacing: 15) {
                         BetLineLoading(value: $progressValue).padding(.vertical, 15)
                         Spacer()
@@ -91,7 +132,7 @@ struct DetailsView: View {
                 .background(AllInColors.componentBackgroundColor)
                 .cornerRadius(15)
                 
-                ParticipateButton(isOpen: $isModalParticipated).padding(10)
+                ParticipateButton(isOpen: $isModalParticipated, isDisabled: isDisabled).padding(10).disabled(isDisabled)
             
                 
             }
