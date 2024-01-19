@@ -3,7 +3,7 @@ import SwiftUI
 struct DetailsView: View {
     
     @Binding var isModalPresented: Bool
-    @State var isModalParticipated: Bool = false
+    @Binding var isModalParticipated: Bool
     @State var progressValue: Float = 0.2
     var isFinished: Bool {
         viewModel.betDetail?.finalAnswer == nil ? false : true
@@ -48,8 +48,9 @@ struct DetailsView: View {
     var id: String
     @StateObject private var viewModel: DetailsViewModel
     
-    init(isModalPresented: Binding<Bool>, id: String) {
+    init(isModalPresented: Binding<Bool>, isModalParticipated: Binding<Bool>,id: String) {
         self._isModalPresented = isModalPresented
+        self._isModalParticipated = isModalParticipated
         self.id = id
         self._viewModel = StateObject(wrappedValue: DetailsViewModel(id: id))
     }
@@ -132,7 +133,7 @@ struct DetailsView: View {
                 .background(AllInColors.componentBackgroundColor)
                 .cornerRadius(15)
                 
-                ParticipateButton(isOpen: $isModalParticipated, isDisabled: isDisabled).padding(10).disabled(isDisabled)
+                ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated,isDisabled: isDisabled ).padding(10).disabled(isDisabled)
             
                 
             }

@@ -12,6 +12,7 @@ struct RecapBetCard: View {
     @GestureState private var longPressTap = false
     @State private var isPressed = false
     @State var showDetails: Bool = false
+    @State var showPartipated: Bool = false
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
@@ -107,7 +108,7 @@ struct RecapBetCard: View {
             .onTapGesture {
                 showDetails.toggle()
             }.fullScreenCover(isPresented: $showDetails) {
-                DetailsView(isModalPresented: $showDetails, id: "1")
+                DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated,id: "1")
             }
             .gesture(
                 LongPressGesture(minimumDuration: 0.5)

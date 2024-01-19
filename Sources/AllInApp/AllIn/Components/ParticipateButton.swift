@@ -9,10 +9,13 @@ import SwiftUI
 
 struct ParticipateButton: View {
     @Binding var isOpen : Bool
+    @Binding var isParticapatedOpen: Bool
     @State var isDisabled: Bool = false
+    
     var body: some View {
         Button {
-            isOpen.toggle()
+            isOpen = true
+            isParticapatedOpen = true
         } label: {
             Text("Participer")
                 .font(.system(size: 27))

@@ -51,7 +51,7 @@ struct BetCard: View {
                     Spacer()
                     
                 }.padding(0)
-                ParticipateButton(isOpen: $showParticipate).padding(.top, 5)
+                ParticipateButton(isOpen: $showDetails, isParticapatedOpen: $showParticipate).padding(.top, 5)
             }
             .frame(width: .infinity)
             .padding(.all,8)
@@ -63,7 +63,7 @@ struct BetCard: View {
             showDetails.toggle()
         }
         .fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails, id: bet.id)
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showParticipate,id: bet.id)
         }
     }
 }
