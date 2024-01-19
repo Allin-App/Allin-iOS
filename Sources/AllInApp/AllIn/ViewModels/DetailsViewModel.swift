@@ -15,7 +15,7 @@ class DetailsViewModel: ObservableObject {
     @Inject var manager: Manager
     var id: String
     
-    @Published var bet: BetDetail?
+    @Published var betDetail: BetDetail?
     
     init(id: String) {
         self.id = id
@@ -24,7 +24,7 @@ class DetailsViewModel: ObservableObject {
     
     func getItem(withId id: String) {
         manager.getBet(withId: id) { bet in
-            self.bet = bet
+            self.betDetail = bet
         }
     }
 }
