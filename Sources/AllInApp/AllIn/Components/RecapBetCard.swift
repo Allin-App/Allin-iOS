@@ -32,8 +32,7 @@ struct RecapBetCard: View {
                     Text("Fini le ")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
-                    TextCapsule()
-                    TextCapsule()
+                    TextCapsule(date: Date())
                     Spacer()
                 }
             }
@@ -108,7 +107,7 @@ struct RecapBetCard: View {
             .onTapGesture {
                 showDetails.toggle()
             }.fullScreenCover(isPresented: $showDetails) {
-                DetailsView(isModalPresented: $showDetails)
+                DetailsView(isModalPresented: $showDetails, id: "1")
             }
             .gesture(
                 LongPressGesture(minimumDuration: 0.5)

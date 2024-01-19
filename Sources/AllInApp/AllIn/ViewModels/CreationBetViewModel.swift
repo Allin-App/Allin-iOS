@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 import DependencyInjection
-import ViewModel
+import Model
 
 class CreationBetViewModel: ObservableObject {
     
-    @Inject var manager: ManagerVM
+    @Inject var manager: Manager
     @Published var theme: String = ""
     @Published var description: String = ""
     @Published var isPublic = true

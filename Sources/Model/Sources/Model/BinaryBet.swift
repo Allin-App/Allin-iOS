@@ -13,6 +13,23 @@ public class BinaryBet: Bet {
     // Custom Constructor
     ///
     /// - Parameters:
+    ///   - id: The id for the bet.
+    ///   - theme: The theme or topic of the binary bet.
+    ///   - phrase: The specific phrase or question related to the binary bet.
+    ///   - endRegisterDate: The deadline for users to register for the binary bet.
+    ///   - endBetDate: The deadline for the actual betting to take place for the binary bet.
+    ///   - totalStakes: The total stakes or amount involved in the binary bet.
+    ///   - isPublic: Indicates whether the binary bet is public or private.
+    ///   - invited: List of users who are invited to participate in the binary bet.
+    ///   - author: The user who created the binary bet.
+    ///   - registered: List of users who have registered for the binary bet.
+    public override init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, totalStakes: Int, isPublic: Bool, invited: [User], author: User, registered: [User]) {
+        super.init(id: id, theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, totalStakes: totalStakes, isPublic: isPublic, invited: invited, author: author, registered: registered)
+    }
+    
+    // Custom Constructor without Id
+    ///
+    /// - Parameters:
     ///   - theme: The theme or topic of the binary bet.
     ///   - phrase: The specific phrase or question related to the binary bet.
     ///   - endRegisterDate: The deadline for users to register for the binary bet.

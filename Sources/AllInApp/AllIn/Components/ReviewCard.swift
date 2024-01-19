@@ -24,8 +24,7 @@ struct ReviewCard: View {
                 Text("Emre va réussir son TP de CI/CD mercredi?").font(.system(size: 20)).fontWeight(.bold)
                 HStack{
                     Text("Fini le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                    TextCapsule()
-                    TextCapsule()
+                    TextCapsule(date: Date())
                     Spacer()
                     
                 }
@@ -38,14 +37,14 @@ struct ReviewCard: View {
                 HStack(){
                     Spacer()
                     Text(amountBetted.description)
-                        .foregroundColor(AllInColors.whiteColor)
+                        .foregroundColor(.white)
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                     Image("allcoinWhiteIcon")
                         .resizable()
                         .frame(width: 20, height: 20, alignment: .bottom)
                     Text(isAWin ? "Gagnés!" : "Perdus!")
-                        .foregroundColor(AllInColors.whiteColor)
+                        .foregroundColor(.white)
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                     Spacer()
@@ -71,7 +70,7 @@ struct ReviewCard: View {
         .onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails)
+            DetailsView(isModalPresented: $showDetails, id: "1")
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Model
 
 struct BetView: View {
     
@@ -14,58 +15,59 @@ struct BetView: View {
     @State var showingSheet: Bool  = false
     
     var body: some View {
-        ZStack(){
-            
-            VStack(alignment: .center, spacing: 0) {
-                
-                
-                TopBar(showMenu: self.$showMenu)
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
-                        
-                        TrendingBetCard().padding(.top,25).padding([.leading,.trailing],25)
-                        
-                        Section {
-                            VStack(spacing: 20){
-                                BetCard()
-                                Button("Show Sheet") {
-                                    showingSheet.toggle()
-                                }
-                                
+        
+        VStack(alignment: .center, spacing: 0) {
+            TopBar(showMenu: self.$showMenu)
+            ScrollView(showsIndicators: false) {
+                LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
+                    
+                    TrendingBetCard().padding(.top,25).padding([.leading,.trailing],25)
+                    
+                    Section {
+                        VStack(spacing: 20){
+                            ForEach(viewModel.bets, id: \.id) { (bet: Bet) in
+                                BetCard(bet: bet)
                             }
-                            .padding([.leading,.trailing],25)
-                            
-                        } header: {
-                            ZStack{
-                                AllInColors.fadeInGradiantCard
-                                ScrollView(.horizontal,showsIndicators: false){
-                                    HStack{
-                                        ChoiceCapsule()
-                                        ChoiceCapsule()
-                                        ChoiceCapsule()
-                                        ChoiceCapsule()
-                                        ChoiceCapsule()
-                                        ChoiceCapsule()
-                                        ChoiceCapsule()
-                                    }
-                                    .padding(.leading,25)
-                                    .padding([.top,.bottom],15)
+                            Button("Show Sheet") {
+                                showingSheet.toggle()
+                            }
+                        }
+                        .padding([.leading,.trailing],25)
+                        
+                    } header: {
+                        ZStack{
+                            AllInColors.fadeInGradiantCard
+                            ScrollView(.horizontal,showsIndicators: false){
+                                HStack{
+                                    ChoiceCapsule()
+                                    ChoiceCapsule()
+                                    ChoiceCapsule()
+                                    ChoiceCapsule()
+                                    ChoiceCapsule()
+                                    ChoiceCapsule()
+                                    ChoiceCapsule()
                                 }
+                                .padding(.leading,25)
+                                .padding([.top,.bottom],15)
                             }
                         }
                     }
                 }
-                .sheet(isPresented: $showingSheet) {
-                    WinModal()
-                }
-                Spacer()
             }
-            .edgesIgnoringSafeArea(.bottom)
-            .background(AllInColors.backgroundColor)
-            
+            .refreshable {
+                viewModel.getItems()
+            }
+            .sheet(isPresented: $showingSheet) {
+                WinModal()
+            }
+            Spacer()
         }
+        .edgesIgnoringSafeArea(.bottom)
+        .background(AllInColors.backgroundColor)
+        
     }
 }
+
 
 struct BetView_Previews: PreviewProvider {
     static var previews: some View {

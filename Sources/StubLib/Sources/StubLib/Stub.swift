@@ -1,6 +1,6 @@
 //
 //  Stub.swift
-//  
+//
 //
 //  Created by Emre on 01/01/2024.
 //
@@ -12,6 +12,7 @@ struct Stub {
     
     static var shared = Stub()
     public var bets: [Bet] = []
+    public var betsDetail: [BetDetail] = []
     public var users: [User] = []
     
     public init() {
@@ -82,10 +83,15 @@ struct Stub {
             registered: [user3]
         )
         self.bets.append(bet4)
-        
+
+        for bet in bets {
+            let betDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: user1, betId: ""))
+            self.betsDetail.append(betDetail)
+        }
     }
     
     public mutating func add(bet: Bet) {
-        self.bets.append(bet)
+        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: users[1], betId: ""))
+        self.betsDetail.append(newBetDetail)
     }
 }

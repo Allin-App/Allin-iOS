@@ -23,10 +23,6 @@ class LoginViewModel: ObservableObject {
     
     func login() {
         
-        #if DEBUG
-        self.onLoginSuccess()
-        #endif
-        
         guard checkAndSetError(forLogin: true, forPassword: true) else {
             return
         }

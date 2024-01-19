@@ -8,7 +8,6 @@
 import SwiftUI
 import DependencyInjection
 import Model
-import ViewModel
 
 @main
 struct AllInApp: App {

@@ -7,29 +7,24 @@
 
 import Foundation
 import DependencyInjection
-import ViewModel
+import Model
+import Combine
 
 class BetViewModel: ObservableObject {
     
-    @Inject var manager: ManagerVM
+    @Inject var manager: Manager
     
+    @Published private(set) var bets: [Bet] = []
+
     init() {
         getItems()
     }
     
     func getItems() {
-        
+        manager.getBets(withIndex: 0, withCount: 20) { bets in
+            self.bets = bets
+        }
     }
     
-    func deleteItem(indexSet: IndexSet) {
-        
-    }
-    
-    func moveltem(from: IndexSet, to: Int) {
-        
-    }
-    
-    func addItem(title: String) {
-        
-    }
+    private var cancellables: Set<AnyCancellable> = []
 }

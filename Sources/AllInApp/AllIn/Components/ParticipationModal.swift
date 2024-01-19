@@ -25,7 +25,7 @@ struct ParticipationModal: View {
             HStack{
                 Text("Faites vos paris").font(.system(size: 18)).foregroundColor(AllInColors.blackTitleColor).fontWeight(.semibold)
                 Spacer()
-                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foreGroundColor: AllInColors.whiteColor)
+                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foregroundColor: AllInColors.whiteColor)
             }
             .padding(.leading, 15)
             VStack(alignment: .leading){

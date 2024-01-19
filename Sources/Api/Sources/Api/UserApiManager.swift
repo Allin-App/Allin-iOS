@@ -8,7 +8,7 @@
 import Foundation
 import Model
 
-let allInApi = "https://codefirst.iut.uca.fr/containers/AllDev-api"
+let allInApi = "https://codefirst.iut.uca.fr/containers/AllDev-api/"
 
 public struct UserApiManager: UserDataManager {
     
@@ -37,9 +37,6 @@ public struct UserApiManager: UserDataManager {
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
                 print ("ALLIN : Add BET")
                 if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 201 {
-                        
-                    }
                     print(httpResponse.statusCode)
                 }
             }.resume()
@@ -47,6 +44,10 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getFriends() -> [User] {
+        fatalError("Not implemented yet")
+    }
+    
+    public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
         fatalError("Not implemented yet")
     }
 }
