@@ -34,7 +34,3 @@ struct ResultBanner: View {
         .border(width: 2, edges: [.top,.bottom], color: AllInColors.blueAccentColor.opacity(0.2))
     }
 }
-
-#Preview {
-    ResultBanner()
-}

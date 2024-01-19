@@ -71,7 +71,3 @@ struct ParticipationModal: View {
         }.background(AllInColors.underComponentBackgroundColor)
     }
 }
-
-#Preview {
-    ParticipationModal()
-}
