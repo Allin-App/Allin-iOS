@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ParticipateButton: View {
+    @Binding var isOpen : Bool
     var body: some View {
         Button {
-            
+            isOpen.toggle()
         } label: {
             Text("Participer")
                 .font(.system(size: 30))
@@ -34,8 +35,4 @@ struct ParticipateButton: View {
         )
         
     }
-}
-
-#Preview {
-    ParticipateButton()
 }

@@ -2,23 +2,25 @@ import SwiftUI
 
 struct DetailsView: View {
     @Binding var isModalPresented: Bool
+    @State var isModalParticipated: Bool = false
+    @State var progressValue: Float = 0.2
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
-                VStack(alignment: .trailing) {
+                VStack(alignment: .center) {
                     HStack{
+                        Text("Terminé!").font(.system(size: 25)).fontWeight(.bold).padding(.bottom, 10).foregroundStyle(AllInColors.blackTitleColor).opacity(0.7)
                         Spacer()
                         Image("CloseiconRounded")
                             .resizable()
-                            .padding(8)
-                            .frame(maxWidth: 40, maxHeight: 40)
+                            .frame(maxWidth: 25, maxHeight: 25)
                             .onTapGesture {
                                 isModalPresented = false
                             }
                     }
                     Spacer()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(.horizontal, 15)
                 .background(Color.green)
                 .transition(.slideInFromBottom(yOffset:0))
                 VStack(spacing: 0) {
@@ -47,27 +49,34 @@ struct DetailsView: View {
                     }
                     .frame(width: .infinity)
                     .padding(.all,15).padding(.vertical, 10)
-                    .background(AllInColors.componentBackgroundColor).cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
+                    .background(AllInColors.whiteColor).cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
                     ResultBanner()
-                    VStack(alignment: .leading,spacing: 2){
-                        
+                    VStack(alignment: .leading,spacing: 15){
+                        BetLineLoading(value: $progressValue).padding(.vertical, 15)
+                        Spacer()
                         
                         
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight : .infinity)
-                    .padding([.bottom,.trailing,.leading],8)
+                    .padding([.bottom,.trailing,.leading],15)
                     .background(AllInColors.underComponentBackgroundColor)
                     .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
                     Spacer()
+                
                     
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: geometry.size.height*0.98)
                 .background(Color.white)
                 .cornerRadius(15)
-                ParticipateButton().padding(10)
+                
+                ParticipateButton(isOpen: $isModalParticipated).padding(10)
+            
+                
             }
-            .transition(.slideInFromBottom(yOffset: 800))
+            .sheet(isPresented: $isModalParticipated) {
+                ParticipationModal().presentationDetents([.fraction(0.55)])
+            }
             .edgesIgnoringSafeArea(.bottom)
         }
     }

@@ -48,7 +48,11 @@ struct AllInColors {
     static let componentBackgroundColor = Color("ComponentBackgroundColor")
     static let underComponentBackgroundColor = Color("UnderComponentBackgroundColor")
     static let winBannerBackground = Color("WinBannerBackground")
-    
+    static let blackTitleColor = Color("BlackTitleColor")
+    static let bleue200 = Color("Bleue200")
+    static let purple200 = Color("Purple200")
+    static let pink200 = Color("Pink200")
+    static let pink100 = Color("Pink100")
     // Gradients
     static let primaryGradient = LinearGradient(
         gradient: Gradient(colors: [AllInColors.pinkAccentColor, AllInColors.blueAccentColor]),
@@ -59,6 +63,18 @@ struct AllInColors {
         gradient: Gradient(colors: [AllInColors.backgroundColor.opacity(0), AllInColors.backgroundColor.opacity(0.9), AllInColors.backgroundColor]),
         startPoint: .bottom,
         endPoint: .top
+    )
+    
+    static let BlueBetGradiant = LinearGradient(
+        gradient: Gradient(colors: [AllInColors.bleue200, AllInColors.purple200]),
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+    
+    static let PinkBetGradiant = LinearGradient(
+        gradient: Gradient(colors: [AllInColors.pink100, AllInColors.pink200]),
+        startPoint: .leading,
+        endPoint: .trailing
     )
     
 }
