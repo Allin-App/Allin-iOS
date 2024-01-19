@@ -107,7 +107,7 @@ struct RecapBetCard: View {
             .onTapGesture {
                 showDetails.toggle()
             }.fullScreenCover(isPresented: $showDetails) {
-                DetailsView(isModalPresented: $showDetails)
+                DetailsView(isModalPresented: $showDetails, id: "1")
             }
             .gesture(
                 LongPressGesture(minimumDuration: 0.5)

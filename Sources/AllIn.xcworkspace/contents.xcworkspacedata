@@ -8,9 +8,6 @@
       location = "group:AllInApp/AllInApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:StubLib">
-   </FileRef>
-   <FileRef
       location = "group:ViewModel">
    </FileRef>
    <FileRef

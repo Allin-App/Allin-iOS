@@ -1,7 +1,17 @@
 import SwiftUI
 
 struct DetailsView: View {
+    
     @Binding var isModalPresented: Bool
+    var id: String
+    @StateObject private var viewModel: DetailsViewModel
+    
+    init(isModalPresented: Binding<Bool>, id: String) {
+        self._isModalPresented = isModalPresented
+        self.id = id
+        self._viewModel = StateObject(wrappedValue: DetailsViewModel(id: id))
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {

@@ -88,7 +88,7 @@ struct BetCard: View {
         }.onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails)
+            DetailsView(isModalPresented: $showDetails, id: bet.id)
         }
         
     }

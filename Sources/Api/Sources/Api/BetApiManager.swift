@@ -46,4 +46,8 @@ public struct BetApiManager: BetDataManager {
         return []
     }
     
+    public func getBet(withId id: String, completion: @escaping (Bet) -> Void) {
+        
+    }
+    
 }

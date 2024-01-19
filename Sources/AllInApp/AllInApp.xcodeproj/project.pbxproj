@@ -16,6 +16,8 @@
 		EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193792B25C12B005D81E6 /* BetCard.swift */; };
 		EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */; };
 		EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937D2B25C52E005D81E6 /* TopBar.swift */; };
+		EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */; };
+		EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */; };
 		EC3077072B24CB840060E34D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3077062B24CB840060E34D /* SplashView.swift */; };
 		EC3077092B24CF7F0060E34D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3077082B24CF7F0060E34D /* Colors.swift */; };
 		EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770A2B24D9160060E34D /* WelcomeView.swift */; };
@@ -23,7 +25,6 @@
 		EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770E2B24FCB00060E34D /* RegisterView.swift */; };
 		EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = ECB357342B3E13A400045D41 /* Model */; };
 		EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2D2B4EC04B00853949 /* ViewModel */; };
-		EC4F0D302B4EC05D00853949 /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2F2B4EC05D00853949 /* StubLib */; };
 		EC650A422B25C817003AFCAD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A412B25C817003AFCAD /* Friend.swift */; };
 		EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A432B25CDF3003AFCAD /* ParameterMenu.swift */; };
 		EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A452B25D686003AFCAD /* RankingRow.swift */; };
@@ -111,6 +112,8 @@
 		EC0193792B25C12B005D81E6 /* BetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCard.swift; sourceTree = "<group>"; };
 		EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCounter.swift; sourceTree = "<group>"; };
 		EC01937D2B25C52E005D81E6 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetViewModel.swift; sourceTree = "<group>"; };
 		EC3077062B24CB840060E34D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		EC3077082B24CF7F0060E34D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EC30770A2B24D9160060E34D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -167,7 +170,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4F0D302B4EC05D00853949 /* StubLib in Frameworks */,
 				EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */,
 				ECCD244A2B4DE8010071FA9E /* Api in Frameworks */,
 				EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */,
@@ -350,6 +352,8 @@
 				ECB26A162B4073F100FE06B3 /* CreationBetViewModel.swift */,
 				ECB26A182B40744F00FE06B3 /* RankingViewModel.swift */,
 				ECB26A1A2B40746C00FE06B3 /* FriendsViewModel.swift */,
+				EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */,
+				EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -375,7 +379,6 @@
 				ECB357342B3E13A400045D41 /* Model */,
 				ECCD24492B4DE8010071FA9E /* Api */,
 				EC4F0D2D2B4EC04B00853949 /* ViewModel */,
-				EC4F0D2F2B4EC05D00853949 /* StubLib */,
 			);
 			productName = AllIn;
 			productReference = EC6B96982B24B4CC00FC1C58 /* AllIn.app */;
@@ -529,6 +532,7 @@
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,
 				ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */,
 				123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */,
+				EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */,
 				ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */,
 				ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */,
 				1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */,
@@ -536,6 +540,7 @@
 				EC650A562B279D68003AFCAD /* WinModal.swift in Sources */,
 				EC6B96D12B24BAE800FC1C58 /* AuthService.swift in Sources */,
 				123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */,
+				EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */,
 				EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */,
 				EC650A542B279545003AFCAD /* ChoiceCapsule.swift in Sources */,
 				ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */,
@@ -872,10 +877,6 @@
 		EC4F0D2D2B4EC04B00853949 /* ViewModel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ViewModel;
-		};
-		EC4F0D2F2B4EC05D00853949 /* StubLib */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StubLib;
 		};
 		ECB357342B3E13A400045D41 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;

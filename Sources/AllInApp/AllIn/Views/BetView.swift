@@ -54,6 +54,9 @@ struct BetView: View {
                     }
                 }
             }
+            .refreshable {
+                viewModel.getItems()
+            }
             .sheet(isPresented: $showingSheet) {
                 WinModal()
             }

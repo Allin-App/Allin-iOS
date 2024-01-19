@@ -70,7 +70,7 @@ struct ReviewCard: View {
         .onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails)
+            DetailsView(isModalPresented: $showDetails, id: "1")
         }
     }
 }
