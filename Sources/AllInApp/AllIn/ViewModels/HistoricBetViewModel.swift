@@ -7,12 +7,12 @@
 
 import Foundation
 import SwiftUI
-import ViewModel
 import DependencyInjection
+import Model
 
 class HistoricBetViewModel: ObservableObject {
     
-    @Inject var manager: ManagerVM
+    @Inject var manager: Manager
     
     init() {
         getItems()

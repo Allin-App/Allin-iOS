@@ -16,8 +16,8 @@ public struct Manager {
         self.userDataManager = userDataManager
     }
     
-    public func addBet(bet: Bet) {
-        userDataManager.addBet(bet: bet)
+    public func addBet(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, creator: User) {
+        userDataManager.addBet(bet: BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, totalStakes: 0, isPublic: isPublic, invited: [], author: creator, registered: []))
     }
     
     public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
@@ -26,7 +26,7 @@ public struct Manager {
         }
     }
     
-    public func getBet(withId id: String, completion: @escaping (Bet) -> Void) {
+    public func getBet(withId id: String, completion: @escaping (BetDetail) -> Void) {
         betDataManager.getBet(withId: id) { bet in
             completion(bet)
         }

@@ -7,20 +7,24 @@
 
 import Foundation
 import SwiftUI
-import ViewModel
 import DependencyInjection
+import Model
 
 class DetailsViewModel: ObservableObject {
     
-    @Inject var manager: ManagerVM
+    @Inject var manager: Manager
     var id: String
+    
+    @Published var bet: BetDetail?
     
     init(id: String) {
         self.id = id
-        getItem()
+        getItem(withId: id)
     }
     
-    func getItem() {
-       
+    func getItem(withId id: String) {
+        manager.getBet(withId: id) { bet in
+            self.bet = bet
+        }
     }
 }

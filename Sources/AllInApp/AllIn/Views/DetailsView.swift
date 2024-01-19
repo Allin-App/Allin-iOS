@@ -43,13 +43,11 @@ struct DetailsView: View {
                         HStack{
                             Text("Commence le").frame(maxWidth: 100).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
                             TextCapsule(date: Date())
-                            TextCapsule(date: Date())
                             Spacer()
                             
                         }.padding(.bottom, 10)
                         HStack{
                             Text("Fini le").frame(maxWidth: 100).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                            TextCapsule(date: Date())
                             TextCapsule(date: Date())
                             Spacer()
                             

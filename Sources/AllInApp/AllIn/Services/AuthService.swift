@@ -7,9 +7,9 @@
 
 import Foundation
 import Model
-import ViewModel
 import DependencyInjection
 import Api
+import StubLib
 
 class AuthService: IAuthService {
     
@@ -150,7 +150,7 @@ class AuthService: IAuthService {
     }
     
     private func initManagerVM(token: String) {
-        DependencyInjection.shared.addSingleton(ManagerVM.self, ManagerVM(withModel: Manager(withBetDataManager: BetApiManager(), withUserDataManager: UserApiManager(withUserToken: token))))
+        DependencyInjection.shared.addSingleton(Manager.self, Manager(withBetDataManager: BetStubManager(), withUserDataManager: UserApiManager(withUserToken: token)))
     }
     
 }

@@ -24,7 +24,7 @@
 		EC30770D2B24DB7A0060E34D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770C2B24DB7A0060E34D /* Extensions.swift */; };
 		EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770E2B24FCB00060E34D /* RegisterView.swift */; };
 		EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = ECB357342B3E13A400045D41 /* Model */; };
-		EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2D2B4EC04B00853949 /* ViewModel */; };
+		EC60C5682B5A83FB00FFD6EF /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC60C5672B5A83FB00FFD6EF /* StubLib */; };
 		EC650A422B25C817003AFCAD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A412B25C817003AFCAD /* Friend.swift */; };
 		EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A432B25CDF3003AFCAD /* ParameterMenu.swift */; };
 		EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A452B25D686003AFCAD /* RankingRow.swift */; };
@@ -102,7 +102,6 @@
 /* Begin PBXFileReference section */
 		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
-		122278BB2B4BDEC300E632AA /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sources; path = ../StubLib/Sources; sourceTree = "<group>"; };
 		123590B32B51792000F7AEBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		123590B52B5537E200F7AEBD /* ResultBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBanner.swift; sourceTree = "<group>"; };
 		123590B72B5541BA00F7AEBD /* ParticipateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateButton.swift; sourceTree = "<group>"; };
@@ -170,9 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC60C5682B5A83FB00FFD6EF /* StubLib in Frameworks */,
 				EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */,
 				ECCD244A2B4DE8010071FA9E /* Api in Frameworks */,
-				EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +333,6 @@
 		ECB3572D2B3CA3BD00045D41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				122278BB2B4BDEC300E632AA /* Sources */,
 				122278B92B4BDE9500E632AA /* Package.swift */,
 				122278B72B4BDE1100E632AA /* DependencyInjection.framework */,
 				ECB357302B3CA69300045D41 /* DependencyInjection.framework */,
@@ -378,7 +376,7 @@
 			packageProductDependencies = (
 				ECB357342B3E13A400045D41 /* Model */,
 				ECCD24492B4DE8010071FA9E /* Api */,
-				EC4F0D2D2B4EC04B00853949 /* ViewModel */,
+				EC60C5672B5A83FB00FFD6EF /* StubLib */,
 			);
 			productName = AllIn;
 			productReference = EC6B96982B24B4CC00FC1C58 /* AllIn.app */;
@@ -874,9 +872,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC4F0D2D2B4EC04B00853949 /* ViewModel */ = {
+		EC60C5672B5A83FB00FFD6EF /* StubLib */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ViewModel;
+			productName = StubLib;
 		};
 		ECB357342B3E13A400045D41 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,30 +7,23 @@
 
 import Foundation
 import DependencyInjection
-import ViewModel
 import Model
 import Combine
 
 class BetViewModel: ObservableObject {
     
-    @Inject var manager: ManagerVM
+    @Inject var manager: Manager
     
-    @Published private var internalBets: [Bet] = []
-    
-    var bets: [Bet] {
-        return internalBets
-    }
+    @Published private(set) var bets: [Bet] = []
 
     init() {
         getItems()
     }
     
     func getItems() {
-        for bet in manager.bets {
-            print(bet.theme)
+        manager.getBets(withIndex: 0, withCount: 20) { bets in
+            self.bets = bets
         }
-        manager.$bets.assign(to: \.internalBets, on: self).store(in: &cancellables)
-        manager.getPublicBets()        
     }
     
     private var cancellables: Set<AnyCancellable> = []
