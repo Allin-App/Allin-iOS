@@ -143,7 +143,7 @@ struct DetailsView: View {
                 .background(AllInColors.componentBackgroundColor)
                 .cornerRadius(15)
                 
-                ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated,isDisabled: isDisabled ).padding(10).disabled(isDisabled)
+                ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated,bet: viewModel.betDetail?.bet ).padding(10)
             
                 
             }

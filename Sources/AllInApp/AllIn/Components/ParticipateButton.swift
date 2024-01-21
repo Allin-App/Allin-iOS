@@ -6,11 +6,31 @@
 //
 
 import SwiftUI
+import Model
 
 struct ParticipateButton: View {
     @Binding var isOpen : Bool
     @Binding var isParticapatedOpen: Bool
-    @State var isDisabled: Bool = false
+    @State var bet: Bet?
+    
+    var isDisabled: Bool {
+    let endRegisterDate: Date? = bet?.endRegisterDate
+        if endRegisterDate != nil{
+            let currentDate = Date()
+
+            switch currentDate.compare(endRegisterDate!) {
+                case .orderedAscending:
+                return false
+                case .orderedDescending:
+                return true
+                case .orderedSame:
+                return true
+            }
+            
+        } else {
+            return true
+        }
+    }
     
     var body: some View {
         Button {
@@ -51,6 +71,6 @@ struct ParticipateButton: View {
                 )
                 
             
-        }
+        }.disabled(isDisabled)
     }
 }
