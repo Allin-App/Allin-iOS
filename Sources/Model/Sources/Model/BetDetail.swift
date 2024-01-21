@@ -42,4 +42,14 @@ public class BetDetail: ObservableObject {
     public func updateFinalAnswer(newFinalAnswer: String) {
             self.finalAnswer = newFinalAnswer
         }
+    
+    public func addParticipation(newParticipation: Participation){
+        if !self.bet.registered.contains(where: { existingUser in
+            return existingUser.email == newParticipation.user.email
+        }) {
+                self.bet.addRegistered(newUser: newParticipation.user)
+            }
+
+            self.participations.append(newParticipation)
+    }
 }

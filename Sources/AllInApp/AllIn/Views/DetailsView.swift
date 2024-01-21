@@ -1,4 +1,5 @@
 import SwiftUI
+import Model
 
 struct DetailsView: View {
     
@@ -106,7 +107,7 @@ struct DetailsView: View {
                                 .foregroundColor(AllInColors.grey800Color)
                             TextCapsule(date: viewModel.betDetail?.bet.endBetDate ?? Date())
                             Spacer()
-                            
+                        
                         }
                     }
                     .frame(width: .infinity)
@@ -116,8 +117,17 @@ struct DetailsView: View {
                     if isFinished {
                         ResultBanner()
                     }
-                    VStack(alignment: .leading, spacing: 15) {
-                        BetLineLoading(value: $progressValue).padding(.vertical, 15)
+                    VStack(alignment: .leading, spacing: 5) {
+                        BetLineLoading(participations: viewModel.betDetail!.participations).padding(.vertical,15)
+                        Text("Liste des participants")
+                            .font(.system(size: 18))
+                            .foregroundStyle(AllInColors.grey100Color)
+                            .fontWeight(.bold)
+                            .padding(.bottom, 10)
+                        ForEach(viewModel.betDetail?.participations ?? []) { (participation: Participation) in
+                            ParticiationCell(participation: participation).padding(.horizontal, 10)
+                        }
+                        
                         Spacer()
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
