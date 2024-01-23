@@ -35,7 +35,7 @@ struct Stub {
         let bet1 = BinaryBet(
             theme: "Football - Finale de la Ligue des Champions",
             phrase: "Le gagnant de la finale sera l'équipe avec le plus de tirs au but.",
-            endRegisterDate: Date().addingTimeInterval(86400),
+            endRegisterDate: Date().addingTimeInterval(-86400),
             endBetDate: Date().addingTimeInterval(172800),
             totalStakes: 100,
             isPublic: true,
@@ -88,10 +88,16 @@ struct Stub {
             let betDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: user1, betId: ""))
             self.betsDetail.append(betDetail)
         }
+        
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 120, date: Date(), response: "OUI", user: user1, betId: "1"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 20, date: Date(), response: "NON", user: user2, betId: "2"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
+        
     }
     
     public mutating func add(bet: Bet) {
-        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: users[1], betId: ""))
+        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: users[1], betId: ""), finalAnswer: "test")
         self.betsDetail.append(newBetDetail)
     }
 }

@@ -90,4 +90,8 @@ public class Bet: ObservableObject, Identifiable {
         self.author = author
         self.registered = registered
     }
+    
+    public func addRegistered(newUser: User){
+        self.registered.append(newUser)
+    }
 }

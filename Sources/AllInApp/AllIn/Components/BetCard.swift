@@ -12,22 +12,28 @@ struct BetCard: View {
     
     var bet: Bet
     @State var showDetails: Bool = false
-    
+    @State var showParticipate: Bool = false
+
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par " + bet.author.username.capitalized).font(.system(size: 10)).foregroundColor(AllInColors.grey800Color)
+                    Text("proposé par " + bet.author.username.capitalized)
+                        .font(.system(size: 10))
+                        .foregroundColor(AllInColors.grey800Color)
                     
                 }
-                Text(bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                Text(bet.phrase).font(.system(size: 20)).fontWeight(.bold)
+                Text(bet.theme)
+                    .font(.system(size: 15))
+                    .foregroundColor(AllInColors.grey800Color)
+                Text(bet.phrase)
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
                 HStack{
                     Text("Commence le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
                     TextCapsule(date: bet.endRegisterDate)
                     Spacer()
-                    
                 }
             }
             .frame(width: .infinity)
@@ -38,35 +44,14 @@ struct BetCard: View {
                 HStack{
                     Spacer()
                     UsersPreview()
-                    Text(String(bet.registered.count) + " joueurs en attente").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color).fontWeight(.medium)
-                    
+                    Text(String(bet.registered.count) + " joueurs en attente")
+                        .font(.system(size: 15))
+                        .foregroundColor(AllInColors.grey800Color)
+                        .fontWeight(.medium)
                     Spacer()
                     
                 }.padding(0)
-                Button {
-                    
-                } label: {
-                    Text("Participer")
-                        .font(.system(size: 30))
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity).padding(10)
-                        .multilineTextAlignment(.center)
-                        .overlay {
-                            AllInColors.primaryGradient.frame(width: 170)
-                                .mask(
-                                    Text("Participer")
-                                        .font(.system(size: 30))
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity).padding(10)
-                                )
-                        }
-                }
-                .accentColor(AllInColors.componentBackgroundColor)
-                .buttonStyle(.borderedProminent).cornerRadius(4.0)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12).stroke(AllInColors.delimiterGrey, lineWidth: 1)
-                ).padding([.top],5)
-                
+                ParticipateButton(isOpen: $showDetails, isParticapatedOpen: $showParticipate, bet: bet).padding(.top, 5)
             }
             .frame(width: .infinity)
             .padding(.all,8)
@@ -78,7 +63,7 @@ struct BetCard: View {
             showDetails.toggle()
         }
         .fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails, id: bet.id)
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showParticipate,id: bet.id)
         }
     }
 }

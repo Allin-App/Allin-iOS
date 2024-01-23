@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReviewCard: View {
     @State var showDetails: Bool = false
+    @State var showPartipated: Bool = false
     
     var amountBetted: Int
     var isAWin: Bool
@@ -70,7 +71,7 @@ struct ReviewCard: View {
         .onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails, id: "1")
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: "1")
         }
     }
 }

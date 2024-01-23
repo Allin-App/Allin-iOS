@@ -1,13 +1,57 @@
 import SwiftUI
+import Model
 
 struct DetailsView: View {
     
     @Binding var isModalPresented: Bool
+    @Binding var isModalParticipated: Bool
+    @State var progressValue: Float = 0.2
+    var isFinished: Bool {
+        viewModel.betDetail?.finalAnswer == nil ? false : true
+    }
+    
+    var isDisabled: Bool {
+        if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
+            let currentDate = Date()
+
+            switch currentDate.compare(endRegisterDate) {
+                case .orderedAscending:
+                return false
+                case .orderedDescending:
+                return true
+                case .orderedSame:
+                return true
+            }
+            
+        } else {
+            return true
+        }
+    }
+    
+    var StatusValues: (String, Color) {
+        if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
+            let currentDate = Date()
+
+            switch currentDate.compare(endRegisterDate) {
+                case .orderedAscending:
+                return ("En cours...", AllInColors.purpleAccentColor)
+                case .orderedDescending:
+                return ("En attente...",AllInColors.pink100)
+                case .orderedSame:
+                return ("Fin des inscriptions...",AllInColors.grey50Color)
+            }
+            
+        } else {
+            return ("Statut indisponible", AllInColors.whiteColor)
+        }
+    }
+
     var id: String
     @StateObject private var viewModel: DetailsViewModel
     
-    init(isModalPresented: Binding<Bool>, id: String) {
+    init(isModalPresented: Binding<Bool>, isModalParticipated: Binding<Bool>,id: String) {
         self._isModalPresented = isModalPresented
+        self._isModalParticipated = isModalParticipated
         self.id = id
         self._viewModel = StateObject(wrappedValue: DetailsViewModel(id: id))
     }
@@ -15,21 +59,21 @@ struct DetailsView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
-                VStack(alignment: .trailing) {
+                VStack(alignment: .center) {
                     HStack{
+                        Text(StatusValues.0).font(.system(size: 25)).fontWeight(.bold).padding(.bottom, 10).foregroundStyle(Color.black).opacity(0.4)
                         Spacer()
                         Image("closeIcon")
                             .resizable()
-                            .padding(8)
-                            .frame(maxWidth: 40, maxHeight: 40)
+                            .frame(maxWidth: 25, maxHeight: 25)
                             .onTapGesture {
                                 isModalPresented = false
                             }
                     }
                     Spacer()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.green)
+                .padding(.horizontal, 15)
+                .background(StatusValues.1)
                 .transition(.slideInFromBottom(yOffset:0))
                 VStack(spacing: 0) {
                     VStack(alignment: .leading,spacing: 5){
@@ -63,32 +107,49 @@ struct DetailsView: View {
                                 .foregroundColor(AllInColors.grey800Color)
                             TextCapsule(date: viewModel.betDetail?.bet.endBetDate ?? Date())
                             Spacer()
-                            
+                        
                         }
                     }
                     .frame(width: .infinity)
                     .padding(.all,15).padding(.vertical, 10)
                     .background(AllInColors.componentBackgroundColor)
                     .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
-                    ResultBanner()
-                    VStack(alignment: .leading, spacing: 2){
+                    if isFinished {
+                        ResultBanner()
+                    }
+                    VStack(alignment: .leading, spacing: 5) {
+                        BetLineLoading(participations: viewModel.betDetail!.participations).padding(.vertical,15)
+                        Text("Liste des participants")
+                            .font(.system(size: 18))
+                            .foregroundStyle(AllInColors.grey100Color)
+                            .fontWeight(.bold)
+                            .padding(.bottom, 10)
+                        ForEach(viewModel.betDetail?.participations ?? []) { (participation: Participation) in
+                            ParticiationCell(participation: participation).padding(.horizontal, 10)
+                        }
+                        
+                        Spacer()
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
-                    .padding([.bottom,.trailing,.leading],8)
+                    .padding([.bottom,.trailing,.leading], 15)
                     .background(AllInColors.underComponentBackgroundColor)
                     .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
                     Spacer()
+                
                     
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: geometry.size.height*0.98)
                 .background(AllInColors.componentBackgroundColor)
                 .cornerRadius(15)
-                ParticipateButton().padding(10)
+                
+                ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated,bet: viewModel.betDetail?.bet ).padding(10)
+            
+                
             }
-            .transition(.slideInFromBottom(yOffset: 800))
-            .background(Color.white)
-
+            .sheet(isPresented: $isModalParticipated) {
+                ParticipationModal().presentationDetents([.fraction(0.55)])
+            }
             .edgesIgnoringSafeArea(.bottom)
         }
     }

@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120919182B56D0AE00D0FA29 /* ParticipationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919172B56D0AE00D0FA29 /* ParticipationModal.swift */; };
+		1209191A2B56DC6C00D0FA29 /* DropDownAnswerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */; };
 		123590B42B51792000F7AEBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B32B51792000F7AEBD /* DetailsView.swift */; };
 		123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B52B5537E200F7AEBD /* ResultBanner.swift */; };
 		123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B72B5541BA00F7AEBD /* ParticipateButton.swift */; };
 		1244EF602B4EC31E00374ABF /* HistoricBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */; };
 		1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF612B4EC67000374ABF /* ReviewCard.swift */; };
+		12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */; };
+		12C3704A2B5D5BD000CD9F0F /* ParticiationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
 		EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193792B25C12B005D81E6 /* BetCard.swift */; };
 		EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */; };
@@ -100,6 +104,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		120919172B56D0AE00D0FA29 /* ParticipationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationModal.swift; sourceTree = "<group>"; };
+		120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownAnswerMenu.swift; sourceTree = "<group>"; };
 		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
 		123590B32B51792000F7AEBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
@@ -107,6 +113,8 @@
 		123590B72B5541BA00F7AEBD /* ParticipateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateButton.swift; sourceTree = "<group>"; };
 		1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetView.swift; sourceTree = "<group>"; };
 		1244EF612B4EC67000374ABF /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
+		12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetLineLoading.swift; sourceTree = "<group>"; };
+		12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticiationCell.swift; sourceTree = "<group>"; };
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
 		EC0193792B25C12B005D81E6 /* BetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCard.swift; sourceTree = "<group>"; };
 		EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCounter.swift; sourceTree = "<group>"; };
@@ -326,6 +334,10 @@
 				1244EF612B4EC67000374ABF /* ReviewCard.swift */,
 				123590B52B5537E200F7AEBD /* ResultBanner.swift */,
 				123590B72B5541BA00F7AEBD /* ParticipateButton.swift */,
+				120919172B56D0AE00D0FA29 /* ParticipationModal.swift */,
+				120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */,
+				12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */,
+				12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -502,6 +514,7 @@
 				EC6B969E2B24B4CC00FC1C58 /* ContentView.swift in Sources */,
 				EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */,
 				EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */,
+				120919182B56D0AE00D0FA29 /* ParticipationModal.swift in Sources */,
 				ECB26A132B406A9400FE06B3 /* BetViewModel.swift in Sources */,
 				EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */,
 				EC650A522B2794DD003AFCAD /* BetView.swift in Sources */,
@@ -529,6 +542,7 @@
 				EC3077072B24CB840060E34D /* SplashView.swift in Sources */,
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,
 				ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */,
+				12C3704A2B5D5BD000CD9F0F /* ParticiationCell.swift in Sources */,
 				123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */,
 				EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */,
 				ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */,
@@ -540,9 +554,11 @@
 				123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */,
 				EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */,
 				EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */,
+				12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */,
 				EC650A542B279545003AFCAD /* ChoiceCapsule.swift in Sources */,
 				ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */,
 				ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */,
+				1209191A2B56DC6C00D0FA29 /* DropDownAnswerMenu.swift in Sources */,
 				EC650A582B279D9D003AFCAD /* RecapBetCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
