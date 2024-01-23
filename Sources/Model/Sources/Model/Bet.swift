@@ -25,11 +25,10 @@ public class Bet: ObservableObject, Identifiable {
     /// The deadline for the actual betting to take place.
     public private(set) var endBetDate: Date
     
-    /// The total stakes or amount involved in the bet.
-    public private(set) var totalStakes: Int
-    
     /// Indicates whether the bet is public or private.
     public private(set) var isPublic: Bool
+    
+    public private(set) var status: BetStatus
     
     /// List of users who are invited to participate in the bet.
     public private(set) var invited: [User]
@@ -39,6 +38,7 @@ public class Bet: ObservableObject, Identifiable {
     
     /// List of users who have registered for the bet.
     public private(set) var registered: [User]
+    
 
     /// Custom Constructor
     ///
@@ -48,19 +48,18 @@ public class Bet: ObservableObject, Identifiable {
     ///   - phrase: The specific phrase or question related to the bet.
     ///   - endRegisterDate: The deadline for users to register for the bet.
     ///   - endBetDate: The deadline for the actual betting to take place.
-    ///   - totalStakes: The total stakes or amount involved in the bet.
     ///   - isPublic: Indicates whether the bet is public or private.
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
-    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, totalStakes: Int, isPublic: Bool, invited: [User], author: User, registered: [User]) {
+    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: User, registered: [User]) {
         self.id = id
         self.theme = theme
         self.phrase = phrase
         self.endRegisterDate = endRegisterDate
         self.endBetDate = endBetDate
-        self.totalStakes = totalStakes
         self.isPublic = isPublic
+        self.status = status
         self.invited = invited
         self.author = author
         self.registered = registered
@@ -73,19 +72,18 @@ public class Bet: ObservableObject, Identifiable {
     ///   - phrase: The specific phrase or question related to the bet.
     ///   - endRegisterDate: The deadline for users to register for the bet.
     ///   - endBetDate: The deadline for the actual betting to take place.
-    ///   - totalStakes: The total stakes or amount involved in the bet.
     ///   - isPublic: Indicates whether the bet is public or private.
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
-    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, totalStakes: Int, isPublic: Bool, invited: [User], author: User, registered: [User]) {
+    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: User, registered: [User]) {
         self.id = UUID().uuidString
         self.theme = theme
         self.phrase = phrase
         self.endRegisterDate = endRegisterDate
         self.endBetDate = endBetDate
-        self.totalStakes = totalStakes
         self.isPublic = isPublic
+        self.status = status
         self.invited = invited
         self.author = author
         self.registered = registered

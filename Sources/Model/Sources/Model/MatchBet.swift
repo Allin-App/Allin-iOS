@@ -30,10 +30,10 @@ public class MatchBet: Bet {
     ///   - registered: List of users who have registered for the match bet.
     ///   - nameTeam1: The name of the first team involved in the match.
     ///   - nameTeam2: The name of the second team involved in the match.
-    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, totalStakes: Int, isPublic: Bool, invited: [User], author: User, registered: [User], nameTeam1: String, nameTeam2: String) {
+    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: User, registered: [User], nameTeam1: String, nameTeam2: String) {
         self.nameTeam1 = nameTeam1
         self.nameTeam2 = nameTeam2
-        super.init(id: id, theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, totalStakes: totalStakes, isPublic: isPublic, invited: invited, author: author, registered: registered)
+        super.init(id: id, theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, isPublic: isPublic, status: status, invited: invited, author: author, registered: registered)
     }
     
     /// Custom Constructor without Id
@@ -50,9 +50,9 @@ public class MatchBet: Bet {
     ///   - registered: List of users who have registered for the match bet.
     ///   - nameTeam1: The name of the first team involved in the match.
     ///   - nameTeam2: The name of the second team involved in the match.
-    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, totalStakes: Int, isPublic: Bool, invited: [User], author: User, registered: [User], nameTeam1: String, nameTeam2: String) {
+    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: User, registered: [User], nameTeam1: String, nameTeam2: String) {
         self.nameTeam1 = nameTeam1
         self.nameTeam2 = nameTeam2
-        super.init(theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, totalStakes: totalStakes, isPublic: isPublic, invited: invited, author: author, registered: registered)
+        super.init(theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, isPublic: isPublic, status: status, invited: invited, author: author, registered: registered)
     }
 }

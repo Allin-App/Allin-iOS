@@ -8,7 +8,7 @@
 import Foundation
 
 /// A class representing a user's participation in a bet.
-public class Participation: ObservableObject, Identifiable{
+public class Participation: ObservableObject, Identifiable {
     
     public let id: UUID
     /// The amount of stake in the bet.
@@ -24,7 +24,7 @@ public class Participation: ObservableObject, Identifiable{
     public private(set) var user: User
     
     /// The unique identifier of the bet.
-    let betId: String
+    public private(set) var betId: String
     
     /// Custom Constructor
     ///

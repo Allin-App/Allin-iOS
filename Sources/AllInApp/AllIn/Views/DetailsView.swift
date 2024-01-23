@@ -118,7 +118,7 @@ struct DetailsView: View {
                         ResultBanner()
                     }
                     VStack(alignment: .leading, spacing: 5) {
-                        BetLineLoading(participations: viewModel.betDetail!.participations).padding(.vertical,15)
+                        BetLineLoading(participations: viewModel.betDetail?.participations ?? []).padding(.vertical,15)
                         Text("Liste des participants")
                             .font(.system(size: 18))
                             .foregroundStyle(AllInColors.grey100Color)

@@ -17,7 +17,7 @@ public struct Manager {
     }
     
     public func addBet(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, creator: User) {
-        userDataManager.addBet(bet: BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, totalStakes: 0, isPublic: isPublic, invited: [], author: creator, registered: []))
+        userDataManager.addBet(bet: BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: .IN_PROGRESS, invited: [], author: creator, registered: []))
     }
     
     public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {

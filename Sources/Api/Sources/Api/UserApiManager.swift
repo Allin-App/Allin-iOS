@@ -24,15 +24,14 @@ public struct UserApiManager: UserDataManager {
     
     public func addBet(bet: Bet) {
         
-        print(token)
         let url = URL(string: allInApi + "bets/add")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let json = FactoryApiBet().toResponse(bet: bet)
         
-        var json = FactoryApiBet().toResponse(bet: bet)
-        json["createdBy"] = token
-                
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
                 print ("ALLIN : Add BET")

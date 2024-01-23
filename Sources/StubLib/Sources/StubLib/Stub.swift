@@ -37,8 +37,8 @@ struct Stub {
             phrase: "Le gagnant de la finale sera l'équipe avec le plus de tirs au but.",
             endRegisterDate: Date().addingTimeInterval(-86400),
             endBetDate: Date().addingTimeInterval(172800),
-            totalStakes: 100,
             isPublic: true,
+            status: .IN_PROGRESS,
             invited: [],
             author: user1,
             registered: [user2]
@@ -50,8 +50,8 @@ struct Stub {
             phrase: "Le plat préféré du jury sera une recette végétarienne.",
             endRegisterDate: Date().addingTimeInterval(172800),
             endBetDate: Date().addingTimeInterval(259200),
-            totalStakes: 150,
             isPublic: false,
+            status: .IN_PROGRESS,
             invited: [user3],
             author: user1,
             registered: [user2]
@@ -63,8 +63,8 @@ struct Stub {
             phrase: "Le nombre total de précommandes dépassera-t-il 1 million dans la première semaine ?",
             endRegisterDate: Date().addingTimeInterval(259200),
             endBetDate: Date().addingTimeInterval(345600),
-            totalStakes: 75,
             isPublic: true,
+            status: .FINISHED,
             invited: [],
             author: user1,
             registered: [user2, user1, user3]
@@ -76,8 +76,8 @@ struct Stub {
             phrase: "Le film favori des critiques remportera-t-il le prix du meilleur film ?",
             endRegisterDate: Date().addingTimeInterval(345600),
             endBetDate: Date().addingTimeInterval(432000),
-            totalStakes: 120,
             isPublic: false,
+            status: .FINISHED,
             invited: [user1],
             author: user2,
             registered: [user3]
@@ -85,7 +85,7 @@ struct Stub {
         self.bets.append(bet4)
 
         for bet in bets {
-            let betDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: user1, betId: ""))
+            let betDetail = BetDetail(bet: bet, answers: [], participations: [])
             self.betsDetail.append(betDetail)
         }
         
@@ -97,7 +97,7 @@ struct Stub {
     }
     
     public mutating func add(bet: Bet) {
-        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], userParticipation: Participation(stake: 0, date: Date(), response: "", user: users[1], betId: ""), finalAnswer: "test")
+        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], finalAnswer: "test")
         self.betsDetail.append(newBetDetail)
     }
 }

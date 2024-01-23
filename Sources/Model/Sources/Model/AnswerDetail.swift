@@ -1,5 +1,5 @@
 //
-//  BetAnswerDetail.swift
+//  AnswerDetail.swift
 //
 //
 //  Created by Emre on 19/01/2024.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// A class representing detailed information about a specific answer option for a bet.
-public class BetAnswerDetail: ObservableObject {
+public class AnswerDetail: ObservableObject {
     
     /// The response or outcome associated with this answer.
     public private(set) var response: String

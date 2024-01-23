@@ -14,13 +14,10 @@ public class BetDetail: ObservableObject {
     public private(set) var bet: Bet
     
     /// Details about the answers available for the bet.
-    public private(set) var answers: [BetAnswerDetail]
+    public private(set) var answers: [AnswerDetail]
 
     /// List of user participations in the bet.
     public private(set) var participations: [Participation]
-    
-    /// The user's own participation in the bet.
-    public private(set) var userParticipation: Participation
     
     public private(set) var finalAnswer: String?
     
@@ -31,11 +28,10 @@ public class BetDetail: ObservableObject {
     ///   - answers: Details about the answers available for the bet.
     ///   - participations: List of user participations in the bet.
     ///   - userParticipation: The user's own participation in the bet.
-    public init(bet: Bet, answers: [BetAnswerDetail], participations: [Participation], userParticipation: Participation, finalAnswer: String? = nil) {
+    public init(bet: Bet, answers: [AnswerDetail], participations: [Participation], finalAnswer: String? = nil) {
         self.bet = bet
         self.answers = answers
         self.participations = participations
-        self.userParticipation = userParticipation
         self.finalAnswer = finalAnswer
     }
     
