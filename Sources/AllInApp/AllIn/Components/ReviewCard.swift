@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ReviewCard: View {
+    @State var showDetails: Bool = false
+    @State var showPartipated: Bool = false
     
     var amountBetted: Int
     var isAWin: Bool
@@ -36,14 +38,14 @@ struct ReviewCard: View {
                 HStack(){
                     Spacer()
                     Text(amountBetted.description)
-                        .foregroundColor(AllInColors.whiteColor)
+                        .foregroundColor(.white)
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                     Image("allcoinWhiteIcon")
                         .resizable()
                         .frame(width: 20, height: 20, alignment: .bottom)
                     Text(isAWin ? "Gagnés!" : "Perdus!")
-                        .foregroundColor(AllInColors.whiteColor)
+                        .foregroundColor(.white)
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                     Spacer()
@@ -65,6 +67,11 @@ struct ReviewCard: View {
                 AnyView(Color.black)
             )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+        }
+        .onTapGesture {
+            showDetails.toggle()
+        }.fullScreenCover(isPresented: $showDetails) {
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: "1")
         }
     }
 }

@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import DependencyInjection
 
 struct Menu: View {
+    
+    @Inject var authService: IAuthService
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
@@ -91,6 +95,17 @@ struct Menu: View {
             {
                 ParameterMenu(image: "rankingImage", title: "CLASSEMENT", description: "Consultez votre classement parmis vos amis.")
                     .padding([.leading,.trailing], 13)
+            }
+            
+            HStack {
+                Spacer()
+                Button {
+                    authService.logout()
+                } label: {
+                    Text("Deconnexion")
+                        .foregroundColor(.white)
+                }
+                Spacer()
             }
             
             Spacer()

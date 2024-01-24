@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AllcoinsCounter: View {
+    var backgroundColor: Color = .white
+    var foregroundColor: Color = AllInColors.primaryColor
     var body: some View {
         HStack(alignment: .center) {
             Image("allcoinIcon")
@@ -15,10 +17,10 @@ struct AllcoinsCounter: View {
                 .frame(width: 17, height: 17, alignment: .leading)
             Text(String(AppStateContainer.shared.user?.nbCoins ?? 0))
                 .fontWeight(.black)
-                .foregroundColor(AllInColors.primaryColor)
+                .foregroundColor(foregroundColor)
         }
         .frame(width: 90, height: 40)
-        .background(Color.white)
+        .background(backgroundColor)
         .cornerRadius(9999, corners: [.topLeft, .bottomLeft])
         
     }

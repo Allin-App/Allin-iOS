@@ -7,11 +7,11 @@
 
 import Foundation
 import DependencyInjection
-import ViewModel
+import Model
 
 class FriendsViewModel: ObservableObject {
     
-    @Inject var manager: ManagerVM
+    @Inject var manager: Manager
     
     init() {
         getItems()

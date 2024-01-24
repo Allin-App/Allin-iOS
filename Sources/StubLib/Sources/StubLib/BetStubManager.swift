@@ -1,6 +1,6 @@
 //
 //  BetStubManager.swift
-//  
+//
 //
 //  Created by Emre on 31/12/2023.
 //
@@ -17,10 +17,16 @@ public struct BetStubManager: BetDataManager {
     }
     
     public func getUsers(username: String) -> [User] {
-        return Stub.shared.users
-            .filter { user in
-                user.username.contains(username)
-            }
+        return []
+    }
+    
+    public func getBet(withId id: String, completion: @escaping (BetDetail) -> Void) {
+
+        if let betDetail = Stub.shared.betsDetail.first(where: { $0.bet.id == id }) {
+            completion(betDetail)
+        } else {
+            print("BetDetail with ID \(id) not found.")
+        }
     }
     
 }

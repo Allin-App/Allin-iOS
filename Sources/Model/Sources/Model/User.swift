@@ -8,10 +8,10 @@
 import Foundation
 
 public struct User {
-    public var username: String
-    public var email: String
-    public var nbCoins: Int
-    public var friends: [User]
+    public private(set) var username: String
+    public private(set) var email: String
+    public private(set) var nbCoins: Int
+    public private(set) var friends: [User]
     
     public init(username: String, email: String, nbCoins: Int, friends: [User]) {
         self.username = username

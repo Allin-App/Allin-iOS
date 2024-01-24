@@ -7,20 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120919182B56D0AE00D0FA29 /* ParticipationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919172B56D0AE00D0FA29 /* ParticipationModal.swift */; };
+		1209191A2B56DC6C00D0FA29 /* DropDownAnswerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */; };
+		123590B42B51792000F7AEBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B32B51792000F7AEBD /* DetailsView.swift */; };
+		123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B52B5537E200F7AEBD /* ResultBanner.swift */; };
+		123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B72B5541BA00F7AEBD /* ParticipateButton.swift */; };
 		1244EF602B4EC31E00374ABF /* HistoricBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */; };
 		1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF612B4EC67000374ABF /* ReviewCard.swift */; };
+		12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */; };
+		12C3704A2B5D5BD000CD9F0F /* ParticiationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
 		EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193792B25C12B005D81E6 /* BetCard.swift */; };
 		EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */; };
 		EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937D2B25C52E005D81E6 /* TopBar.swift */; };
+		EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */; };
+		EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */; };
 		EC3077072B24CB840060E34D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3077062B24CB840060E34D /* SplashView.swift */; };
 		EC3077092B24CF7F0060E34D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3077082B24CF7F0060E34D /* Colors.swift */; };
 		EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770A2B24D9160060E34D /* WelcomeView.swift */; };
 		EC30770D2B24DB7A0060E34D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770C2B24DB7A0060E34D /* Extensions.swift */; };
 		EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770E2B24FCB00060E34D /* RegisterView.swift */; };
 		EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = ECB357342B3E13A400045D41 /* Model */; };
-		EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2D2B4EC04B00853949 /* ViewModel */; };
-		EC4F0D302B4EC05D00853949 /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC4F0D2F2B4EC05D00853949 /* StubLib */; };
+		EC60C5682B5A83FB00FFD6EF /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC60C5672B5A83FB00FFD6EF /* StubLib */; };
 		EC650A422B25C817003AFCAD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A412B25C817003AFCAD /* Friend.swift */; };
 		EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A432B25CDF3003AFCAD /* ParameterMenu.swift */; };
 		EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A452B25D686003AFCAD /* RankingRow.swift */; };
@@ -96,15 +104,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		120919172B56D0AE00D0FA29 /* ParticipationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationModal.swift; sourceTree = "<group>"; };
+		120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownAnswerMenu.swift; sourceTree = "<group>"; };
 		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
-		122278BB2B4BDEC300E632AA /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sources; path = ../StubLib/Sources; sourceTree = "<group>"; };
+		123590B32B51792000F7AEBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		123590B52B5537E200F7AEBD /* ResultBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBanner.swift; sourceTree = "<group>"; };
+		123590B72B5541BA00F7AEBD /* ParticipateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateButton.swift; sourceTree = "<group>"; };
 		1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetView.swift; sourceTree = "<group>"; };
 		1244EF612B4EC67000374ABF /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
+		12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetLineLoading.swift; sourceTree = "<group>"; };
+		12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticiationCell.swift; sourceTree = "<group>"; };
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
 		EC0193792B25C12B005D81E6 /* BetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCard.swift; sourceTree = "<group>"; };
 		EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCounter.swift; sourceTree = "<group>"; };
 		EC01937D2B25C52E005D81E6 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetViewModel.swift; sourceTree = "<group>"; };
 		EC3077062B24CB840060E34D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		EC3077082B24CF7F0060E34D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EC30770A2B24D9160060E34D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -161,10 +177,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4F0D302B4EC05D00853949 /* StubLib in Frameworks */,
+				EC60C5682B5A83FB00FFD6EF /* StubLib in Frameworks */,
 				EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */,
 				ECCD244A2B4DE8010071FA9E /* Api in Frameworks */,
-				EC4F0D2E2B4EC04B00853949 /* ViewModel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +305,7 @@
 				EC650A512B2794DD003AFCAD /* BetView.swift */,
 				EC7A882C2B28D8A1004F226A /* CreationBetView.swift */,
 				1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */,
+				123590B32B51792000F7AEBD /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +332,12 @@
 				ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */,
 				ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */,
 				1244EF612B4EC67000374ABF /* ReviewCard.swift */,
+				123590B52B5537E200F7AEBD /* ResultBanner.swift */,
+				123590B72B5541BA00F7AEBD /* ParticipateButton.swift */,
+				120919172B56D0AE00D0FA29 /* ParticipationModal.swift */,
+				120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */,
+				12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */,
+				12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -323,7 +345,6 @@
 		ECB3572D2B3CA3BD00045D41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				122278BB2B4BDEC300E632AA /* Sources */,
 				122278B92B4BDE9500E632AA /* Package.swift */,
 				122278B72B4BDE1100E632AA /* DependencyInjection.framework */,
 				ECB357302B3CA69300045D41 /* DependencyInjection.framework */,
@@ -341,6 +362,8 @@
 				ECB26A162B4073F100FE06B3 /* CreationBetViewModel.swift */,
 				ECB26A182B40744F00FE06B3 /* RankingViewModel.swift */,
 				ECB26A1A2B40746C00FE06B3 /* FriendsViewModel.swift */,
+				EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */,
+				EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,8 +388,7 @@
 			packageProductDependencies = (
 				ECB357342B3E13A400045D41 /* Model */,
 				ECCD24492B4DE8010071FA9E /* Api */,
-				EC4F0D2D2B4EC04B00853949 /* ViewModel */,
-				EC4F0D2F2B4EC05D00853949 /* StubLib */,
+				EC60C5672B5A83FB00FFD6EF /* StubLib */,
 			);
 			productName = AllIn;
 			productReference = EC6B96982B24B4CC00FC1C58 /* AllIn.app */;
@@ -492,10 +514,12 @@
 				EC6B969E2B24B4CC00FC1C58 /* ContentView.swift in Sources */,
 				EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */,
 				EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */,
+				120919182B56D0AE00D0FA29 /* ParticipationModal.swift in Sources */,
 				ECB26A132B406A9400FE06B3 /* BetViewModel.swift in Sources */,
 				EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */,
 				EC650A522B2794DD003AFCAD /* BetView.swift in Sources */,
 				EC6B969C2B24B4CC00FC1C58 /* AllInApp.swift in Sources */,
+				123590B42B51792000F7AEBD /* DetailsView.swift in Sources */,
 				ECB26A192B40744F00FE06B3 /* RankingViewModel.swift in Sources */,
 				EC650A502B2793D5003AFCAD /* TextCapsule.swift in Sources */,
 				EC650A482B25DCFF003AFCAD /* UsersPreview.swift in Sources */,
@@ -518,16 +542,23 @@
 				EC3077072B24CB840060E34D /* SplashView.swift in Sources */,
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,
 				ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */,
+				12C3704A2B5D5BD000CD9F0F /* ParticiationCell.swift in Sources */,
+				123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */,
+				EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */,
 				ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */,
 				ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */,
 				1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */,
 				EC6B96D52B24BE0E00FC1C58 /* MainView.swift in Sources */,
 				EC650A562B279D68003AFCAD /* WinModal.swift in Sources */,
 				EC6B96D12B24BAE800FC1C58 /* AuthService.swift in Sources */,
+				123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */,
+				EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */,
 				EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */,
+				12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */,
 				EC650A542B279545003AFCAD /* ChoiceCapsule.swift in Sources */,
 				ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */,
 				ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */,
+				1209191A2B56DC6C00D0FA29 /* DropDownAnswerMenu.swift in Sources */,
 				EC650A582B279D9D003AFCAD /* RecapBetCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,11 +888,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC4F0D2D2B4EC04B00853949 /* ViewModel */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ViewModel;
-		};
-		EC4F0D2F2B4EC05D00853949 /* StubLib */ = {
+		EC60C5672B5A83FB00FFD6EF /* StubLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StubLib;
 		};

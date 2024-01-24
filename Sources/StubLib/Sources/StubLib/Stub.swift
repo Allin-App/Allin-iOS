@@ -1,6 +1,6 @@
 //
 //  Stub.swift
-//  
+//
 //
 //  Created by Emre on 01/01/2024.
 //
@@ -12,6 +12,7 @@ struct Stub {
     
     static var shared = Stub()
     public var bets: [Bet] = []
+    public var betsDetail: [BetDetail] = []
     public var users: [User] = []
     
     public init() {
@@ -34,10 +35,10 @@ struct Stub {
         let bet1 = BinaryBet(
             theme: "Football - Finale de la Ligue des Champions",
             phrase: "Le gagnant de la finale sera l'équipe avec le plus de tirs au but.",
-            endRegisterDate: Date().addingTimeInterval(86400),
+            endRegisterDate: Date().addingTimeInterval(-86400),
             endBetDate: Date().addingTimeInterval(172800),
-            totalStakes: 100,
             isPublic: true,
+            status: .IN_PROGRESS,
             invited: [],
             author: user1,
             registered: [user2]
@@ -49,8 +50,8 @@ struct Stub {
             phrase: "Le plat préféré du jury sera une recette végétarienne.",
             endRegisterDate: Date().addingTimeInterval(172800),
             endBetDate: Date().addingTimeInterval(259200),
-            totalStakes: 150,
             isPublic: false,
+            status: .IN_PROGRESS,
             invited: [user3],
             author: user1,
             registered: [user2]
@@ -62,8 +63,8 @@ struct Stub {
             phrase: "Le nombre total de précommandes dépassera-t-il 1 million dans la première semaine ?",
             endRegisterDate: Date().addingTimeInterval(259200),
             endBetDate: Date().addingTimeInterval(345600),
-            totalStakes: 75,
             isPublic: true,
+            status: .FINISHED,
             invited: [],
             author: user1,
             registered: [user2, user1, user3]
@@ -75,17 +76,28 @@ struct Stub {
             phrase: "Le film favori des critiques remportera-t-il le prix du meilleur film ?",
             endRegisterDate: Date().addingTimeInterval(345600),
             endBetDate: Date().addingTimeInterval(432000),
-            totalStakes: 120,
             isPublic: false,
+            status: .FINISHED,
             invited: [user1],
             author: user2,
             registered: [user3]
         )
         self.bets.append(bet4)
+
+        for bet in bets {
+            let betDetail = BetDetail(bet: bet, answers: [], participations: [])
+            self.betsDetail.append(betDetail)
+        }
+        
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 120, date: Date(), response: "OUI", user: user1, betId: "1"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 20, date: Date(), response: "NON", user: user2, betId: "2"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
         
     }
     
     public mutating func add(bet: Bet) {
-        self.bets.append(bet)
+        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], finalAnswer: "test")
+        self.betsDetail.append(newBetDetail)
     }
 }
