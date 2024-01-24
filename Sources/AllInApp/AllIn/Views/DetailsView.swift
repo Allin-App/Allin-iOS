@@ -6,6 +6,9 @@ struct DetailsView: View {
     @Binding var isModalPresented: Bool
     @Binding var isModalParticipated: Bool
     @State var progressValue: Float = 0.2
+    var id: String
+    @StateObject private var viewModel: DetailsViewModel
+    
     var isFinished: Bool {
         viewModel.betDetail?.finalAnswer == nil ? false : true
     }
@@ -13,13 +16,13 @@ struct DetailsView: View {
     var isDisabled: Bool {
         if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
             let currentDate = Date()
-
+            
             switch currentDate.compare(endRegisterDate) {
-                case .orderedAscending:
+            case .orderedAscending:
                 return false
-                case .orderedDescending:
+            case .orderedDescending:
                 return true
-                case .orderedSame:
+            case .orderedSame:
                 return true
             }
             
@@ -31,13 +34,13 @@ struct DetailsView: View {
     var StatusValues: (String, Color) {
         if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
             let currentDate = Date()
-
+            
             switch currentDate.compare(endRegisterDate) {
-                case .orderedAscending:
+            case .orderedAscending:
                 return ("En cours...", AllInColors.purpleAccentColor)
-                case .orderedDescending:
+            case .orderedDescending:
                 return ("En attente...",AllInColors.pink100)
-                case .orderedSame:
+            case .orderedSame:
                 return ("Fin des inscriptions...",AllInColors.grey50Color)
             }
             
@@ -45,11 +48,8 @@ struct DetailsView: View {
             return ("Statut indisponible", AllInColors.whiteColor)
         }
     }
-
-    var id: String
-    @StateObject private var viewModel: DetailsViewModel
     
-    init(isModalPresented: Binding<Bool>, isModalParticipated: Binding<Bool>,id: String) {
+    init(isModalPresented: Binding<Bool>, isModalParticipated: Binding<Bool>, id: String) {
         self._isModalPresented = isModalPresented
         self._isModalParticipated = isModalParticipated
         self.id = id
@@ -61,7 +61,11 @@ struct DetailsView: View {
             ZStack(alignment: .bottom) {
                 VStack(alignment: .center) {
                     HStack{
-                        Text(StatusValues.0).font(.system(size: 25)).fontWeight(.bold).padding(.bottom, 10).foregroundStyle(Color.black).opacity(0.4)
+                        Text(StatusValues.0)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold).padding(.bottom, 10)
+                            .foregroundStyle(Color.black)
+                            .opacity(0.4)
                         Spacer()
                         Image("closeIcon")
                             .resizable()
@@ -75,6 +79,7 @@ struct DetailsView: View {
                 .padding(.horizontal, 15)
                 .background(StatusValues.1)
                 .transition(.slideInFromBottom(yOffset:0))
+                
                 VStack(spacing: 0) {
                     VStack(alignment: .leading,spacing: 5){
                         HStack{
@@ -107,18 +112,20 @@ struct DetailsView: View {
                                 .foregroundColor(AllInColors.grey800Color)
                             TextCapsule(date: viewModel.betDetail?.bet.endBetDate ?? Date())
                             Spacer()
-                        
+                            
                         }
                     }
                     .frame(width: .infinity)
                     .padding(.all,15).padding(.vertical, 10)
                     .background(AllInColors.componentBackgroundColor)
                     .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
+                    
                     if isFinished {
                         ResultBanner()
                     }
                     VStack(alignment: .leading, spacing: 5) {
-                        BetLineLoading(participations: viewModel.betDetail?.participations ?? []).padding(.vertical,15)
+                        BetLineLoading(participations: viewModel.betDetail?.participations ?? [])
+                            .padding(.vertical,15)
                         Text("Liste des participants")
                             .font(.system(size: 18))
                             .foregroundStyle(AllInColors.grey100Color)
@@ -135,7 +142,7 @@ struct DetailsView: View {
                     .background(AllInColors.underComponentBackgroundColor)
                     .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
                     Spacer()
-                
+                    
                     
                     
                 }
@@ -143,12 +150,15 @@ struct DetailsView: View {
                 .background(AllInColors.componentBackgroundColor)
                 .cornerRadius(15)
                 
-                ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated,bet: viewModel.betDetail?.bet ).padding(10)
-            
-                
+                ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated, bet: viewModel.betDetail?.bet)
+                    .padding(10)
             }
             .sheet(isPresented: $isModalParticipated) {
-                ParticipationModal().presentationDetents([.fraction(0.55)])
+                ParticipationModal(answer: $viewModel.answer, mise: $viewModel.mise, description: viewModel.betDetail?.bet.phrase ?? "Not loaded", participationAddedCallback: {
+                    viewModel.addParticipate()
+                    isModalParticipated.toggle()
+                })
+                .presentationDetents([.fraction(0.55)])
             }
             .edgesIgnoringSafeArea(.bottom)
         }

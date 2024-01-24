@@ -14,7 +14,9 @@ class DetailsViewModel: ObservableObject {
     
     @Inject var manager: Manager
     var id: String
-    
+    @Published var answer = 0
+    @Published var mise: String = ""
+
     @Published var betDetail: BetDetail?
     
     init(id: String) {
@@ -25,6 +27,18 @@ class DetailsViewModel: ObservableObject {
     func getItem(withId id: String) {
         manager.getBet(withId: id) { bet in
             self.betDetail = bet
+        }
+    }
+    
+    func addParticipate() {
+        if let stake = Int(mise) {
+            var rep: String = ""
+            if answer ==  0 {
+                rep = "Yes"
+            } else {
+                rep = "No"
+            }
+            manager.addParticipation(withId: id, withAnswer: rep, andStake: stake)
         }
     }
 }

@@ -49,4 +49,27 @@ public struct UserApiManager: UserDataManager {
     public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
         fatalError("Not implemented yet")
     }
+    
+    public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int) {
+        let url = URL(string: allInApi + "participations/add")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let json: [String: Any] = [
+            "betId": id,
+            "answer": answer,
+            "stake": stake
+        ]
+        
+        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
+            URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
+                print ("ALLIN : Add Participation")
+                if let httpResponse = response as? HTTPURLResponse {
+                    print(httpResponse.statusCode)
+                }
+            }.resume()
+        }
+    }
 }

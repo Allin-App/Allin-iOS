@@ -89,10 +89,10 @@ struct Stub {
             self.betsDetail.append(betDetail)
         }
         
-        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 120, date: Date(), response: "OUI", user: user1, betId: "1"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 20, date: Date(), response: "NON", user: user2, betId: "2"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 120, date: Date(), response: "OUI", user: user1, betId: "1"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 20, date: Date(), response: "NON", user: user2, betId: "2"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
         
     }
     

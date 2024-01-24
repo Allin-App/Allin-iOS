@@ -12,4 +12,5 @@ public protocol UserDataManager {
     func addBet(bet: Bet)
     func getFriends() -> [User]
     func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void)
+    func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int)
 }

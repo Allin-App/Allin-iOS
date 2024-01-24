@@ -24,7 +24,7 @@ public class FactoryApiBet: FactoryBet {
             "endRegistration": formatZonedDateTime(dateTime: bet.endRegisterDate),
             "endBet": formatZonedDateTime(dateTime: bet.endBetDate),
             "isPrivate": String(bet.isPublic),
-            "response": [],
+            "response": ["Yes","No"],
         ]
         
         return json
@@ -37,7 +37,7 @@ public class FactoryApiBet: FactoryBet {
         let date = formatter.date(from: dateString)
         return date
     }
-
+    
     public func toBet(from json: [String: Any]) -> Bet? {
         guard let id = json["id"] as? String,
               let theme = json["theme"] as? String,
@@ -76,6 +76,28 @@ public class FactoryApiBet: FactoryBet {
             return nil
         }
         
-        return BetDetail(bet: bet, answers: [], participations: [])
+        var participations: [Participation] = []
+        
+        if let participationsJson = json["participations"] as? [[String: Any]], !participationsJson.isEmpty {
+            for participationJson in participationsJson {
+                if let participation = self.toParticipate(from: participationJson) {
+                    participations.append(participation)
+                }
+            }
+        }
+        
+        return BetDetail(bet: bet, answers: [], participations: participations)
+    }
+    
+    public func toParticipate(from json: [String: Any]) -> Participation? {
+        guard let id = json["id"] as? String,
+              let betId = json["betId"] as? String,
+              let username = json["username"] as? String,
+              let answer = json["answer"] as? String,
+              let stake = json["stake"] as? Int else {
+            return nil
+        }
+        
+        return Participation(id: id, stake: stake, date: Date(), response: answer, user: User(username: username, email: "Email", nbCoins: 0, friends: []), betId: betId)
     }
 }

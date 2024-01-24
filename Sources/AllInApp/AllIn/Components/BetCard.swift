@@ -51,7 +51,8 @@ struct BetCard: View {
                     Spacer()
                     
                 }.padding(0)
-                ParticipateButton(isOpen: $showDetails, isParticapatedOpen: $showParticipate, bet: bet).padding(.top, 5)
+                ParticipateButton(isOpen: $showDetails, isParticapatedOpen: $showParticipate, bet: bet)
+                    .padding(.top, 5)
             }
             .frame(width: .infinity)
             .padding(.all,8)

@@ -153,4 +153,9 @@ class AuthService: IAuthService {
         DependencyInjection.shared.addSingleton(Manager.self, Manager(withBetDataManager: BetApiManager(withUserToken: token), withUserDataManager: UserApiManager(withUserToken: token)))
     }
     
+    public func logout() {
+        AppStateContainer.shared.authenticationRefresh = nil
+        AppStateContainer.shared.loggedState.connectedUser = false
+    }
+    
 }

@@ -37,4 +37,8 @@ public struct Manager {
             completion(bets)
         }
     }
+    
+    public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int) {
+        userDataManager.addParticipation(withId: id, withAnswer: answer, andStake: stake)
+    }
 }

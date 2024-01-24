@@ -10,28 +10,28 @@ import Model
 
 struct BetLineLoading: View {
     
-    @State var participations: [Participation]
+    var participations: [Participation]
     
     var value: CGFloat {
         let totalParticipations = participations.count
-        let numberOfYes = participations.filter { $0.response == "OUI" }.count
-        let numberOfNo = participations.filter { $0.response == "NON" }.count
+        let numberOfYes = participations.filter { $0.response.uppercased() == "YES" }.count
+        let numberOfNo = participations.filter { $0.response.uppercased() == "NO" }.count
         if(numberOfNo == 0 && numberOfYes == 0){
             return 0.5
         }
-
-            return totalParticipations > 0 ? CGFloat(numberOfYes) / CGFloat(totalParticipations) : 0.0
-        }
+        
+        return totalParticipations > 0 ? CGFloat(numberOfYes) / CGFloat(totalParticipations) : 0.0
+    }
     
-
+    
     
     var yesParticipations: [Participation] {
-            return participations.filter { $0.response == "OUI" }
-        }
-        
-        var noParticipations: [Participation] {
-            return participations.filter { $0.response == "NON" }
-        }
+        return participations.filter { $0.response.uppercased() == "YES" }
+    }
+    
+    var noParticipations: [Participation] {
+        return participations.filter { $0.response.uppercased() == "NO" }
+    }
     
     
     var body: some View {
@@ -41,7 +41,7 @@ struct BetLineLoading: View {
                     Text("OUI").font(.system(size: 25)).fontWeight(.bold).foregroundColor(AllInColors.bleue200)
                     Spacer()
                     Text("NON").font(.system(size: 25)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
-
+                    
                 }
                 ZStack(alignment: .leading) {
                     HStack{
@@ -65,7 +65,7 @@ struct BetLineLoading: View {
                         Spacer()
                         Text(noParticipations.reduce(0, {x,y in x + y.stake}).description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
                         Image("PinkBadge").resizable().frame(width:10, height: 14)
-
+                        
                     }
                     HStack(spacing: 5){
                         Image("BleuePersonIcon").resizable().frame(width:14, height: 12)
@@ -73,7 +73,7 @@ struct BetLineLoading: View {
                         Spacer()
                         Text(noParticipations.count.description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
                         Image("PinkBadge").resizable().frame(width:10, height: 14)
-
+                        
                     }
                     HStack(spacing: 5){
                         Image("BleueBadge").resizable().frame(width:10, height: 14)
@@ -81,7 +81,7 @@ struct BetLineLoading: View {
                         Spacer()
                         Text(noParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
                         Image("PinkBadge").resizable().frame(width:10, height: 14)
-
+                        
                     }
                     HStack(spacing: 5){
                         Image("BleueTrophyIcon").resizable().frame(width:14, height: 13)
@@ -89,11 +89,11 @@ struct BetLineLoading: View {
                         Spacer()
                         Text("1.2").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
                         Image("PinkBadge").resizable().frame(width:10, height: 14)
-
+                        
                     }
                 }
             }
-                    
+            
         }.frame(height: 140)
     }
 }

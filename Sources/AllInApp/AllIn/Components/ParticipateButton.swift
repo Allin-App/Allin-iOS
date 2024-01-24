@@ -9,25 +9,22 @@ import SwiftUI
 import Model
 
 struct ParticipateButton: View {
+    
     @Binding var isOpen : Bool
     @Binding var isParticapatedOpen: Bool
-    @State var bet: Bet?
+    var bet: Bet?
     
     var isDisabled: Bool {
-    let endRegisterDate: Date? = bet?.endRegisterDate
-        if endRegisterDate != nil{
-            let currentDate = Date()
+        guard let endRegisterDate = bet?.endRegisterDate else {
+            return true
+        }
 
-            switch currentDate.compare(endRegisterDate!) {
-                case .orderedAscending:
-                return false
-                case .orderedDescending:
-                return true
-                case .orderedSame:
-                return true
-            }
-            
-        } else {
+        let currentDate = Date()
+
+        switch currentDate.compare(endRegisterDate) {
+        case .orderedAscending:
+            return false
+        case .orderedDescending, .orderedSame:
             return true
         }
     }
@@ -43,7 +40,7 @@ struct ParticipateButton: View {
                 .frame(maxWidth: .infinity).padding(10)
                 .multilineTextAlignment(.center)
                 .overlay {
-                    switch isDisabled{
+                    switch isDisabled {
                     case true:
                         AllInColors.grey700Color.frame(width: 170)
                             .mask(
@@ -69,8 +66,6 @@ struct ParticipateButton: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 12).stroke(AllInColors.delimiterGrey, lineWidth: 1)
                 )
-                
-            
         }.disabled(isDisabled)
     }
 }
