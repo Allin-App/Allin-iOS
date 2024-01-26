@@ -38,7 +38,7 @@ struct BetLineLoading: View {
         GeometryReader { geometry in
             VStack(alignment: .leading,spacing: 0){
                 HStack(spacing: 5){
-                    Text("OUI").font(.system(size: 25)).fontWeight(.bold).foregroundColor(AllInColors.bleue200)
+                    Text("OUI").font(.system(size: 25)).fontWeight(.bold).foregroundColor(AllInColors.blue200)
                     Spacer()
                     Text("NON").font(.system(size: 25)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
                     
@@ -61,34 +61,34 @@ struct BetLineLoading: View {
                 VStack(spacing: 1){
                     HStack(spacing: 5){
                         Image("BlueAllCoinIcon").resizable().frame(width:12, height: 12)
-                        Text(yesParticipations.reduce(0, {x,y in x + y.stake}).description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.bleue200)
+                        Text(yesParticipations.reduce(0, {x,y in x + y.stake}).description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.blue200)
                         Spacer()
                         Text(noParticipations.reduce(0, {x,y in x + y.stake}).description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
-                        Image("PinkBadge").resizable().frame(width:10, height: 14)
+                        Image("PinkAllCoinIcon").resizable().frame(width:10, height: 14)
                         
                     }
                     HStack(spacing: 5){
-                        Image("BleuePersonIcon").resizable().frame(width:14, height: 12)
-                        Text(yesParticipations.count.description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.bleue200)
+                        Image("BluePersonIcon").resizable().frame(width:14, height: 12)
+                        Text(yesParticipations.count.description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.blue200)
                         Spacer()
                         Text(noParticipations.count.description).font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
-                        Image("PinkBadge").resizable().frame(width:10, height: 14)
+                        Image("PinkPersonIcon").resizable().frame(width:10, height: 14)
                         
                     }
                     HStack(spacing: 5){
-                        Image("BleueBadge").resizable().frame(width:10, height: 14)
-                        Text(yesParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.bleue200)
+                        Image("BlueBadgeIcon").resizable().frame(width:10, height: 14)
+                        Text(yesParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.blue200)
                         Spacer()
                         Text(noParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
-                        Image("PinkBadge").resizable().frame(width:10, height: 14)
+                        Image("PinkBadgeIcon").resizable().frame(width:10, height: 14)
                         
                     }
                     HStack(spacing: 5){
-                        Image("BleueTrophyIcon").resizable().frame(width:14, height: 13)
-                        Text("1.2").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.bleue200)
+                        Image("BlueTrophyIcon").resizable().frame(width:14, height: 13)
+                        Text("1.2").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.blue200)
                         Spacer()
                         Text("1.2").font(.system(size: 15)).fontWeight(.bold).foregroundColor(AllInColors.pink100)
-                        Image("PinkBadge").resizable().frame(width:10, height: 14)
+                        Image("PinkTrophyIcon").resizable().frame(width:10, height: 14)
                         
                     }
                 }

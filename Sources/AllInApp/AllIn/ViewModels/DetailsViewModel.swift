@@ -38,7 +38,15 @@ class DetailsViewModel: ObservableObject {
             } else {
                 rep = "No"
             }
-            manager.addParticipation(withId: id, withAnswer: rep, andStake: stake)
+            manager.addParticipation(withId: id, withAnswer: rep, andStake: stake) { statusCode in
+                switch statusCode {
+                case 201:
+                    AppStateContainer.shared.user?.nbCoins -= stake
+                    self.getItem(withId: self.id)
+                default:
+                    break
+                }
+            }
         }
     }
 }

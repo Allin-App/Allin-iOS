@@ -17,7 +17,7 @@ public struct User {
     public private(set) var email: String
     
     /// The number of coins associated with the user.
-    public private(set) var nbCoins: Int
+    public var nbCoins: Int
     
     /// List of friends associated with the user.
     public private(set) var friends: [User]

@@ -40,7 +40,9 @@ public struct Manager {
         }
     }
     
-    public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int) {
-        userDataManager.addParticipation(withId: id, withAnswer: answer, andStake: stake)
+    public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int, completion : @escaping (Int)-> ()) {
+        userDataManager.addParticipation(withId: id, withAnswer: answer, andStake: stake) { status in
+            completion(status)
+        }
     }
 }

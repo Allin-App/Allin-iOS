@@ -51,7 +51,7 @@ public struct UserApiManager: UserDataManager {
         fatalError("Not implemented yet")
     }
     
-    public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int) {
+    public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int, completion : @escaping (Int)-> ()) {
         let url = URL(string: allInApi + "participations/add")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -69,6 +69,7 @@ public struct UserApiManager: UserDataManager {
                 print ("ALLIN : Add Participation")
                 if let httpResponse = response as? HTTPURLResponse {
                     print(httpResponse.statusCode)
+                    completion(httpResponse.statusCode)
                 }
             }.resume()
         }

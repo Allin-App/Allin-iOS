@@ -40,16 +40,16 @@ struct ParticipationModal: View {
             HStack{
                 Text("Faites vos paris")
                     .font(.system(size: 18))
-                    .foregroundColor(AllInColors.blackTitleColor)
+                    .foregroundColor(AllInColors.primaryTextColor)
                     .fontWeight(.semibold)
                 Spacer()
-                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foregroundColor: AllInColors.whiteColor)
+                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foregroundColor: .white)
             }
             .padding(.leading, 15)
             VStack(alignment: .leading){
                 Text(description)
                     .font(.system(size: 13))
-                    .foregroundColor(AllInColors.grey100Color)
+                    .foregroundColor(AllInColors.primaryTextColor)
                     .fontWeight(.light)
                 
                 DropDownAnswerMenu(selectedOption: $selectedOption, options: options)
@@ -80,12 +80,12 @@ struct ParticipationModal: View {
                 HStack{
                     Text("Gains possibles")
                         .font(.system(size: 13))
-                        .foregroundColor(AllInColors.blackTitleColor)
+                        .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.regular)
                     Spacer()
                     Text("231")
                         .font(.system(size: 13))
-                        .foregroundColor(AllInColors.blackTitleColor)
+                        .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.light)
                 }
                 .padding(.top, 10).padding(.bottom, 0)

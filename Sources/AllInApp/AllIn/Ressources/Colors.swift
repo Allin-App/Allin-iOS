@@ -29,6 +29,12 @@ struct AllInColors {
     static let loginPurpleColor = Color("LoginPurpleColor")
     static let whiteColor = Color("WhiteColor")
     
+    // Details
+    static let blue200 = Color("Blue200")
+    static let purple200 = Color("Purple200")
+    static let pink200 = Color("Pink200")
+    static let pink100 = Color("Pink100")
+    
     // Others
     static let backgroundColor = Color("BackgroundColor")
     static let darkBlueColor = Color("DarkBlueColor")
@@ -48,11 +54,7 @@ struct AllInColors {
     static let componentBackgroundColor = Color("ComponentBackgroundColor")
     static let underComponentBackgroundColor = Color("UnderComponentBackgroundColor")
     static let winBannerBackground = Color("WinBannerBackground")
-    static let blackTitleColor = Color("BlackTitleColor")
-    static let bleue200 = Color("Bleue200")
-    static let purple200 = Color("Purple200")
-    static let pink200 = Color("Pink200")
-    static let pink100 = Color("Pink100")
+    
     // Gradients
     static let primaryGradient = LinearGradient(
         gradient: Gradient(colors: [AllInColors.pinkAccentColor, AllInColors.blueAccentColor]),
@@ -66,7 +68,7 @@ struct AllInColors {
     )
     
     static let BlueBetGradiant = LinearGradient(
-        gradient: Gradient(colors: [AllInColors.bleue200, AllInColors.purple200]),
+        gradient: Gradient(colors: [AllInColors.blue200, AllInColors.purple200]),
         startPoint: .leading,
         endPoint: .trailing
     )
