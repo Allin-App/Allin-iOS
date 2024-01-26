@@ -19,6 +19,7 @@ public class BetDetail: ObservableObject {
     /// List of user participations in the bet.
     public private(set) var participations: [Participation]
     
+    /// The final answer selected for the bet, if available.
     public private(set) var finalAnswer: String?
     
     /// Custom Constructor
@@ -27,7 +28,7 @@ public class BetDetail: ObservableObject {
     ///   - bet: The main bet information.
     ///   - answers: Details about the answers available for the bet.
     ///   - participations: List of user participations in the bet.
-    ///   - userParticipation: The user's own participation in the bet.
+    ///   - finalAnswer: The final answer selected for the bet, if available.
     public init(bet: Bet, answers: [AnswerDetail], participations: [Participation], finalAnswer: String? = nil) {
         self.bet = bet
         self.answers = answers
@@ -35,17 +36,23 @@ public class BetDetail: ObservableObject {
         self.finalAnswer = finalAnswer
     }
     
+    /// Updates the final answer selected for the bet.
+    ///
+    /// - Parameter newFinalAnswer: The new final answer for the bet.
     public func updateFinalAnswer(newFinalAnswer: String) {
-            self.finalAnswer = newFinalAnswer
-        }
+        self.finalAnswer = newFinalAnswer
+    }
     
+    /// Adds a new user participation to the list of participations for the bet.
+    ///
+    /// - Parameter newParticipation: The new user participation to be added.
     public func addParticipation(newParticipation: Participation){
+
         if !self.bet.registered.contains(where: { existingUser in
             return existingUser.email == newParticipation.user.email
         }) {
-                self.bet.addRegistered(newUser: newParticipation.user)
-            }
-
-            self.participations.append(newParticipation)
+            self.bet.addRegistered(newUser: newParticipation.user)
+        }
+        self.participations.append(newParticipation)
     }
 }

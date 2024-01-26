@@ -22,7 +22,7 @@ public struct UserApiManager: UserDataManager {
         fatalError("Not implemented yet")
     }
     
-    public func addBet(bet: Bet) {
+    public func addBet(bet: Bet, completion : @escaping (Int)-> ()) {
         
         let url = URL(string: allInApi + "bets/add")!
         var request = URLRequest(url: url)
@@ -37,6 +37,7 @@ public struct UserApiManager: UserDataManager {
                 print ("ALLIN : Add BET")
                 if let httpResponse = response as? HTTPURLResponse {
                     print(httpResponse.statusCode)
+                    completion(httpResponse.statusCode)
                 }
             }.resume()
         }
