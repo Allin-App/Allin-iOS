@@ -48,5 +48,11 @@ class DetailsViewModel: ObservableObject {
                 }
             }
         }
+        mise = ""
+        answer = 0
+    }
+    
+    func checkAndSetError() {
+        
     }
 }

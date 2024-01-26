@@ -66,13 +66,13 @@ struct ParticipationModal: View {
                         .frame(height: 40)
                 )
                 .frame(width: .infinity, height: 40)
-                .foregroundColor(AllInColors.primaryTextColor)
+                .foregroundColor(.black)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .stroke(AllInColors.delimiterGrey, lineWidth: 1)
                 )
                 .padding(.bottom, 5)
-                
+
             }
             .padding(15)
             Spacer()
@@ -101,6 +101,7 @@ struct ParticipationModal: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(AllInColors.purpleAccentColor)
+                .disabled(checkAndSetError())
                 
             }
             .padding(.horizontal, 10)
@@ -108,5 +109,17 @@ struct ParticipationModal: View {
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
         .background(AllInColors.underComponentBackgroundColor)
+    }
+    
+    func checkAndSetError() -> Bool {
+        if let stake = Int(mise) {
+            if stake <= AppStateContainer.shared.user?.nbCoins ?? 0 {
+                return false
+            } else {
+                return true
+            }
+        } else {
+            return true
+        }
     }
 }

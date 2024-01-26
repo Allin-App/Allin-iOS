@@ -131,10 +131,13 @@ struct DetailsView: View {
                             .foregroundStyle(AllInColors.grey100Color)
                             .fontWeight(.bold)
                             .padding(.bottom, 10)
-                        ForEach(viewModel.betDetail?.participations ?? []) { (participation: Participation) in
-                            ParticiationCell(participation: participation).padding(.horizontal, 10)
+                        ScrollView(showsIndicators: false) {
+                            ForEach(viewModel.betDetail?.participations ?? []) { (participation: Participation) in
+                                ParticiationCell(participation: participation).padding(.horizontal, 10)
+                            }
                         }
-                        
+                        .padding(.bottom, 28)
+
                         Spacer()
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
