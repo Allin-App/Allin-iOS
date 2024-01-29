@@ -1,8 +1,8 @@
 //
-//  File.swift
+//  BetStatus.swift
 //  
 //
-//  Created by étudiant on 23/01/2024.
+//  Created by Emre on 23/01/2024.
 //
 
 import Foundation

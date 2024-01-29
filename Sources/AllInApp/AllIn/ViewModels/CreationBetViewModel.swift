@@ -25,6 +25,9 @@ class CreationBetViewModel: ObservableObject {
     @Published var endRegisterDateFieldError: String?
     @Published var endBetDateFieldError: String?
     
+    @Published var errorMessage: String?
+    @Published var showErrorMessage = false
+    
     func create() {
         
         guard checkAndSetError(forTheme: true, forDescription: true, forEndRegisterDate: true, forEndBetDate: true) else {
@@ -34,10 +37,15 @@ class CreationBetViewModel: ObservableObject {
         resetAllFieldErrors()
         
         if let user = AppStateContainer.shared.user {
-            manager.addBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: user)
+            manager.addBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: user) { statusCode in
+                switch statusCode {
+                case 201:
+                    self.betAdded = true
+                default:
+                    self.setErrorMessage(errorMessage: "Problème de connexion. Veuillez réessayer ultérieurement.")
+                }
+            }
         }
-        
-        betAdded = true
     }
     
     func checkAndSetError(forTheme checkTheme: Bool, forDescription checkDescription: Bool, forEndRegisterDate checkEndRegisterDate: Bool, forEndBetDate checkEndBetDate: Bool) -> Bool {
@@ -94,5 +102,10 @@ class CreationBetViewModel: ObservableObject {
             endRegisterDateFieldError = nil
             endBetDateFieldError = nil
         }
+    }
+    
+    func setErrorMessage(errorMessage: String) {
+        self.showErrorMessage = true
+        self.errorMessage = errorMessage
     }
 }

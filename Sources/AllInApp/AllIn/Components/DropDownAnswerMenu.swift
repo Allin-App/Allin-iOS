@@ -65,6 +65,10 @@ struct DropDownAnswerMenu: View {
         .frame(width: .infinity)
         .background(AllInColors.componentBackgroundColor)
         .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(AllInColors.veryLightPurpleColor, lineWidth: 0.4)
+        )
     }
 }
 

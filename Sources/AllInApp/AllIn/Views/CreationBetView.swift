@@ -477,6 +477,9 @@ struct CreationBetView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .alert(isPresented: $viewModel.showErrorMessage) {
+            Alert(title: Text("Erreur lors de la création d'un Bet"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+        }
         .edgesIgnoringSafeArea(.bottom)
         .background(AllInColors.backgroundColor)
     }

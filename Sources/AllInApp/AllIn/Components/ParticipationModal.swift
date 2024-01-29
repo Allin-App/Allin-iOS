@@ -40,16 +40,16 @@ struct ParticipationModal: View {
             HStack{
                 Text("Faites vos paris")
                     .font(.system(size: 18))
-                    .foregroundColor(AllInColors.blackTitleColor)
+                    .foregroundColor(AllInColors.primaryTextColor)
                     .fontWeight(.semibold)
                 Spacer()
-                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foregroundColor: AllInColors.whiteColor)
+                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foregroundColor: .white)
             }
             .padding(.leading, 15)
             VStack(alignment: .leading){
                 Text(description)
                     .font(.system(size: 13))
-                    .foregroundColor(AllInColors.grey100Color)
+                    .foregroundColor(AllInColors.primaryTextColor)
                     .fontWeight(.light)
                 
                 DropDownAnswerMenu(selectedOption: $selectedOption, options: options)
@@ -66,13 +66,13 @@ struct ParticipationModal: View {
                         .frame(height: 40)
                 )
                 .frame(width: .infinity, height: 40)
-                .foregroundColor(AllInColors.primaryTextColor)
+                .foregroundColor(.black)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .stroke(AllInColors.delimiterGrey, lineWidth: 1)
                 )
                 .padding(.bottom, 5)
-                
+
             }
             .padding(15)
             Spacer()
@@ -80,12 +80,12 @@ struct ParticipationModal: View {
                 HStack{
                     Text("Gains possibles")
                         .font(.system(size: 13))
-                        .foregroundColor(AllInColors.blackTitleColor)
+                        .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.regular)
                     Spacer()
                     Text("231")
                         .font(.system(size: 13))
-                        .foregroundColor(AllInColors.blackTitleColor)
+                        .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.light)
                 }
                 .padding(.top, 10).padding(.bottom, 0)
@@ -101,6 +101,7 @@ struct ParticipationModal: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(AllInColors.purpleAccentColor)
+                .disabled(checkAndSetError())
                 
             }
             .padding(.horizontal, 10)
@@ -108,5 +109,17 @@ struct ParticipationModal: View {
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
         .background(AllInColors.underComponentBackgroundColor)
+    }
+    
+    func checkAndSetError() -> Bool {
+        if let stake = Int(mise) {
+            if stake <= AppStateContainer.shared.user?.nbCoins ?? 0 {
+                return false
+            } else {
+                return true
+            }
+        } else {
+            return true
+        }
     }
 }

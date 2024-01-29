@@ -1,6 +1,6 @@
 //
 //  Bet.swift
-//  
+//
 //
 //  Created by Emre on 28/12/2023.
 //
@@ -28,6 +28,7 @@ public class Bet: ObservableObject, Identifiable {
     /// Indicates whether the bet is public or private.
     public private(set) var isPublic: Bool
     
+    /// The current status of the bet.
     public private(set) var status: BetStatus
     
     /// List of users who are invited to participate in the bet.
@@ -49,6 +50,7 @@ public class Bet: ObservableObject, Identifiable {
     ///   - endRegisterDate: The deadline for users to register for the bet.
     ///   - endBetDate: The deadline for the actual betting to take place.
     ///   - isPublic: Indicates whether the bet is public or private.
+    ///   - status: The current status of the bet.
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
@@ -73,6 +75,7 @@ public class Bet: ObservableObject, Identifiable {
     ///   - endRegisterDate: The deadline for users to register for the bet.
     ///   - endBetDate: The deadline for the actual betting to take place.
     ///   - isPublic: Indicates whether the bet is public or private.
+    ///   - status: The current status of the bet.
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
@@ -89,6 +92,9 @@ public class Bet: ObservableObject, Identifiable {
         self.registered = registered
     }
     
+    /// Adds a new user to the list of registered participants for the bet.
+    ///
+    /// - Parameter newUser: The user to be added to the list of registered participants.
     public func addRegistered(newUser: User){
         self.registered.append(newUser)
     }
