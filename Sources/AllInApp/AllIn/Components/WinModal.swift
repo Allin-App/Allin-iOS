@@ -16,136 +16,9 @@ struct WinModal: View {
             GeometryReader { geometry in
                 let size = geometry.size.width / 20
                 
-                InfiniteScroller(contentWidth: size * 20) {
-                    VStack(spacing: 20) {
-                        VStack(spacing: 20) {
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing:20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            
-                            
-                        }
-                        VStack(spacing: 20) {
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing:20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                            HStack(spacing: 20){
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110,height:110)
-                                Image("allcoinWhiteIcon").resizable().frame(width: 110, height:110)
-                            }
-                        }
-                    }
-                    .padding(10)
+                InfiniteScroller(contentWidth: geometry.size.width) {
+                    
+                    Image("marquee").resizable().scaledToFit()
                 }
                 VStack {
                     ZStack(alignment: .topLeading){
@@ -204,11 +77,6 @@ struct InfiniteScroller<Content: View>: View {
                 content()
                 content()
                 content()
-                content()
-                content()
-                content()
-                content()
-                content()
             }
             .offset(x: xOffset, y: 0)
         }
@@ -221,8 +89,9 @@ struct InfiniteScroller<Content: View>: View {
                 xOffset = +contentWidth
             }
         }
-        .frame(width: 1200)
-        .rotationEffect(.degrees(-30))
+        .frame(width: 1000, height: 1000)
+        .padding(.leading, -400)
+        .rotationEffect(.degrees(30))
         .opacity(0.04)
     }
 }
