@@ -51,6 +51,36 @@ public struct UserApiManager: UserDataManager {
         fatalError("Not implemented yet")
     }
     
+    public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+        let url = URL(string: allInApi + "bets/current")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        var bets: [Bet] = []
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get current bets")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        for json in jsonArray {
+                            if let bet = FactoryApiBet().toBet(from: json) {
+                                bets.append(bet)
+                            }
+                        }
+                        print(httpResponse.statusCode)
+                        completion(bets)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
     public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int, completion : @escaping (Int)-> ()) {
         let url = URL(string: allInApi + "participations/add")!
         var request = URLRequest(url: url)

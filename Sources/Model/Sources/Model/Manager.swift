@@ -40,6 +40,12 @@ public struct Manager {
         }
     }
     
+    public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+        userDataManager.getCurrentBets(withIndex: index, withCount: count) { bets in
+            completion(bets)
+        }
+    }
+    
     public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int, completion : @escaping (Int)-> ()) {
         userDataManager.addParticipation(withId: id, withAnswer: answer, andStake: stake) { status in
             completion(status)

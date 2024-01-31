@@ -86,16 +86,25 @@ struct Menu: View {
                     .padding([.leading,.trailing], 13)
             }
             
-            NavigationLink(destination: MainView(page: "Bet").navigationBarBackButtonHidden(true))
+            VStack {
+                NavigationLink(destination: MainView(page: "Bet").navigationBarBackButtonHidden(true))
+                {
+                    ParameterMenu(image: "moneyImage", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
+                        .padding([.leading,.trailing], 13)
+                }
+                NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
+                {
+                    ParameterMenu(image: "rankingImage", title: "CLASSEMENT", description: "Consultez votre classement parmis vos amis.")
+                        .padding([.leading,.trailing], 13)
+                }
+            }
+            
+            NavigationLink(destination: MainView(page: "Current").navigationBarBackButtonHidden(true))
             {
-                ParameterMenu(image: "moneyImage", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
+                ParameterMenu(image: "eyesImage", title: "BETS EN COURS", description: "Consultez vos paris en cours.")
                     .padding([.leading,.trailing], 13)
             }
-            NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
-            {
-                ParameterMenu(image: "rankingImage", title: "CLASSEMENT", description: "Consultez votre classement parmis vos amis.")
-                    .padding([.leading,.trailing], 13)
-            }
+            
             
             HStack {
                 Spacer()

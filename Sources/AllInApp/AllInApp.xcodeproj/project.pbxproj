@@ -23,6 +23,8 @@
 		EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937D2B25C52E005D81E6 /* TopBar.swift */; };
 		EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */; };
 		EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */; };
+		EC17A15E2B6A955E008A8679 /* CurrentBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17A15D2B6A955E008A8679 /* CurrentBetView.swift */; };
+		EC17A1602B6A9781008A8679 /* CurrentBetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17A15F2B6A9781008A8679 /* CurrentBetViewModel.swift */; };
 		EC3077072B24CB840060E34D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3077062B24CB840060E34D /* SplashView.swift */; };
 		EC3077092B24CF7F0060E34D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3077082B24CF7F0060E34D /* Colors.swift */; };
 		EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770A2B24D9160060E34D /* WelcomeView.swift */; };
@@ -123,6 +125,8 @@
 		EC01937D2B25C52E005D81E6 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetViewModel.swift; sourceTree = "<group>"; };
+		EC17A15D2B6A955E008A8679 /* CurrentBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBetView.swift; sourceTree = "<group>"; };
+		EC17A15F2B6A9781008A8679 /* CurrentBetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBetViewModel.swift; sourceTree = "<group>"; };
 		EC3077062B24CB840060E34D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		EC3077082B24CF7F0060E34D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EC30770A2B24D9160060E34D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */,
 				123590B32B51792000F7AEBD /* DetailsView.swift */,
 				123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */,
+				EC17A15D2B6A955E008A8679 /* CurrentBetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				ECB26A1A2B40746C00FE06B3 /* FriendsViewModel.swift */,
 				EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */,
 				EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */,
+				EC17A15F2B6A9781008A8679 /* CurrentBetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -526,11 +532,13 @@
 				ECB26A192B40744F00FE06B3 /* RankingViewModel.swift in Sources */,
 				EC650A502B2793D5003AFCAD /* TextCapsule.swift in Sources */,
 				EC650A482B25DCFF003AFCAD /* UsersPreview.swift in Sources */,
+				EC17A15E2B6A955E008A8679 /* CurrentBetView.swift in Sources */,
 				EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */,
 				EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */,
 				EC650A422B25C817003AFCAD /* Friend.swift in Sources */,
 				EC7A882F2B28E6BE004F226A /* ConfidentialityButton.swift in Sources */,
 				ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */,
+				EC17A1602B6A9781008A8679 /* CurrentBetViewModel.swift in Sources */,
 				EC650A4C2B25E9C7003AFCAD /* RankingView.swift in Sources */,
 				EC7A882B2B28D1E0004F226A /* DropDownMenu.swift in Sources */,
 				EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */,
