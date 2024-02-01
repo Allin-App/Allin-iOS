@@ -12,3 +12,9 @@ steps:
     commands:
         - cd Sources/Model
         - swift build
+
+  - name: build
+    image: swift:latest
+    commands:
+        - cd Sources/Model
+        - swift test
