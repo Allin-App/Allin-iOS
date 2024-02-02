@@ -10,6 +10,7 @@
 		120919182B56D0AE00D0FA29 /* ParticipationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919172B56D0AE00D0FA29 /* ParticipationModal.swift */; };
 		1209191A2B56DC6C00D0FA29 /* DropDownAnswerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */; };
 		123225D92B67B46100D30BB3 /* BetEndingValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */; };
+		123225DB2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */; };
 		123590B42B51792000F7AEBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B32B51792000F7AEBD /* DetailsView.swift */; };
 		123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B52B5537E200F7AEBD /* ResultBanner.swift */; };
 		123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B72B5541BA00F7AEBD /* ParticipateButton.swift */; };
@@ -110,6 +111,7 @@
 		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
 		123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetEndingValidationView.swift; sourceTree = "<group>"; };
+		123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceFinalAnswerCell.swift; sourceTree = "<group>"; };
 		123590B32B51792000F7AEBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		123590B52B5537E200F7AEBD /* ResultBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBanner.swift; sourceTree = "<group>"; };
 		123590B72B5541BA00F7AEBD /* ParticipateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateButton.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */,
 				12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */,
 				12C370492B5D5BD000CD9F0F /* ParticiationCell.swift */,
+				123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				EC30770D2B24DB7A0060E34D /* Extensions.swift in Sources */,
 				EC6B96D82B24BF2100FC1C58 /* Menu.swift in Sources */,
 				EC650A4E2B278EDB003AFCAD /* TrendingBetCard.swift in Sources */,
+				123225DB2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift in Sources */,
 				123225D92B67B46100D30BB3 /* BetEndingValidationView.swift in Sources */,
 				EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */,
 				EC650A4A2B25DD58003AFCAD /* FriendsView.swift in Sources */,

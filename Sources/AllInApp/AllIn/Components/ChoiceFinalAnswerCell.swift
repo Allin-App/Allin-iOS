@@ -7,21 +7,20 @@
 
 import Foundation
 import SwiftUI
+import Model
 
 struct ChoiceFinalAnswerCell: View {
     
-    @State var selected = false
-    var value = "OUI"
+    var selected = false
+    var answer: AnswerDetail
     var rawColor = AllInColors.blueAccentColor
     
     var body: some View {
         HStack{
             Spacer()
-            Text(value)
-                .textStyle(weight: .bold, color:rawColor, size: 40).padding(.vertical, 10)
+            Text(answer.response)
+                .textStyle(weight: .bold, color: selected ? AllInColors.whiteColor :rawColor, size: 40).padding(.vertical, 10)
             Spacer()
-        }.background(AllInColors.whiteColor).onTapGesture() {
-            selected.toggle()
-        }.cornerRadius(17)
+        }.background(selected ? AllInColors.purpleAccentColor : AllInColors.whiteColor).cornerRadius(17)
     }
 }

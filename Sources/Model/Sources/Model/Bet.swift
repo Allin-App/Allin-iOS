@@ -98,4 +98,8 @@ public class Bet: ObservableObject, Identifiable {
     public func addRegistered(newUser: User){
         self.registered.append(newUser)
     }
+    
+    public func isFinish() -> Bool{
+        self.endBetDate < Date()
+    }
 }

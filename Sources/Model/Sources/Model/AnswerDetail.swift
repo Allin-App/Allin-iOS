@@ -8,8 +8,8 @@
 import Foundation
 
 /// A class representing detailed information about a specific answer option for a bet.
-public class AnswerDetail: ObservableObject {
-    
+public class AnswerDetail: ObservableObject, Hashable {
+
     /// The response or outcome associated with this answer.
     public private(set) var response: String
     
@@ -40,4 +40,17 @@ public class AnswerDetail: ObservableObject {
         self.highestStake = highestStake
         self.odds = odds
     }
+    
+    public func hash(into hasher: inout Hasher) {
+            // Use properties that define the uniqueness of the instance for hashing
+            hasher.combine(response)
+            // ... (combine other properties)
+        }
+
+        public static func == (lhs: AnswerDetail, rhs: AnswerDetail) -> Bool {
+            // Check equality based on properties
+            return lhs.response == rhs.response
+                // ... (check other properties)
+        }
+
 }
