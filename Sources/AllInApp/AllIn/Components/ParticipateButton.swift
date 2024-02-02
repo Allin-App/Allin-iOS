@@ -66,6 +66,7 @@ struct ParticipateButton: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 12).stroke(AllInColors.delimiterGrey, lineWidth: 1)
                 )
-        }.disabled(isDisabled)
+        }
+        .disabled(isDisabled)
     }
 }

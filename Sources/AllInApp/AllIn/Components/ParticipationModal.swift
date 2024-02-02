@@ -13,6 +13,13 @@ struct ParticipationModal: View {
     @Binding private var mise: String
     private var description: String
     var participationAddedCallback: (() -> Void)?
+    var possibleGain: Int {
+        if let stake = Float(mise), let selectedOption = options.first(where: { $0.0 == self.selectedOption }) {
+            return Int(round(stake * selectedOption.2))
+        } else {
+            return 0
+        }
+    }
     
     init(answer: Binding<Int>, mise: Binding<String>, description: String, participationAddedCallback: (() -> Void)? = nil) {
         self._selectedOption = answer
@@ -27,93 +34,101 @@ struct ParticipationModal: View {
     ]
     
     var body: some View {
-        VStack(alignment: .leading){
-            HStack{
-                Spacer()
-                Rectangle()
-                    .foregroundStyle(AllInColors.grey800Color)
-                    .frame(maxWidth: 80, maxHeight: 5)
-                    .cornerRadius(999)
-                Spacer()
-                
-            }.padding(10)
-            HStack{
-                Text("Faites vos paris")
-                    .font(.system(size: 18))
-                    .foregroundColor(AllInColors.primaryTextColor)
-                    .fontWeight(.semibold)
-                Spacer()
-                AllcoinsCounter(backgroundColor: AllInColors.purpleAccentColor, foregroundColor: .white)
-            }
-            .padding(.leading, 15)
+        GeometryReader { geometry in
             VStack(alignment: .leading){
-                Text(description)
-                    .font(.system(size: 13))
-                    .foregroundColor(AllInColors.primaryTextColor)
-                    .fontWeight(.light)
-                
-                DropDownAnswerMenu(selectedOption: $selectedOption, options: options)
-                
-                TextField("",text: $mise, prompt: Text("Mise")
-                    .foregroundColor(AllInColors.lightGrey300Color)
-                    .font(.system(size: 14))
-                    .fontWeight(.bold))
-                .padding()
-                .keyboardType(.numberPad)
-                .background(
-                    RoundedRectangle(cornerRadius: 9)
-                        .fill(AllInColors.lightGrey200Color)
-                        .frame(height: 40)
-                )
-                .frame(width: .infinity, height: 40)
-                .foregroundColor(.black)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .stroke(AllInColors.delimiterGrey, lineWidth: 1)
-                )
-                .padding(.bottom, 5)
-
-            }
-            .padding(15)
-            Spacer()
-            VStack{
                 HStack{
-                    Text("Gains possibles")
-                        .font(.system(size: 13))
-                        .foregroundColor(AllInColors.primaryTextColor)
-                        .fontWeight(.regular)
                     Spacer()
-                    Text("231")
+                    Rectangle()
+                        .foregroundStyle(AllInColors.lightGrey300Color)
+                        .frame(maxWidth: 80, maxHeight: 5)
+                        .cornerRadius(999)
+                    Spacer()
+                    
+                }
+                .padding(10)
+                HStack{
+                    Text("Faites vos paris")
+                        .font(.system(size: 18))
+                        .foregroundColor(AllInColors.primaryTextColor)
+                        .fontWeight(.semibold)
+                    Spacer()
+                    AllcoinsCounter(backgroundColor: AllInColors.lightPurpleColor, foregroundColor: .white)
+                }
+                .padding(.leading, 15)
+                VStack(alignment: .leading){
+                    Text(description)
                         .font(.system(size: 13))
                         .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.light)
+                    
+                    DropDownAnswerMenu(selectedOption: $selectedOption, options: options)
+                    
+                    TextField("", text: $mise, prompt: Text("Mise")
+                        .foregroundColor(AllInColors.lightGrey300Color)
+                        .font(.system(size: 16))
+                        .fontWeight(.bold))
+                    .padding()
+                    .keyboardType(.numberPad)
+                    .background(
+                        RoundedRectangle(cornerRadius: 9)
+                            .fill(AllInColors.lightGrey200Color)
+                            .frame(height: 40)
+                    )
+                    .frame(height: 40)
+                    .foregroundColor(.black)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .stroke(AllInColors.delimiterGrey, lineWidth: 1)
+                    )
+                    .padding(.bottom, 5)
+                    
                 }
-                .padding(.top, 10).padding(.bottom, 0)
-                Button {
-                    participationAddedCallback?()
-                } label: {
-                    Text("Miser")
-                        .font(.system(size: 23))
-                        .foregroundColor(AllInColors.whiteColor)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 3)
+                .padding(15)
+                Spacer()
+                VStack{
+                    HStack{
+                        Text("Gains possibles")
+                            .font(.system(size: 13))
+                            .foregroundColor(AllInColors.primaryTextColor)
+                            .fontWeight(.medium)
+                        Spacer()
+                        Text(possibleGain.description)
+                            .font(.system(size: 13))
+                            .foregroundColor(AllInColors.primaryTextColor)
+                            .fontWeight(.bold)
+                        Image("allcoinIcon")
+                            .resizable()
+                            .frame(width: 11, height: 12)
+                        
+                    }
+                    .padding(.top, 10)
+                    .padding(.bottom, 0)
+                    Button {
+                        participationAddedCallback?()
+                    } label: {
+                        Text("Miser")
+                            .font(.system(size: 23))
+                            .foregroundColor(AllInColors.whiteColor)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 3)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(AllInColors.lightPurpleColor)
+                    .disabled(checkAndSetError())
+                    .padding(.bottom, 5)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(AllInColors.purpleAccentColor)
-                .disabled(checkAndSetError())
-                
+                .padding(.horizontal, 10)
+                .background(AllInColors.whiteColor)
+                .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
             }
-            .padding(.horizontal, 10)
-            .background(AllInColors.whiteColor)
-            .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+            .background(AllInColors.underComponentBackgroundColor)
         }
-        .background(AllInColors.underComponentBackgroundColor)
     }
     
     func checkAndSetError() -> Bool {
         if let stake = Int(mise) {
-            if stake <= AppStateContainer.shared.user?.nbCoins ?? 0 {
+            if stake <= AppStateContainer.shared.user?.nbCoins ?? 0 && stake > 0 {
                 return false
             } else {
                 return true

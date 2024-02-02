@@ -18,7 +18,9 @@ struct ReviewCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par Lucas").font(.system(size: 10)).foregroundColor(AllInColors.grey800Color)
+                    Text("proposé par Lucas")
+                        .font(.system(size: 10))
+                        .foregroundColor(AllInColors.grey800Color)
                     
                 }
                 Text("Etudes").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
@@ -32,7 +34,8 @@ struct ReviewCard: View {
             }
             .frame(width: .infinity)
             .padding(.all,15)
-            .background(AllInColors.componentBackgroundColor).cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
+            .background(AllInColors.componentBackgroundColor)
+            .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
             
             VStack(alignment: .center,spacing:0){
                 HStack(){
@@ -53,10 +56,6 @@ struct ReviewCard: View {
                 }
                 .frame(width: .infinity)
                 .padding(.all,10)
-                
-                    
-                        
-                
                 
             }
             .frame(width: .infinity)

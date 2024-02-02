@@ -25,7 +25,6 @@ struct DetailsView: View {
             case .orderedSame:
                 return true
             }
-            
         } else {
             return true
         }
@@ -37,15 +36,15 @@ struct DetailsView: View {
             
             switch currentDate.compare(endRegisterDate) {
             case .orderedAscending:
-                return ("En cours...", AllInColors.purpleAccentColor)
+                return ("En cours...", AllInColors.darkPurpleColor)
             case .orderedDescending:
-                return ("En attente...",AllInColors.pink100)
+                return ("En attente...", AllInColors.pink100)
             case .orderedSame:
-                return ("Fin des inscriptions...",AllInColors.grey50Color)
+                return ("Fin des inscriptions...", AllInColors.grey50Color)
             }
             
         } else {
-            return ("Statut indisponible", AllInColors.whiteColor)
+            return ("Statut indisponible", AllInColors.pink100)
         }
     }
     
@@ -62,6 +61,7 @@ struct DetailsView: View {
                 VStack(alignment: .center) {
                     HStack{
                         Text(StatusValues.0)
+                            .italic()
                             .font(.system(size: 25))
                             .fontWeight(.bold).padding(.bottom, 10)
                             .foregroundStyle(Color.black)
@@ -78,15 +78,18 @@ struct DetailsView: View {
                 }
                 .padding(.horizontal, 15)
                 .background(StatusValues.1)
-                .transition(.slideInFromBottom(yOffset:0))
                 
                 VStack(spacing: 0) {
-                    VStack(alignment: .leading,spacing: 5){
-                        HStack{
+                    VStack(alignment: .leading, spacing: 5) {
+                        HStack(spacing: 3) {
                             Spacer()
-                            Text("proposé par " + (viewModel.betDetail?.bet.author.username ?? "Unknown").capitalized)
+                            Text("proposé par")
                                 .font(.system(size: 10))
                                 .foregroundColor(AllInColors.grey800Color)
+                            Text((viewModel.betDetail?.bet.author.username ?? "Unknown").capitalized)
+                                .font(.system(size: 10))
+                                .fontWeight(.semibold)
+                                .foregroundColor(AllInColors.primaryTextColor)
                             
                         }
                         Text(viewModel.betDetail?.bet.theme ?? "Not loaded")
@@ -96,27 +99,34 @@ struct DetailsView: View {
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .padding(.bottom, 10)
-                        HStack{
-                            Text("Commence le")
-                                .frame(maxWidth: 100)
-                                .font(.system(size: 15))
-                                .foregroundColor(AllInColors.grey800Color)
+                        HStack {
+                            HStack {
+                                Spacer()
+                                Text("Commence le")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(AllInColors.grey800Color)
+                            }
+                            .frame(width: 105)
+                            .padding(.trailing, 10)
                             TextCapsule(date: viewModel.betDetail?.bet.endRegisterDate ?? Date())
                             Spacer()
                             
                         }.padding(.bottom, 10)
-                        HStack{
-                            Text("Fini le")
-                                .frame(maxWidth: 100)
-                                .font(.system(size: 15))
-                                .foregroundColor(AllInColors.grey800Color)
+                        HStack {
+                            HStack {
+                                Spacer()
+                                Text("Prend fin le")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(AllInColors.grey800Color)
+                            }
+                            .frame(width: 105)
+                            .padding(.trailing, 10)
                             TextCapsule(date: viewModel.betDetail?.bet.endBetDate ?? Date())
                             Spacer()
-                            
                         }
                     }
-                    .frame(width: .infinity)
-                    .padding(.all,15).padding(.vertical, 10)
+                    .padding(.all, 15)
+                    .padding(.vertical, 10)
                     .background(AllInColors.componentBackgroundColor)
                     .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
                     
@@ -136,8 +146,8 @@ struct DetailsView: View {
                                 ParticiationCell(participation: participation).padding(.horizontal, 10)
                             }
                         }
-                        .padding(.bottom, 28)
-
+                        .padding(.bottom, geometry.safeAreaInsets.bottom + 28)
+                        
                         Spacer()
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
@@ -146,15 +156,14 @@ struct DetailsView: View {
                     .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
                     Spacer()
                     
-                    
-                    
                 }
-                .frame(maxWidth: .infinity, maxHeight: geometry.size.height*0.98)
+                .frame(maxWidth: .infinity, maxHeight: (geometry.size.height + geometry.safeAreaInsets.bottom) - 50)
                 .background(AllInColors.componentBackgroundColor)
-                .cornerRadius(15)
+                .cornerRadius(15, corners: [.topLeft, .topRight])
                 
                 ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated, bet: viewModel.betDetail?.bet)
-                    .padding(10)
+                    .padding(.bottom, geometry.safeAreaInsets.bottom + 5)
+                    .padding(.horizontal, 10)
             }
             .sheet(isPresented: $isModalParticipated) {
                 ParticipationModal(answer: $viewModel.answer, mise: $viewModel.mise, description: viewModel.betDetail?.bet.phrase ?? "Not loaded", participationAddedCallback: {
