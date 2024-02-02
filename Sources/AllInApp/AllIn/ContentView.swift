@@ -10,6 +10,7 @@ import DependencyInjection
 
 struct ContentView: View {
     
+    @State private var show = true
     @Inject var authService: IAuthService
     @ObservedObject var loggedState = AppStateContainer.shared.loggedState
     
@@ -30,6 +31,13 @@ struct ContentView: View {
         .onAppear {
             authService.refreshAuthentication()
         }
+        .overlay(
+            Group {
+                if show {
+                    DailyGiftPage(show: $show)
+                }
+            }
+        )
     }
 }
 

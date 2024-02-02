@@ -71,6 +71,7 @@
 		ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6B2B2F43EE002A6654 /* AppState.swift */; };
 		ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */; };
 		ECCD244A2B4DE8010071FA9E /* Api in Frameworks */ = {isa = PBXBuildFile; productRef = ECCD24492B4DE8010071FA9E /* Api */; };
+		ECED90B52B6D9CEC00F50937 /* DailyGiftPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		ECB7BC692B2F410A002A6654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB7BC6B2B2F43EE002A6654 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGiftPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 				1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */,
 				123590B32B51792000F7AEBD /* DetailsView.swift */,
 				123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */,
+				ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				EC650A4C2B25E9C7003AFCAD /* RankingView.swift in Sources */,
 				EC7A882B2B28D1E0004F226A /* DropDownMenu.swift in Sources */,
 				EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */,
+				ECED90B52B6D9CEC00F50937 /* DailyGiftPage.swift in Sources */,
 				EC6B96CF2B24B8D900FC1C58 /* Config.swift in Sources */,
 				1244EF602B4EC31E00374ABF /* HistoricBetView.swift in Sources */,
 				EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */,
