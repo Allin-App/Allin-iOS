@@ -10,7 +10,7 @@ import DependencyInjection
 
 struct ContentView: View {
     
-    @State private var show = true
+    @State private var show = false
     @Inject var authService: IAuthService
     @ObservedObject var loggedState = AppStateContainer.shared.loggedState
     
@@ -30,11 +30,17 @@ struct ContentView: View {
         }
         .onAppear {
             authService.refreshAuthentication()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation {
+                    show = true
+                }
+            }
         }
         .overlay(
             Group {
                 if show {
                     DailyGiftPage(show: $show)
+                        .transition(.opacity)
                 }
             }
         )
