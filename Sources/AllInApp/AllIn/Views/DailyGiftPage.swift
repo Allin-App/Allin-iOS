@@ -38,7 +38,7 @@ struct DailyGiftPage: View {
                     switch step {
                     case .first:
                         Image("giftImage")
-                            .transition(.opacity)
+                            .transition(.scale)
                     case .end:
                         ZStack {
                             Image("giftEarnImage")
@@ -60,8 +60,8 @@ struct DailyGiftPage: View {
                         case .first:
                             step = .end
                         case .end:
-                            step = .first
                             show.toggle()
+                            step = .first
                         }
                     }
                 }
