@@ -52,7 +52,7 @@ struct BetEndingValidation: View {
                         .multilineTextAlignment(.center)
                     Text("Veuillez choisir la réponse finale:")
                         .font(.system(size: 17))
-                        .foregroundStyle(AllInColors.whiteColor)
+                        .foregroundStyle(.white)
                         .fontWeight(.bold)
                         .padding(.top, 30)
                         .padding(.bottom, 10)
@@ -75,7 +75,7 @@ struct BetEndingValidation: View {
                     } label: {
                         Text("Valider")
                             .font(.system(size: 23))
-                            .foregroundColor(AllInColors.whiteColor)
+                            .foregroundColor(.white)
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 3)
