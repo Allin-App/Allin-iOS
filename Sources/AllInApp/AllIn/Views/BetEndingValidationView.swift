@@ -70,7 +70,7 @@ struct BetEndingValidation: View {
                         }
                     }
                     Spacer()
-                    selectedAnswer != nil ? Button {
+                    Button {
                         dismiss()
                     } label: {
                         Text("Valider")
@@ -80,9 +80,10 @@ struct BetEndingValidation: View {
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 3)
                     }
+                    .opacity(selectedAnswer != nil ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.3), value: selectedAnswer != nil)
                     .buttonStyle(.borderedProminent)
                     .tint(AllInColors.purpleAccentColor)
-                    : nil
                 }
                 .padding([.all],20)
             }
