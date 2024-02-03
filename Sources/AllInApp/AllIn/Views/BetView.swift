@@ -58,7 +58,7 @@ struct BetView: View {
                 viewModel.getItems()
             }
             .sheet(isPresented: $showingSheet) {
-                WinModal()
+                BetEndingValidation()
             }
             Spacer()
         }

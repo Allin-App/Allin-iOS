@@ -29,4 +29,8 @@ public struct BetStubManager: BetDataManager {
         }
     }
     
+    public func getABetDetail() -> BetDetail{
+        Stub.shared.betsDetail.first!
+    }
+    
 }
