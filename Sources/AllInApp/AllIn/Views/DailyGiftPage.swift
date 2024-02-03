@@ -15,7 +15,9 @@ struct DailyGiftPage: View {
     }
     
     @State private var step: Step = .first
-    
+    @State private var scale: CGFloat = 1.0
+    @State private var scale2: CGFloat = 0
+    @State private var rotate: CGFloat = 1
     @Binding var show: Bool
     
     var body: some View {
@@ -38,11 +40,29 @@ struct DailyGiftPage: View {
                     switch step {
                     case .first:
                         Image("giftImage")
-                            .transition(.scale)
+                            .transition(
+                                .asymmetric(
+                                    insertion: .scale(scale: 0.9).combined(with: .opacity),
+                                    removal: .scale(scale: 1.7).combined(with: .opacity))
+                            )
+                            .scaleEffect(scale)
+                            .rotationEffect(.degrees(Double(scale) * 10), anchor: .center)
+                            .rotationEffect(.degrees(-10), anchor: .center)
+                            .onAppear {
+                                withAnimation(Animation.easeInOut(duration: 1).repeatForever()) {
+                                    scale = 1.1
+                                }
+                            }
                     case .end:
                         ZStack {
                             Image("giftEarnImage")
-                                .transition(.opacity)
+                                .rotationEffect(.degrees(Double(rotate) * 10), anchor: .center)
+                                .rotationEffect(.degrees(-10), anchor: .center)
+                                .onAppear {
+                                    withAnimation(Animation.easeInOut(duration: 1).repeatForever()) {
+                                        rotate = 1.3
+                                    }
+                                }
                             HStack {
                                 Text("+ 123")
                                     .textStyle(weight: .black, color: .white, size: 55)
@@ -50,6 +70,21 @@ struct DailyGiftPage: View {
                                     .resizable()
                                     .frame(width: 40, height: 40)
                             }
+                        }
+                        .scaleEffect(scale2)
+                        .onAppear {
+                            withAnimation(Animation.easeInOut(duration: 0.8)) {
+                                scale2 = 1.0
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                withAnimation {
+                                    show = false
+                                    step = .first
+                                }
+                            }
+                        }
+                        .onDisappear {
+                            scale2 = 0
                         }
                     }
                 }
@@ -60,7 +95,7 @@ struct DailyGiftPage: View {
                         case .first:
                             step = .end
                         case .end:
-                            show.toggle()
+                            show = false
                             step = .first
                         }
                     }
