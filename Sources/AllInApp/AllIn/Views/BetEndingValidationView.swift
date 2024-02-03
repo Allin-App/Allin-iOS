@@ -49,11 +49,29 @@ struct BetEndingValidation: View {
                     VStack(spacing: 14){
                         ForEach(bet.answers, id: \.self) { answer in
                             ChoiceFinalAnswerCell(selected : answer.response == selectedAnswer, answer: answer).onTapGesture {
-                                selectedAnswer = answer.response
+                                if(selectedAnswer == answer.response){
+                                    selectedAnswer = nil
+                                }
+                                else {
+                                    selectedAnswer = answer.response
+                                }
                             }
                         }
                     }
                     Spacer()
+                    selectedAnswer != nil ? Button {
+                        dismiss()
+                    } label: {
+                        Text("Valider")
+                            .font(.system(size: 23))
+                            .foregroundColor(AllInColors.whiteColor)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 3)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(AllInColors.purpleAccentColor)
+                    : nil
                 }
                 .padding([.all],20)
             }

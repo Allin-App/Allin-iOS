@@ -16,11 +16,17 @@ struct ChoiceFinalAnswerCell: View {
     var rawColor = AllInColors.blueAccentColor
     
     var body: some View {
-        HStack{
-            Spacer()
-            Text(answer.response)
-                .textStyle(weight: .bold, color: selected ? AllInColors.whiteColor :rawColor, size: 40).padding(.vertical, 10)
-            Spacer()
+        ZStack{
+            HStack{
+                Spacer()
+                Text(answer.response)
+                    .textStyle(weight: .bold, color: selected ? AllInColors.whiteColor :rawColor, size: 40).padding(.vertical, 10)
+                Spacer()
+            }
+            HStack{
+                Spacer()
+                OddCapsule(backgroundColor: selected ? AllInColors.whiteColor : AllInColors.purpleAccentColor,  foregroundColor: selected ? AllInColors.purpleAccentColor : AllInColors.whiteColor ,odd: answer.odds ).padding(.trailing,20).scaleEffect(0.9)
+            }
         }.background(selected ? AllInColors.purpleAccentColor : AllInColors.whiteColor).cornerRadius(17)
     }
 }
