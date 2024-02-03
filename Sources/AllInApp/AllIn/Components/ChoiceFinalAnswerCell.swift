@@ -14,6 +14,7 @@ struct ChoiceFinalAnswerCell: View {
     var selected = false
     var answer: AnswerDetail
     var rawColor = AllInColors.blueAccentColor
+
     
     var body: some View {
         ZStack{
@@ -27,6 +28,9 @@ struct ChoiceFinalAnswerCell: View {
                 Spacer()
                 OddCapsule(backgroundColor: selected ? .white : AllInColors.purpleAccentColor,  foregroundColor: selected ? AllInColors.purpleAccentColor : .white ,odd: answer.odds ).padding(.trailing,20).scaleEffect(0.9)
             }
-        }.background(selected ? AllInColors.purpleAccentColor : .white).cornerRadius(17)
+        }.background(selected ? AllInColors.purpleAccentColor : .white).cornerRadius(17).scaleEffect(selected ? 1.02 : 1).animation(
+            .easeInOut(duration: 0.3),
+            value: selected
+        )
     }
 }
