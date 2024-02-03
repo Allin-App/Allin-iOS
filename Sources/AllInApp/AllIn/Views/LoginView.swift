@@ -139,7 +139,6 @@ struct LoginView: View {
                 focusedField = nil
             }
         }
-        
     }
 }
 

@@ -6,28 +6,32 @@
 //
 
 import SwiftUI
+import Model
 
 struct ReviewCard: View {
+    
     @State var showDetails: Bool = false
     @State var showPartipated: Bool = false
+    @State var betDetail: BetDetail
     
     var amountBetted: Int
     var isAWin: Bool
+    
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par Lucas")
-                        .font(.system(size: 10))
-                        .foregroundColor(AllInColors.grey800Color)
+                    Text("proposé par \(betDetail.bet.author.username)")
+                    .font(.system(size: 10))
+                    .foregroundColor(AllInColors.grey800Color)
                     
                 }
-                Text("Etudes").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                Text("Emre va réussir son TP de CI/CD mercredi?").font(.system(size: 20)).fontWeight(.bold)
+                Text(betDetail.bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
+                Text(betDetail.bet.phrase).font(.system(size: 20)).fontWeight(.bold)
                 HStack{
                     Text("Fini le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                    TextCapsule(date: Date())
+                    TextCapsule(date: betDetail.bet.endBetDate)
                     Spacer()
                     
                 }
@@ -40,17 +44,24 @@ struct ReviewCard: View {
             VStack(alignment: .center,spacing:0){
                 HStack(){
                     Spacer()
-                    Text(amountBetted.description)
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .fontWeight(.bold)
-                    Image("allcoinWhiteIcon")
-                        .resizable()
-                        .frame(width: 20, height: 20, alignment: .bottom)
-                    Text(isAWin ? "Gagnés!" : "Perdus!")
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .fontWeight(.bold)
+                    if(betDetail.bet.isFinish()){
+                        Text("Terminé")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                    }
+                    else{Text(amountBetted.description)
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                        Image("allcoinWhiteIcon")
+                            .resizable()
+                            .frame(width: 20, height: 20, alignment: .bottom)
+                        Text(isAWin ? "Gagnés!" : "Perdus!")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                    }
                     Spacer()
 
                 }
@@ -61,7 +72,7 @@ struct ReviewCard: View {
             .frame(width: .infinity)
             .padding(.all,2)
             .background(
-                isAWin ?
+                isAWin || betDetail.bet.isFinish() ?
                 AnyView(AllInColors.primaryGradient) :
                 AnyView(Color.black)
             )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])

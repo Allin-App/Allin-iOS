@@ -78,7 +78,7 @@ struct InfiniteScroller<Content: View>: View {
                 content()
                 content()
             }
-            .offset(x: xOffset, y: 0)
+            .offset(x: xOffset, y: 0).opacity(0.3)
         }
         .disabled(true)
         .onAppear {
@@ -89,9 +89,9 @@ struct InfiniteScroller<Content: View>: View {
                 xOffset = +contentWidth
             }
         }
-        .frame(width: 1000, height: 1000)
+        .frame(width: 1300, height: 1300)
         .padding(.leading, -400)
         .rotationEffect(.degrees(30))
-        .opacity(0.04)
+        .opacity(0.1)
     }
 }

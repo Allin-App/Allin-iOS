@@ -85,7 +85,7 @@ struct Stub {
         self.bets.append(bet4)
 
         for bet in bets {
-            let betDetail = BetDetail(bet: bet, answers: [], participations: [])
+            let betDetail = BetDetail(bet: bet, answers: [AnswerDetail(response: "OUI", totalStakes: 120, totalParticipants: 2, highestStake: 200, odds: 1.2), AnswerDetail(response: "NON", totalStakes: 120, totalParticipants: 2, highestStake: 200, odds: 1.2)], participations: [])
             self.betsDetail.append(betDetail)
         }
         
