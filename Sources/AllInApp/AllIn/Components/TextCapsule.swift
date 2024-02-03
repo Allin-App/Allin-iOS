@@ -36,7 +36,7 @@ struct TextCapsule: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(AllInColors.delimiterGrey, lineWidth: 1)
                 )
-            
+                        
             Text(formattedTime)
                 .font(.system(size: 15))
                 .foregroundColor(AllInColors.lightPurpleColor)
@@ -49,6 +49,9 @@ struct TextCapsule: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(AllInColors.delimiterGrey, lineWidth: 1)
                 )
+            
+            Spacer()
+
         }
     }
 }

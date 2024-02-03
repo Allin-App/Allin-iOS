@@ -9,36 +9,47 @@ import Foundation
 import SwiftUI
 import Model
 import StubLib
+
 struct BetEndingValidation: View {
+    
     @Environment(\.dismiss) var dismiss
     
     @State var xOffset: CGFloat = 0
     @State var selectedAnswer : String?
     var bet: BetDetail = BetStubManager().getABetDetail()
+    
     var body: some View {
         ZStack{
             GeometryReader { geometry in
                 
                 InfiniteScroller(contentWidth: geometry.size.width) {
-                    
-                    Image("marquee").resizable().scaledToFit()
+                    Image("marquee")
+                        .resizable()
+                        .scaledToFit()
                 }
                 VStack {
                     ZStack(alignment: .topLeading){
                         HStack{
                             Spacer()
-                            Image("allinIcon").resizable().frame(width: 35, height: 35)
+                            Image("allinIcon")
+                                .resizable()
+                                .frame(width: 35, height: 35)
                             Spacer()
                         }
                         
-                        Image("crossIcon").resizable().frame(width: 25, height: 25).onTapGesture {
-                            dismiss()
-                        }
-                        
+                        Image("crossIcon")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .onTapGesture {
+                                dismiss()
+                            }
                     }
-                    ReviewCard(betDetail: bet, amountBetted: 0, isAWin: false).padding(.top, 20).padding(.bottom, 10)
+                    ReviewCard(betDetail: bet, amountBetted: 0, isAWin: false)
+                        .padding(.top, 20)
+                        .padding(.bottom, 10)
                     Text("Ce bet est arrivé à la date de fin. Vous devez à présent distribuer les gains en validant le pari gagnant.")
-                        .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 13).multilineTextAlignment(.center)
+                        .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 13)
+                        .multilineTextAlignment(.center)
                     Text("Veuillez choisir la réponse finale:")
                         .font(.system(size: 17))
                         .foregroundStyle(AllInColors.whiteColor)

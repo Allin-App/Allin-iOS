@@ -62,11 +62,10 @@ struct DropDownAnswerMenu: View {
                 .padding([.leading, .trailing], 15)
             }
         })
-        .frame(width: .infinity)
         .background(AllInColors.componentBackgroundColor)
-        .cornerRadius(10)
+        .cornerRadius(8)
         .overlay(
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .stroke(AllInColors.veryLightPurpleColor, lineWidth: 0.4)
         )
     }

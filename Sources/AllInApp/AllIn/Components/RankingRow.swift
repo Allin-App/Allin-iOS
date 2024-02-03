@@ -16,7 +16,7 @@ struct RankingRow: View {
     
     var body: some View {
         HStack(){
-            Text(String(number))
+            Text(number.description)
                 .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 18)
                 .padding(.leading, 15)
             
@@ -34,7 +34,7 @@ struct RankingRow: View {
             Image("allcoinIcon")
                 .resizable()
                 .frame(width: 17, height: 17, alignment: .leading)
-            Text(String(allCoins))
+            Text(allCoins.description)
                 .textStyle(weight: .black, color: AllInColors.lightPurpleColor, size: 16)
                 .padding(.trailing, 15)
         }

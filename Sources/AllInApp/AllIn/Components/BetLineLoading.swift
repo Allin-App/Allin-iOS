@@ -23,16 +23,13 @@ struct BetLineLoading: View {
         return totalParticipations > 0 ? CGFloat(numberOfYes) / CGFloat(totalParticipations) : 0.0
     }
     
-    
-    
     var yesParticipations: [Participation] {
-        return participations.filter { $0.response.uppercased() == "YES" }
+        participations.filter { $0.response.uppercased() == "YES" }
     }
     
     var noParticipations: [Participation] {
-        return participations.filter { $0.response.uppercased() == "NO" }
+        participations.filter { $0.response.uppercased() == "NO" }
     }
-    
     
     var body: some View {
         GeometryReader { geometry in
@@ -53,16 +50,15 @@ struct BetLineLoading: View {
                     HStack{
                         Spacer()
                         Rectangle()
-                            .frame(width: min(CGFloat(1-self.value)*geometry.size.width, geometry.size.width), height: 17)
+                            .frame(width: min(CGFloat(1-self.value) * geometry.size.width, geometry.size.width), height: 17)
                             .foregroundStyle(AllInColors.PinkBetGradiant).cornerRadius(999)
                     }
                     
                     HStack(spacing: 0){
                         Rectangle()
-                            .frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: 17)
+                            .frame(width: min(CGFloat(self.value) * geometry.size.width, geometry.size.width), height: 17)
                             .foregroundStyle(AllInColors.BlueBetGradiant)
                             .cornerRadius(999)
-                            .animation(.linear)
                         Image("loadingHeartIcon")
                             .resizable()
                             .frame(width: 29, height: 32)
@@ -86,13 +82,13 @@ struct BetLineLoading: View {
                             .foregroundColor(AllInColors.pink100)
                         Image("pinkAllCoinIcon")
                             .resizable()
-                            .frame(width:10, height: 14)
+                            .frame(width: 12, height: 12)
                         
                     }
                     HStack(spacing: 5){
                         Image("bluePersonIcon")
                             .resizable()
-                            .frame(width:14, height: 12)
+                            .frame(width: 12, height: 12)
                         Text(yesParticipations.count.description)
                             .font(.system(size: 15))
                             .fontWeight(.bold)
@@ -104,13 +100,13 @@ struct BetLineLoading: View {
                             .foregroundColor(AllInColors.pink100)
                         Image("pinkPersonIcon")
                             .resizable()
-                            .frame(width:10, height: 14)
+                            .frame(width: 12, height: 12)
                         
                     }
                     HStack(spacing: 5){
                         Image("blueBadgeIcon")
                             .resizable()
-                            .frame(width:10, height: 14)
+                            .frame(width: 12, height: 12)
                         Text(yesParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0")
                             .font(.system(size: 15))
                             .fontWeight(.bold)
@@ -122,13 +118,13 @@ struct BetLineLoading: View {
                             .foregroundColor(AllInColors.pink100)
                         Image("pinkBadgeIcon")
                             .resizable()
-                            .frame(width:10, height: 14)
+                            .frame(width: 12, height: 12)
                         
                     }
                     HStack(spacing: 5){
                         Image("blueTrophyIcon")
                             .resizable()
-                            .frame(width:14, height: 13)
+                            .frame(width: 12, height: 12)
                         Text("1.2")
                             .font(.system(size: 15))
                             .fontWeight(.bold)
@@ -140,7 +136,7 @@ struct BetLineLoading: View {
                             .foregroundColor(AllInColors.pink100)
                         Image("pinkTrophyIcon")
                             .resizable()
-                            .frame(width:10, height: 14)
+                            .frame(width:12, height: 12)
                         
                     }
                 }

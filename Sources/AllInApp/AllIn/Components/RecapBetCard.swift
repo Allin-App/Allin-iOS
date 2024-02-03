@@ -13,6 +13,7 @@ struct RecapBetCard: View {
     @State private var isPressed = false
     @State var showDetails: Bool = false
     @State var showPartipated: Bool = false
+    
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
@@ -92,30 +93,29 @@ struct RecapBetCard: View {
                         .padding([.top,.bottom],5)
                         .background(AllInColors.primaryGradient)
                         .cornerRadius(8, corners: .allCorners)
-                    
-                    
-                }.padding([.bottom],10)
-                
-                
-            }.frame(width: .infinity)
-                .padding([.top,.bottom],8)
-                .padding([.leading,.trailing],15)
-                .background(AllInColors.underComponentBackgroundColor)
-                .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
-                .padding(.bottom,0).border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
-        }.scaleEffect(longPressTap ? 0.97 : 1.0)
-            .animation(.easeInOut, value: longPressTap)
-            .onTapGesture {
-                showDetails.toggle()
-            }.fullScreenCover(isPresented: $showDetails) {
-                DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated,id: "1")
+                }
+                .padding([.bottom],10)
             }
-            .gesture(
-                LongPressGesture(minimumDuration: 0.5)
-                    .updating($longPressTap) { value, state, _ in
-                        state = value
-                    }
-            )
+            .frame(width: .infinity)
+            .padding([.top,.bottom],8)
+            .padding([.leading,.trailing],15)
+            .background(AllInColors.underComponentBackgroundColor)
+            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
+            .padding(.bottom,0).border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+        }
+        .scaleEffect(longPressTap ? 0.97 : 1.0)
+        .animation(.easeInOut, value: longPressTap)
+        .onTapGesture {
+            showDetails.toggle()
+        }.fullScreenCover(isPresented: $showDetails) {
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated,id: "1")
+        }
+        .gesture(
+            LongPressGesture(minimumDuration: 0.5)
+                .updating($longPressTap) { value, state, _ in
+                    state = value
+                }
+        )
     }
 }
 

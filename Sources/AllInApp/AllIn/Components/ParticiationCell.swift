@@ -12,17 +12,23 @@ struct ParticiationCell: View {
     @State var participation: Participation?
     var body: some View {
         HStack(alignment: .center, spacing: 0){
-            Circle().frame(width: 30, height: 30).foregroundColor(AllInColors.grey700Color).padding(.trailing, 5)
+            Circle()
+                .frame(width: 30, height: 30)
+                .foregroundColor(AllInColors.grey700Color)
+                .padding(.trailing, 7)
             Text(participation?.user.username ?? "Unknown")
                 .font(.system(size: 15))
-                .foregroundStyle(AllInColors.grey100Color)
+                .foregroundStyle(AllInColors.primaryTextColor)
                 .fontWeight(.semibold)
             Spacer()
             Text(participation?.stake.description ?? "NaN")
                 .font(.system(size: 18))
                 .foregroundStyle(AllInColors.lightPurpleColor)
-                .fontWeight(.bold).padding(.trailing, 5)
-            Image("PurpleAllCoin").resizable().frame(width: 11, height: 12)
+                .fontWeight(.bold)
+                .padding(.trailing, 8)
+            Image("PurpleAllCoin")
+                .resizable()
+                .frame(width: 11, height: 12)
         }
     }
 }

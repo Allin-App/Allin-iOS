@@ -28,6 +28,6 @@ struct OddCapsule: View {
 
 struct OddCapsule_Previews: PreviewProvider {
     static var previews: some View {
-        AllcoinsCounter()
+        OddCapsule()
     }
 }

@@ -15,7 +15,7 @@ struct BetCard: View {
     @State var showParticipate: Bool = false
 
     var body: some View {
-        VStack(spacing: 0){
+        VStack(spacing: 0) {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
@@ -31,7 +31,9 @@ struct BetCard: View {
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 HStack{
-                    Text("Commence le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
+                    Text("Commence le")
+                        .font(.system(size: 15))
+                        .foregroundColor(AllInColors.grey800Color)
                     TextCapsule(date: bet.endRegisterDate)
                     Spacer()
                 }
@@ -44,13 +46,14 @@ struct BetCard: View {
                 HStack{
                     Spacer()
                     UsersPreview()
-                    Text(String(bet.registered.count) + " joueurs en attente")
+                    Text(bet.registered.count.description + " joueurs en attente")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
                         .fontWeight(.medium)
                     Spacer()
                     
-                }.padding(0)
+                }
+                .padding(0)
                 ParticipateButton(isOpen: $showDetails, isParticapatedOpen: $showParticipate, bet: bet)
                     .padding(.top, 5)
             }
@@ -60,6 +63,7 @@ struct BetCard: View {
             .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
+        
         .onTapGesture {
             showDetails.toggle()
         }

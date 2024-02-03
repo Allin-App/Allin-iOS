@@ -46,6 +46,8 @@ struct MainView: View {
                         FriendsView(showMenu: self.$showMenu)
                     case "CreationBet":
                         CreationBetView(showMenu: self.$showMenu)
+                    case "Current":
+                        CurrentBetView(showMenu: self.$showMenu)
                     default:
                         BetView(showMenu: self.$showMenu)
                     }
