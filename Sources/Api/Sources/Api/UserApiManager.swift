@@ -29,7 +29,7 @@ public struct UserApiManager: UserDataManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
+        
         let json = FactoryApiBet().toResponse(bet: bet)
         
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
@@ -47,20 +47,45 @@ public struct UserApiManager: UserDataManager {
         fatalError("Not implemented yet")
     }
     
+    public func getGifts(completion : @escaping (Int, Int)-> ()) {
+        let url = URL(string: allInApi + "users/gift")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get gifts of the day")
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        if let stringValue = String(data: data, encoding: .utf8), let intValue = Int(stringValue) {
+                            completion(httpResponse.statusCode, intValue)
+                        }
+                    } else {
+                        completion(httpResponse.statusCode, 0)
+                    }
+                    print(httpResponse.statusCode)
+                }
+            }
+        }.resume()
+    }
+    
     public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
         fatalError("Not implemented yet")
     }
     
     public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
         let url = URL(string: allInApi + "bets/current")!
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
+        
         var bets: [Bet] = []
-
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 print ("ALLIN : get current bets")
@@ -87,7 +112,7 @@ public struct UserApiManager: UserDataManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
+        
         let json: [String: Any] = [
             "betId": id,
             "answer": answer,

@@ -19,6 +19,7 @@ struct AllcoinsCounter: View {
                 .resizable()
                 .frame(width: 17, height: 17, alignment: .leading)
             Text(String(appStateContainer.user?.nbCoins ?? 0))
+                .contentTransition(.numericText())
                 .fontWeight(.black)
                 .foregroundColor(foregroundColor)
         }

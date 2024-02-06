@@ -212,6 +212,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC1D15402B715A7A0094833E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EC6B96CB2B24B7E500FC1C58 /* IAuthService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		EC6B968F2B24B4CC00FC1C58 = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +289,7 @@
 		EC6B96CA2B24B7B300FC1C58 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EC6B96CB2B24B7E500FC1C58 /* IAuthService.swift */,
+				EC1D15402B715A7A0094833E /* Protocols */,
 				EC6B96D02B24BAE800FC1C58 /* AuthService.swift */,
 			);
 			path = Services;

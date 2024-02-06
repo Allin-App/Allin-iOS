@@ -19,6 +19,7 @@ struct DailyGiftPage: View {
     @State private var scale2: CGFloat = 0
     @State private var rotate: CGFloat = 1
     @Binding var show: Bool
+    @Binding var gain: Int
     
     var body: some View {
         GeometryReader { geometry in
@@ -94,6 +95,9 @@ struct DailyGiftPage: View {
                         switch step {
                         case .first:
                             step = .end
+                            withAnimation {
+                                AppStateContainer.shared.user?.nbCoins += gain
+                            }
                         case .end:
                             show = false
                             step = .first
@@ -115,6 +119,6 @@ struct DailyGiftPage: View {
 
 struct DailyGiftPage_Previews: PreviewProvider {
     static var previews: some View {
-        DailyGiftPage(show: .constant(false))
+        DailyGiftPage(show: .constant(false), gain: .constant(20))
     }
 }

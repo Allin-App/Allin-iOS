@@ -7,11 +7,14 @@
 
 import SwiftUI
 import DependencyInjection
+import Model
 
 struct ContentView: View {
     
     @State private var show = false
+    @State private var gain = 0
     @Inject var authService: IAuthService
+    @Inject var manager: Manager
     @ObservedObject var loggedState = AppStateContainer.shared.loggedState
     
     var body: some View {
@@ -30,16 +33,23 @@ struct ContentView: View {
         }
         .onAppear {
             authService.refreshAuthentication()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                withAnimation {
-                    show = true
+        }
+        .onChange(of: loggedState.connectedUser) { _ in
+            if loggedState.connectedUser {
+                manager.getTodayGifts() { status, gained in
+                    if status == 200 {
+                        withAnimation {
+                            show = true
+                            gain = gained
+                        }
+                    }
                 }
             }
         }
         .overlay(
             Group {
                 if show {
-                    DailyGiftPage(show: $show)
+                    DailyGiftPage(show: $show, gain: $gain)
                         .transition(.opacity)
                 }
             }

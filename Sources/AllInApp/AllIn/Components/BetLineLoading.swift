@@ -10,6 +10,7 @@ import Model
 
 struct BetLineLoading: View {
     
+    @State var showInfos: Bool = false
     var participations: [Participation]
     
     var value: CGFloat {
@@ -33,7 +34,7 @@ struct BetLineLoading: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .leading,spacing: 0){
+            VStack(alignment: .leading,spacing: 0) {
                 HStack(spacing: 5){
                     Text("OUI")
                         .font(.system(size: 25))
@@ -44,7 +45,6 @@ struct BetLineLoading: View {
                         .font(.system(size: 25))
                         .fontWeight(.bold)
                         .foregroundColor(AllInColors.pink100)
-                    
                 }
                 ZStack(alignment: .leading) {
                     HStack{
@@ -66,83 +66,104 @@ struct BetLineLoading: View {
                     }
                     
                 }
-                VStack(spacing: 1){
-                    HStack(spacing: 5){
-                        Image("blueAllCoinIcon")
-                            .resizable()
-                            .frame(width:12, height: 12)
-                        Text(yesParticipations.reduce(0, {x,y in x + y.stake}).description)
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.blue200)
-                        Spacer()
-                        Text(noParticipations.reduce(0, {x,y in x + y.stake}).description)
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.pink100)
-                        Image("pinkAllCoinIcon")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        
-                    }
-                    HStack(spacing: 5){
-                        Image("bluePersonIcon")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        Text(yesParticipations.count.description)
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.blue200)
-                        Spacer()
-                        Text(noParticipations.count.description)
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.pink100)
-                        Image("pinkPersonIcon")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        
-                    }
-                    HStack(spacing: 5){
-                        Image("blueBadgeIcon")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        Text(yesParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0")
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.blue200)
-                        Spacer()
-                        Text(noParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0")
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.pink100)
-                        Image("pinkBadgeIcon")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        
-                    }
-                    HStack(spacing: 5){
-                        Image("blueTrophyIcon")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        Text("1.2")
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.blue200)
-                        Spacer()
-                        Text("1.2")
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .foregroundColor(AllInColors.pink100)
-                        Image("pinkTrophyIcon")
-                            .resizable()
-                            .frame(width:12, height: 12)
-                        
+                .padding(.bottom, 5)
+
+                HStack {
+                    Spacer()
+                    Text("Détails")
+                        .textStyle(weight: .medium, color: AllInColors.primaryTextColor, size: 10)
+                    Image(showInfos ? "chevronUpIcon" : "chevronDownIcon")
+                        .resizable()
+                        .frame(width: 10, height: 7)
+                        .scaledToFill()
+                }
+                .onTapGesture {
+                    withAnimation {
+                        showInfos.toggle()
                     }
                 }
+                .padding(.bottom, 5)
+                .padding(.trailing, 5)
+
+                if showInfos {
+                    VStack(spacing: 1){
+                        HStack(spacing: 5){
+                            Image("blueAllCoinIcon")
+                                .resizable()
+                                .frame(width:12, height: 12)
+                            Text(yesParticipations.reduce(0, {x,y in x + y.stake}).description)
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.blue200)
+                            Spacer()
+                            Text(noParticipations.reduce(0, {x,y in x + y.stake}).description)
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.pink100)
+                            Image("pinkAllCoinIcon")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            
+                        }
+                        HStack(spacing: 5){
+                            Image("bluePersonIcon")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            Text(yesParticipations.count.description)
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.blue200)
+                            Spacer()
+                            Text(noParticipations.count.description)
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.pink100)
+                            Image("pinkPersonIcon")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            
+                        }
+                        HStack(spacing: 5){
+                            Image("blueBadgeIcon")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            Text(yesParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.blue200)
+                            Spacer()
+                            Text(noParticipations.max(by: { $0.stake < $1.stake })?.stake.description ?? "0")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.pink100)
+                            Image("pinkBadgeIcon")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            
+                        }
+                        HStack(spacing: 5){
+                            Image("blueTrophyIcon")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                            Text("1.2")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.blue200)
+                            Spacer()
+                            Text("1.2")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .foregroundColor(AllInColors.pink100)
+                            Image("pinkTrophyIcon")
+                                .resizable()
+                                .frame(width:12, height: 12)
+                            
+                        }
+                    }
+                }
+                Spacer()
             }
-            
-        }.frame(height: 140)
+        }
     }
 }
 

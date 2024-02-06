@@ -51,4 +51,10 @@ public struct Manager {
             completion(status)
         }
     }
+    
+    public func getTodayGifts(completion : @escaping (Int, Int)-> ()) {
+        userDataManager.getGifts() { status, gain in
+            completion(status, gain)
+        }
+    }
 }
