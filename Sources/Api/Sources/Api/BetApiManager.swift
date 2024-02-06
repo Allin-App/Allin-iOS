@@ -22,7 +22,8 @@ public struct BetApiManager: BetDataManager {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
         var bets: [Bet] = []
 
         URLSession.shared.dataTask(with: request) { data, response, error in

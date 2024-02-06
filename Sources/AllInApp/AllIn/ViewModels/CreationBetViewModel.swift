@@ -19,6 +19,7 @@ class CreationBetViewModel: ObservableObject {
     @Published var endRegisterDate = Date()
     @Published var endBetDate = Date()
     @Published var betAdded = false
+    @Published var selectedOption = 0
     
     @Published var themeFieldError: String?
     @Published var descriptionFieldError: String?
@@ -37,7 +38,7 @@ class CreationBetViewModel: ObservableObject {
         resetAllFieldErrors()
         
         if let user = AppStateContainer.shared.user {
-            manager.addBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, creator: user) { statusCode in
+            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .IN_PROGRESS, creator: user, type: selectedOption)) { statusCode in
                 switch statusCode {
                 case 201:
                     self.betAdded = true
@@ -107,5 +108,18 @@ class CreationBetViewModel: ObservableObject {
     func setErrorMessage(errorMessage: String) {
         self.showErrorMessage = true
         self.errorMessage = errorMessage
+    }
+    
+    func toBet(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, status: BetStatus, creator: User, type: Int) -> Bet {
+        switch type {
+        case 0:
+            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
+        case 1:
+            return MatchBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [], nameTeam1: "", nameTeam2: "")
+        case 2:
+            return CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
+        default:
+            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
+        }
     }
 }

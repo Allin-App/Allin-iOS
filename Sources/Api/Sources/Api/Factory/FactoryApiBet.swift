@@ -25,6 +25,7 @@ public class FactoryApiBet: FactoryBet {
             "endBet": formatZonedDateTime(dateTime: bet.endBetDate),
             "isPrivate": String(bet.isPublic),
             "response": ["Yes","No"],
+            "type": betTypeString(fromType: String(describing: type(of: bet)))
         ]
         
         return json
@@ -45,7 +46,8 @@ public class FactoryApiBet: FactoryBet {
               let endRegisterDateString = json["endRegistration"] as? String,
               let endBetDateString = json["endBet"] as? String,
               let isPublic = json["isPrivate"] as? Bool,
-              let createdBy = json["createdBy"] as? String else {
+              let createdBy = json["createdBy"] as? String,
+              let type = json["type"] as? String else {
             return nil
         }
         
@@ -54,16 +56,16 @@ public class FactoryApiBet: FactoryBet {
             return nil
         }
         
-        return toBet(id: id, theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .FINISHED, creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: 0)
+        return toBet(id: id, theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .FINISHED, creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: type)
     }
     
-    public func toBet(id: String, theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, status: BetStatus, creator: User, type: Int) -> Bet {
+    public func toBet(id: String, theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, status: BetStatus, creator: User, type: String) -> Bet {
         switch type {
-        case 0:
+        case "BINARY":
             return BinaryBet(id: id, theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
-        case 1:
+        case "MATCH":
             return MatchBet(id: id, theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [], nameTeam1: "", nameTeam2: "")
-        case 2:
+        case "CUSTOM":
             return CustomBet(id: id, theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
         default:
             return BinaryBet(id: id, theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
@@ -99,5 +101,18 @@ public class FactoryApiBet: FactoryBet {
         }
         
         return Participation(id: id, stake: stake, date: Date(), response: answer, user: User(username: username, email: "Email", nbCoins: 0, friends: []), betId: betId)
+    }
+    
+    public func betTypeString(fromType type: String) -> String {
+        switch type {
+        case "BinaryBet":
+            return "BINARY"
+        case "MatchBet":
+            return "MATCH"
+        case "CustomBet":
+            return "CUSTOM"
+        default:
+            return "CUSTOM"
+        }
     }
 }

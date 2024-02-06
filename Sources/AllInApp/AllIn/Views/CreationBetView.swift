@@ -31,7 +31,6 @@ struct CreationBetView: View {
     @State private var response = ""
     @State private var values: [String] = []
     
-    @State private var selectedOption = 0
     let options: [(Int, String, String)] = [
         (0, "questionMarkIcon", "Oui / Non"),
         (1, "footballIcon", "Pari sportif"),
@@ -341,14 +340,14 @@ struct CreationBetView: View {
                 VStack(spacing: 5) {
                     
                     VStack() {
-                        DropDownMenu(selectedOption: $selectedOption, options: options)
+                        DropDownMenu(selectedOption: $viewModel.selectedOption, options: options)
                     }
                     .padding([.bottom], 15)
                     .frame(width: 340)
                     
                     
                     Group {
-                        switch selectedOption {
+                        switch viewModel.selectedOption {
                         case 0:
                             Text("Les utilisateurs devront répondre au pari avec OUI ou NON.")
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
