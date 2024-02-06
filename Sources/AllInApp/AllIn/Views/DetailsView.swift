@@ -13,36 +13,20 @@ struct DetailsView: View {
         viewModel.betDetail?.finalAnswer == nil ? false : true
     }
     
-    var isDisabled: Bool {
-        if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
-            let currentDate = Date()
-            
-            switch currentDate.compare(endRegisterDate) {
-            case .orderedAscending:
-                return false
-            case .orderedDescending:
-                return true
-            case .orderedSame:
-                return true
-            }
-        } else {
-            return true
-        }
-    }
-    
     var StatusValues: (String, Color) {
-        if let endRegisterDate = viewModel.betDetail?.bet.endRegisterDate {
-            let currentDate = Date()
-            
-            switch currentDate.compare(endRegisterDate) {
-            case .orderedAscending:
+        if let betType = viewModel.betDetail?.bet.status {
+            switch betType {
+            case .inProgress:
                 return ("En cours...", AllInColors.darkPurpleColor)
-            case .orderedDescending:
+            case .waiting:
                 return ("En attente...", AllInColors.pink100)
-            case .orderedSame:
+            case .closing:
                 return ("Fin des inscriptions...", AllInColors.grey50Color)
+            case .finished:
+                return ("Terminé", AllInColors.grey100Color)
+            case .cancelled:
+                return ("Annulé", AllInColors.grey100Color)
             }
-            
         } else {
             return ("Statut indisponible", AllInColors.pink100)
         }
@@ -150,7 +134,6 @@ struct DetailsView: View {
                         
                         Spacer()
                     }
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
                     .padding([.bottom,.trailing,.leading], 15)
                     .background(AllInColors.underComponentBackgroundColor)
                     .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)

@@ -8,5 +8,5 @@
 import Foundation
 
 public enum BetStatus {
-    case WAITING, IN_PROGRESS, FINISHED
+    case inProgress, waiting, closing, finished, cancelled
 }

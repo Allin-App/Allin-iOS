@@ -56,7 +56,7 @@ public class FactoryApiBet: FactoryBet {
             return nil
         }
         
-        return toBet(id: id, theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .FINISHED, creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: type)
+        return toBet(id: id, theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .finished, creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: type)
     }
     
     public func toBet(id: String, theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, status: BetStatus, creator: User, type: String) -> Bet {

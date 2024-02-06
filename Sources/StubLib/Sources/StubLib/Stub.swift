@@ -38,7 +38,7 @@ struct Stub {
             endRegisterDate: Date().addingTimeInterval(-86400),
             endBetDate: Date().addingTimeInterval(172800),
             isPublic: true,
-            status: .IN_PROGRESS,
+            status: .inProgress,
             invited: [],
             author: user1,
             registered: [user2]
@@ -51,7 +51,7 @@ struct Stub {
             endRegisterDate: Date().addingTimeInterval(172800),
             endBetDate: Date().addingTimeInterval(259200),
             isPublic: false,
-            status: .IN_PROGRESS,
+            status: .inProgress,
             invited: [user3],
             author: user1,
             registered: [user2]
@@ -64,7 +64,7 @@ struct Stub {
             endRegisterDate: Date().addingTimeInterval(259200),
             endBetDate: Date().addingTimeInterval(345600),
             isPublic: true,
-            status: .FINISHED,
+            status: .finished,
             invited: [],
             author: user1,
             registered: [user2, user1, user3]
@@ -77,7 +77,7 @@ struct Stub {
             endRegisterDate: Date().addingTimeInterval(345600),
             endBetDate: Date().addingTimeInterval(432000),
             isPublic: false,
-            status: .FINISHED,
+            status: .finished,
             invited: [user1],
             author: user2,
             registered: [user3]

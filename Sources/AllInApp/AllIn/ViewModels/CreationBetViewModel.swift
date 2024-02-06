@@ -38,7 +38,7 @@ class CreationBetViewModel: ObservableObject {
         resetAllFieldErrors()
         
         if let user = AppStateContainer.shared.user {
-            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .IN_PROGRESS, creator: user, type: selectedOption)) { statusCode in
+            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .inProgress, creator: user, type: selectedOption)) { statusCode in
                 switch statusCode {
                 case 201:
                     self.betAdded = true

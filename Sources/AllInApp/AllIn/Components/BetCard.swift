@@ -80,7 +80,7 @@ struct BetCard_Previews: PreviewProvider {
                                endRegisterDate: Date().addingTimeInterval(86400),
                                endBetDate: Date().addingTimeInterval(172800),
                                isPublic: true,
-                               status: .FINISHED,
+                               status: .inProgress,
                                invited: [],
                                author: User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75, friends: []),
                                registered: []))

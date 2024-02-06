@@ -12,7 +12,6 @@ public class CustomBetResponse {
     /// The name or description of the custom bet response.
     public var name: String
     
-    
     /// Custom Constructor
     /// 
     /// - Parameters:

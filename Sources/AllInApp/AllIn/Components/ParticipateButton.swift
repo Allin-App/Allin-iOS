@@ -15,16 +15,14 @@ struct ParticipateButton: View {
     var bet: Bet?
     
     var isDisabled: Bool {
-        guard let endRegisterDate = bet?.endRegisterDate else {
-            return true
-        }
-
-        let currentDate = Date()
-
-        switch currentDate.compare(endRegisterDate) {
-        case .orderedAscending:
-            return false
-        case .orderedDescending, .orderedSame:
+        if let betType = bet?.status {
+            switch betType {
+            case .inProgress:
+                return false
+            default:
+                return true
+            }
+        } else {
             return true
         }
     }
