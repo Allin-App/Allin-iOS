@@ -63,6 +63,7 @@
 		EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882C2B28D8A1004F226A /* CreationBetView.swift */; };
 		EC7A882F2B28E6BE004F226A /* ConfidentialityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */; };
 		EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89F7BC2B250D66003821CE /* LoginView.swift */; };
+		EC9464E92B7413E1004EEBD8 /* BetEndingValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */; };
 		ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */; };
 		ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */; };
 		ECB26A132B406A9400FE06B3 /* BetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB26A122B406A9400FE06B3 /* BetViewModel.swift */; };
@@ -169,6 +170,7 @@
 		EC7A882C2B28D8A1004F226A /* CreationBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationBetView.swift; sourceTree = "<group>"; };
 		EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidentialityButton.swift; sourceTree = "<group>"; };
 		EC89F7BC2B250D66003821CE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetEndingValidationViewModel.swift; sourceTree = "<group>"; };
 		ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		ECA9D1CA2B2DA2320076E0EC /* DropDownFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownFriends.swift; sourceTree = "<group>"; };
 		ECB26A122B406A9400FE06B3 /* BetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetViewModel.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				EC01FCC22B56650400BB2390 /* DetailsViewModel.swift */,
 				EC01FCC42B56791B00BB2390 /* HistoricBetViewModel.swift */,
 				EC17A15F2B6A9781008A8679 /* CurrentBetViewModel.swift */,
+				EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */,
 				EC17A1602B6A9781008A8679 /* CurrentBetViewModel.swift in Sources */,
 				EC650A4C2B25E9C7003AFCAD /* RankingView.swift in Sources */,
+				EC9464E92B7413E1004EEBD8 /* BetEndingValidationViewModel.swift in Sources */,
 				EC7A882B2B28D1E0004F226A /* DropDownMenu.swift in Sources */,
 				EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */,
 				ECED90B52B6D9CEC00F50937 /* DailyGiftPage.swift in Sources */,

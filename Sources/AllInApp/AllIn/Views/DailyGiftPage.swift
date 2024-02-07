@@ -11,6 +11,7 @@ struct DailyGiftPage: View {
     
     enum Step {
         case first
+        case second
         case end
     }
     
@@ -54,7 +55,7 @@ struct DailyGiftPage: View {
                                     scale = 1.1
                                 }
                             }
-                    case .end:
+                    case .second:
                         ZStack {
                             Image("giftEarnImage")
                                 .rotationEffect(.degrees(Double(rotate) * 10), anchor: .center)
@@ -65,7 +66,7 @@ struct DailyGiftPage: View {
                                     }
                                 }
                             HStack {
-                                Text("+ 123")
+                                Text("+" + gain.description)
                                     .textStyle(weight: .black, color: .white, size: 55)
                                 Image("allcoinWhiteIcon")
                                     .resizable()
@@ -87,6 +88,8 @@ struct DailyGiftPage: View {
                         .onDisappear {
                             scale2 = 0
                         }
+                    default :
+                        EmptyView()
                     }
                 }
                 .frame(width: geometry.size.width * 0.8, height: geometry.size.height * 0.4)
@@ -94,12 +97,14 @@ struct DailyGiftPage: View {
                     withAnimation {
                         switch step {
                         case .first:
-                            step = .end
+                            step = .second
                             withAnimation {
                                 AppStateContainer.shared.user?.nbCoins += gain
                             }
-                        case .end:
+                        case .second:
                             show = false
+                            step = .end
+                        case .end:
                             step = .first
                         }
                     }

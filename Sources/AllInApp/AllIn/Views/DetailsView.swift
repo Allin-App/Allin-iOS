@@ -6,7 +6,6 @@ struct DetailsView: View {
     @Binding var isModalPresented: Bool
     @Binding var isModalParticipated: Bool
     @State var progressValue: Float = 0.2
-    var id: String
     @StateObject private var viewModel: DetailsViewModel
     
     var isFinished: Bool {
@@ -35,7 +34,6 @@ struct DetailsView: View {
     init(isModalPresented: Binding<Bool>, isModalParticipated: Binding<Bool>, id: String) {
         self._isModalPresented = isModalPresented
         self._isModalParticipated = isModalParticipated
-        self.id = id
         self._viewModel = StateObject(wrappedValue: DetailsViewModel(id: id))
     }
     

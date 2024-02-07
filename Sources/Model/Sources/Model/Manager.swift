@@ -28,6 +28,12 @@ public struct Manager {
         }
     }
     
+    public func getBetsOver(completion: @escaping ([BetDetail]) -> Void) {
+        userDataManager.getBetsOver() { bets in
+            completion(bets)
+        }
+    }
+    
     public func getBet(withId id: String, completion: @escaping (BetDetail) -> Void) {
         betDataManager.getBet(withId: id) { bet in
             completion(bet)
@@ -50,6 +56,10 @@ public struct Manager {
         userDataManager.addParticipation(withId: id, withAnswer: answer, andStake: stake) { status in
             completion(status)
         }
+    }
+    
+    public func addResponse(withIdBet id: String, andResponse response: String) {
+        userDataManager.addResponse(withIdBet: id, andResponse: response)
     }
     
     public func getTodayGifts(completion : @escaping (Int, Int)-> ()) {

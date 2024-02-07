@@ -74,7 +74,5 @@ public struct BetApiManager: BetDataManager {
                 }
             }
         }.resume()
-
     }
-    
 }

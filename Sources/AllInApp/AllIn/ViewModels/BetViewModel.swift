@@ -15,7 +15,9 @@ class BetViewModel: ObservableObject {
     @Inject var manager: Manager
     
     @Published private(set) var bets: [Bet] = []
-
+    @Published var betsOver: [BetDetail] = []
+    @Published var showingSheet: Bool  = false
+    
     init() {
         getItems()
     }
@@ -24,7 +26,12 @@ class BetViewModel: ObservableObject {
         manager.getBets(withIndex: 0, withCount: 20) { bets in
             self.bets = bets
         }
+        manager.getBetsOver() { bets in
+            self.betsOver = bets
+            if !self.betsOver.isEmpty {
+                self.showingSheet = true
+            }
+            print(bets)
+        }
     }
-    
-    private var cancellables: Set<AnyCancellable> = []
 }

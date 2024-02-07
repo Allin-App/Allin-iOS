@@ -47,7 +47,8 @@ public class FactoryApiBet: FactoryBet {
               let endBetDateString = json["endBet"] as? String,
               let isPublic = json["isPrivate"] as? Bool,
               let createdBy = json["createdBy"] as? String,
-              let type = json["type"] as? String else {
+              let type = json["type"] as? String,
+              let status = json["status"] as? String else {
             return nil
         }
         
@@ -56,7 +57,24 @@ public class FactoryApiBet: FactoryBet {
             return nil
         }
         
-        return toBet(id: id, theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .finished, creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: type)
+        return toBet(id: id, theme: theme, description: phrase, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: toStatus(status: status), creator: User(username: createdBy, email: createdBy, nbCoins: 0, friends: []), type: type)
+    }
+    
+    func toStatus(status: String) -> BetStatus {
+        switch status {
+        case "IN_PROGRESS":
+            return .inProgress
+        case "WAITING":
+            return .waiting
+        case "CLOSING":
+            return .closing
+        case "FINISHED":
+            return .finished
+        case "CANCELLED":
+            return .cancelled
+        default:
+            return .finished
+        }
     }
     
     public func toBet(id: String, theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, status: BetStatus, creator: User, type: String) -> Bet {

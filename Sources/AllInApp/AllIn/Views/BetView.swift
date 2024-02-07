@@ -12,7 +12,6 @@ struct BetView: View {
     
     @StateObject private var viewModel = BetViewModel()
     @Binding var showMenu: Bool
-    @State var showingSheet: Bool  = false
     
     var body: some View {
         
@@ -27,9 +26,6 @@ struct BetView: View {
                         VStack(spacing: 20){
                             ForEach(viewModel.bets, id: \.id) { (bet: Bet) in
                                 BetCard(bet: bet)
-                            }
-                            Button("Show Sheet") {
-                                showingSheet.toggle()
                             }
                         }
                         .padding([.leading,.trailing],25)
@@ -57,8 +53,13 @@ struct BetView: View {
             .refreshable {
                 viewModel.getItems()
             }
-            .sheet(isPresented: $showingSheet) {
-                BetEndingValidation()
+            .sheet(isPresented: $viewModel.showingSheet, onDismiss: {
+                viewModel.betsOver.removeFirst()
+                viewModel.showingSheet = !viewModel.betsOver.isEmpty
+            }) {
+                if let firstBetDetail = viewModel.betsOver.first {
+                    BetEndingValidationView(bet: firstBetDetail)
+                }
             }
             Spacer()
         }

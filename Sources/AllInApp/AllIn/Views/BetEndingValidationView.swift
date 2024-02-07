@@ -10,13 +10,17 @@ import SwiftUI
 import Model
 import StubLib
 
-struct BetEndingValidation: View {
+struct BetEndingValidationView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State var xOffset: CGFloat = 0
-    @State var selectedAnswer : String?
-    var bet: BetDetail = BetStubManager().getABetDetail()
+    @StateObject private var viewModel: BetEndingValidationViewModel
+    var bet: BetDetail
+    
+    init(bet: BetDetail) {
+        self.bet = bet
+        self._viewModel = StateObject(wrappedValue: BetEndingValidationViewModel(id: bet.bet.id))
+    }
     
     var body: some View {
         ZStack{
@@ -59,12 +63,12 @@ struct BetEndingValidation: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     VStack(spacing: 14){
                         ForEach(bet.answers, id: \.self) { answer in
-                            ChoiceFinalAnswerCell(selected : answer.response == selectedAnswer, answer: answer).onTapGesture {
-                                if(selectedAnswer == answer.response){
-                                    selectedAnswer = nil
+                            ChoiceFinalAnswerCell(selected : answer.response == viewModel.selectedAnswer, answer: answer).onTapGesture {
+                                if(viewModel.selectedAnswer == answer.response){
+                                    viewModel.selectedAnswer = nil
                                 }
                                 else {
-                                    selectedAnswer = answer.response
+                                    viewModel.selectedAnswer = answer.response
                                 }
                             }
                         }
@@ -80,8 +84,8 @@ struct BetEndingValidation: View {
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 3)
                     }
-                    .opacity(selectedAnswer != nil ? 1 : 0)
-                    .animation(.easeInOut(duration: 0.3), value: selectedAnswer != nil)
+                    .opacity(viewModel.selectedAnswer != nil ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.3), value: viewModel.selectedAnswer != nil)
                     .buttonStyle(.borderedProminent)
                     .tint(AllInColors.purpleAccentColor)
                 }
