@@ -38,7 +38,6 @@ public struct UserApiManager: UserDataManager {
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                         for json in jsonArray {
-                            print(json)
                             if let bet = FactoryApiBet().toBetDetail(from: json) {
                                 bets.append(bet)
                             }
@@ -123,6 +122,7 @@ public struct UserApiManager: UserDataManager {
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                         for json in jsonArray {
+                            print(json)
                             if let bet = FactoryApiBet().toBet(from: json) {
                                 bets.append(bet)
                             }

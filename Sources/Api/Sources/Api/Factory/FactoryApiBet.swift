@@ -106,7 +106,17 @@ public class FactoryApiBet: FactoryBet {
             }
         }
         
-        return BetDetail(bet: bet, answers: [], participations: participations)
+        var answers: [AnswerDetail] = []
+        
+        if let answersJson = json["answers"] as? [[String: Any]], !answersJson.isEmpty {
+            for answer in answersJson {
+                if let answer = self.toAnswer(from: answer) {
+                    answers.append(answer)
+                }
+            }
+        }
+        
+        return BetDetail(bet: bet, answers: answers, participations: participations)
     }
     
     public func toParticipate(from json: [String: Any]) -> Participation? {
@@ -119,6 +129,18 @@ public class FactoryApiBet: FactoryBet {
         }
         
         return Participation(id: id, stake: stake, date: Date(), response: answer, user: User(username: username, email: "Email", nbCoins: 0, friends: []), betId: betId)
+    }
+    
+    public func toAnswer(from json: [String: Any]) -> AnswerDetail? {
+        guard let response = json["response"] as? String,
+              let totalStakes = json["totalStakes"] as? Int,
+              let totalParticipants = json["totalParticipants"] as? Int,
+              let highestStake = json["highestStake"] as? Int,
+              let odds = json["odds"] as? Float else {
+            return nil
+        }
+        
+        return AnswerDetail(response: response, totalStakes: totalStakes, totalParticipants: totalParticipants, highestStake: highestStake, odds: odds)
     }
     
     public func betTypeString(fromType type: String) -> String {

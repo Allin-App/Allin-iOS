@@ -17,10 +17,8 @@ struct DetailsView: View {
             switch betType {
             case .inProgress:
                 return ("En cours...", AllInColors.darkPurpleColor)
-            case .waiting:
+            case .waiting, .closing:
                 return ("En attente...", AllInColors.pink100)
-            case .closing:
-                return ("Fin des inscriptions...", AllInColors.grey50Color)
             case .finished:
                 return ("Terminé", AllInColors.grey100Color)
             case .cancelled:

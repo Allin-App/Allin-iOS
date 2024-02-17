@@ -81,7 +81,7 @@ struct ReviewCard: View {
         .onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: "1")
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: betDetail.bet.id)
         }
     }
 }

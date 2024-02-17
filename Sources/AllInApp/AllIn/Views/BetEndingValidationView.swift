@@ -76,6 +76,7 @@ struct BetEndingValidationView: View {
                     Spacer()
                     Button {
                         dismiss()
+                        viewModel.post()
                     } label: {
                         Text("Valider")
                             .font(.system(size: 23))
