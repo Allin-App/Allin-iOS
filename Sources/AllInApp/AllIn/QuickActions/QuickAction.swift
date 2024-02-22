@@ -2,7 +2,7 @@
 //  QuickAction.swift
 //  AllIn
 //
-//  Created by étudiant on 22/02/2024.
+//  Created by Emre on 22/02/2024.
 //
 
 import UIKit

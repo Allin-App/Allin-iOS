@@ -64,6 +64,7 @@
 		EC7A882F2B28E6BE004F226A /* ConfidentialityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */; };
 		EC7EF7482B87E3E00022B5D9 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7EF7472B87E3E00022B5D9 /* Delegates.swift */; };
 		EC7EF74A2B87E3FD0022B5D9 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7EF7492B87E3FD0022B5D9 /* QuickAction.swift */; };
+		EC7EF74C2B87F2AF0022B5D9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7EF74B2B87F2AF0022B5D9 /* NotificationService.swift */; };
 		EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89F7BC2B250D66003821CE /* LoginView.swift */; };
 		EC9464E92B7413E1004EEBD8 /* BetEndingValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */; };
 		ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */; };
@@ -172,6 +173,7 @@
 		EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidentialityButton.swift; sourceTree = "<group>"; };
 		EC7EF7472B87E3E00022B5D9 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		EC7EF7492B87E3FD0022B5D9 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAction.swift; sourceTree = "<group>"; };
+		EC7EF74B2B87F2AF0022B5D9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		EC89F7BC2B250D66003821CE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetEndingValidationViewModel.swift; sourceTree = "<group>"; };
 		ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			children = (
 				EC1D15402B715A7A0094833E /* Protocols */,
 				EC6B96D02B24BAE800FC1C58 /* AuthService.swift */,
+				EC7EF74B2B87F2AF0022B5D9 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				129D051D2B6E7FF0003D3E08 /* OddCapsule.swift in Sources */,
 				123225D92B67B46100D30BB3 /* BetEndingValidationView.swift in Sources */,
 				EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */,
+				EC7EF74C2B87F2AF0022B5D9 /* NotificationService.swift in Sources */,
 				EC650A4A2B25DD58003AFCAD /* FriendsView.swift in Sources */,
 				EC3077072B24CB840060E34D /* SplashView.swift in Sources */,
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,

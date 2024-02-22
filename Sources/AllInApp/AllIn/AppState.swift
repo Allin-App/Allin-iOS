@@ -12,6 +12,7 @@ class AppStateContainer: ObservableObject {
     static let shared = AppStateContainer()
     let loggedState: LoggedState = LoggedState()
     var onlineStatus: OnlineStatus = OnlineStatus()
+    var notificationState: NotificationService = NotificationService()
     @Published var user: User?
     
     @AppStorage("authenticationRefresh") var authenticationRefresh: String?

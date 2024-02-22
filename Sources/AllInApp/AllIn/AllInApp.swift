@@ -23,6 +23,9 @@ struct AllInApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    AppStateContainer.shared.notificationState.scheduleNotifications()
+                }
                 .onChange(of: phase) { newPhase in
                     switch newPhase {
                     case .background, .inactive:
