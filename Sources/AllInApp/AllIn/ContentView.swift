@@ -21,7 +21,11 @@ struct ContentView: View {
         VStack {
             if loggedState.connectedUser {
                 NavigationView {
-                    MainView(page: "Bet")
+                    if let name = QuickAction.selectedAction?.userInfo?["name"] as? String {
+                        MainView(page: name)
+                    } else {
+                        MainView(page: "Bet")
+                    }
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
             } else {

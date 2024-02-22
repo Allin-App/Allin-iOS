@@ -62,6 +62,8 @@
 		EC7A882B2B28D1E0004F226A /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882A2B28D1E0004F226A /* DropDownMenu.swift */; };
 		EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882C2B28D8A1004F226A /* CreationBetView.swift */; };
 		EC7A882F2B28E6BE004F226A /* ConfidentialityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */; };
+		EC7EF7482B87E3E00022B5D9 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7EF7472B87E3E00022B5D9 /* Delegates.swift */; };
+		EC7EF74A2B87E3FD0022B5D9 /* QuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7EF7492B87E3FD0022B5D9 /* QuickAction.swift */; };
 		EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89F7BC2B250D66003821CE /* LoginView.swift */; };
 		EC9464E92B7413E1004EEBD8 /* BetEndingValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */; };
 		ECA9D1C92B2D9ADA0076E0EC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */; };
@@ -72,7 +74,6 @@
 		ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB26A1A2B40746C00FE06B3 /* FriendsViewModel.swift */; };
 		ECB357322B3CA69300045D41 /* DependencyInjection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECB357302B3CA69300045D41 /* DependencyInjection.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC672B2F1ADF002A6654 /* LoginViewModel.swift */; };
-		ECB7BC6A2B2F410A002A6654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC692B2F410A002A6654 /* AppDelegate.swift */; };
 		ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6B2B2F43EE002A6654 /* AppState.swift */; };
 		ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */; };
 		ECCD244A2B4DE8010071FA9E /* Api in Frameworks */ = {isa = PBXBuildFile; productRef = ECCD24492B4DE8010071FA9E /* Api */; };
@@ -169,6 +170,8 @@
 		EC7A882A2B28D1E0004F226A /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		EC7A882C2B28D8A1004F226A /* CreationBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationBetView.swift; sourceTree = "<group>"; };
 		EC7A882E2B28E6BE004F226A /* ConfidentialityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidentialityButton.swift; sourceTree = "<group>"; };
+		EC7EF7472B87E3E00022B5D9 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
+		EC7EF7492B87E3FD0022B5D9 /* QuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAction.swift; sourceTree = "<group>"; };
 		EC89F7BC2B250D66003821CE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EC9464E82B7413E1004EEBD8 /* BetEndingValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetEndingValidationViewModel.swift; sourceTree = "<group>"; };
 		ECA9D1C82B2D9ADA0076E0EC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -180,7 +183,6 @@
 		ECB3572E2B3CA3C300045D41 /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB357302B3CA69300045D41 /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7BC672B2F1ADF002A6654 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		ECB7BC692B2F410A002A6654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECB7BC6B2B2F43EE002A6654 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGiftPage.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		EC6B969A2B24B4CC00FC1C58 /* AllIn */ = {
 			isa = PBXGroup;
 			children = (
+				EC7EF7462B87E3470022B5D9 /* QuickActions */,
 				ECB7BC662B2F1AAD002A6654 /* ViewModels */,
 				EC6B96D62B24BEBD00FC1C58 /* Components */,
 				EC6B96D32B24BC6700FC1C58 /* Views */,
@@ -256,7 +259,6 @@
 				EC6B969D2B24B4CC00FC1C58 /* ContentView.swift */,
 				EC6B969F2B24B4CC00FC1C58 /* Assets.xcassets */,
 				EC650A612B28CB72003AFCAD /* Launch Screen.storyboard */,
-				ECB7BC692B2F410A002A6654 /* AppDelegate.swift */,
 				ECB7BC6B2B2F43EE002A6654 /* AppState.swift */,
 				EC6B96A12B24B4CC00FC1C58 /* Preview Content */,
 			);
@@ -367,6 +369,15 @@
 				129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EC7EF7462B87E3470022B5D9 /* QuickActions */ = {
+			isa = PBXGroup;
+			children = (
+				EC7EF7472B87E3E00022B5D9 /* Delegates.swift */,
+				EC7EF7492B87E3FD0022B5D9 /* QuickAction.swift */,
+			);
+			path = QuickActions;
 			sourceTree = "<group>";
 		};
 		ECB3572D2B3CA3BD00045D41 /* Frameworks */ = {
@@ -539,7 +550,6 @@
 				EC6B96CC2B24B7E500FC1C58 /* IAuthService.swift in Sources */,
 				ECB26A172B4073F100FE06B3 /* CreationBetViewModel.swift in Sources */,
 				EC3077092B24CF7F0060E34D /* Colors.swift in Sources */,
-				ECB7BC6A2B2F410A002A6654 /* AppDelegate.swift in Sources */,
 				EC6B969E2B24B4CC00FC1C58 /* ContentView.swift in Sources */,
 				EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */,
 				EC650A442B25CDF3003AFCAD /* ParameterMenu.swift in Sources */,
@@ -553,6 +563,7 @@
 				EC650A502B2793D5003AFCAD /* TextCapsule.swift in Sources */,
 				EC650A482B25DCFF003AFCAD /* UsersPreview.swift in Sources */,
 				EC17A15E2B6A955E008A8679 /* CurrentBetView.swift in Sources */,
+				EC7EF7482B87E3E00022B5D9 /* Delegates.swift in Sources */,
 				EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */,
 				EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */,
 				EC650A422B25C817003AFCAD /* Friend.swift in Sources */,
@@ -589,6 +600,7 @@
 				EC6B96D12B24BAE800FC1C58 /* AuthService.swift in Sources */,
 				123590B62B5537E200F7AEBD /* ResultBanner.swift in Sources */,
 				EC01FCC52B56791B00BB2390 /* HistoricBetViewModel.swift in Sources */,
+				EC7EF74A2B87E3FD0022B5D9 /* QuickAction.swift in Sources */,
 				EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */,
 				12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */,
 				EC650A542B279545003AFCAD /* ChoiceCapsule.swift in Sources */,

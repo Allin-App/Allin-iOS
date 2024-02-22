@@ -13,6 +13,7 @@ import Model
 struct AllInApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) var phase
     let DI = DependencyInjection.shared
     
     init() {
@@ -22,6 +23,14 @@ struct AllInApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onChange(of: phase) { newPhase in
+                    switch newPhase {
+                    case .background, .inactive:
+                        UIApplication.shared.shortcutItems = QuickAction.allShortcutItems
+                    default:
+                        break
+                    }
+                }
         }
     }
 }
