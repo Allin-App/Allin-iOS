@@ -42,6 +42,9 @@ class CreationBetViewModel: ObservableObject {
                 switch statusCode {
                 case 201:
                     self.betAdded = true
+                    let notificationItem = NotificationItem(title: "Qui seront les vainqueurs ?", content: "Le pari \"\(self.theme)\" a atteint sa date limite. Rendez-vous dans l'application pour renseigner la réponse gagnante.", interval: self.endBetDate.timeIntervalSinceNow)
+                    
+                    AppStateContainer.shared.notificationState.scheduleNotification(with: notificationItem)
                 default:
                     self.setErrorMessage(errorMessage: "Problème de connexion. Veuillez réessayer ultérieurement.")
                 }
