@@ -10,6 +10,7 @@ import Model
 import DependencyInjection
 import Api
 import StubLib
+import WidgetKit
 
 class AuthService: IAuthService {
     
@@ -114,6 +115,7 @@ class AuthService: IAuthService {
                        let user = User.mapUser(from: userJson) {
                         AppStateContainer.shared.user = user
                         AppStateContainer.shared.loggedState.connectedUser = true
+                        WidgetCenter.shared.reloadAllTimelines()
                         self.initManagerVM(token: token)
                     }
                 } else {
@@ -140,6 +142,7 @@ class AuthService: IAuthService {
                        let user = User.mapUser(from: userJson) {
                         completion(httpResponse.statusCode)
                         AppStateContainer.shared.user = user
+                        WidgetCenter.shared.reloadAllTimelines()
                     }
                 } else {
                     completion(httpResponse.statusCode)
@@ -157,6 +160,8 @@ class AuthService: IAuthService {
     public func logout() {
         AppStateContainer.shared.authenticationRefresh = nil
         AppStateContainer.shared.loggedState.connectedUser = false
+        AppStateContainer.shared.notificationState.removeAllNotifications()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
 }

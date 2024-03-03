@@ -14,6 +14,7 @@ struct LoginView: View {
         case password
     }
     
+    @AppStorage("test") var test: String?
     @StateObject private var viewModel = LoginViewModel()
     @FocusState private var focusedField: Field?
     @State private var isPasswordVisible = true
@@ -97,6 +98,7 @@ struct LoginView: View {
                 
                 Button(action: {
                     viewModel.login()
+                    test = "REtoutt"
                 }) {
                     Text("Se connecter")
                         .textStyle(weight: .bold, color: .white, size: 17)

@@ -15,7 +15,7 @@ class AppStateContainer: ObservableObject {
     var notificationState: NotificationService = NotificationService()
     @Published var user: User?
     
-    @AppStorage("authenticationRefresh") var authenticationRefresh: String?
+    @AppStorage("authenticationRefresh", store: UserDefaults(suiteName: "group.alldev.AllIn")!) var authenticationRefresh: String?
 }
 
 class LoggedState: ObservableObject {

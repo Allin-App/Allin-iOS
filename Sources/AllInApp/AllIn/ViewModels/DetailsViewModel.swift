@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import DependencyInjection
 import Model
+import WidgetKit
 
 class DetailsViewModel: ObservableObject {
     
@@ -42,6 +43,8 @@ class DetailsViewModel: ObservableObject {
                 switch statusCode {
                 case 201:
                     AppStateContainer.shared.user?.nbCoins -= stake
+                    WidgetCenter.shared.reloadAllTimelines()
+
                     self.getItem(withId: self.id)
                 default:
                     break
