@@ -8,20 +8,18 @@
 import Foundation
 
 /// A class representing a user's participation in a bet.
-public class Participation: ObservableObject, Identifiable {
+public class Participation: ObservableObject, Codable, Identifiable {
     
     public let id: String
+    
     /// The amount of stake in the bet.
     public private(set) var stake: Int
     
-    /// The date and time when the participation occurred.
-    public private(set) var date: Date
-    
     /// The response or outcome of the participation.
-    public private(set) var response: String
+    public private(set) var answer: String
     
     /// The user who participated in the bet.
-    public private(set) var user: User
+    public private(set) var username: String
     
     /// The unique identifier of the bet.
     public private(set) var betId: String
@@ -34,12 +32,11 @@ public class Participation: ObservableObject, Identifiable {
     ///   - response: The response or outcome of the participation.
     ///   - user: The user who participated in the bet.
     ///   - betId: The unique identifier of the bet.
-    public init(id: String, stake: Int, date: Date, response: String, user: User, betId: String) {
+    public init(id: String, stake: Int, answer: String, username: String, betId: String) {
         self.id = id
         self.stake = stake
-        self.date = date
-        self.response = response
-        self.user = user
+        self.answer = answer
+        self.username = username
         self.betId = betId
     }
 }

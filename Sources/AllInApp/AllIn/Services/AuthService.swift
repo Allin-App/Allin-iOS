@@ -20,12 +20,12 @@ class AuthService: IAuthService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         let json = [
             "login": login.lowercased(),
             "password": password,
         ]
-
+        
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []) {
             URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
                 print("ALLIN: Process LOGIN")
@@ -53,7 +53,7 @@ class AuthService: IAuthService {
             }.resume()
         }
     }
-
+    
     
     func register(username: String, email: String, password: String, completion : @escaping (Int)-> ()) {
         let url = URL(string: Config.allInApi + "/users/register")!
@@ -100,7 +100,7 @@ class AuthService: IAuthService {
         guard let token = AppStateContainer.shared.authenticationRefresh else {
             return
         }
-                
+        
         let url = URL(string: Config.allInApi + "users/token")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -110,14 +110,11 @@ class AuthService: IAuthService {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data,
                let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == 200 {
-                    if let userJson = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                       let user = User.mapUser(from: userJson) {
-                        AppStateContainer.shared.user = user
-                        AppStateContainer.shared.loggedState.connectedUser = true
-                        WidgetCenter.shared.reloadAllTimelines()
-                        self.initManagerVM(token: token)
-                    }
+                if httpResponse.statusCode == 200, let user = try? JSONDecoder().decode(User.self, from: data) {
+                    AppStateContainer.shared.user = user
+                    AppStateContainer.shared.loggedState.connectedUser = true
+                    WidgetCenter.shared.reloadAllTimelines()
+                    self.initManagerVM(token: token)
                 } else {
                     AppStateContainer.shared.authenticationRefresh = nil
                 }
@@ -133,17 +130,14 @@ class AuthService: IAuthService {
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data,
                let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == 200 {
-                    if let userJson = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                       let user = User.mapUser(from: userJson) {
-                        completion(httpResponse.statusCode)
-                        AppStateContainer.shared.user = user
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
+                if httpResponse.statusCode == 200, let user = try? JSONDecoder().decode(User.self, from: data) {
+                    AppStateContainer.shared.user = user
+                    WidgetCenter.shared.reloadAllTimelines()
+                    completion(httpResponse.statusCode)
                 } else {
                     completion(httpResponse.statusCode)
                 }

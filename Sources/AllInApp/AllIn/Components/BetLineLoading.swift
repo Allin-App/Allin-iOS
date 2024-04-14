@@ -15,8 +15,8 @@ struct BetLineLoading: View {
     
     var value: CGFloat {
         let totalParticipations = participations.count
-        let numberOfYes = participations.filter { $0.response.uppercased() == "YES" }.count
-        let numberOfNo = participations.filter { $0.response.uppercased() == "NO" }.count
+        let numberOfYes = participations.filter { $0.answer.uppercased() == "YES" }.count
+        let numberOfNo = participations.filter { $0.answer.uppercased() == "NO" }.count
         if(numberOfNo == 0 && numberOfYes == 0){
             return 0.5
         }
@@ -25,11 +25,11 @@ struct BetLineLoading: View {
     }
     
     var yesParticipations: [Participation] {
-        participations.filter { $0.response.uppercased() == "YES" }
+        participations.filter { $0.answer.uppercased() == "YES" }
     }
     
     var noParticipations: [Participation] {
-        participations.filter { $0.response.uppercased() == "NO" }
+        participations.filter { $0.answer.uppercased() == "NO" }
     }
     
     var body: some View {

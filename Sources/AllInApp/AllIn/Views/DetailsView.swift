@@ -66,7 +66,7 @@ struct DetailsView: View {
                             Text("proposé par")
                                 .font(.system(size: 10))
                                 .foregroundColor(AllInColors.grey800Color)
-                            Text((viewModel.betDetail?.bet.author.username ?? "Unknown").capitalized)
+                            Text((viewModel.betDetail?.bet.author ?? "Unknown").capitalized)
                                 .font(.system(size: 10))
                                 .fontWeight(.semibold)
                                 .foregroundColor(AllInColors.primaryTextColor)
@@ -122,8 +122,8 @@ struct DetailsView: View {
                             .fontWeight(.bold)
                             .padding(.bottom, 10)
                         ScrollView(showsIndicators: false) {
-                            ForEach(viewModel.betDetail?.participations ?? []) { (participation: Participation) in
-                                ParticiationCell(participation: participation).padding(.horizontal, 10)
+                            ForEach(viewModel.betDetail?.participations ?? []) { participation in
+                                ParticipationCell(participation: participation).padding(.horizontal, 10)
                             }
                         }
                         .padding(.bottom, geometry.safeAreaInsets.bottom + 28)

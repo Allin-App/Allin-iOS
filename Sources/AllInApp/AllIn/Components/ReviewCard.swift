@@ -22,7 +22,7 @@ struct ReviewCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par \(betDetail.bet.author.username)")
+                    Text("proposé par \(betDetail.bet.author)")
                     .font(.system(size: 10))
                     .foregroundColor(AllInColors.grey800Color)
                     
@@ -44,7 +44,7 @@ struct ReviewCard: View {
             VStack(alignment: .center,spacing:0){
                 HStack(){
                     Spacer()
-                    if(betDetail.bet.isFinish()){
+                    if(betDetail.bet.endBetDate < Date()){
                         Text("Terminé")
                             .foregroundColor(.white)
                             .font(.system(size: 25))
@@ -72,7 +72,7 @@ struct ReviewCard: View {
             .frame(width: .infinity)
             .padding(.all,2)
             .background(
-                isAWin || betDetail.bet.isFinish() ?
+                isAWin || betDetail.bet.endBetDate < Date() ?
                 AnyView(AllInColors.primaryGradient) :
                 AnyView(Color.black)
             )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])

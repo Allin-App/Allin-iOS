@@ -7,6 +7,11 @@
 
 import Foundation
 
-public enum BetStatus {
-    case inProgress, waiting, closing, finished, cancelled
+public enum BetStatus: String, Codable {
+    case inProgress = "IN_PROGRESS"
+    case waiting = "WAITING"
+    case closing = "CLOSING"
+    case finished = "FINISHED"
+    case cancelled = "CANCELLED"
 }
+

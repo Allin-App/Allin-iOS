@@ -54,6 +54,7 @@ struct BetEndingValidationView: View {
                     Text("Ce bet est arrivé à la date de fin. Vous devez à présent distribuer les gains en validant le pari gagnant.")
                         .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 13)
                         .multilineTextAlignment(.center)
+                    
                     Text("Veuillez choisir la réponse finale:")
                         .font(.system(size: 17))
                         .foregroundStyle(.white)
@@ -61,8 +62,9 @@ struct BetEndingValidationView: View {
                         .padding(.top, 30)
                         .padding(.bottom, 10)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     VStack(spacing: 14){
-                        ForEach(bet.answers, id: \.self) { answer in
+                        ForEach(bet.answers) { answer in
                             ChoiceFinalAnswerCell(selected : answer.response == viewModel.selectedAnswer, answer: answer).onTapGesture {
                                 if(viewModel.selectedAnswer == answer.response){
                                     viewModel.selectedAnswer = nil

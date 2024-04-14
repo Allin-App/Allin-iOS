@@ -19,7 +19,7 @@ struct BetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par " + bet.author.username.capitalized)
+                    Text("proposé par " + bet.author.capitalized)
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
                     
@@ -82,7 +82,7 @@ struct BetCard_Previews: PreviewProvider {
                                isPublic: true,
                                status: .inProgress,
                                invited: [],
-                               author: User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75, friends: []),
+                               author: "Imri",
                                registered: []))
         .preferredColorScheme(.dark)
     }

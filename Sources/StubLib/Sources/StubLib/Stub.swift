@@ -21,16 +21,14 @@ struct Stub {
     
     public mutating func loadBets() {
         
-        var user1 = User(username: "Lucas", email: "lucas.delanier@etu.uca.fr", nbCoins: 100, friends: [])
+        let user1 = User(username: "Lucas", email: "lucas.delanier@etu.uca.fr", nbCoins: 100)
         users.append(user1)
         
-        var user2 = User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75, friends: [user1])
+        let user2 = User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75)
         users.append(user2)
-        user1.addFriend(user: user2)
         
-        let user3 = User(username: "Arthur", email: "arthur.valin@etu.uca.fr", nbCoins: 30, friends: [user2])
+        let user3 = User(username: "Arthur", email: "arthur.valin@etu.uca.fr", nbCoins: 30)
         users.append(user3)
-        user2.addFriend(user: user3)
 
         let bet1 = BinaryBet(
             theme: "Football - Finale de la Ligue des Champions",
@@ -40,7 +38,7 @@ struct Stub {
             isPublic: true,
             status: .inProgress,
             invited: [],
-            author: user1,
+            author: "Lucas",
             registered: [user2]
         )
         self.bets.append(bet1)
@@ -53,7 +51,7 @@ struct Stub {
             isPublic: false,
             status: .inProgress,
             invited: [user3],
-            author: user1,
+            author: "Lucas",
             registered: [user2]
         )
         self.bets.append(bet2)
@@ -66,7 +64,7 @@ struct Stub {
             isPublic: true,
             status: .finished,
             invited: [],
-            author: user1,
+            author: "Lucas",
             registered: [user2, user1, user3]
         )
         self.bets.append(bet3)
@@ -79,7 +77,7 @@ struct Stub {
             isPublic: false,
             status: .finished,
             invited: [user1],
-            author: user2,
+            author: "Lucase",
             registered: [user3]
         )
         self.bets.append(bet4)
@@ -89,10 +87,10 @@ struct Stub {
             self.betsDetail.append(betDetail)
         }
         
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 120, date: Date(), response: "OUI", user: user1, betId: "1"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 20, date: Date(), response: "NON", user: user2, betId: "2"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, date: Date(), response: "OUI", user: user3, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 120, answer: "OUI", username: user1.username, betId: "1"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 20, answer: "NON", username: user2.username, betId: "2"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, answer: "OUI", username: user3.username, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, answer: "OUI", username: user3.username, betId: "3"))
         
     }
     

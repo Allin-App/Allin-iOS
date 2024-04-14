@@ -46,13 +46,7 @@ public class BetDetail: ObservableObject {
     /// Adds a new user participation to the list of participations for the bet.
     ///
     /// - Parameter newParticipation: The new user participation to be added.
-    public func addParticipation(newParticipation: Participation){
-
-        if !self.bet.registered.contains(where: { existingUser in
-            return existingUser.email == newParticipation.user.email
-        }) {
-            self.bet.addRegistered(newUser: newParticipation.user)
-        }
+    public func addParticipation(newParticipation: Participation) {
         self.participations.append(newParticipation)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 /// A class representing a betting entity, including details about the bet theme, participants, and deadlines.
-public class Bet: ObservableObject, Identifiable {
+public class Bet: ObservableObject, Identifiable, Codable {
     
     /// The id for the bet.
     public private(set) var id: String
@@ -32,15 +32,42 @@ public class Bet: ObservableObject, Identifiable {
     public private(set) var status: BetStatus
     
     /// List of users who are invited to participate in the bet.
-    public private(set) var invited: [User]
+    public private(set) var invited: [User] = []
     
     /// The user who created the bet.
-    public private(set) var author: User
+    public private(set) var author: String
     
     /// List of users who have registered for the bet.
-    public private(set) var registered: [User]
+    public private(set) var registered: [User] = []
     
-
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case theme
+        case phrase = "sentenceBet"
+        case endRegisterDate = "endRegistration"
+        case endBetDate = "endBet"
+        case isPublic = "isPrivate"
+        case status
+        case author = "createdBy"
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.theme = try container.decode(String.self, forKey: .theme)
+        self.phrase = try container.decode(String.self, forKey: .phrase)
+        let endRegisterDateString = try container.decode(String.self, forKey: .endRegisterDate)
+        self.endRegisterDate = formatter.date(from: endRegisterDateString)!
+        let endBetDateString = try container.decode(String.self, forKey: .endBetDate)
+        self.endBetDate = formatter.date(from: endBetDateString)!
+        self.isPublic = try container.decode(Bool.self, forKey: .isPublic)
+        self.status = try container.decode(BetStatus.self, forKey: .status)
+        self.author = try container.decode(String.self, forKey: .author)
+    }
+    
     /// Custom Constructor
     ///
     /// - Parameters:
@@ -54,7 +81,7 @@ public class Bet: ObservableObject, Identifiable {
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
-    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: User, registered: [User]) {
+    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
         self.id = id
         self.theme = theme
         self.phrase = phrase
@@ -79,7 +106,7 @@ public class Bet: ObservableObject, Identifiable {
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
-    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: User, registered: [User]) {
+    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
         self.id = UUID().uuidString
         self.theme = theme
         self.phrase = phrase
@@ -92,14 +119,4 @@ public class Bet: ObservableObject, Identifiable {
         self.registered = registered
     }
     
-    /// Adds a new user to the list of registered participants for the bet.
-    ///
-    /// - Parameter newUser: The user to be added to the list of registered participants.
-    public func addRegistered(newUser: User){
-        self.registered.append(newUser)
-    }
-    
-    public func isFinish() -> Bool{
-        self.endBetDate < Date()
-    }
 }
