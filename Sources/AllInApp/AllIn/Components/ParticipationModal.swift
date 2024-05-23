@@ -47,7 +47,7 @@ struct ParticipationModal: View {
                 }
                 .padding(10)
                 HStack{
-                    Text("Faites vos paris")
+                    Text("bet_status_place_your_bets")
                         .font(.system(size: 18))
                         .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.semibold)
@@ -63,7 +63,7 @@ struct ParticipationModal: View {
                     
                     DropDownAnswerMenu(selectedOption: $selectedOption, options: options)
                     
-                    TextField("", text: $mise, prompt: Text("Mise")
+                    TextField("", text: $mise, prompt: Text("generic_stake")
                         .foregroundColor(AllInColors.lightGrey300Color)
                         .font(.system(size: 16))
                         .fontWeight(.bold))
@@ -87,7 +87,7 @@ struct ParticipationModal: View {
                 Spacer()
                 VStack{
                     HStack{
-                        Text("Gains possibles")
+                        Text("participation_possible_winnings")
                             .font(.system(size: 13))
                             .foregroundColor(AllInColors.primaryTextColor)
                             .fontWeight(.medium)

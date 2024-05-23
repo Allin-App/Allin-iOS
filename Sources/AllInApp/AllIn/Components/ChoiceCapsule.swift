@@ -14,14 +14,14 @@ struct ChoiceCapsule: View {
     var body: some View {
         Group {
             if(pressed) {
-                Text("En cours")
+                Text("bet_current")
                     .textStyle(weight: .semibold, color: .white, size: 15)
                     .padding([.leading,.trailing],13.8)
                     .padding([.top,.bottom], 7)
                     .background(AllInColors.lightPurpleColor)
                     .clipShape(Capsule())
             } else {
-                Text("En cours")
+                Text("bet_current")
                     .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 15)
                     .padding([.leading,.trailing], 15)
                     .padding([.top,.bottom], 7)

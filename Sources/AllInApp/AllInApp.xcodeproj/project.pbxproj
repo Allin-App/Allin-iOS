@@ -78,6 +78,7 @@
 		ECB7BC6C2B2F43EE002A6654 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6B2B2F43EE002A6654 /* AppState.swift */; };
 		ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */; };
 		ECCD244A2B4DE8010071FA9E /* Api in Frameworks */ = {isa = PBXBuildFile; productRef = ECCD24492B4DE8010071FA9E /* Api */; };
+		ECDDD48A2BF4A7920009223A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECDDD48C2BF4A7920009223A /* Localizable.strings */; };
 		ECED90B52B6D9CEC00F50937 /* DailyGiftPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */; };
 		ECF872662B9266C000F9D240 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF872652B9266C000F9D240 /* WidgetKit.framework */; };
 		ECF872682B9266C000F9D240 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF872672B9266C000F9D240 /* SwiftUI.framework */; };
@@ -215,6 +216,8 @@
 		ECB7BC672B2F1ADF002A6654 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ECB7BC6B2B2F43EE002A6654 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		ECDDD48B2BF4A7920009223A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECDDD48D2BF4A7970009223A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGiftPage.swift; sourceTree = "<group>"; };
 		ECF872642B9266C000F9D240 /* AllInWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AllInWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF872652B9266C000F9D240 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -360,6 +363,7 @@
 			children = (
 				EC6B96CE2B24B8D900FC1C58 /* Config.swift */,
 				EC3077082B24CF7F0060E34D /* Colors.swift */,
+				ECDDD48C2BF4A7920009223A /* Localizable.strings */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -594,6 +598,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = EC6B968F2B24B4CC00FC1C58;
 			packageReferences = (
@@ -616,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC650A622B28CB72003AFCAD /* Launch Screen.storyboard in Resources */,
+				ECDDD48A2BF4A7920009223A /* Localizable.strings in Resources */,
 				EC6B96A32B24B4CC00FC1C58 /* Preview Assets.xcassets in Resources */,
 				EC6B96A02B24B4CC00FC1C58 /* Assets.xcassets in Resources */,
 			);
@@ -764,6 +770,18 @@
 			targetProxy = ECF872762B9266C100F9D240 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECDDD48C2BF4A7920009223A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECDDD48B2BF4A7920009223A /* en */,
+				ECDDD48D2BF4A7970009223A /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EC6B96BA2B24B4CC00FC1C58 /* Debug */ = {

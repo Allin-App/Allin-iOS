@@ -20,7 +20,7 @@ struct CurrentBetView: View {
             
             TopBar(showMenu: self.$showMenu)
             ScrollView(showsIndicators: false) {
-                Text("En cours")
+                Text("bet_history_current_title")
                     .textStyle(weight: .bold, color: AllInColors.grey500Color, size: 25)
                     .padding([.top],15)
                 VStack(spacing: 20){

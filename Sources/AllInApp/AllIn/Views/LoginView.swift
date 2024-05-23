@@ -14,7 +14,6 @@ struct LoginView: View {
         case password
     }
     
-    @AppStorage("test") var test: String?
     @StateObject private var viewModel = LoginViewModel()
     @FocusState private var focusedField: Field?
     @State private var isPasswordVisible = true
@@ -26,9 +25,9 @@ struct LoginView: View {
             VStack(spacing: 15) {
                 
                 Spacer()
-                Text("Te revoilà!")
+                Text("login_title")
                     .textStyle(weight: .semibold, color: AllInColors.darkBlueColor, size: 40)
-                Text("Bon retour parmis nous tu nous as manqué!")
+                Text("login_subtitle")
                     .textStyle(weight: .regular, color: AllInColors.darkBlueColor, size: 20)
                     .frame(width: 220)
                     .multilineTextAlignment(.center)
@@ -40,7 +39,7 @@ struct LoginView: View {
                         Text(identifierError)
                             .textStyle(weight: .bold, color: .red, size: 10)
                     }
-                    TextField("", text: $viewModel.loginIdentifier, prompt: Text("Email").foregroundColor(.gray))
+                    TextField("", text: $viewModel.loginIdentifier, prompt: Text("generic_email").foregroundColor(.gray))
                         .padding()
                         .background(Color.white.cornerRadius(9))
                         .frame(width: 300)
@@ -51,6 +50,7 @@ struct LoginView: View {
                         )
                         .autocapitalization(.none)
                         .padding(.bottom, 8)
+                        .autocorrectionDisabled(true)
                         .focused($focusedField, equals: .email)
                 }
                 
@@ -61,9 +61,9 @@ struct LoginView: View {
                     }
                     Group {
                         if isPasswordVisible {
-                            SecureField("", text: $viewModel.loginPassword, prompt: Text("Mot de passe").foregroundColor(.gray))
+                            SecureField("", text: $viewModel.loginPassword, prompt: Text("generic_password").foregroundColor(.gray))
                         } else {
-                            TextField("", text: $viewModel.loginPassword, prompt: Text("Mot de passe").foregroundColor(.gray))
+                            TextField("", text: $viewModel.loginPassword, prompt: Text("generic_password").foregroundColor(.gray))
                                 .autocapitalization(.none)
                         }
                     }
@@ -90,7 +90,7 @@ struct LoginView: View {
                     .focused($focusedField, equals: .password)
                 }
                 
-                Text("Mot de passe oublié?")
+                Text("login_forgot_password")
                     .textStyle(weight: .medium, color: AllInColors.darkBlueColor, size: 14)
                     .frame(alignment: .trailing)
                     .padding(.bottom, 20)
@@ -98,9 +98,8 @@ struct LoginView: View {
                 
                 Button(action: {
                     viewModel.login()
-                    test = "REtoutt"
                 }) {
-                    Text("Se connecter")
+                    Text("generic_login")
                         .textStyle(weight: .bold, color: .white, size: 17)
                         .frame(width: 300, height: 60)
                         .background(LinearGradient(gradient:
@@ -110,12 +109,12 @@ struct LoginView: View {
                 }
                 
                 Spacer()
-                HStack(spacing: 0) {
-                    Text("Pas encore inscrit? ")
+                HStack(spacing: 4) {
+                    Text("login_no_account")
                         .textStyle(weight: .regular, color: AllInColors.darkBlueColor, size: 16)
                     NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true))
                     {
-                        Text("S'inscrire")
+                        Text("generic_register")
                             .textStyle(weight: .semibold, color: AllInColors.darkPurpleColor, size: 16)
                     }
                 }
@@ -129,7 +128,7 @@ struct LoginView: View {
             }
         }
         .alert(isPresented: $viewModel.showErrorMessage) {
-            Alert(title: Text("Erreur de connexion"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            Alert(title: Text("login_error_title"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
         }
         .onSubmit {
             switch focusedField {

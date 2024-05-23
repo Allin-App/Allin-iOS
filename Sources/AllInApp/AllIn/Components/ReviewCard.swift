@@ -22,7 +22,7 @@ struct ReviewCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par \(betDetail.bet.author)")
+                    Text("bet_proposed_by_format \(betDetail.bet.author)")
                     .font(.system(size: 10))
                     .foregroundColor(AllInColors.grey800Color)
                     
@@ -30,7 +30,7 @@ struct ReviewCard: View {
                 Text(betDetail.bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
                 Text(betDetail.bet.phrase).font(.system(size: 20)).fontWeight(.bold)
                 HStack{
-                    Text("Fini le").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
+                    Text("bet_ends").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
                     TextCapsule(date: betDetail.bet.endBetDate)
                     Spacer()
                     
@@ -45,7 +45,7 @@ struct ReviewCard: View {
                 HStack(){
                     Spacer()
                     if(betDetail.bet.endBetDate < Date()){
-                        Text("Terminé")
+                        Text("bet_finished")
                             .foregroundColor(.white)
                             .font(.system(size: 25))
                             .fontWeight(.bold)

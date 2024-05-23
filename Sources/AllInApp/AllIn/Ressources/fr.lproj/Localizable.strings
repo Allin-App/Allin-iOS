@@ -1,0 +1,158 @@
+/* 
+  Localizable.strings
+  AllInApp
+
+  Created by Emre on 15/05/2024.
+  
+*/
+
+/// Core
+
+"generic_username" = "Pseudo";
+"generic_email" = "Email";
+"generic_password" = "Mot de passe";
+"generic_login" = "Se connecter";
+"generic_logout" = "Déconnexion";
+"generic_already_have_account" = "Tu as déjà un compte ?";
+"generic_register" = "S'inscrire";
+"generic_validate" = "Valider";
+"generic_ok" = "OK";
+"generic_error" = "Erreur";
+"generic_in_waiting" = "En attente";
+"generic_search" = "Rechercher";
+"generic_add" = "Ajouter";
+"generic_delete" = "Supprimer";
+"generic_stake" = "Mise";
+
+/// Bet type
+
+"bet_type_binary" = "Oui / Non";
+"bet_type_match" = "Match sportif";
+"bet_type_custom" = "Réponses personnalisées";
+
+/// Drawer
+
+"drawer_bets" = "Bets";
+"drawer_best_win" = "Meilleur gain";
+"drawer_nb_friends" = "Amis";
+"drawer_friends" = "AMIS";
+"drawer_friends_subtitle" = "Défiez vos proches en les ajoutant en amis.";
+"drawer_public_bets" = "BETS PUBLIQUES";
+"drawer_public_bets_subtitle" = "Parcourez les bets les plus populaires du moment.";
+"drawer_current_bets" = "BETS EN COURS";
+"drawer_current_bets_subtitle" = "Consultez vos paris en cours.";
+"drawer_create_a_bet" = "CREER UN BET";
+"drawer_create_a_bet_subtitle" = "Créez un nouveau bet et faites participer vos amis.";
+"drawer_bet_history" = "HISTORIQUE DES BETS";
+"drawer_bet_history_subtitle" = "Consultez vos paris en cours et terminés.";
+"drawer_current_bets" = "BETS EN COURS";
+"drawer_current_bets_subtitle" = "Gérez vos bets et récompensez les gagnants.";
+"drawer_ranking" = "CLASSEMENT";
+"drawer_ranking_subtitle" = "Consultez votre classement parmis vos amis.";
+
+/// Welcome Page
+
+"welcome_title" = "Bienvenue sur,";
+"welcome_subtitle" = "Récupère tes Allcoins et viens parier avec tes amis pour prouver qui est le meilleur.";
+"welcome_join" = "Rejoindre";
+
+/// Register Page
+
+"register_hello" = "Bonjour";
+"register_hello %@" = "Bonjour %@,";
+"register_title" = "On a besoins de ça!";
+"register_subtitle" = "Promis c\'est rapide.";
+"register_confirm_password" = "Confirmation du mot de passe";
+
+/// Login Page
+
+"login_title" = "Te revoilà !";
+"login_subtitle" = "Bon retour parmis nous tu nous as manqué !";
+"login_error_title" = "Erreur de connexion";
+"login_error_content" = "La connexion a échoué\nVeuillez réessayer.";
+"login_no_account" = "Pas encore inscrit ?";
+"login_forgot_password" = "Mot de passe oublié ?";
+
+/// Bet Creation Page
+
+"bet_creation_theme_tooltip" = "Généralement un nom commun décrivant le thème global du pari pour servir de référence.";
+"bet_creation_phrase_tooltip" = "Généralement la question à laquelle les participants devront répondre.";
+"bet_creation_register_tooltip" = "Après cette date, plus personne ne pourra s\'inscrire.";
+"bet_creation_bet_end_tooltip" = "Après cette date, les résultats seront annoncés.";
+"bet_creation_privacy_tooltip" = "Détermine qui pourra voir le bet.";
+"bet_creation_question" = "Question";
+"bet_creation_answer" = "Réponse";
+"bet_creation_publish" = "Publier le bet";
+"bet_creation_theme" = "Thème";
+"bet_creation_theme_placeholder" = "Études, sport, soirée…";
+"bet_creation_bet_phrase" = "Phrase du BET";
+"bet_creation_bet_phrase_placeholder" = "David sera-il absent lundi matin en cours ?";
+"bet_creation_end_registration_date" = "Date de fin des inscriptions";
+"bet_creation_end_bet_date" = "Date de fin du BET";
+"bet_creation_bet_privacy" = "Confidentialité du bet";
+"bet_creation_friends_available_format" = "amis disponibles";
+"bet_creation_public_bottom_text_1" = "Votre BET sera visible par tous les utilisateurs.";
+"bet_creation_public_bottom_text_2" = "Tout le monde pourra rejoindre le BET.";
+"bet_creation_private_bottom_text_1" = "Votre BET sera visible uniquement par vos amis.";
+"bet_creation_private_bottom_text_2" = "Seulement vos amis pourront rejoindre le BET.";
+"bet_creation_bottom_text_3" = "Vous pourrez inviter des amis à tout moment pendant la période d’inscription.";
+"bet_creation_yes_no_bottom_text_1" = "Les utilisateurs devront répondre au pari avec OUI ou NON.";
+"bet_creation_yes_no_bottom_text_2" = "Aucune autre réponse ne sera acceptée.";
+"bet_creation_custom_bottom_text_1" = "Vous allez renseigner les différentes réponses disponibles dans ce pari.";
+"bet_creation_custom_bottom_text_2" = "Faites attention a etre claire et éviter toutes incertitudes";
+"bet_creation_error" = "Erreur lors de la création du bet, veuillez rééssayer.";
+"bet_creation_success_message" = "Bet créé !";
+"bet_creation_response_title" = "Intitulé de réponse";
+
+/// Bet page
+
+"bet_popular" = "Populaire";
+"bet_public" = "Public";
+"bet_private" = "Privé";
+"bet_invitation" = "Invitation";
+"bet_current" = "En cours";
+"bet_finished" = "Terminés";
+"bet_starting" = "Commence le";
+"bet_started" = "A commencé le";
+"bet_ends" = "Prend fin le";
+"bet_ended" = "A pris fin le";
+"bet_participate" = "Participer";
+"bet_proposed_by_format %@" = "Proposé par %@";
+"bet_players_waiting_format %@" = "%@ players waiting";
+"bet_players_format" = "joueurs";
+"bet_points_at_stake_format" = "points en jeu";
+
+/// Bet status
+
+"bet_status_finished" = "Terminé !";
+"bet_status_in_progress" = "En cours…";
+"bet_status_waiting" = "En attente…";
+"bet_status_unavailable" = "Statut indisponible";
+"bet_status_cancelled" = "Annulé";
+"bet_status_place_your_bets" = "Faites vos paris";
+"bet_status_participants_list" = "Liste des participants";
+"bet_status_details_drawer" = "Détails";
+"participation_possible_winnings" = "Gains possibles";
+
+/// Bet history
+
+"bet_history_current_title" = "En cours";
+"bet_history_title" = "Historique";
+
+/// Bet confirmation
+
+"bet_confirmation_text" = "Ce bet est arrivé à la date de fin. Vous devez à présent distribuer les gains en validant le pari gagnant.";
+"bet_confirmation_choose_response" = "Veuillez choisir la réponse finale :";
+
+/// Ranking
+
+"ranking_title" = "Classement";
+
+/// Friends
+
+"friends_title" = "Amis";
+
+/// Daily reward
+
+"daily_reward_title" = "Récompense quotidienne";
+"daily_reward_subtitle" = "Votre récompense quotidienne est débloquée tous les jours à 00:00 UTC et vous permets d’obtenir entre 10 et 150 Allcoins.";

@@ -14,7 +14,7 @@ struct FriendsView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             TopBar(showMenu: self.$showMenu)
-            Text("Amis")
+            Text("friends_title")
                 .textStyle(weight: .bold, color: AllInColors.grey500Color, size: 25)
                 .padding([.top,.bottom],15)
             

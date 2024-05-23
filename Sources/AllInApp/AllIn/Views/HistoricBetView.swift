@@ -18,7 +18,7 @@ struct HistoricBetView: View {
             
             TopBar(showMenu: self.$showMenu)
             ScrollView(showsIndicators: false) {
-                Text("Historique")
+                Text("bet_history_title")
                     .textStyle(weight: .bold, color: AllInColors.grey500Color, size: 25)
                     .padding([.top],15)
                 VStack(spacing: 20){

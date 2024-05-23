@@ -35,7 +35,7 @@ struct DailyGiftPage: View {
             .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("Récompense quotidienne")
+                Text("daily_reward_title")
                     .textStyle(weight: .bold, color: .white, size: 25)
                 
                 Group {
@@ -110,7 +110,7 @@ struct DailyGiftPage: View {
                     }
                 }
                 
-                Text("Votre récompense quotidienne est débloquée tous les jours à 00:00 UTC et vous permet d’obtenir entre 10 et 150 Allcoins.")
+                Text("daily_reward_subtitle")
                     .textStyle(weight: .medium, color: .white, size: 13)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, geometry.size.width * 0.13)

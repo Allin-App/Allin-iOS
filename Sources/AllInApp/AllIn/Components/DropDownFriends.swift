@@ -26,7 +26,7 @@ struct DropDownFriends: View {
                 HStack(spacing: 3){
                     Text("41")
                         .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 15)
-                    Text("amis disponibles")
+                    Text("bet_creation_friends_available_format")
                         .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 15)
                     
                     Spacer()

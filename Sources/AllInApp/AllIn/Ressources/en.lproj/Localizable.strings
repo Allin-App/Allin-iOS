@@ -1,0 +1,158 @@
+/* 
+  Localizable.strings
+  AllInApp
+
+  Created by Emre on 15/05/2024.
+  
+*/
+
+/// Core
+
+"generic_username" = "Username";
+"generic_email" = "Email";
+"generic_password" = "Password";
+"generic_login" = "Login";
+"generic_logout" = "Logout";
+"generic_already_have_account" = "Already have an account ?";
+"generic_register" = "Register";
+"generic_validate" = "Validate";
+"generic_ok" = "OK";
+"generic_error" = "Error";
+"generic_in_waiting" = "In waiting";
+"generic_search" = "Search";
+"generic_add" = "Add";
+"generic_delete" = "Delete";
+"generic_stake" = "Stake";
+
+/// Bet type
+
+"bet_type_binary" = "Yes / No";
+"bet_type_match" = "Sport match";
+"bet_type_custom" = "Custom answers";
+
+/// Drawer
+
+"drawer_bets" = "Bets";
+"drawer_best_win" = "Best win";
+"drawer_nb_friends" = "Friends";
+"drawer_friends" = "FRIENDS";
+"drawer_friends_subtitle" = "Challenge your folks by adding them as friends.";
+"drawer_public_bets" = "PUBLIC BETS";
+"drawer_public_bets_subtitle" = "Browse the most popular bets of the moment.";
+"drawer_current_bets" = "CURRENT BETS";
+"drawer_current_bets_subtitle" = "View your current bets.";
+"drawer_create_a_bet" = "CREATE A BET";
+"drawer_create_a_bet_subtitle" = "Create a net bet and get your friends participating.";
+"drawer_bet_history" = "BET HISTORY";
+"drawer_bet_history_subtitle" = "View your current and finished bets.";
+"drawer_current_bets" = "CURRENT BETS";
+"drawer_current_bets_subtitle" = "Manage your bets and reward the winners.";
+"drawer_ranking" = "RANKING";
+"drawer_ranking_subtitle" = "Check your ranking among your friends.";
+
+/// Welcome Page
+
+"welcome_title" = "Welcome to,";
+"welcome_subtitle" = "Collect your Allcoins and come bet with your friend to prove who\'s best.";
+"welcome_join" = "Join";
+
+/// Register Page
+
+"register_hello" = "Hello,";
+"register_hello %@" = "Hello %@,";
+"register_title" = "We need this!";
+"register_subtitle" = "Don\'t worry it\'s fast.";
+"register_confirm_password" = "Confirm password";
+
+/// Login Page
+
+"login_title" = "Welcome back !";
+"login_subtitle" = "We missed you.";
+"login_error_title" = "Connection error";
+"login_error_content" = "Failed to login\nPlease try again.";
+"login_no_account" = "Don't have an account ?";
+"login_forgot_password" = "Forgot password ?";
+
+/// Bet Creation Page
+
+"bet_creation_theme_tooltip" = "Usually a common name describing the overall theme of the bet for reference..";
+"bet_creation_phrase_tooltip" = "Generally the question the participants will answer to.";
+"bet_creation_register_tooltip" = "After this date, nobody will be able to register anymore.";
+"bet_creation_bet_end_tooltip" = "After this date, the result will be announced.";
+"bet_creation_privacy_tooltip" = "Determines who will be able to see the bet.";
+"bet_creation_question" = "Question";
+"bet_creation_answer" = "Answer";
+"bet_creation_publish" = "Publish the bet";
+"bet_creation_theme" = "Theme";
+"bet_creation_theme_placeholder" = "Studies, sports, party…";
+"bet_creation_bet_phrase" = "Bet phrase";
+"bet_creation_bet_phrase_placeholder" = "Will David be missing this Monday in class ?";
+"bet_creation_end_registration_date" = "Registration end date";
+"bet_creation_end_bet_date" = "Bet end date";
+"bet_creation_bet_privacy" = "Bet privacy";
+"bet_creation_friends_available_format" = "friends available";
+"bet_creation_public_bottom_text_1" = "Your BET will be visible by all the users.";
+"bet_creation_public_bottom_text_2" = "Everyone will be able to join the BET.";
+"bet_creation_private_bottom_text_1" = "Your BET will only be visible by your friends.";
+"bet_creation_private_bottom_text_2" = "Only your friends will be able to join the BET.";
+"bet_creation_bottom_text_3" = "You can invite friends at any moment during the registration period.";
+"bet_creation_yes_no_bottom_text_1" = "The participants will have to respond with either YES or NO.";
+"bet_creation_yes_no_bottom_text_2" = "No other answer will be accepted.";
+"bet_creation_custom_bottom_text_1" = "You are going to fill in the different answers available in this bet.";
+"bet_creation_custom_bottom_text_2" = "Be careful to be clear and avoid any uncertainties";
+"bet_creation_error" = "Error while creating the bet. Please try again.";
+"bet_creation_success_message" = "Bet created !";
+"bet_creation_response_title" = "Response title";
+
+/// Bet page
+
+"bet_popular" = "Popular";
+"bet_public" = "Public";
+"bet_private" = "Private";
+"bet_invitation" = "Invitation";
+"bet_current" = "Current";
+"bet_finished" = "Finished";
+"bet_starting" = "Starting on";
+"bet_started" = "Started on";
+"bet_ends" = "Ends on";
+"bet_ended" = "Ended on";
+"bet_participate" = "Participate";
+"bet_proposed_by_format  %@" = "Proposed by  %@";
+"bet_players_waiting_format %@" = "%@ joueurs en attente";
+"bet_players_format" = "players";
+"bet_points_at_stake_format" = "points at stake";
+
+/// Bet status
+
+"bet_status_finished" = "Finished !";
+"bet_status_in_progress" = "In progress…";
+"bet_status_waiting" = "Waiting…";
+"bet_status_unavailable" = "Status unavailable";
+"bet_status_cancelled" = "Cancelled";
+"bet_status_place_your_bets" = "Place your bets";
+"bet_status_participants_list" = "Participants";
+"bet_status_details_drawer" = "Details";
+"participation_possible_winnings" = "Possible winnings";
+
+/// Bet history
+
+"bet_history_current_title" = "Current";
+"bet_history_title" = "History";
+
+/// Bet confirmation
+
+"bet_confirmation_text" = "This bet has now ended. You may now distribute the winnings by selecting the right answer.";
+"bet_confirmation_choose_response" = "Please select the final answer :";
+
+/// Ranking
+
+"ranking_title" = "Ranking";
+
+/// Friends
+
+"friends_title" = "Friends";
+
+/// Daily reward
+
+"daily_reward_title" = "Daily reward";
+"daily_reward_subtitle" = "Your daily reward is unlocked every day at 00:00 UTC and allows you to get between 10 and 150 Allcoins.";
