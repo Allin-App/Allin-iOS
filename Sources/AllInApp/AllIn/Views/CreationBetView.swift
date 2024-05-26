@@ -32,9 +32,9 @@ struct CreationBetView: View {
     @State private var values: [String] = []
     
     let options: [(Int, String, String)] = [
-        (0, "questionMarkIcon", "Oui / Non"),
-        (1, "footballIcon", "Pari sportif"),
-        (2, "paintbrushIcon", "Réponses personnalisées")
+        (0, "questionMarkIcon", String(localized: "bet_type_binary")),
+        (1, "footballIcon", String(localized: "bet_type_match")),
+        (2, "paintbrushIcon", String(localized: "bet_type_custom"))
     ]
     
     @State var groupedItems: [[String]] = [[String]] ()
@@ -81,7 +81,7 @@ struct CreationBetView: View {
                     VStack(spacing: 5) {
                         VStack() {
                             HStack(spacing: 5) {
-                                Text("Thème")
+                                Text("bet_creation_theme")
                                     .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 17)
                                 
                                 Image("questionMarkGreyIcon")
@@ -91,7 +91,7 @@ struct CreationBetView: View {
                                         showTitlePopover.toggle()
                                     }
                                     .allInPopover(isPresented: $showTitlePopover, paddingHorizontal: 20) {
-                                        "Généralement un nom commun décrivant le thème global du pari pour servir de référence."
+                                        String(localized: "bet_creation_theme_tooltip")
                                     }
                                 
                                 Spacer()
@@ -104,7 +104,7 @@ struct CreationBetView: View {
                                     Text(themeError)
                                         .textStyle(weight: .bold, color: .red, size: 10)
                                 }
-                                TextField("", text: $viewModel.theme, prompt: Text("Études, sport, soirée...")
+                                TextField("", text: $viewModel.theme, prompt: Text("bet_creation_theme_placeholder")
                                     .foregroundColor(AllInColors.lightGrey300Color)
                                     .font(.system(size: 14))
                                     .fontWeight(.light))
@@ -125,14 +125,14 @@ struct CreationBetView: View {
                         }
                         
                         HStack(spacing: 5) {
-                            Text("Phrase du BET")
+                            Text("bet_creation_bet_phrase")
                                 .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 17)
                             
                             Image("questionMarkGreyIcon")
                                 .resizable()
                                 .frame(width: 14, height: 14)
                                 .allInPopover(isPresented: $showDescriptionPopover, paddingHorizontal: 10) {
-                                    "Court descriptif du pari, souvent une question ouverte ou fermée."
+                                    String(localized: "bet_creation_phrase_tooltip")
                                 }
                             
                             Spacer()
@@ -141,11 +141,13 @@ struct CreationBetView: View {
                         .padding(.leading, 10)
                         
                         VStack {
+                            
                             if let descriptionError = $viewModel.descriptionFieldError.wrappedValue {
                                 Text(descriptionError)
                                     .textStyle(weight: .bold, color: .red, size: 10)
                             }
-                            TextField("", text: $viewModel.description, prompt: Text("David sera absent Lundi matin en cours ?")
+                            
+                            TextField("", text: $viewModel.description, prompt: Text("bet_creation_bet_phrase_placeholder")
                                 .foregroundColor(AllInColors.lightGrey300Color)
                                 .font(.system(size: 14))
                                 .fontWeight(.light), axis: .vertical)
@@ -166,13 +168,13 @@ struct CreationBetView: View {
                         }
                         
                         HStack(spacing: 5) {
-                            Text("Date de fin des inscriptions")
+                            Text("bet_creation_end_registration_date")
                                 .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 17)
                             Image("questionMarkGreyIcon")
                                 .resizable()
                                 .frame(width: 14, height: 14)
                                 .allInPopover(isPresented: $showRegistrationEndDatePopover) {
-                                    "Date de fin avant laquelle les joueurs peuvent s'inscrire en pariant leurs Allcoins."
+                                    String(localized: "bet_creation_register_tooltip")
                                 }
                             
                             Spacer()
@@ -203,14 +205,14 @@ struct CreationBetView: View {
                         VStack(alignment: .leading, spacing: 5) {
                             VStack() {
                                 HStack(spacing: 5) {
-                                    Text("Date de fin du BET")
+                                    Text("bet_creation_end_bet_date")
                                         .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 17)
                                     
                                     Image("questionMarkGreyIcon")
                                         .resizable()
                                         .frame(width: 14, height: 14)
                                         .allInPopover(isPresented: $showBetEndDatePopover) {
-                                            "Date des résultats où seront redistribués les Allcoins aux vainqueurs."
+                                            String(localized: "bet_creation_bet_end_tooltip")
                                         }
                                     
                                     Spacer()
@@ -241,13 +243,13 @@ struct CreationBetView: View {
                         
                         VStack {
                             HStack(spacing: 5) {
-                                Text("Confidentialité du BET")
+                                Text("bet_creation_bet_privacy")
                                     .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 17)
                                 Image("questionMarkGreyIcon")
                                     .resizable()
                                     .frame(width: 14, height: 14)
                                     .allInPopover(isPresented: $showConfidentialityPopover, paddingHorizontal: 15) {
-                                        "Option permettant d'ouvrir ou non le pari à des inconnus."
+                                        String(localized: "bet_creation_privacy_tooltip")
                                     }
                                 
                                 Spacer()
@@ -255,13 +257,13 @@ struct CreationBetView: View {
                             .padding(.leading, 10)
                             
                             HStack(spacing: 5) {
-                                ConfidentialityButton(image: "globe", text: "Public", selected: viewModel.isPublic)
+                                ConfidentialityButton(image: "globe", text: String(localized: "bet_public"), selected: viewModel.isPublic)
                                     .onTapGesture {
                                         viewModel.isPublic = true
                                     }
                                     .padding(.trailing, 5)
                                 
-                                ConfidentialityButton(image: "lock", text: "Privé", selected: !viewModel.isPublic)
+                                ConfidentialityButton(image: "lock", text: String(localized: "bet_private"), selected: !viewModel.isPublic)
                                     .onTapGesture {
                                         viewModel.isPublic = false
                                     }
@@ -277,25 +279,43 @@ struct CreationBetView: View {
                             if !self.viewModel.isPublic {
                                 DropDownFriends()
                                     .padding(.bottom, 30)
+                                
+                                HStack() {
+                                    Spacer()
+                                    Text("bet_creation_private_bottom_text_1")
+                                        .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
+                                
+                                HStack() {
+                                    Spacer()
+                                    Text("bet_creation_private_bottom_text_2")
+                                        .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
+                            } else {
+                                HStack() {
+                                    Spacer()
+                                    Text("bet_creation_public_bottom_text_1")
+                                        .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
+                                
+                                HStack() {
+                                    Spacer()
+                                    Text("bet_creation_public_bottom_text_2")
+                                        .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
                             }
                             
                             HStack() {
                                 Spacer()
-                                Text("Votre BET sera visible par tous les utilisateurs.")
-                                    .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
-                                    .multilineTextAlignment(.center)
-                                Spacer()
-                            }
-                            HStack() {
-                                Spacer()
-                                Text("Tout le monde pourra rejoindre le BET.")
-                                    .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
-                                    .multilineTextAlignment(.center)
-                                Spacer()
-                            }
-                            HStack() {
-                                Spacer()
-                                Text("Vous pourrez inviter des amis à tout moment pendant la période d’inscription.")
+                                Text("bet_creation_bottom_text_3")
                                     .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
                                     .padding(.leading, 35)
                                     .multilineTextAlignment(.center)
@@ -308,13 +328,13 @@ struct CreationBetView: View {
                             Button(action: {
                                 viewModel.create()
                             }) {
-                                Text("Publier le bet")
+                                Text("bet_creation_publish")
                                     .font(.system(size: 24))
                                     .fontWeight(.bold)
                                     .overlay {
-                                        AllInColors.primaryGradient.frame(width: 150)
+                                        AllInColors.primaryGradient.frame(width: 200)
                                             .mask(
-                                                Text("Publier le bet")
+                                                Text("bet_creation_publish")
                                                     .font(.system(size: 24))
                                                     .fontWeight(.bold)
                                                     .frame(maxWidth: .infinity)
@@ -349,25 +369,25 @@ struct CreationBetView: View {
                     Group {
                         switch viewModel.selectedOption {
                         case 0:
-                            Text("Les utilisateurs devront répondre au pari avec OUI ou NON.")
+                            Text("bet_creation_yes_no_bottom_text_1")
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
                                 .padding([.leading, .trailing], 20)
                             
-                            Text("Aucune autre réponse ne sera acceptée.")
+                            Text("bet_creation_yes_no_bottom_text_2")
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
                             
                         case 2:
-                            Text("Vous allez renseigner les différentes réponses disponibles dans ce pari.")
+                            Text("bet_creation_custom_bottom_text_1")
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
                                 .padding(.leading, 13)
                             
-                            Text("Faites attention a etre claire et éviter toutes incertitudes")
+                            Text("bet_creation_custom_bottom_text_2")
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
                                 .padding(.bottom, 15)
                             
                             VStack(spacing: 5) {
                                 HStack(spacing: 0) {
-                                    TextField("", text: $response, prompt: Text("Intitulé de réponse")
+                                    TextField("", text: $response, prompt: Text("bet_creation_response_title")
                                         .foregroundColor(AllInColors.lightGrey200Color)
                                         .font(.system(size: 16))
                                         .fontWeight(.medium))
@@ -393,7 +413,7 @@ struct CreationBetView: View {
                                             response = ""
                                         }
                                     }) {
-                                        Text("Ajouter")
+                                        Text("generic_add")
                                             .foregroundColor(.white)
                                     }
                                     .frame(width: 95, height: 40)
@@ -403,7 +423,7 @@ struct CreationBetView: View {
                                 }
                                 HStack {
                                     Spacer()
-                                    Text("encore \(5 - values.count) max.")
+                                    Text(String(localized: "bet_creation_max_answers \(5 - values.count)"))
                                         .textStyle(weight: .regular, color: AllInColors.primaryTextColor, size: 12)
                                     
                                 }
@@ -438,7 +458,7 @@ struct CreationBetView: View {
                                 }
                             }
                         default:
-                            Text("En attente")
+                            Text("generic_in_waiting")
                         }
                     }
                     Spacer()
@@ -452,7 +472,7 @@ struct CreationBetView: View {
                     Button(action: {
                         selectedTab = 0
                     }) {
-                        Text("Question")
+                        Text("bet_creation_question")
                             .font(.system(size: 16))
                             .padding()
                             .fontWeight(selectedTab == 0 ? .bold : .semibold)
@@ -462,7 +482,7 @@ struct CreationBetView: View {
                     Button(action: {
                         selectedTab = 1
                     }) {
-                        Text("Réponses")
+                        Text("bet_creation_answer")
                             .font(.system(size: 16))
                             .padding()
                             .fontWeight(selectedTab == 1 ? .bold : .semibold)
@@ -477,7 +497,7 @@ struct CreationBetView: View {
             hideKeyboard()
         }
         .alert(isPresented: $viewModel.showErrorMessage) {
-            Alert(title: Text("Erreur lors de la création d'un Bet"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            Alert(title: Text("bet_creation_error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
         }
         .edgesIgnoringSafeArea(.bottom)
         .background(AllInColors.backgroundColor)

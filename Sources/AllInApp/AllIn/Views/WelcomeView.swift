@@ -15,7 +15,7 @@ struct WelcomeView: View {
                 VStack(alignment: .leading, spacing: -5) {
                     Spacer()
                     Spacer()
-                    Text("Bienvenue sur,")
+                    Text("welcome_title")
                         .textStyle(weight: .bold, color: AllInColors.darkBlueColor, size: 30)
                         .frame(alignment: .topLeading)
                         .frame(width: geometry.size.width, alignment: .topLeading)
@@ -54,7 +54,7 @@ struct WelcomeView: View {
                     endPoint: UnitPoint(x: 0.5, y: 0.85)
                 ))
                 VStack() {
-                    Text("Récupère tes Allcoins et vient parier avec tes amis pour prouver qui est le meilleur.")
+                    Text("welcome_subtitle")
                         .textStyle(weight: .regular, color: AllInColors.darkBlueColor, size: 15)
                         .frame(width: geometry.size.width*0.8, alignment: .leading)
                         .padding([.leading,.trailing], 40)
@@ -64,20 +64,20 @@ struct WelcomeView: View {
                     
                     NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true))
                     {
-                        Text("Rejoindre")
+                        Text("welcome_join")
                             .textStyle(weight: .bold, color: AllInColors.whiteColor, size: 17)
                             .frame(width: min(geometry.size.width*0.85, 500), height: 50)
                             .background(AllInColors.loginPurpleColor)
                             .cornerRadius(30)
                     }
                     
-                    HStack(spacing: 0) {
-                        Text("Tu as déja un compte? ")
+                    HStack(spacing: 4) {
+                        Text("generic_already_have_account")
                             .textStyle(weight: .regular, color: AllInColors.loginPurpleColor, size: 16)
                         
                         NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true))
                         {
-                            Text("Connexion")
+                            Text("generic_login")
                                 .textStyle(weight: .semibold, color: AllInColors.loginPurpleColor, size: 16)
                                 .underline()
                         }

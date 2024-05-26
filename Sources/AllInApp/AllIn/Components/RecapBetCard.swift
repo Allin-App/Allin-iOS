@@ -19,7 +19,7 @@ struct RecapBetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par Lucas")
+                    Text("bet_proposed_by_format \("Lucas")")
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
                     
@@ -31,7 +31,7 @@ struct RecapBetCard: View {
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 HStack{
-                    Text("Fini le ")
+                    Text("bet_ends")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
                     TextCapsule(date: Date())

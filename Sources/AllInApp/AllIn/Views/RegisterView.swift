@@ -27,18 +27,18 @@ struct RegisterView: View {
                     Spacer()
                     VStack {
                         if !viewModel.registerUsername.isEmpty {
-                            Text("Bonjour " + viewModel.registerUsername + ",")
+                            Text("register_hello \(viewModel.registerUsername)")
                                 .textStyle(weight: .semibold, color: AllInColors.darkBlueColor, size: 40)
                                 .padding([.trailing, .leading], 30)
                         } else {
-                            Text("Bonjour,")
+                            Text("register_hello")
                                 .textStyle(weight: .semibold, color: AllInColors.darkBlueColor, size: 40)
                         }
-                        Text("On a besoin de ça!")
+                        Text("register_title")
                             .textStyle(weight: .semibold, color: AllInColors.darkBlueColor, size: 40)
                     }
                     
-                    Text("Promis c’est rapide.")
+                    Text("register_subtitle")
                         .textStyle(weight: .regular, color: AllInColors.darkBlueColor, size: 20)
                         .frame(width: 220)
                         .multilineTextAlignment(.center)
@@ -49,7 +49,7 @@ struct RegisterView: View {
                             Text(usernameError)
                                 .textStyle(weight: .bold, color: .red, size: 10)
                         }
-                        TextField("", text: $viewModel.registerUsername, prompt: Text("Pseudo").foregroundColor(.gray))
+                        TextField("", text: $viewModel.registerUsername, prompt: Text("generic_username").foregroundColor(.gray))
                             .padding()
                             .background(Color.white.cornerRadius(9))
                             .frame(width: 300)
@@ -59,6 +59,7 @@ struct RegisterView: View {
                                     .stroke(AllInColors.blueGrey800Color, lineWidth: 1)
                             )
                             .padding(.bottom, 8)
+                            .autocorrectionDisabled(true)
                             .onChange(of: viewModel.registerUsername, perform: { value in
                                 guard value != viewModel.registerUsername else { return }
                                 if value.count > 25 {
@@ -74,7 +75,7 @@ struct RegisterView: View {
                             Text(emailError)
                                 .textStyle(weight: .bold, color: .red, size: 10)
                         }
-                        TextField("", text: $viewModel.registerEmail, prompt: Text("Email").foregroundColor(.gray))
+                        TextField("", text: $viewModel.registerEmail, prompt: Text("generic_email").foregroundColor(.gray))
                             .padding()
                             .keyboardType(.emailAddress)
                             .background(Color.white.cornerRadius(9))
@@ -85,6 +86,7 @@ struct RegisterView: View {
                                     .stroke(AllInColors.blueGrey800Color, lineWidth: 1)
                             )
                             .padding(.bottom, 8)
+                            .autocorrectionDisabled(true)
                             .onChange(of: viewModel.registerEmail, perform: { value in
                                 guard value != viewModel.registerEmail else { return }
                                 if value.count > 50 {
@@ -105,9 +107,9 @@ struct RegisterView: View {
                         }
                         Group {
                             if isPasswordVisible {
-                                SecureField("", text: $viewModel.registerPassword, prompt: Text("Mot de passe").foregroundColor(.gray))
+                                SecureField("", text: $viewModel.registerPassword, prompt: Text("generic_password").foregroundColor(.gray))
                             } else {
-                                TextField("", text: $viewModel.registerPassword, prompt: Text("Mot de passe").foregroundColor(.gray))
+                                TextField("", text: $viewModel.registerPassword, prompt: Text("generic_password").foregroundColor(.gray))
                                     .autocapitalization(.none)
                             }
                         }
@@ -146,9 +148,9 @@ struct RegisterView: View {
                         
                         Group {
                             if isPasswordVisible {
-                                SecureField("", text: $viewModel.registerConfirmPassword, prompt: Text("Confirmation du Mot de passe").foregroundColor(.gray))
+                                SecureField("", text: $viewModel.registerConfirmPassword, prompt: Text("register_confirm_password").foregroundColor(.gray))
                             } else {
-                                TextField("", text: $viewModel.registerConfirmPassword, prompt: Text("Confirmation du Mot de passe").foregroundColor(.gray))
+                                TextField("", text: $viewModel.registerConfirmPassword, prompt: Text("register_confirm_password").foregroundColor(.gray))
                                     .autocapitalization(.none)
                             }
                         }
@@ -180,7 +182,7 @@ struct RegisterView: View {
                     Button(action: {
                         viewModel.register()
                     }) {
-                        Text("S'inscrire")
+                        Text("generic_register")
                             .textStyle(weight: .bold, color: .white, size: 17)
                         
                             .frame(width: 300, height: 60)
@@ -195,13 +197,13 @@ struct RegisterView: View {
                     
                     Spacer()
                     
-                    HStack(spacing: 0) {
-                        Text("Tu as déjà un compte? ")
+                    HStack(spacing: 4) {
+                        Text("generic_already_have_account")
                             .textStyle(weight: .regular, color: AllInColors.darkBlueColor, size: 16)
                         
                         NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true))
                         {
-                            Text("Se connecter")
+                            Text("generic_login")
                                 .textStyle(weight: .semibold, color: AllInColors.darkPurpleColor, size: 16)
                         }
                     }
@@ -215,7 +217,7 @@ struct RegisterView: View {
                 
             }
             .alert(isPresented: $viewModel.showErrorMessage) {
-                Alert(title: Text("Erreur lors de l'enregistrement"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+                Alert(title: Text("register_error_title"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
             }
             .background(AllInColors.startBackgroundColor)
             .onSubmit {

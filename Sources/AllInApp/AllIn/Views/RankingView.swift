@@ -15,7 +15,7 @@ struct RankingView: View {
         GeometryReader { geometry in
             VStack(alignment: .center, spacing: 0) {
                 TopBar(showMenu: self.$showMenu)
-                Text("Classement")
+                Text("ranking_title")
                     .textStyle(weight: .bold, color: AllInColors.grey500Color, size: 25)
                     .padding([.top,.bottom],15)
                 

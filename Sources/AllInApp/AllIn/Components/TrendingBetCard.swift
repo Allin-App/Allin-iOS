@@ -15,7 +15,7 @@ struct TrendingBetCard: View {
                     .resizable()
                     .frame(width: 15, height: 15, alignment: .leading)
                 
-                Text("Populaire")
+                Text("bet_popular")
                     .textStyle(weight: .medium, color: AllInColors.pinkAccentColor, size: 17)
             }
             .padding([.leading, .top], 10)
@@ -33,7 +33,7 @@ struct TrendingBetCard: View {
                     Text("12")
                         .textStyle(weight: .bold, color: AllInColors.pinkAccentColor, size: 14)
                     
-                    Text("joueurs")
+                    Text("bet_players_format")
                         .textStyle(weight: .regular, color: .white, size: 14)
                         .padding([.leading], 2)
                     
@@ -41,7 +41,7 @@ struct TrendingBetCard: View {
                         .textStyle(weight: .bold, color: AllInColors.pinkAccentColor, size: 14)
                         .padding([.leading], 10)
                     
-                    Text("points misés")
+                    Text("bet_points_at_stake_format")
                         .textStyle(weight: .regular, color: .white, size: 14)
                         .padding([.leading], 2)
                 }

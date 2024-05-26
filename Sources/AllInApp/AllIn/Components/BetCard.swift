@@ -19,7 +19,7 @@ struct BetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("proposé par " + bet.author.capitalized)
+                    Text("bet_proposed_by_format  \(bet.author.capitalized)")
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
                     
@@ -31,7 +31,7 @@ struct BetCard: View {
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 HStack{
-                    Text("Commence le")
+                    Text("bet_starting")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
                     TextCapsule(date: bet.endRegisterDate)
@@ -46,7 +46,7 @@ struct BetCard: View {
                 HStack{
                     Spacer()
                     UsersPreview()
-                    Text(bet.registered.count.description + " joueurs en attente")
+                    Text("bet_players_waiting_format \(bet.registered.count.description)")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
                         .fontWeight(.medium)

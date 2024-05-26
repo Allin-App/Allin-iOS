@@ -73,7 +73,7 @@ struct BetLineLoading: View {
 
             HStack {
                 Spacer()
-                Text("Détails")
+                Text("bet_status_details_drawer")
                     .textStyle(weight: .medium, color: AllInColors.primaryTextColor, size: 10)
                 Image(showInfos ? "chevronUpIcon" : "chevronDownIcon")
                     .resizable()

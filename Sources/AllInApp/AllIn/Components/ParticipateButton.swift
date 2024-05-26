@@ -32,7 +32,7 @@ struct ParticipateButton: View {
             isOpen = true
             isParticapatedOpen = true
         } label: {
-            Text("Participer")
+            Text("bet_participate")
                 .font(.system(size: 27))
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity).padding(10)
@@ -42,7 +42,7 @@ struct ParticipateButton: View {
                     case true:
                         AllInColors.grey700Color.frame(width: 170)
                             .mask(
-                                Text("Participer")
+                                Text("bet_participate")
                                     .font(.system(size: 27))
                                     .fontWeight(.semibold)
                                     .frame(maxWidth: .infinity).padding(10)
@@ -50,7 +50,7 @@ struct ParticipateButton: View {
                     case false:
                         AllInColors.primaryGradient.frame(width: 170)
                             .mask(
-                                Text("Participer")
+                                Text("bet_participate")
                                     .font(.system(size: 27))
                                     .fontWeight(.semibold)
                                     .frame(maxWidth: .infinity).padding(10)

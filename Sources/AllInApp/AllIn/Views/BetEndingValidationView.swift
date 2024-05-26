@@ -51,11 +51,11 @@ struct BetEndingValidationView: View {
                     ReviewCard(betDetail: bet, amountBetted: 0, isAWin: false)
                         .padding(.top, 20)
                         .padding(.bottom, 10)
-                    Text("Ce bet est arrivé à la date de fin. Vous devez à présent distribuer les gains en validant le pari gagnant.")
+                    Text("bet_confirmation_text")
                         .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 13)
                         .multilineTextAlignment(.center)
                     
-                    Text("Veuillez choisir la réponse finale:")
+                    Text("bet_confirmation_choose_response")
                         .font(.system(size: 17))
                         .foregroundStyle(.white)
                         .fontWeight(.bold)
@@ -80,7 +80,7 @@ struct BetEndingValidationView: View {
                         dismiss()
                         viewModel.post()
                     } label: {
-                        Text("Valider")
+                        Text("generic_validate")
                             .font(.system(size: 23))
                             .foregroundColor(.white)
                             .fontWeight(.bold)

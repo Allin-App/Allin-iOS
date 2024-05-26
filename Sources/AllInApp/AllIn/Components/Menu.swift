@@ -39,7 +39,7 @@ struct Menu: View {
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
-                    Text("Bets")
+                    Text(String(localized: "drawer_bets"))
                         .fontWeight(.regular)
                         .font(.system(size: 12))
                         .foregroundColor(AllInColors.grey600Color)
@@ -49,7 +49,7 @@ struct Menu: View {
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
-                    Text("Meilleur gain")
+                    Text(String(localized: "drawer_best_win"))
                         .fontWeight(.regular)
                         .font(.system(size: 12))
                         .foregroundColor(AllInColors.grey600Color)
@@ -59,7 +59,7 @@ struct Menu: View {
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
-                    Text("Amis")
+                    Text(String(localized: "drawer_nb_friends"))
                         .fontWeight(.regular)
                         .font(.system(size: 12))
                         .foregroundColor(AllInColors.grey600Color)
@@ -70,48 +70,50 @@ struct Menu: View {
             
             NavigationLink(destination: MainView(page: "CreationBet").navigationBarBackButtonHidden(true))
             {
-                ParameterMenu(image: "videoGameImage", title: "CREER UN BET", description: "Créez un nouveau BET et faites participer vos amis.")
+                ParameterMenu(image: "videoGameImage", title: String(localized: "drawer_create_a_bet"), description: String(localized: "drawer_create_a_bet_subtitle"))
                     .padding([.leading,.trailing], 13)
             }
             
-            NavigationLink(destination: MainView(page: "Historic").navigationBarBackButtonHidden(true))
+            NavigationLink(destination: MainView(page: "Historic")
+                .navigationBarBackButtonHidden(true))
             {
-                ParameterMenu(image: "eyesImage", title: "HISTORIQUE DES BETS", description: "Consultez vos paris en cours et terminés.")
+                ParameterMenu(image: "eyesImage", title: String(localized: "drawer_bet_history"), description: String(localized: "drawer_bet_history_subtitle"))
                     .padding([.leading,.trailing], 13)
             }
             
-            NavigationLink(destination: MainView(page: "Friends").navigationBarBackButtonHidden(true))
+            NavigationLink(destination: MainView(page: "Friends")
+                .navigationBarBackButtonHidden(true))
             {
-                ParameterMenu(image: "friendsImage", title: "AMIS", description: "Défiez vos porches en les ajoutant en amis.")
+                ParameterMenu(image: "friendsImage", title: String(localized: "drawer_friends"), description: String(localized: "drawer_friends_subtitle"))
                     .padding([.leading,.trailing], 13)
             }
             
             VStack {
-                NavigationLink(destination: MainView(page: "Bet").navigationBarBackButtonHidden(true))
+                NavigationLink(destination: MainView(page: "Bet")
+                    .navigationBarBackButtonHidden(true))
                 {
-                    ParameterMenu(image: "moneyImage", title: "BET EN COURS", description: "Gérez vos bets et récompensez les gagnants.")
+                    ParameterMenu(image: "moneyImage", title: String(localized: "drawer_public_bets"), description: String(localized: "drawer_public_bets_subtitle"))
                         .padding([.leading,.trailing], 13)
                 }
                 NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
                 {
-                    ParameterMenu(image: "rankingImage", title: "CLASSEMENT", description: "Consultez votre classement parmis vos amis.")
+                    ParameterMenu(image: "rankingImage", title: String(localized: "drawer_ranking"), description: String(localized: "drawer_ranking_subtitle"))
                         .padding([.leading,.trailing], 13)
                 }
             }
             
             NavigationLink(destination: MainView(page: "Current").navigationBarBackButtonHidden(true))
             {
-                ParameterMenu(image: "eyesImage", title: "BETS EN COURS", description: "Consultez vos paris en cours.")
+                ParameterMenu(image: "eyesImage", title: String(localized: "drawer_current_bets"), description: String(localized: "drawer_current_bets_subtitle"))
                     .padding([.leading,.trailing], 13)
             }
-            
             
             HStack {
                 Spacer()
                 Button {
                     authService.logout()
                 } label: {
-                    Text("Deconnexion")
+                    Text("generic_logout")
                         .foregroundColor(.white)
                 }
                 Spacer()

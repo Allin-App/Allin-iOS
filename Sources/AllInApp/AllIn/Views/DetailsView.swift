@@ -16,16 +16,16 @@ struct DetailsView: View {
         if let betType = viewModel.betDetail?.bet.status {
             switch betType {
             case .inProgress:
-                return ("En cours...", AllInColors.darkPurpleColor)
+                return ("bet_status_in_progress", AllInColors.darkPurpleColor)
             case .waiting, .closing:
-                return ("En attente...", AllInColors.pink100)
+                return ("bet_status_waiting", AllInColors.pink100)
             case .finished:
-                return ("Terminé", AllInColors.grey100Color)
+                return ("bet_status_finished", AllInColors.grey100Color)
             case .cancelled:
-                return ("Annulé", AllInColors.grey100Color)
+                return ("bet_status_cancelled", AllInColors.grey100Color)
             }
         } else {
-            return ("Statut indisponible", AllInColors.pink100)
+            return ("bet_status_unavailable", AllInColors.pink100)
         }
     }
     
@@ -63,7 +63,7 @@ struct DetailsView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         HStack(spacing: 3) {
                             Spacer()
-                            Text("proposé par")
+                            Text("bet_proposed_by_format")
                                 .font(.system(size: 10))
                                 .foregroundColor(AllInColors.grey800Color)
                             Text((viewModel.betDetail?.bet.author ?? "Unknown").capitalized)
@@ -82,7 +82,7 @@ struct DetailsView: View {
                         HStack {
                             HStack {
                                 Spacer()
-                                Text("Commence le")
+                                Text("bet_starting")
                                     .font(.system(size: 15))
                                     .foregroundColor(AllInColors.grey800Color)
                             }
@@ -95,7 +95,7 @@ struct DetailsView: View {
                         HStack {
                             HStack {
                                 Spacer()
-                                Text("Prend fin le")
+                                Text("bet_ends")
                                     .font(.system(size: 15))
                                     .foregroundColor(AllInColors.grey800Color)
                             }
@@ -116,7 +116,7 @@ struct DetailsView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         BetLineLoading(participations: viewModel.betDetail?.participations ?? [])
                             .padding(.vertical,15)
-                        Text("Liste des participants")
+                        Text("bet_status_participants_list")
                             .font(.system(size: 18))
                             .foregroundStyle(AllInColors.grey100Color)
                             .fontWeight(.bold)

@@ -24,7 +24,7 @@ struct Friend: View {
                 .font(.system(size: 18))
                 .lineLimit(1)
             Spacer()
-            Button("Supprimer") {}
+            Button("generic_delete") {}
                 .frame(width: 90, height: 30)
                 .foregroundColor(AllInColors.grey400Color)
                 .font(.system(size: 14))

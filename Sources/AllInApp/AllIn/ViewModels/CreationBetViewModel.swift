@@ -42,11 +42,11 @@ class CreationBetViewModel: ObservableObject {
                 switch statusCode {
                 case 201:
                     self.betAdded = true
-                    let notificationItem = NotificationItem(title: "Qui seront les vainqueurs ?", content: "Le pari \"\(self.theme)\" a atteint sa date limite. Rendez-vous dans l'application pour renseigner la réponse gagnante.", interval: self.endBetDate.timeIntervalSinceNow)
+                    let notificationItem = NotificationItem(title: String(localized: "notification_title_end_bet_date"), content: String(localized: "notification_subtitle_end_bet_date \(self.theme)"), interval: self.endBetDate.timeIntervalSinceNow)
                     
                     AppStateContainer.shared.notificationState.scheduleNotification(with: notificationItem)
                 default:
-                    self.setErrorMessage(errorMessage: "Problème de connexion. Veuillez réessayer ultérieurement.")
+                    self.setErrorMessage(errorMessage: String(localized: "network_error_text"))
                 }
             }
         }
@@ -63,25 +63,25 @@ class CreationBetViewModel: ObservableObject {
         
         // Theme
         if checkTheme, theme.isEmpty {
-            newThemeFieldError = "Veuillez saisir le thème."
+            newThemeFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         
         // Description
         if checkDescription, description.isEmpty {
-            newDescriptionFieldError = "Veuillez saisir la description."
+            newDescriptionFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         
         // End Register Date
         if checkEndRegisterDate, endRegisterDate < Date() {
-            newEndRegisterDateFieldError = "La date de fin des inscriptions doit être ultérieure à la date actuelle."
+            newEndRegisterDateFieldError = String(localized: "bet_creation_error_past_date")
             hasError = true
         }
         
         // End Bet Date
         if checkEndBetDate, endBetDate < endRegisterDate {
-            newEndBetDateFieldError = "La date de fin des paris doit être ultérieure à la date de fin des inscriptions."
+            newEndBetDateFieldError = String(localized: "bet_creation_error_date_order")
             hasError = true
         }
         
