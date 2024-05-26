@@ -23,12 +23,19 @@
 "generic_add" = "Ajouter";
 "generic_delete" = "Supprimer";
 "generic_stake" = "Mise";
+"network_error_text" = "Assurez-vous d\'être bien connecté au réseau puis réessayez.";
 
 /// Bet type
 
 "bet_type_binary" = "Oui / Non";
 "bet_type_match" = "Match sportif";
 "bet_type_custom" = "Réponses personnalisées";
+
+/// Field error
+
+"field_error_mandatory" = "Ce champ est obligatoire.";
+"field_error_not_identical" = "Les champs ne sont pas identiques.";
+"field_error_bad_email" = "Veuillez saisir un email valide.";
 
 /// Drawer
 
@@ -62,16 +69,20 @@
 "register_hello %@" = "Bonjour %@,";
 "register_title" = "On a besoins de ça!";
 "register_subtitle" = "Promis c\'est rapide.";
+"register_error_title" = "Erreur lors de l'enregistrement";
+"register_error_content" = "L'enregistrement a échoué. Veuillez réessayer.";
 "register_confirm_password" = "Confirmation du mot de passe";
+"register_already_used" = "Email ou pseudo déjà utilisé.";
 
 /// Login Page
 
 "login_title" = "Te revoilà !";
 "login_subtitle" = "Bon retour parmis nous tu nous as manqué !";
 "login_error_title" = "Erreur de connexion";
-"login_error_content" = "La connexion a échoué\nVeuillez réessayer.";
+"login_error_content" = "La connexion a échoué. Veuillez réessayer.";
 "login_no_account" = "Pas encore inscrit ?";
 "login_forgot_password" = "Mot de passe oublié ?";
+"login_bad_credentials" = "Login ou mot de passe incorrects.";
 
 /// Bet Creation Page
 
@@ -100,9 +111,12 @@
 "bet_creation_yes_no_bottom_text_2" = "Aucune autre réponse ne sera acceptée.";
 "bet_creation_custom_bottom_text_1" = "Vous allez renseigner les différentes réponses disponibles dans ce pari.";
 "bet_creation_custom_bottom_text_2" = "Faites attention a etre claire et éviter toutes incertitudes";
-"bet_creation_error" = "Erreur lors de la création du bet, veuillez rééssayer.";
+"bet_creation_error" = "Erreur lors de la création du bet.";
 "bet_creation_success_message" = "Bet créé !";
 "bet_creation_response_title" = "Intitulé de réponse";
+"bet_creation_max_answers %lld" = "encore %lld max.";
+"bet_creation_error_past_date" = "La date de fin des inscriptions doit être ultérieure à la date actuelle.";
+"bet_creation_error_date_order" = "La date de fin des paris doit être ultérieure à la date de fin des inscriptions.";
 
 /// Bet page
 
@@ -156,3 +170,8 @@
 
 "daily_reward_title" = "Récompense quotidienne";
 "daily_reward_subtitle" = "Votre récompense quotidienne est débloquée tous les jours à 00:00 UTC et vous permets d’obtenir entre 10 et 150 Allcoins.";
+
+/// Notification
+
+"notification_title_end_bet_date" = "Qui seront les vainqueurs ?";
+"notification_subtitle_end_bet_date %@" = "Le pari %@ a atteint sa date limite. Rendez-vous dans l'application pour renseigner la réponse gagnante.";

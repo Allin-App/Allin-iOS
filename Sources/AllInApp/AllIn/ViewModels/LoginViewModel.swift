@@ -36,10 +36,10 @@ class LoginViewModel: ObservableObject {
                 self.onLoginSuccess()
             case 404:
                 AppStateContainer.shared.loggedState.connectedUser = false
-                self.setErrorMessage(errorMessage: "Login ou mot de passe incorrects.")
+                self.setErrorMessage(errorMessage: String(localized: "login_bad_credentials"))
             default:
                 AppStateContainer.shared.loggedState.connectedUser = false
-                self.setErrorMessage(errorMessage: "La connexion a échoué. Veuillez réessayer.")
+                self.setErrorMessage(errorMessage: String(localized: "login_error_content"))
             }
         }
     }
@@ -55,13 +55,13 @@ class LoginViewModel: ObservableObject {
         
         // Login
         if checkLogin, loginIdentifier.isEmpty {
-            newLoginIdentifierFieldError = "Veuillez saisir votre identifiant."
+            newLoginIdentifierFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         
         // Password
         if checkPassword, loginPassword.isEmpty {
-            newLoginPasswordFieldError = "Veuillez saisir votre mot de passe."
+            newLoginPasswordFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         

@@ -217,7 +217,7 @@ struct RegisterView: View {
                 
             }
             .alert(isPresented: $viewModel.showErrorMessage) {
-                Alert(title: Text("Erreur lors de l'enregistrement"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
+                Alert(title: Text("register_error_title"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
             }
             .background(AllInColors.startBackgroundColor)
             .onSubmit {

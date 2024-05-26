@@ -23,12 +23,19 @@
 "generic_add" = "Add";
 "generic_delete" = "Delete";
 "generic_stake" = "Stake";
+"network_error_text" = "Make sure to be properly connected to the network then try again.";
 
 /// Bet type
 
 "bet_type_binary" = "Yes / No";
 "bet_type_match" = "Sport match";
 "bet_type_custom" = "Custom answers";
+
+/// Field error
+
+"field_error_mandatory" = "This field is mandatory.";
+"field_error_not_identical" = "The fields are not identical.";
+"field_error_bad_email" = "Please enter a valid email.";
 
 /// Drawer
 
@@ -62,16 +69,20 @@
 "register_hello %@" = "Hello %@,";
 "register_title" = "We need this!";
 "register_subtitle" = "Don\'t worry it\'s fast.";
+"register_error_title" = "Error saving";
+"register_error_content" = "Registration failed. Try Again.";
 "register_confirm_password" = "Confirm password";
+"register_already_used" = "Email or nickname already used.";
 
 /// Login Page
 
 "login_title" = "Welcome back !";
 "login_subtitle" = "We missed you.";
 "login_error_title" = "Connection error";
-"login_error_content" = "Failed to login\nPlease try again.";
+"login_error_content" = "Failed to login. Please try again.";
 "login_no_account" = "Don't have an account ?";
 "login_forgot_password" = "Forgot password ?";
+"login_bad_credentials" = "Incorrect login or password.";
 
 /// Bet Creation Page
 
@@ -100,9 +111,12 @@
 "bet_creation_yes_no_bottom_text_2" = "No other answer will be accepted.";
 "bet_creation_custom_bottom_text_1" = "You are going to fill in the different answers available in this bet.";
 "bet_creation_custom_bottom_text_2" = "Be careful to be clear and avoid any uncertainties";
-"bet_creation_error" = "Error while creating the bet. Please try again.";
+"bet_creation_error" = "Error while creating the bet.";
 "bet_creation_success_message" = "Bet created !";
 "bet_creation_response_title" = "Response title";
+"bet_creation_max_answers %lld" = "%lld more max.";
+"bet_creation_error_past_date" = "The registration end date must be later than the current date.";
+"bet_creation_error_date_order" = "The betting end date must be later than the registration end date.";
 
 /// Bet page
 
@@ -156,3 +170,8 @@
 
 "daily_reward_title" = "Daily reward";
 "daily_reward_subtitle" = "Your daily reward is unlocked every day at 00:00 UTC and allows you to get between 10 and 150 Allcoins.";
+
+/// Notification
+
+"notification_title_end_bet_date" = "Who will be the winners?";
+"notification_subtitle_end_bet_date %@" = "The %@ bet has reached its deadline. Go to the app to enter the winning answer.";

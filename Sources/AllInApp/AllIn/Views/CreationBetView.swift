@@ -423,7 +423,7 @@ struct CreationBetView: View {
                                 }
                                 HStack {
                                     Spacer()
-                                    Text("encore \(5 - values.count) max.")
+                                    Text(String(localized: "bet_creation_max_answers \(5 - values.count)"))
                                         .textStyle(weight: .regular, color: AllInColors.primaryTextColor, size: 12)
                                     
                                 }
@@ -497,7 +497,7 @@ struct CreationBetView: View {
             hideKeyboard()
         }
         .alert(isPresented: $viewModel.showErrorMessage) {
-            Alert(title: Text("Erreur lors de la création d'un Bet"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
+            Alert(title: Text("bet_creation_error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("generic_ok")))
         }
         .edgesIgnoringSafeArea(.bottom)
         .background(AllInColors.backgroundColor)

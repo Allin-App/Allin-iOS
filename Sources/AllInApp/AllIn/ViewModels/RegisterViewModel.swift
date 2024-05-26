@@ -40,10 +40,10 @@ class RegisterViewModel: ObservableObject {
                 self.onRegisterSuccess()
             case 409:
                 AppStateContainer.shared.loggedState.connectedUser = false
-                self.setErrorMessage(errorMessage: "Email ou pseudo déjà utilisé.")
+                self.setErrorMessage(errorMessage: String(localized: "register_already_used"))
             default:
                 AppStateContainer.shared.loggedState.connectedUser = false
-                self.setErrorMessage(errorMessage: "La connexion a échoué. Veuillez réessayer.")
+                self.setErrorMessage(errorMessage: String(localized: "register_error_content"))
             }
         }
     }
@@ -61,35 +61,33 @@ class RegisterViewModel: ObservableObject {
         
         // Username
         if checkUsername, registerUsername.isEmpty {
-            newRegisterUsernameFieldError = "Veuillez saisir votre pseudo."
+            newRegisterUsernameFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         
         // Email
         if checkEmail, registerEmail.isEmpty {
-            newRegisterEmailFieldError = "Veuillez saisir votre email."
+            newRegisterEmailFieldError = String(localized: "field_error_mandatory")
             hasError = true
-        }
-        
-        if checkEmail, isValidEmail(email: registerEmail) {
-            newRegisterEmailFieldError = "Veuillez saisir un email valide."
+        } else if checkEmail, isValidEmail(email: registerEmail) {
+            newRegisterEmailFieldError = String(localized: "field_error_bad_email")
             hasError = true
         }
         
         // Password
         if checkPassword, registerPassword.isEmpty {
-            newRegisterPasswordFieldError = "Veuillez saisir votre mot de passe."
+            newRegisterPasswordFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         
         // Confirm password
         if checkConfirmPassword, registerConfirmPassword.isEmpty {
-            newRegisterConfirmPasswordFieldError = "Veuillez confirmer votre mot de passe."
+            newRegisterConfirmPasswordFieldError = String(localized: "field_error_mandatory")
             hasError = true
         }
         
         if checkConfirmPassword, registerConfirmPassword != registerPassword {
-            newRegisterConfirmPasswordFieldError = "Les mots de passe ne sont pas identiques."
+            newRegisterConfirmPasswordFieldError = String(localized: "field_error_not_identical")
             hasError = true
         }
         
