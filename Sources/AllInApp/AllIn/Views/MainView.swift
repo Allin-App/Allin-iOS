@@ -48,6 +48,8 @@ struct MainView: View {
                         CreationBetView(showMenu: self.$showMenu)
                     case "Current":
                         CurrentBetView(showMenu: self.$showMenu)
+                    case "Profile":
+                        ProfileView(showMenu: self.$showMenu)
                     default:
                         BetView(showMenu: self.$showMenu)
                     }
