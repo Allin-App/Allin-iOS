@@ -20,7 +20,7 @@ public struct BetApiManager: BetDataManager {
         let url = URL(string: allInApi + "bets/gets")!
 
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
