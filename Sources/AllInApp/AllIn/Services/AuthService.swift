@@ -56,7 +56,7 @@ class AuthService: IAuthService {
     
     
     func register(username: String, email: String, password: String, completion : @escaping (Int)-> ()) {
-        let url = URL(string: Config.allInApi + "/users/register")!
+        let url = URL(string: Config.allInApi + "users/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

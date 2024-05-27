@@ -12,6 +12,15 @@ struct Menu: View {
     
     @Inject var authService: IAuthService
     
+    let parameters: [(String, String, String, String)] = [
+        ("videoGameImage", String(localized: "drawer_create_a_bet"), String(localized: "drawer_create_a_bet_subtitle"), "CreationBet"),
+        ("eyesImage", String(localized: "drawer_bet_history"), String(localized: "drawer_bet_history_subtitle"),"Historic"),
+        ("friendsImage", String(localized: "drawer_friends"), String(localized: "drawer_friends_subtitle"), "Friends"),
+        ("moneyImage", String(localized: "drawer_public_bets"), String(localized: "drawer_public_bets_subtitle"), "Bet"),
+        ("rankingImage", String(localized: "drawer_ranking"), String(localized: "drawer_ranking_subtitle"), "Ranking"),
+        ("eyesImage", String(localized: "drawer_current_bets"), String(localized: "drawer_current_bets_subtitle"), "Current")
+    ]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             
@@ -68,44 +77,11 @@ struct Menu: View {
             }
             .padding(.bottom, 15)
             
-            NavigationLink(destination: MainView(page: "CreationBet").navigationBarBackButtonHidden(true))
-            {
-                ParameterMenu(image: "videoGameImage", title: String(localized: "drawer_create_a_bet"), description: String(localized: "drawer_create_a_bet_subtitle"))
-                    .padding([.leading,.trailing], 13)
-            }
-            
-            NavigationLink(destination: MainView(page: "Historic")
-                .navigationBarBackButtonHidden(true))
-            {
-                ParameterMenu(image: "eyesImage", title: String(localized: "drawer_bet_history"), description: String(localized: "drawer_bet_history_subtitle"))
-                    .padding([.leading,.trailing], 13)
-            }
-            
-            NavigationLink(destination: MainView(page: "Friends")
-                .navigationBarBackButtonHidden(true))
-            {
-                ParameterMenu(image: "friendsImage", title: String(localized: "drawer_friends"), description: String(localized: "drawer_friends_subtitle"))
-                    .padding([.leading,.trailing], 13)
-            }
-            
-            VStack {
-                NavigationLink(destination: MainView(page: "Bet")
-                    .navigationBarBackButtonHidden(true))
-                {
-                    ParameterMenu(image: "moneyImage", title: String(localized: "drawer_public_bets"), description: String(localized: "drawer_public_bets_subtitle"))
-                        .padding([.leading,.trailing], 13)
+            ForEach(0..<parameters.count, id: \.self) { index in
+                NavigationLink(destination: MainView(page: parameters[index].3).navigationBarBackButtonHidden(true)) {
+                    ParameterMenu(image: parameters[index].0, title: parameters[index].1, description: parameters[index].2)
+                        .padding([.leading, .trailing], 13)
                 }
-                NavigationLink(destination: MainView(page: "Ranking").navigationBarBackButtonHidden(true))
-                {
-                    ParameterMenu(image: "rankingImage", title: String(localized: "drawer_ranking"), description: String(localized: "drawer_ranking_subtitle"))
-                        .padding([.leading,.trailing], 13)
-                }
-            }
-            
-            NavigationLink(destination: MainView(page: "Current").navigationBarBackButtonHidden(true))
-            {
-                ParameterMenu(image: "eyesImage", title: String(localized: "drawer_current_bets"), description: String(localized: "drawer_current_bets_subtitle"))
-                    .padding([.leading,.trailing], 13)
             }
             
             HStack {
@@ -120,10 +96,14 @@ struct Menu: View {
             }
             
             Spacer()
-            Image("gearIcon")
-                .resizable()
-                .frame(width: 30, height: 30)
-                .padding([.leading,.bottom], 20)
+            NavigationLink(destination: MainView(page: "Profile")
+                .navigationBarBackButtonHidden(true))
+            {
+                Image("gearIcon")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding([.leading,.bottom], 20)
+            }
         }
         .frame(maxWidth: .infinity,alignment: .leading)
         .background(AllInColors.primaryColor)

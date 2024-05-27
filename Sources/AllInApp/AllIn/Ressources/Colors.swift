@@ -35,6 +35,9 @@ struct AllInColors {
     static let pink200 = Color("Pink200")
     static let pink100 = Color("Pink100")
     
+    // Profile
+    static let secondaryTextColor = Color("SecondaryTextColor")
+
     // Others
     static let backgroundColor = Color("BackgroundColor")
     static let darkBlueColor = Color("DarkBlueColor")

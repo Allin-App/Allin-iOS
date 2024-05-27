@@ -79,6 +79,7 @@
 		ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */; };
 		ECCD244A2B4DE8010071FA9E /* Api in Frameworks */ = {isa = PBXBuildFile; productRef = ECCD24492B4DE8010071FA9E /* Api */; };
 		ECDDD48A2BF4A7920009223A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECDDD48C2BF4A7920009223A /* Localizable.strings */; };
+		ECDDD48F2C034A420009223A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDDD48E2C034A420009223A /* ProfileView.swift */; };
 		ECED90B52B6D9CEC00F50937 /* DailyGiftPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */; };
 		ECF872662B9266C000F9D240 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF872652B9266C000F9D240 /* WidgetKit.framework */; };
 		ECF872682B9266C000F9D240 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF872672B9266C000F9D240 /* SwiftUI.framework */; };
@@ -218,6 +219,7 @@
 		ECB7BC6F2B336E28002A6654 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		ECDDD48B2BF4A7920009223A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECDDD48D2BF4A7970009223A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECDDD48E2C034A420009223A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGiftPage.swift; sourceTree = "<group>"; };
 		ECF872642B9266C000F9D240 /* AllInWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AllInWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF872652B9266C000F9D240 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -393,6 +395,7 @@
 				123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */,
 				EC17A15D2B6A955E008A8679 /* CurrentBetView.swift */,
 				ECED90B42B6D9CEC00F50937 /* DailyGiftPage.swift */,
+				ECDDD48E2C034A420009223A /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				ECB7BC702B336E28002A6654 /* RegisterViewModel.swift in Sources */,
 				EC17A1602B6A9781008A8679 /* CurrentBetViewModel.swift in Sources */,
 				EC650A4C2B25E9C7003AFCAD /* RankingView.swift in Sources */,
+				ECDDD48F2C034A420009223A /* ProfileView.swift in Sources */,
 				EC9464E92B7413E1004EEBD8 /* BetEndingValidationViewModel.swift in Sources */,
 				EC7A882B2B28D1E0004F226A /* DropDownMenu.swift in Sources */,
 				EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */,
