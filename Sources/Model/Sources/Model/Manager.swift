@@ -22,8 +22,8 @@ public struct Manager {
         }
     }
     
-    public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
-        betDataManager.getBets(withIndex: index, withCount: count) { bets in
+    public func getBets(withIndex index: Int, withCount count: Int, filters: [BetFilter], completion: @escaping ([Bet]) -> Void) {
+        betDataManager.getBets(withIndex: index, withCount: count, filters: filters) { bets in
             completion(bets)
         }
     }

@@ -19,7 +19,7 @@ struct BetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("bet_proposed_by_format  \(bet.author.capitalized)")
+                    Text("bet_proposed_by_format \(bet.author.capitalized)")
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
                     

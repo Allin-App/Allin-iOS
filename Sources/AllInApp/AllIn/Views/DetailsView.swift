@@ -16,16 +16,16 @@ struct DetailsView: View {
         if let betType = viewModel.betDetail?.bet.status {
             switch betType {
             case .inProgress:
-                return ("bet_status_in_progress", AllInColors.darkPurpleColor)
+                return (String(localized: "bet_status_in_progress"), AllInColors.darkPurpleColor)
             case .waiting, .closing:
-                return ("bet_status_waiting", AllInColors.pink100)
+                return (String(localized: "bet_status_waiting"), AllInColors.pink100)
             case .finished:
-                return ("bet_status_finished", AllInColors.grey100Color)
+                return (String(localized: "bet_status_finished"), AllInColors.grey100Color)
             case .cancelled:
-                return ("bet_status_cancelled", AllInColors.grey100Color)
+                return (String(localized: "bet_status_cancelled"), AllInColors.grey100Color)
             }
         } else {
-            return ("bet_status_unavailable", AllInColors.pink100)
+            return (String(localized: "bet_status_unavailable"), AllInColors.pink100)
         }
     }
     

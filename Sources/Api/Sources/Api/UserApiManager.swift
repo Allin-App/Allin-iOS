@@ -8,7 +8,7 @@
 import Foundation
 import Model
 
-let allInApi = "https://codefirst.iut.uca.fr/containers/AllDev-api/"
+let allInApi = "http://localhost:8080/"
 
 public struct UserApiManager: UserDataManager {
     
