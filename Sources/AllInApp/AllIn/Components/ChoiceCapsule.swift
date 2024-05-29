@@ -51,12 +51,12 @@ struct ChoiceCapsule: View {
             }
         }
         .onTapGesture() {
-            if(!pressed) {
+            pressed.toggle()
+            if(pressed) {
                 viewModel.filters.insert(filter)
             } else {
                 viewModel.filters.remove(filter)
             }
-            pressed.toggle()
         }
         
     }

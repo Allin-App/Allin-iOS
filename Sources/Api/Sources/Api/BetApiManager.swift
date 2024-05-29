@@ -26,6 +26,7 @@ public struct BetApiManager: BetDataManager {
 
         let filterStrings = filters.map { $0.rawValue }
         let jsonDictionary: [String: Any] = ["filters": filterStrings]
+        
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonDictionary, options: [])
             request.httpBody = jsonData

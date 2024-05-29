@@ -18,23 +18,14 @@ class BetViewModel: ObservableObject {
     @Published var betsOver: [BetDetail] = []
     @Published var showingSheet: Bool  = false
     @Published var filters: Set<BetFilter> = [] {
-           didSet {
-               getItems()
-           }
-       }
-       
-       private var cancellables = Set<AnyCancellable>()
-       
-       init() {
-           getItems()
-           
-           // Observer for changes in filters
-           $filters
-               .sink { [weak self] _ in
-                   self?.getItems()
-               }
-               .store(in: &cancellables)
-       }
+        didSet {
+            getItems()
+        }
+    }
+        
+    init() {
+        getItems()
+    }
     
     func getItems() {
         manager.getBets(withIndex: 0, withCount: 20, filters: Array(filters)) { bets in
