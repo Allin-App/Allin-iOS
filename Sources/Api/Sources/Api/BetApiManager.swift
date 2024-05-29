@@ -16,21 +16,30 @@ public struct BetApiManager: BetDataManager {
         self.token = token
     }
     
-    public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+    public func getBets(withIndex index: Int, withCount count: Int, filters: [BetFilter] = [], completion: @escaping ([Bet]) -> Void) {
         let url = URL(string: allInApi + "bets/gets")!
 
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
-        var bets: [Bet] = []
+        let filterStrings = filters.map { $0.rawValue }
+        let jsonDictionary: [String: Any] = ["filters": filterStrings]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonDictionary, options: [])
+            request.httpBody = jsonData
+        } catch {
+            print("Error creating JSON data: \(error)")
+            return
+        }
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 print ("ALLIN : get bets")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        var bets: [Bet] = []
                         for json in jsonArray {
                             if let bet = FactoryApiBet().toBet(from: json) {
                                 bets.append(bet)
@@ -45,6 +54,7 @@ public struct BetApiManager: BetDataManager {
             }
         }.resume()
     }
+
     
     public func getUsers(username: String) -> [User] {
         return []

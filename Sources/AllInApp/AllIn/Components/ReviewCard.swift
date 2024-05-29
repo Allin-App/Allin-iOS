@@ -23,8 +23,8 @@ struct ReviewCard: View {
                 HStack{
                     Spacer()
                     Text("bet_proposed_by_format \(betDetail.bet.author)")
-                    .font(.system(size: 10))
-                    .foregroundColor(AllInColors.grey800Color)
+                        .font(.system(size: 10))
+                        .foregroundColor(AllInColors.grey800Color)
                     
                 }
                 Text(betDetail.bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
@@ -50,7 +50,8 @@ struct ReviewCard: View {
                             .font(.system(size: 25))
                             .fontWeight(.bold)
                     }
-                    else{Text(amountBetted.description)
+                    else{
+                        Text(amountBetted.description)
                             .foregroundColor(.white)
                             .font(.system(size: 25))
                             .fontWeight(.bold)
@@ -63,7 +64,7 @@ struct ReviewCard: View {
                             .fontWeight(.bold)
                     }
                     Spacer()
-
+                    
                 }
                 .frame(width: .infinity)
                 .padding(.all,10)
@@ -74,9 +75,9 @@ struct ReviewCard: View {
             .background(
                 isAWin || betDetail.bet.endBetDate < Date() ?
                 AnyView(AllInColors.primaryGradient) :
-                AnyView(Color.black)
+                    AnyView(Color.black)
             )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
-            .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+                .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
         .onTapGesture {
             showDetails.toggle()

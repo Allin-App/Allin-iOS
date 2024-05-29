@@ -87,8 +87,10 @@ struct ProfileView: View {
                                 Spacer()
                                 
                                 Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .frame(width: 8, height: 12)
                                     .foregroundColor(parameters[index].itemColor)
-                                    .padding(.trailing, 8)
+                                    .padding(.trailing, 14)
                             }
                             .padding(.vertical, 15)
                             .background(parameters[index].backgroundColor)

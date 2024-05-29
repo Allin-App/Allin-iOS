@@ -9,6 +9,7 @@ import Foundation
 
 /// A subclass of Bet that represents a bet on a match between two teams.
 public class MatchBet: Bet {
+    
     /// The name of the first team involved in the match.
     public var nameTeam1: String
     

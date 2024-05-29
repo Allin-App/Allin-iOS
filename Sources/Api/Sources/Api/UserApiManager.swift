@@ -73,8 +73,100 @@ public struct UserApiManager: UserDataManager {
         }
     }
     
-    public func getFriends() -> [User] {
-        fatalError("Not implemented yet")
+    public func addFriend(username: String, completion : @escaping (Int)-> ()) {
+        
+        let url = URL(string: allInApi + "friends/add")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let json: [String: Any] = ["username": username]
+        
+        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
+            URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
+                print ("ALLIN : Add friend")
+                if let httpResponse = response as? HTTPURLResponse {
+                    print(httpResponse.statusCode)
+                    completion(httpResponse.statusCode)
+                }
+            }.resume()
+        }
+    }
+    
+    public func removeFriend(username: String, completion : @escaping (Int)-> ()) {
+        
+        let url = URL(string: allInApi + "friends/delete")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let json: [String: Any] = ["username": username]
+        
+        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
+            URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
+                print ("ALLIN : Remove friend")
+                if let httpResponse = response as? HTTPURLResponse {
+                    print(httpResponse.statusCode)
+                    completion(httpResponse.statusCode)
+                }
+            }.resume()
+        }
+    }
+    
+    public func getFriends(completion: @escaping ([User]) -> Void) {
+        let url = URL(string: allInApi + "friends/gets")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        var users: [User] = []
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get friends")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print(jsonArray)
+                        users = try JSONDecoder().decode([User].self, from: JSONSerialization.data(withJSONObject: jsonArray))
+                        print(httpResponse.statusCode)
+                        completion(users)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    public func getUsers(withName name: String, completion: @escaping ([User]) -> Void) {
+        let url = URL(string: allInApi + "friends/search/" + name)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        var users: [User] = []
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get friends by search")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print(jsonArray)
+                        users = try JSONDecoder().decode([User].self, from: JSONSerialization.data(withJSONObject: jsonArray))
+                        print(httpResponse.statusCode)
+                        completion(users)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
     }
     
     public func getGifts(completion : @escaping (Int, Int)-> ()) {
@@ -106,7 +198,7 @@ public struct UserApiManager: UserDataManager {
         fatalError("Not implemented yet")
     }
     
-    public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+    public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
         let url = URL(string: allInApi + "bets/current")!
         
         var request = URLRequest(url: url)
@@ -114,7 +206,7 @@ public struct UserApiManager: UserDataManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        var bets: [Bet] = []
+        var bets: [BetDetail] = []
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
@@ -123,7 +215,7 @@ public struct UserApiManager: UserDataManager {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                         for json in jsonArray {
                             print(json)
-                            if let bet = FactoryApiBet().toBet(from: json) {
+                            if let bet = FactoryApiBet().toBetDetail(from: json) {
                                 bets.append(bet)
                             }
                         }

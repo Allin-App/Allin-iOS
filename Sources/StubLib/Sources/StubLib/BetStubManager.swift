@@ -12,7 +12,7 @@ public struct BetStubManager: BetDataManager {
     
     public init() {}
     
-    public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+    public func getBets(withIndex index: Int, withCount count: Int, filters: [BetFilter] = [], completion: @escaping ([Bet]) -> Void) {
         completion(Stub.shared.bets)
     }
     

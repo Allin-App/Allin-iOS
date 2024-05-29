@@ -17,21 +17,38 @@ class BetViewModel: ObservableObject {
     @Published private(set) var bets: [Bet] = []
     @Published var betsOver: [BetDetail] = []
     @Published var showingSheet: Bool  = false
-    
-    init() {
-        getItems()
-    }
+    @Published var filters: Set<BetFilter> = [] {
+           didSet {
+               getItems()
+           }
+       }
+       
+       private var cancellables = Set<AnyCancellable>()
+       
+       init() {
+           getItems()
+           
+           // Observer for changes in filters
+           $filters
+               .sink { [weak self] _ in
+                   self?.getItems()
+               }
+               .store(in: &cancellables)
+       }
     
     func getItems() {
-        manager.getBets(withIndex: 0, withCount: 20) { bets in
-            self.bets = bets
+        manager.getBets(withIndex: 0, withCount: 20, filters: Array(filters)) { bets in
+            DispatchQueue.main.async {
+                self.bets = bets
+            }
         }
         manager.getBetsOver() { bets in
-            self.betsOver = bets
-            if !self.betsOver.isEmpty {
-                self.showingSheet = true
+            DispatchQueue.main.async {
+                self.betsOver = bets
+                if !self.betsOver.isEmpty {
+                    self.showingSheet = true
+                }
             }
-            print(bets)
         }
     }
 }

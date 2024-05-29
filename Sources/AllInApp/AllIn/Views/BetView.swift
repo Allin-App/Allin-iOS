@@ -35,13 +35,10 @@ struct BetView: View {
                             AllInColors.fadeInGradiantCard
                             ScrollView(.horizontal,showsIndicators: false){
                                 HStack{
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
-                                    ChoiceCapsule()
+                                    ChoiceCapsule(filter: .isPublic, viewModel: viewModel)
+                                    ChoiceCapsule(filter: .isInvitation, viewModel: viewModel)
+                                    ChoiceCapsule(filter: .inProgress, viewModel: viewModel)
+                                    ChoiceCapsule(filter: .isFinished, viewModel: viewModel)
                                 }
                                 .padding(.leading,25)
                                 .padding([.top,.bottom],15)

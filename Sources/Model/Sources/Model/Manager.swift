@@ -21,9 +21,21 @@ public struct Manager {
             completion(status)
         }
     }
+
+    public func addFriend(withUsername username: String, completion : @escaping (Int)-> ()) {
+        userDataManager.addFriend(username: username) { status in
+            completion(status)
+        }
+    }
     
-    public func getBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
-        betDataManager.getBets(withIndex: index, withCount: count) { bets in
+    public func removeFriend(withUsername username: String, completion : @escaping (Int)-> ()) {
+        userDataManager.removeFriend(username: username) { status in
+            completion(status)
+        }
+    }
+    
+    public func getBets(withIndex index: Int, withCount count: Int, filters: [BetFilter], completion: @escaping ([Bet]) -> Void) {
+        betDataManager.getBets(withIndex: index, withCount: count, filters: filters) { bets in
             completion(bets)
         }
     }
@@ -40,13 +52,25 @@ public struct Manager {
         }
     }
     
+    public func getFriends(completion: @escaping ([User]) -> Void) {
+        userDataManager.getFriends() { users in
+            completion(users)
+        }
+    }
+    
+    public func getUsers(withName name: String, completion: @escaping ([User]) -> Void) {
+        userDataManager.getUsers(withName: name) { users in
+            completion(users)
+        }
+    }
+    
     public func getHistoricBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
         userDataManager.getOldBets(withIndex: index, withCount: count) { bets in
             completion(bets)
         }
     }
     
-    public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+    public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
         userDataManager.getCurrentBets(withIndex: index, withCount: count) { bets in
             completion(bets)
         }
