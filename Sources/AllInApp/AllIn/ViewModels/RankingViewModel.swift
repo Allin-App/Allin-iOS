@@ -13,23 +13,17 @@ class RankingViewModel: ObservableObject {
     
     @Inject var manager: Manager
     
+    @Published private(set) var friends: [User] = []
+
     init() {
         getItems()
     }
     
-    func getItems ( ) {
-       
-    }
-    
-    func deleteItem(indexSet: IndexSet) {
-
-    }
-    
-    func moveltem(from: IndexSet, to: Int) {
-        
-    }
-    
-    func addItem(title: String) {
-
+    func getItems() {
+        manager.getFriends() { users in
+            var friends = users
+            friends.append(AppStateContainer.shared.user!)
+            self.friends = friends.sorted(by: { $0.nbCoins > $1.nbCoins })
+        }
     }
 }

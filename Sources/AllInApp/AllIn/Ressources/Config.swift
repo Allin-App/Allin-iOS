@@ -8,5 +8,5 @@
 import Foundation
 
 struct Config {
-    static let allInApi = "http://localhost:8080/"
+    static let allInApi = "https://codefirst.iut.uca.fr/containers/AllDev-api/"
 }

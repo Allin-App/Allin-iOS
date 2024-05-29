@@ -166,6 +166,7 @@
 /// Friends
 
 "friends_title" = "Amis";
+"friends_request_sent" = "Requête envoyée";
 
 /// Daily reward
 

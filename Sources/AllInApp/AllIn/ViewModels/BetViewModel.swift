@@ -38,12 +38,16 @@ class BetViewModel: ObservableObject {
     
     func getItems() {
         manager.getBets(withIndex: 0, withCount: 20, filters: Array(filters)) { bets in
-            self.bets = bets
+            DispatchQueue.main.async {
+                self.bets = bets
+            }
         }
         manager.getBetsOver() { bets in
-            self.betsOver = bets
-            if !self.betsOver.isEmpty {
-                self.showingSheet = true
+            DispatchQueue.main.async {
+                self.betsOver = bets
+                if !self.betsOver.isEmpty {
+                    self.showingSheet = true
+                }
             }
         }
     }

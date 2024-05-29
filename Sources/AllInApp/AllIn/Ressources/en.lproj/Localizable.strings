@@ -131,7 +131,7 @@
 "bet_ends" = "Ends on";
 "bet_ended" = "Ended on";
 "bet_participate" = "Participate";
-"bet_proposed_by_format  %@" = "Proposed by  %@";
+"bet_proposed_by_format %@" = "Proposed by %@";
 "bet_proposed_by_format" = "Proposed by";
 "bet_players_waiting_format %@" = "%@ joueurs en attente";
 "bet_players_format" = "players";
@@ -166,6 +166,7 @@
 /// Friends
 
 "friends_title" = "Friends";
+"friends_request_sent" = "Request sent";
 
 /// Daily reward
 

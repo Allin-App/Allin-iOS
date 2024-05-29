@@ -21,10 +21,7 @@ class CurrentBetViewModel: ObservableObject {
     
     func getItems() {
         manager.getCurrentBets(withIndex: 0, withCount: 20) { bets in
-            for bet in bets {
-                let betDetail = BetDetail(bet: bet, answers: [AnswerDetail(response: "OUI", totalStakes: 120, totalParticipants: 2, highestStake: 200, odds: 1.2), AnswerDetail(response: "NON", totalStakes: 120, totalParticipants: 2, highestStake: 200, odds: 1.2)], participations: [])
-                self.bets.append(betDetail)
-            }
+            self.bets = bets
         }
     }
     

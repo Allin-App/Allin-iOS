@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  BetFilter.swift
 //  
 //
 //  Created by Lucas Delanier on 27/05/2024.
