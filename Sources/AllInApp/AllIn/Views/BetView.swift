@@ -18,14 +18,19 @@ struct BetView: View {
         VStack(alignment: .center, spacing: 0) {
             TopBar(showMenu: self.$showMenu)
             ScrollView(showsIndicators: false) {
-                LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
+                LazyVStack(alignment: .center, spacing: 0, pinnedViews: [.sectionHeaders]) {
                     
                     TrendingBetCard().padding(.top,25).padding([.leading,.trailing],25)
                     
                     Section {
                         VStack(spacing: 20){
-                            ForEach(viewModel.bets, id: \.id) { (bet: Bet) in
-                                BetCard(bet: bet)
+                            if(viewModel.bets.isEmpty){
+                                EmptyInfo(emoji:"🎮", title: "Aucun Bet ne correspond à votre recherche", explain: "")
+                            }
+                            else{
+                                ForEach(viewModel.bets, id: \.id) { (bet: Bet) in
+                                    BetCard(bet: bet)
+                                }
                             }
                         }
                         .padding([.leading,.trailing],25)

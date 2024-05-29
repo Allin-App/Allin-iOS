@@ -45,13 +45,17 @@ struct FriendsView: View {
                     )
                     .padding(.horizontal, 10)
             }
-            
-            ScrollView(showsIndicators: false){
-                ForEach(viewModel.users, id: \.self) { friend in
-                    Friend(user: friend, viewModel: viewModel)
-                }
+            if(viewModel.users.isEmpty){
+                EmptyInfo(emoji:"👥", title: "Vous n’avez pas encore d’amis", explain: "Ajoutez les depuis cet écran").padding(.top, 40)
             }
-            .padding(.top, 25)
+            else{
+                ScrollView(showsIndicators: false){
+                    ForEach(viewModel.users, id: \.self) { friend in
+                        Friend(user: friend, viewModel: viewModel)
+                    }
+                }
+                .padding(.top, 25)
+            }
             Spacer()
         }
         .edgesIgnoringSafeArea(.bottom)

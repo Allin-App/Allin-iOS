@@ -17,6 +17,7 @@
 		1244EF602B4EC31E00374ABF /* HistoricBetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */; };
 		1244EF622B4EC67000374ABF /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244EF612B4EC67000374ABF /* ReviewCard.swift */; };
 		129D051D2B6E7FF0003D3E08 /* OddCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */; };
+		12A9E4942C07132600AB8677 /* EmptyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A9E4932C07132600AB8677 /* EmptyInfo.swift */; };
 		12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */; };
 		12C3704A2B5D5BD000CD9F0F /* ParticipationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370492B5D5BD000CD9F0F /* ParticipationCell.swift */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
@@ -155,6 +156,7 @@
 		1244EF5F2B4EC31E00374ABF /* HistoricBetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricBetView.swift; sourceTree = "<group>"; };
 		1244EF612B4EC67000374ABF /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 		129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddCapsule.swift; sourceTree = "<group>"; };
+		12A9E4932C07132600AB8677 /* EmptyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInfo.swift; sourceTree = "<group>"; };
 		12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetLineLoading.swift; sourceTree = "<group>"; };
 		12C370492B5D5BD000CD9F0F /* ParticipationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationCell.swift; sourceTree = "<group>"; };
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				12C370492B5D5BD000CD9F0F /* ParticipationCell.swift */,
 				123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */,
 				129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */,
+				12A9E4932C07132600AB8677 /* EmptyInfo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				EC650A482B25DCFF003AFCAD /* UsersPreview.swift in Sources */,
 				EC17A15E2B6A955E008A8679 /* CurrentBetView.swift in Sources */,
 				EC7EF7482B87E3E00022B5D9 /* Delegates.swift in Sources */,
+				12A9E4942C07132600AB8677 /* EmptyInfo.swift in Sources */,
 				EC650A462B25D686003AFCAD /* RankingRow.swift in Sources */,
 				EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */,
 				EC650A422B25C817003AFCAD /* Friend.swift in Sources */,
