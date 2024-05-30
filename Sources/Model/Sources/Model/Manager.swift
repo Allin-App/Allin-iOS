@@ -64,7 +64,7 @@ public struct Manager {
         }
     }
     
-    public func getHistoricBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
+    public func getHistoricBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
         userDataManager.getOldBets(withIndex: index, withCount: count) { bets in
             completion(bets)
         }
