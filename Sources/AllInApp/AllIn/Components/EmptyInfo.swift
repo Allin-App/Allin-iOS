@@ -14,7 +14,7 @@ struct EmptyInfo: View {
     var body: some View {
         VStack{
             Text(emoji).font(.system(size: 120))
-            Text(title).textStyle(weight: .bold, color: .black, size: 15)
+            Text(title).textStyle(weight: .bold, color: AllInColors.primaryTextColor , size: 15)
             explain.isEmpty ? nil :  Text(explain).textStyle(weight: .light, color: .gray, size: 12)
         }.opacity(0.55).padding(.horizontal, 20).multilineTextAlignment(.center)
     }

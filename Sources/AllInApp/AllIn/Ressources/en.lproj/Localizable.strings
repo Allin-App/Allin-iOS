@@ -21,6 +21,8 @@
 "generic_in_waiting" = "In waiting";
 "generic_search" = "Search";
 "generic_add" = "Add";
+"generic_acccept"="Accept";
+"generic_decline"="Decline";
 "generic_delete" = "Delete";
 "generic_stake" = "Stake";
 "network_error_text" = "Make sure to be properly connected to the network then try again.";
@@ -167,6 +169,7 @@
 
 "friends_title" = "Friends";
 "friends_request_sent" = "Request sent";
+"friends_request"= "Friends Request";
 
 /// Daily reward
 

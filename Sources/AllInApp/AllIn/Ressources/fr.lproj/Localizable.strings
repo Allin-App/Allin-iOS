@@ -21,6 +21,8 @@
 "generic_in_waiting" = "En attente";
 "generic_search" = "Rechercher";
 "generic_add" = "Ajouter";
+"generic_acccept"="Accepter";
+"generic_decline"="Decliner";
 "generic_delete" = "Supprimer";
 "generic_stake" = "Mise";
 "network_error_text" = "Assurez-vous d\'être bien connecté au réseau puis réessayez.";
@@ -167,6 +169,7 @@
 
 "friends_title" = "Amis";
 "friends_request_sent" = "Requête envoyée";
+"friends_request"= "Requêtes d'amis";
 
 /// Daily reward
 

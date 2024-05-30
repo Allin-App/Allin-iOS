@@ -14,6 +14,7 @@ class FriendsViewModel: ObservableObject {
     @Inject var manager: Manager
     
     @Published private(set) var users: [User] = []
+    @Published private(set) var requests: [User] = []
     @Published var text: String = "" {
         didSet {
             if text.isEmpty {
@@ -26,12 +27,21 @@ class FriendsViewModel: ObservableObject {
     
     init() {
         getItems()
+        getRequests()
     }
     
     func getItems() {
         manager.getFriends() { friends in
             DispatchQueue.main.async {
                 self.users = friends
+            }
+        }
+    }
+    
+    func getRequests() {
+        manager.getRequests() { friends in
+            DispatchQueue.main.async {
+                self.requests = friends
             }
         }
     }
@@ -46,26 +56,48 @@ class FriendsViewModel: ObservableObject {
         }
     }
     
-    func toggleFriendStatus(for user: User) {
-        guard let index = users.firstIndex(where: { $0.username == user.username }) else { return }
-        var updatedUser = users[index]
+    func toggleFriendStatus(for user: User, isRequest: Bool) {
+        let targetList = isRequest ? requests : users
         
-        switch updatedUser.friendStatus {
-        case .friend:
-            updatedUser.friendStatus = .notFriend
-            deleteItem(username: user.username)
-        case .notFriend:
-            updatedUser.friendStatus = .requested
-            addItem(username: user.username)
-        case .requested:
-            updatedUser.friendStatus = .notFriend
-            deleteItem(username: user.username)
-        default:
-            break
+        guard let index = targetList.firstIndex(where: { $0.username == user.username }) else { return }
+        var updatedUser = targetList[index]
+        
+        if isRequest {
+            if updatedUser.friendStatus == .requested {
+                updatedUser.friendStatus = .notFriend
+                deleteItem(username: user.username)
+            } else {
+                updatedUser.friendStatus = .friend
+                addItem(username: user.username)
+            }
+            requests.remove(at: index)
+        } else {
+            switch updatedUser.friendStatus {
+            case .friend:
+                updatedUser.friendStatus = .notFriend
+                deleteItem(username: user.username)
+            case .notFriend:
+                updatedUser.friendStatus = .requested
+                addItem(username: user.username)
+            case .requested:
+                updatedUser.friendStatus = .notFriend
+                deleteItem(username: user.username)
+            default:
+                break
+            }
+            users[index] = updatedUser
         }
-        
-        users[index] = updatedUser
     }
+    
+    func declineRequest(username: String){
+        guard let index = requests.firstIndex(where: { $0.username == username }) else { return }
+        manager.removeFriend(withUsername: username) { statusCode in
+            
+        }
+        requests.remove(at: index)
+    }
+
+
     
     func deleteItem(username: String) {
         manager.removeFriend(withUsername: username) { statusCode in

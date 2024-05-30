@@ -14,6 +14,7 @@ public protocol UserDataManager {
     func addFriend(username: String, completion : @escaping (Int)-> ())
     func removeFriend(username: String, completion : @escaping (Int)-> ())
     func getFriends(completion: @escaping ([User]) -> Void)
+    func getRequests(completion: @escaping ([User]) -> Void)
     func getUsers(withName name: String, completion: @escaping ([User]) -> Void)
     func getGifts(completion : @escaping (Int, Int)-> ())
     func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void)

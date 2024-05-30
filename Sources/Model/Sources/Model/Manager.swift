@@ -58,6 +58,12 @@ public struct Manager {
         }
     }
     
+    public func getRequests(completion: @escaping ([User]) -> Void) {
+        userDataManager.getRequests() { users in
+            completion(users)
+        }
+    }
+    
     public func getUsers(withName name: String, completion: @escaping ([User]) -> Void) {
         userDataManager.getUsers(withName: name) { users in
             completion(users)
