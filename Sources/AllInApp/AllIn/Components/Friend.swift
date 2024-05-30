@@ -11,14 +11,15 @@ import Model
 struct Friend: View {
     
     var user: User
+    let isRequest: Bool
     @ObservedObject var viewModel: FriendsViewModel
     
     var StatusValues: (String, Color, Color) {
         switch user.friendStatus {
         case .friend:
-            return (String(localized: "generic_delete"), AllInColors.grey400Color, AllInColors.componentBackgroundColor)
+            return isRequest ? (String(localized: "generic_decline"), AllInColors.grey400Color, AllInColors.componentBackgroundColor) : (String(localized: "generic_delete"), AllInColors.grey400Color, AllInColors.componentBackgroundColor)
         case .notFriend:
-            return (String(localized: "generic_add"), .white, AllInColors.lightPurpleColor)
+            return isRequest ? (String(localized: "generic_acccept"), .white, AllInColors.lightPurpleColor) : (String(localized: "generic_add"), .white, AllInColors.lightPurpleColor)
         case .requested:
             return (String(localized: "friends_request_sent"), AllInColors.grey400Color, AllInColors.componentBackgroundColor)
         default:
@@ -39,7 +40,7 @@ struct Friend: View {
                 .lineLimit(1)
             Spacer()
             Button(StatusValues.0) {
-                viewModel.toggleFriendStatus(for: user)
+                viewModel.toggleFriendStatus(for: user, isRequest: isRequest)
             }
             .minimumScaleFactor(0.3)
             .lineLimit(2)
@@ -48,6 +49,13 @@ struct Friend: View {
             .font(.system(size: 14))
             .background(StatusValues.2)
             .cornerRadius(5)
+            if(isRequest){
+                Button{
+                    viewModel.declineRequest(username: user.username)
+                }label: {
+                    Image(systemName: "xmark").foregroundColor(.gray)
+                }.padding([.leading], 25)
+            }
         }
         .padding([.trailing,.leading], 25)
     }

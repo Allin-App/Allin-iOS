@@ -142,6 +142,33 @@ public struct UserApiManager: UserDataManager {
         }.resume()
     }
     
+    public func getRequests(completion: @escaping ([User]) -> Void) {
+        let url = URL(string: allInApi + "friends/requests")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        var users: [User] = []
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get friends")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print(jsonArray)
+                        users = try JSONDecoder().decode([User].self, from: JSONSerialization.data(withJSONObject: jsonArray))
+                        print(httpResponse.statusCode)
+                        completion(users)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
     public func getUsers(withName name: String, completion: @escaping ([User]) -> Void) {
         let url = URL(string: allInApi + "friends/search/" + name)!
         
