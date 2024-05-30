@@ -14,6 +14,7 @@ class BetViewModel: ObservableObject {
     
     @Inject var manager: Manager
     
+    @Published var popularBet: Bet?
     @Published private(set) var bets: [Bet] = []
     @Published var betsOver: [BetDetail] = []
     @Published var showingSheet: Bool  = false
@@ -25,6 +26,7 @@ class BetViewModel: ObservableObject {
         
     init() {
         getItems()
+        getPopularBet()
     }
     
     func getItems() {
@@ -39,6 +41,14 @@ class BetViewModel: ObservableObject {
                 if !self.betsOver.isEmpty {
                     self.showingSheet = true
                 }
+            }
+        }
+    }
+    
+    func getPopularBet() {
+        manager.getPopularBet() { bet in
+            DispatchQueue.main.async {
+                self.popularBet = bet
             }
         }
     }

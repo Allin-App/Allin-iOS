@@ -70,6 +70,12 @@ public struct Manager {
         }
     }
     
+    public func getPopularBet(completion: @escaping (Bet) -> Void) {
+        betDataManager.getPopularBet() { bet in
+            completion(bet)
+        }
+    }
+    
     public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
         userDataManager.getCurrentBets(withIndex: index, withCount: count) { bets in
             completion(bets)

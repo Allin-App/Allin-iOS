@@ -20,7 +20,11 @@ struct BetView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
                     
-                    TrendingBetCard().padding(.top,25).padding([.leading,.trailing],25)
+                    if let bet = viewModel.popularBet {
+                        TrendingBetCard(bet: bet)
+                            .padding(.top,25)
+                            .padding([.leading,.trailing],25)
+                    }
                     
                     Section {
                         VStack(spacing: 20){
@@ -62,14 +66,5 @@ struct BetView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .background(AllInColors.backgroundColor)
-        
-    }
-}
-
-
-struct BetView_Previews: PreviewProvider {
-    static var previews: some View {
-        BetView(showMenu: .constant(false))
-            .preferredColorScheme(.light)
     }
 }

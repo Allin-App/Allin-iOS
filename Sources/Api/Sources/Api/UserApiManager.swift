@@ -206,7 +206,7 @@ public struct UserApiManager: UserDataManager {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                print ("ALLIN : get current bets")
+                print ("ALLIN : get old bets")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                         for json in jsonArray {

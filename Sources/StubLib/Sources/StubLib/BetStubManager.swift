@@ -29,6 +29,10 @@ public struct BetStubManager: BetDataManager {
         }
     }
     
+    public func getPopularBet(completion: @escaping (Bet) -> Void) {
+
+    }
+    
     public func getABetDetail() -> BetDetail{
         Stub.shared.betsDetail.first!
     }

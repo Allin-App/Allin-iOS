@@ -86,4 +86,30 @@ public struct BetApiManager: BetDataManager {
             }
         }.resume()
     }
+    
+    public func getPopularBet(completion: @escaping (Bet) -> Void) {
+        let url = URL(string: allInApi + "bets/popular")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get popular bet")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        
+                        if let bet = FactoryApiBet().toBet(from: json) {
+                            completion(bet)
+                        }
+                        print(httpResponse.statusCode)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
 }
