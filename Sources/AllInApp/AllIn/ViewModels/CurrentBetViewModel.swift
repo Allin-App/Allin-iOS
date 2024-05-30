@@ -12,7 +12,7 @@ import Model
 class CurrentBetViewModel: ObservableObject {
     
     @Inject var manager: Manager
-    
+
     @Published private(set) var bets: [BetDetail] = []
 
     init() {

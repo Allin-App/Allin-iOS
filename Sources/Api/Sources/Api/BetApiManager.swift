@@ -26,6 +26,7 @@ public struct BetApiManager: BetDataManager {
 
         let filterStrings = filters.map { $0.rawValue }
         let jsonDictionary: [String: Any] = ["filters": filterStrings]
+        
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonDictionary, options: [])
             request.httpBody = jsonData
@@ -76,6 +77,32 @@ public struct BetApiManager: BetDataManager {
                         
                         if let betDetail = FactoryApiBet().toBetDetail(from: json) {
                             completion(betDetail)
+                        }
+                        print(httpResponse.statusCode)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    public func getPopularBet(completion: @escaping (Bet) -> Void) {
+        let url = URL(string: allInApi + "bets/popular")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get popular bet")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        
+                        if let bet = FactoryApiBet().toBet(from: json) {
+                            completion(bet)
                         }
                         print(httpResponse.statusCode)
                     }

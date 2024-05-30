@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import Model
 
 struct TrendingBetCard: View {
+    
+    var bet: Bet
+    @State var showDetails: Bool = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -20,7 +25,7 @@ struct TrendingBetCard: View {
             }
             .padding([.leading, .top], 10)
             
-            Text("Emre va réussir son TP de CI/CD mercredi?")
+            Text(bet.theme)
                 .textStyle(weight: .heavy, color: .white, size: 17)
                 .frame(height: 47)
                 .multilineTextAlignment(.leading)
@@ -61,6 +66,14 @@ struct TrendingBetCard: View {
 
 struct TrendingBetCard_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingBetCard()
+        TrendingBetCard(bet: BinaryBet(theme: "Football - Finale de la Ligue des Champions",
+                                       phrase: "Le gagnant de la finale sera l'équipe avec le plus de tirs au but.",
+                                       endRegisterDate: Date().addingTimeInterval(86400),
+                                       endBetDate: Date().addingTimeInterval(172800),
+                                       isPublic: true,
+                                       status: .inProgress,
+                                       invited: [],
+                                       author: "Imri",
+                                       registered: []))
     }
 }

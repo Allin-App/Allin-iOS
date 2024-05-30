@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Model
-import StubLib
 
 struct CurrentBetView: View {
     
