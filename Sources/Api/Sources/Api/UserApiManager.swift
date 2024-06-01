@@ -314,18 +314,12 @@ public struct UserApiManager: UserDataManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let json: [String: String] = [
-            "result": responseBet,
-        ]
-        
-        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
-            URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
-                print ("ALLIN : add response " + responseBet + " for the bet Id " + id)
-                if let httpResponse = response as? HTTPURLResponse {
-                    print(httpResponse.statusCode)
-                }
-            }.resume()
-        }
+                
+        URLSession.shared.uploadTask(with: request, from: responseBet.data(using: .utf8)) { data, response, error in
+            print ("ALLIN : add response " + responseBet + " for the bet Id " + id)
+            if let httpResponse = response as? HTTPURLResponse {
+                print(httpResponse.statusCode)
+            }
+        }.resume()
     }
 }
