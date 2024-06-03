@@ -47,7 +47,7 @@ struct FriendsView: View {
                                 .padding(.horizontal, 10)
                         }
                         if(viewModel.users.isEmpty){
-                            EmptyInfo(emoji:"👥", title: "Vous n’avez pas encore d’amis", explain: "Ajoutez les depuis cet écran").padding(.top, 40)
+                            EmptyInfo(emoji:"👥", title:  String(localized: "empty_friends_title"), explain: String(localized: "empty_friends_explain")).padding(.top, 40)
                         }
                         else{
                             

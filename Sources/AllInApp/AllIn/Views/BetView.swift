@@ -25,7 +25,7 @@ struct BetView: View {
                     Section {
                         VStack(spacing: 20){
                             if(viewModel.bets.isEmpty){
-                                EmptyInfo(emoji:"🎮", title: "Aucun Bet ne correspond à votre recherche", explain: "")
+                                EmptyInfo(emoji:"🎮", title: String(localized: "empty_bets_title"), explain: "")
                             }
                             else{
                                 ForEach(viewModel.bets, id: \.id) { (bet: Bet) in

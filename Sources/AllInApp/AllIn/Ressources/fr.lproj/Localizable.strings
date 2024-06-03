@@ -180,3 +180,11 @@
 
 "notification_title_end_bet_date" = "Qui seront les vainqueurs ?";
 "notification_subtitle_end_bet_date %@" = "Le pari %@ a atteint sa date limite. Rendez-vous dans l'application pour renseigner la réponse gagnante.";
+
+/// Empty Views
+
+"empty_ranking_title" = "C’est un peu vide par ici";
+"empty_ranking_explain" = "Ajoutez des amis pour les afficher dans le classement";
+"empty_bets_title"= "Aucun Bet ne correspond à votre recherche";
+"empty_friends_title" = "Vous n’avez pas encore d’amis";
+"empty_friends_explain" = "Ajoutez les depuis cet écran";
