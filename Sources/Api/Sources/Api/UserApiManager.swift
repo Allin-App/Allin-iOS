@@ -221,8 +221,35 @@ public struct UserApiManager: UserDataManager {
         }.resume()
     }
     
-    public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([Bet]) -> Void) {
-        fatalError("Not implemented yet")
+    public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
+        let url = URL(string: allInApi + "bets/history")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        var bets: [BetDetail] = []
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get old bets")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        for json in jsonArray {
+                            print(json)
+                            if let bet = FactoryApiBet().toBetDetail(from: json) {
+                                bets.append(bet)
+                            }
+                        }
+                        print(httpResponse.statusCode)
+                        completion(bets)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
     }
     
     public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
@@ -287,18 +314,12 @@ public struct UserApiManager: UserDataManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let json: [String: String] = [
-            "result": responseBet,
-        ]
-        
-        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []){
-            URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
-                print ("ALLIN : add response " + responseBet + " for the bet Id " + id)
-                if let httpResponse = response as? HTTPURLResponse {
-                    print(httpResponse.statusCode)
-                }
-            }.resume()
-        }
+                
+        URLSession.shared.uploadTask(with: request, from: responseBet.data(using: .utf8)) { data, response, error in
+            print ("ALLIN : add response " + responseBet + " for the bet Id " + id)
+            if let httpResponse = response as? HTTPURLResponse {
+                print(httpResponse.statusCode)
+            }
+        }.resume()
     }
 }
