@@ -179,4 +179,12 @@
 /// Notification
 
 "notification_title_end_bet_date" = "Who will be the winners?";
-"notification_subtitle_end_bet_date %@" = "The %@ bet has reached its deadline. Go to the app to enter the winning answer.";
+"notification_subtitle_end_bet_date %@" = "The %@ bet has reached its deadline. Go to the app to enter the winning answer.";`
+
+/// Empty Views
+
+"empty_ranking_title" = "It's a bit empty around here";
+"empty_ranking_explain" = "Add some friends to display them in the leaderboard";
+"empty_bets_title"= "No bet matches your search";
+"empty_friends_title" = "You don't have any friends yet";
+"empty_friends_explain" = "Add them from this screen";
