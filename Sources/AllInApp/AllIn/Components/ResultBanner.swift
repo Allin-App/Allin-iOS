@@ -6,26 +6,29 @@
 //
 
 import SwiftUI
+import Model
 
 struct ResultBanner: View {
+    var finalAnswer: Participation
+    var odds: Float
     var body: some View {
         VStack{
             HStack{
-                Image("BleueTrophyIcon").resizable().frame(maxWidth: 70, maxHeight: 60)
-                Text("OUI").font(.system(size: 70)).fontWeight(.bold).foregroundStyle(AllInColors.blueGrey800Color)
+                Image(systemName: "trophy.fill").resizable().frame(maxWidth: 70, maxHeight: 60).foregroundColor(AllInColors.blueGrey800Color)
+                Text(finalAnswer.answer).font(.system(size: 70)).fontWeight(.bold).foregroundStyle(AllInColors.blueGrey800Color)
             }.frame(height: 80)
             HStack(spacing: 20){
                 HStack{
                     Image("BlueAllCoinIcon").resizable().frame(maxWidth: 12, maxHeight: 12)
-                    Text("460").font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
+                    Text(finalAnswer.stake.description).font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
                 }
                 HStack{
                     Image("BleuePersonIcon").resizable().frame(maxWidth: 15, maxHeight: 12)
-                    Text("ImriDu43").font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
+                    Text(finalAnswer.username).font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
                 }
                 HStack{
                     Image("BleueTrophyIcon").resizable().frame(maxWidth: 15, maxHeight: 12)
-                    Text("x1.2").font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
+                    Text(odds.description).font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
                 }
             }
         }

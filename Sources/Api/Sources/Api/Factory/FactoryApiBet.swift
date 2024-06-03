@@ -60,6 +60,8 @@ public class FactoryApiBet: FactoryBet {
         }
         
         var participations: [Participation] = []
+        var wonParticipation: Participation?
+        var userParticipation: Participation?
         
         if let participationsJson = json["participations"] as? [[String: Any]] {
             do {
@@ -79,7 +81,22 @@ public class FactoryApiBet: FactoryBet {
             }
         }
         
-        return BetDetail(bet: bet, answers: answers, participations: participations)
+        if let participationJson = json["wonParticipation"] as? [String: Any] {
+            do {
+                wonParticipation = try JSONDecoder().decode(Participation.self, from: JSONSerialization.data(withJSONObject: participationJson))
+            } catch {
+                print("Error decoding participations: \(error)")
+            }
+        }
+        if let participationUserJson = json["userParticipation"] as? [String: Any] {
+            do {
+                userParticipation = try JSONDecoder().decode(Participation.self, from: JSONSerialization.data(withJSONObject: participationUserJson))
+            } catch {
+                print("Error decoding participations: \(error)")
+            }
+        }
+        
+        return BetDetail(bet: bet, answers: answers, participations: participations, wonParticipation: wonParticipation, userParticipation: userParticipation)
     }
     
     public func betTypeString(fromType type: String) -> String {

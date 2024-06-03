@@ -9,7 +9,7 @@ struct DetailsView: View {
     @StateObject private var viewModel: DetailsViewModel
     
     var isFinished: Bool {
-        viewModel.betDetail?.finalAnswer == nil ? false : true
+        viewModel.betDetail?.wonParticipation == nil ? false : true
     }
     
     var StatusValues: (String, Color) {
@@ -111,7 +111,7 @@ struct DetailsView: View {
                     .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
                     
                     if isFinished {
-                        ResultBanner()
+                        ResultBanner(finalAnswer: (viewModel.betDetail?.wonParticipation)!, odds: (viewModel.betDetail?.odds)!)
                     }
                     VStack(alignment: .leading, spacing: 5) {
                         BetLineLoading(participations: viewModel.betDetail?.participations ?? [])
