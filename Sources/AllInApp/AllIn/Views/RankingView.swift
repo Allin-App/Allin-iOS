@@ -51,12 +51,7 @@ struct RankingView: View {
                             .cornerRadius(41.5, corners: .topLeft)
                             .cornerRadius(8, corners: .topRight)
                             .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
-                            
-                            Image("defaultUserImage")
-                                .resizable()
-                                .frame(width: 70, height: 70)
-                                .scaledToFit()
-                                .cornerRadius(180)
+                            UserPicture(picture: nil, username: viewModel.friends[0].username, size: 70)
                                 .offset(x: 0, y: -55)
                             
                             Text("1")
@@ -100,11 +95,7 @@ struct RankingView: View {
                             .cornerRadius(8, corners: .topLeft)
                             .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                             
-                            Image("defaultUserImage")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .scaledToFit()
-                                .cornerRadius(180)
+                            UserPicture(picture: nil, username: viewModel.friends[1].username, size: 50)
                                 .offset(x: 0, y: -50)
                             
                             Text("2")

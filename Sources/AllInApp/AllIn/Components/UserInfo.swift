@@ -6,27 +6,28 @@
 //
 
 import SwiftUI
+import Model
 
 struct UserInfo: View {
+    var username: String
+    var value: Int
     var body: some View {
         HStack {
-            Image("defaultUserImage")
-                .resizable()
-                .frame(width: 35, height: 35)
-            Text("David")
-                .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 13)
+            UserPicture(username: username, size: 35)
+                .padding(.trailing, 7)
+            Text(username)
+                .font(.system(size: 15))
+                .foregroundStyle(AllInColors.primaryTextColor)
+                .fontWeight(.semibold)
             Spacer()
-            Image("allcoinIcon")
+            Text(value.description)
+                .font(.system(size: 18))
+                .foregroundStyle(AllInColors.lightPurpleColor)
+                .fontWeight(.bold)
+                .padding(.trailing, 8)
+            Image("PurpleAllCoin")
                 .resizable()
-                .frame(width: 17, height: 17, alignment: .leading)
-            Text("541")
-                .textStyle(weight: .black, color: AllInColors.lightPurpleColor, size: 16)
+                .frame(width: 11, height: 12)
         }
-    }
-}
-
-struct UserInfo_Previews: PreviewProvider {
-    static var previews: some View {
-        UserInfo()
     }
 }

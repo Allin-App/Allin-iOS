@@ -20,7 +20,6 @@
 		129D051D2B6E7FF0003D3E08 /* OddCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */; };
 		12A9E4942C07132600AB8677 /* EmptyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A9E4932C07132600AB8677 /* EmptyInfo.swift */; };
 		12C370482B5A5EE500CD9F0F /* BetLineLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */; };
-		12C3704A2B5D5BD000CD9F0F /* ParticipationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C370492B5D5BD000CD9F0F /* ParticipationCell.swift */; };
 		EC0193782B25BF16005D81E6 /* AllcoinsCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */; };
 		EC01937A2B25C12B005D81E6 /* BetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0193792B25C12B005D81E6 /* BetCard.swift */; };
 		EC01937C2B25C2A8005D81E6 /* AllcoinsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */; };
@@ -160,7 +159,6 @@
 		129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddCapsule.swift; sourceTree = "<group>"; };
 		12A9E4932C07132600AB8677 /* EmptyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInfo.swift; sourceTree = "<group>"; };
 		12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetLineLoading.swift; sourceTree = "<group>"; };
-		12C370492B5D5BD000CD9F0F /* ParticipationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationCell.swift; sourceTree = "<group>"; };
 		EC0193772B25BF16005D81E6 /* AllcoinsCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCapsule.swift; sourceTree = "<group>"; };
 		EC0193792B25C12B005D81E6 /* BetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetCard.swift; sourceTree = "<group>"; };
 		EC01937B2B25C2A8005D81E6 /* AllcoinsCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllcoinsCounter.swift; sourceTree = "<group>"; };
@@ -431,7 +429,6 @@
 				120919172B56D0AE00D0FA29 /* ParticipationModal.swift */,
 				120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */,
 				12C370472B5A5EE500CD9F0F /* BetLineLoading.swift */,
-				12C370492B5D5BD000CD9F0F /* ParticipationCell.swift */,
 				123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */,
 				129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */,
 				12A9E4932C07132600AB8677 /* EmptyInfo.swift */,
@@ -711,7 +708,6 @@
 				EC3077072B24CB840060E34D /* SplashView.swift in Sources */,
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,
 				ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */,
-				12C3704A2B5D5BD000CD9F0F /* ParticipationCell.swift in Sources */,
 				123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */,
 				EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */,
 				ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */,
@@ -920,7 +916,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllIn/Preview Content\"";
-				DEVELOPMENT_TEAM = P39ZK4GA2T;
+				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "All In";
@@ -954,7 +950,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllIn/Preview Content\"";
-				DEVELOPMENT_TEAM = P39ZK4GA2T;
+				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "All In";
@@ -1058,7 +1054,7 @@
 				CODE_SIGN_ENTITLEMENTS = AllInWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P39ZK4GA2T;
+				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AllInWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AllInWidgets;
@@ -1086,7 +1082,7 @@
 				CODE_SIGN_ENTITLEMENTS = AllInWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P39ZK4GA2T;
+				DEVELOPMENT_TEAM = 35KQ5BDC64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AllInWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AllInWidgets;

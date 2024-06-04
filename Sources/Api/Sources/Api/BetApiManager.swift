@@ -46,7 +46,6 @@ public struct BetApiManager: BetDataManager {
                                 bets.append(bet)
                             }
                         }
-                        print(httpResponse.statusCode)
                         completion(bets)
                     }
                 } catch {
@@ -79,6 +78,7 @@ public struct BetApiManager: BetDataManager {
                             completion(betDetail)
                         }
                         print(httpResponse.statusCode)
+                        print(json)
                     }
                 } catch {
                     print("Error parsing JSON: \(error)")

@@ -8,8 +8,11 @@
 import Foundation
 
 /// A struct representing a user with details such as username, email, number of coins, and friends.
-public struct User: Codable, Hashable {
+public struct User: Codable, Hashable, Identifiable {
     
+    public var id: String {
+            return email
+    }
     /// The username of the user.
     public private(set) var username: String
     
