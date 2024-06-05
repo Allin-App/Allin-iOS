@@ -23,7 +23,9 @@ class RankingViewModel: ObservableObject {
         manager.getFriends() { users in
             var friends = users
             friends.append(AppStateContainer.shared.user!)
-            self.friends = friends.sorted(by: { $0.nbCoins > $1.nbCoins })
+            DispatchQueue.main.async {
+                self.friends = friends.sorted(by: { $0.nbCoins > $1.nbCoins })
+            }
         }
     }
 }

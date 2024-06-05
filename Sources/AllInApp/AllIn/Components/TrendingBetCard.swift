@@ -12,6 +12,7 @@ struct TrendingBetCard: View {
     
     var bet: Bet
     @State var showDetails: Bool = false
+    @State var showParticipate: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -61,6 +62,12 @@ struct TrendingBetCard: View {
                 .stroke(AllInColors.primaryGradient, lineWidth: 5)
         )
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .onTapGesture {
+            showDetails.toggle()
+        }
+        .fullScreenCover(isPresented: $showDetails) {
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showParticipate, id: bet.id)
+        }
     }
 }
 

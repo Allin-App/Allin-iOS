@@ -50,7 +50,6 @@ struct FriendsView: View {
                             EmptyInfo(emoji:"👥", title: "Vous n’avez pas encore d’amis", explain: "Ajoutez les depuis cet écran").padding(.top, 40)
                         }
                         else{
-                            
                             ForEach(viewModel.users, id: \.self) { friend in
                                 Friend(user: friend, isRequest: false, viewModel: viewModel)
                             }
