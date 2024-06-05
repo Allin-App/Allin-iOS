@@ -20,6 +20,8 @@ struct EmptyInfo: View {
     }
 }
 
-#Preview {
-    EmptyInfo(emoji:"👥", title: "Vous n’avez pas encore d’amis", explain: "Ajoutez les depuis cet écran")
+struct EmptyInfo_Previews: PreviewProvider {
+    static var previews: some View {
+        EmptyInfo(emoji:"👥", title: "Vous n’avez pas encore d’amis", explain: "Ajoutez les depuis cet écran")
+    }
 }

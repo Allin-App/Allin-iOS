@@ -21,7 +21,9 @@ class CurrentBetViewModel: ObservableObject {
     
     func getItems() {
         manager.getCurrentBets(withIndex: 0, withCount: 20) { bets in
-            self.bets = bets
+            DispatchQueue.main.async {
+                self.bets = bets
+            }
         }
     }
     

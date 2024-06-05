@@ -9,7 +9,7 @@ import SwiftUI
 import Model
 
 struct ParticipationCell: View {
-    @State var participation: Participation
+    var participation: Participation
     var body: some View {
         HStack(alignment: .center, spacing: 0){
             Circle()

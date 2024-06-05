@@ -15,7 +15,7 @@ struct AllcoinsCounter: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Text(String(appStateContainer.user?.nbCoins ?? 0))
+            Text(String(appStateContainer.user!.nbCoins))
                 .contentTransition(.numericText())
                 .fontWeight(.black)
                 .foregroundColor(foregroundColor)

@@ -102,6 +102,7 @@ class RegisterViewModel: ObservableObject {
             registerPasswordFieldError = newRegisterPasswordFieldError
             registerConfirmPasswordFieldError = newRegisterConfirmPasswordFieldError
         }
+        
         return false
     }
     

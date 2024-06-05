@@ -29,7 +29,7 @@ struct Friend: View {
     
     var body: some View {
         HStack{
-            AsyncImage(url: URL(string: "https://picsum.photos/536/354"))
+            AsyncImage(url: URL(string: user.image ?? ""))
                 .frame(width: 50, height: 50)
                 .cornerRadius(180)
                 .scaledToFit()

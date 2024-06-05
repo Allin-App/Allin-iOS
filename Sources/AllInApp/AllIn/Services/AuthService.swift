@@ -148,7 +148,7 @@ class AuthService: IAuthService {
     }
     
     private func initManagerVM(token: String) {
-        DependencyInjection.shared.addSingleton(Manager.self, Manager(withBetDataManager: BetApiManager(withUserToken: token), withUserDataManager: UserApiManager(withUserToken: token)))
+        DependencyInjection.shared.addSingleton(Manager.self, Manager(withBetDataManager: BetApiManager(withUserToken: token, andApiUrl: Config.allInApi), withUserDataManager: UserApiManager(withUserToken: token, andApiUrl: Config.allInApi)))
     }
     
     public func logout() {

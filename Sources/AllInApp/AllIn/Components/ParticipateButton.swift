@@ -15,6 +15,8 @@ struct ParticipateButton: View {
     var bet: Bet?
     
     var isDisabled: Bool {
+        guard bet?.author != AppStateContainer.shared.user?.username else { return true }
+        
         if let betType = bet?.status {
             switch betType {
             case .inProgress:
