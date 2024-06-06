@@ -10,6 +10,7 @@ import Foundation
 public protocol UserDataManager {
     func getBets(withIndex index: Int, withCount count: Int) -> [Bet]
     func getBetsOver(completion: @escaping ([BetDetail]) -> Void)
+    func getBetsWon(completion : @escaping ([BetResultDetail])-> ())
     func addBet(bet: Bet, completion : @escaping (Int)-> ())
     func addFriend(username: String, completion : @escaping (Int)-> ())
     func removeFriend(username: String, completion : @escaping (Int)-> ())

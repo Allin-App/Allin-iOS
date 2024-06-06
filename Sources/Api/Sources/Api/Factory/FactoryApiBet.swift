@@ -88,18 +88,49 @@ public class FactoryApiBet: FactoryBet {
             do {
                 wonParticipation = try JSONDecoder().decode(Participation.self, from: JSONSerialization.data(withJSONObject: participationJson))
             } catch {
-                print("Error decoding participations: \(error)")
+                print("Error decoding participation: \(error)")
             }
         }
         if let participationUserJson = json["userParticipation"] as? [String: Any] {
             do {
                 userParticipation = try JSONDecoder().decode(Participation.self, from: JSONSerialization.data(withJSONObject: participationUserJson))
             } catch {
-                print("Error decoding participations: \(error)")
+                print("Error decoding participation: \(error)")
             }
         }
         
         return BetDetail(bet: bet, answers: answers, participations: participations, wonParticipation: wonParticipation, userParticipation: userParticipation)
+    }
+    
+    public func toBetResultDetail(from json: [String: Any]) -> BetResultDetail? {
+        
+        guard let amount = json["amount"] as? Int,
+              let won = json["won"] as? Bool else {
+            return nil
+        }
+        
+        guard let betJson = json["bet"] as? [String: Any],
+              let bet = self.toBet(from: betJson) else {
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        
+        guard let betResultJson = json["betResult"] as? [String: Any],
+              let betResultData = try? JSONSerialization.data(withJSONObject: betResultJson),
+              let betResult = try? decoder.decode(BetResult.self, from: betResultData) else {
+            print("Error decoding bet result")
+            return nil
+        }
+        
+        guard let participationJson = json["participation"] as? [String: Any],
+              let participationData = try? JSONSerialization.data(withJSONObject: participationJson),
+              let participation = try? decoder.decode(Participation.self, from: participationData) else {
+            print("Error decoding participation")
+            return nil
+        }
+        
+        return BetResultDetail(betResult: betResult, bet: bet, participation: participation, amount: amount, won: won)
     }
     
     public func betTypeString(fromType type: String) -> String {

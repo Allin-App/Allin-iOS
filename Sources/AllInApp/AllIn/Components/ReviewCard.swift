@@ -91,16 +91,7 @@ struct ReviewCard: View {
             }
             .frame(width: .infinity)
             .padding(.all,2)
-            .background({
-                switch betDetail.bet.status {
-                case .inProgress, .waiting, .closing:
-                    return AllInColors.grey50Color
-                case .finished:
-                    return Color.black
-                case .cancelled:
-                    return Color.red
-                }
-            }())
+            .background(backgroundColor())
 
             .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
@@ -109,6 +100,17 @@ struct ReviewCard: View {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
             DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: betDetail.bet.id)
+        }
+    }
+    
+    private func backgroundColor() -> Color {
+        switch betDetail.bet.status {
+        case .inProgress, .waiting, .closing:
+            return AllInColors.grey50Color
+        case .finished:
+            return Color.black
+        case .cancelled:
+            return Color.red
         }
     }
 }
