@@ -77,7 +77,7 @@ struct TrendingBetCard_Previews: PreviewProvider {
                                        phrase: "Le gagnant de la finale sera l'équipe avec le plus de tirs au but.",
                                        endRegisterDate: Date().addingTimeInterval(86400),
                                        endBetDate: Date().addingTimeInterval(172800),
-                                       isPublic: true,
+                                       isPrivate: true,
                                        status: .inProgress,
                                        invited: [],
                                        author: "Imri",

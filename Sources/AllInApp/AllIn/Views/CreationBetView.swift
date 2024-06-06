@@ -257,15 +257,15 @@ struct CreationBetView: View {
                             .padding(.leading, 10)
                             
                             HStack(spacing: 5) {
-                                ConfidentialityButton(image: "globe", text: String(localized: "bet_public"), selected: viewModel.isPublic)
+                                ConfidentialityButton(image: "globe", text: String(localized: "bet_public"), selected: !viewModel.isPrivate)
                                     .onTapGesture {
-                                        viewModel.isPublic = true
+                                        viewModel.isPrivate = false
                                     }
                                     .padding(.trailing, 5)
                                 
-                                ConfidentialityButton(image: "lock", text: String(localized: "bet_private"), selected: !viewModel.isPublic)
+                                ConfidentialityButton(image: "lock", text: String(localized: "bet_private"), selected: viewModel.isPrivate)
                                     .onTapGesture {
-                                        viewModel.isPublic = false
+                                        viewModel.isPrivate = true
                                     }
                                 Spacer()
                             }
@@ -276,7 +276,7 @@ struct CreationBetView: View {
                         
                         VStack(spacing: 10) {
                             
-                            if !self.viewModel.isPublic {
+                            if self.viewModel.isPrivate {
                                 DropDownFriends()
                                     .padding(.bottom, 30)
                                 
