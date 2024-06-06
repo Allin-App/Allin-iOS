@@ -27,6 +27,7 @@ class BetViewModel: ObservableObject {
     init() {
         getItems()
         getPopularBet()
+        getBetsOver()
     }
     
     func getItems() {
@@ -35,6 +36,9 @@ class BetViewModel: ObservableObject {
                 self.bets = bets
             }
         }
+    }
+    
+    func getBetsOver() {
         manager.getBetsOver() { bets in
             DispatchQueue.main.async {
                 self.betsOver = bets

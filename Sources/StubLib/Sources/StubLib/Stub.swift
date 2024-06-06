@@ -38,8 +38,7 @@ struct Stub {
             isPrivate: false,
             status: .inProgress,
             invited: [],
-            author: "Lucas",
-            registered: [user2]
+            author: "Lucas"
         )
         self.bets.append(bet1)
         
@@ -50,9 +49,8 @@ struct Stub {
             endBetDate: Date().addingTimeInterval(259200),
             isPrivate: false,
             status: .inProgress,
-            invited: [user3],
-            author: "Lucas",
-            registered: [user2]
+            invited: [],
+            author: "Lucas"
         )
         self.bets.append(bet2)
         
@@ -64,8 +62,7 @@ struct Stub {
             isPrivate: true,
             status: .finished,
             invited: [],
-            author: "Lucas",
-            registered: [user2, user1, user3]
+            author: "Lucas"
         )
         self.bets.append(bet3)
         
@@ -76,9 +73,8 @@ struct Stub {
             endBetDate: Date().addingTimeInterval(432000),
             isPrivate: false,
             status: .finished,
-            invited: [user1],
-            author: "Lucase",
-            registered: [user3]
+            invited: [],
+            author: "Lucase"
         )
         self.bets.append(bet4)
 

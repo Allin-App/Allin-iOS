@@ -277,7 +277,7 @@ struct CreationBetView: View {
                         VStack(spacing: 10) {
                             
                             if self.viewModel.isPrivate {
-                                DropDownFriends()
+                                DropDownFriends(selectedItems: $viewModel.invited, friends: viewModel.friends)
                                     .padding(.bottom, 30)
                                 
                                 HStack() {

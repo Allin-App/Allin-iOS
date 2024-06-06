@@ -44,8 +44,8 @@ struct BetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    UsersPreview(users: bet.registered)
-                    Text("bet_players_waiting_format \(bet.registered.count.description)")
+                    UsersPreview(users: [])
+                    Text("bet_players_waiting_format \(bet.invited.count.description)")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
                         .fontWeight(.medium)
@@ -80,8 +80,7 @@ struct BetCard_Previews: PreviewProvider {
                                isPrivate: false,
                                status: .inProgress,
                                invited: [],
-                               author: "Imri",
-                               registered: []))
+                               author: "Imri"))
         .preferredColorScheme(.dark)
     }
 }
