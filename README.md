@@ -32,7 +32,43 @@
 
 - MVVM
 
+<div align = center>
 
+<img src="https://codefirst.iut.uca.fr/git/AllDev/Gestion_de_projet/raw/branch/master/Documentation/Diagrammes/AllInMVVM.png" width="600" />
+
+</div>
+
+# Fonctionnement
+
+- ### Comment lancer le projet ? 
+
+:information_source: *Assurez-vous d'avoir un Mac à disposition*
+
+Tout d'abord si ce n'est pas fait cloner le dépôt de la branche **master/main**, pour cela copier le lien URL du dépôt git :
+
+<div align = center>
+
+![Comment cloner](Documentation/Images/HowToClone.png)
+
+</div>
+
+Sur votre Mac, ouvrez l'IDE **Xcode** (disponible via l'App Store), puis cloner le dépôt en utilisant l'URL copiée précédemment  :
+
+<div align = center>
+
+<img src="Documentation/Images/WelcomeToXcode.png" width="500" >
+
+</div>
+
+Vous serez alors redirigé par l'IDE et pourrez lancer l'application sur l'appareil de votre choix :
+
+<div align = center>
+
+<img src="Documentation/Images/LaunchApp.png" width="900" >
+
+</div>
+
+*Si vous souhaitez lancer l'application sur votre appareil personnel, il sera nécessaire de renseigner votre compte iCloud dans l'IDE !*
 
 # Technologies
 
