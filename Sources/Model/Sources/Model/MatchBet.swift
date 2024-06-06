@@ -33,13 +33,12 @@ public class MatchBet: Bet {
     ///   - status: The current status of the match bet.
     ///   - invited: List of users who are invited to participate in the match bet.
     ///   - author: The user who created the match bet.
-    ///   - registered: List of users who have registered for the match bet.
     ///   - nameTeam1: The name of the first team involved in the match.
     ///   - nameTeam2: The name of the second team involved in the match.
-    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [User], author: String, registered: [User], nameTeam1: String, nameTeam2: String) {
+    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [String], author: String, nameTeam1: String, nameTeam2: String) {
         self.nameTeam1 = nameTeam1
         self.nameTeam2 = nameTeam2
-        super.init(id: id, theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, isPrivate: isPrivate, status: status, invited: invited, author: author, registered: registered)
+        super.init(id: id, theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, isPrivate: isPrivate, status: status, invited: invited, author: author)
     }
     
     /// Custom Constructor without Id
@@ -53,13 +52,12 @@ public class MatchBet: Bet {
     ///   - status: The current status of the match bet.
     ///   - invited: List of users who are invited to participate in the match bet.
     ///   - author: The user who created the match bet.
-    ///   - registered: List of users who have registered for the match bet.
     ///   - nameTeam1: The name of the first team involved in the match.
     ///   - nameTeam2: The name of the second team involved in the match.
-    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [User], author: String, registered: [User], nameTeam1: String, nameTeam2: String) {
+    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [String], author: String, nameTeam1: String, nameTeam2: String) {
         self.nameTeam1 = nameTeam1
         self.nameTeam2 = nameTeam2
-        super.init(theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, isPrivate: isPrivate, status: status, invited: invited, author: author, registered: registered)
+        super.init(theme: theme, phrase: phrase, endRegisterDate: endRegisterDate, endBetDate: endBetDate, isPrivate: isPrivate, status: status, invited: invited, author: author)
     }
     
     public required init(from decoder: Decoder) throws {

@@ -25,8 +25,11 @@ public class FactoryApiBet: FactoryBet {
             "endBet": formatZonedDateTime(dateTime: bet.endBetDate),
             "isPrivate": String(bet.isPrivate),
             "response": ["Yes","No"],
+            "userInvited": bet.invited,
             "type": betTypeString(fromType: String(describing: type(of: bet)))
         ]
+        
+        print(json)
         
         return json
     }

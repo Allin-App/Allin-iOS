@@ -32,13 +32,10 @@ public class Bet: ObservableObject, Identifiable, Codable {
     public private(set) var status: BetStatus
     
     /// List of users who are invited to participate in the bet.
-    public private(set) var invited: [User] = []
+    public private(set) var invited: [String] = []
     
     /// The user who created the bet.
     public private(set) var author: String
-    
-    /// List of users who have registered for the bet.
-    public private(set) var registered: [User] = []
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -80,8 +77,7 @@ public class Bet: ObservableObject, Identifiable, Codable {
     ///   - status: The current status of the bet.
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
-    ///   - registered: List of users who have registered for the bet.
-    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
+    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [String], author: String) {
         self.id = id
         self.theme = theme
         self.phrase = phrase
@@ -91,7 +87,6 @@ public class Bet: ObservableObject, Identifiable, Codable {
         self.status = status
         self.invited = invited
         self.author = author
-        self.registered = registered
     }
     
     /// Custom Constructor without Id
@@ -105,8 +100,7 @@ public class Bet: ObservableObject, Identifiable, Codable {
     ///   - status: The current status of the bet.
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
-    ///   - registered: List of users who have registered for the bet.
-    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
+    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [String], author: String) {
         self.id = UUID().uuidString
         self.theme = theme
         self.phrase = phrase
@@ -116,7 +110,6 @@ public class Bet: ObservableObject, Identifiable, Codable {
         self.status = status
         self.invited = invited
         self.author = author
-        self.registered = registered
     }
     
 }

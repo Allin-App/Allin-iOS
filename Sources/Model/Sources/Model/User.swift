@@ -10,9 +10,8 @@ import Foundation
 /// A struct representing a user with details such as username, email, number of coins, and friends.
 public struct User: Codable, Hashable, Identifiable {
     
-    public var id: String {
-            return email
-    }
+    public var id: String
+    
     /// The username of the user.
     public private(set) var username: String
     
@@ -49,6 +48,7 @@ public struct User: Codable, Hashable, Identifiable {
     ///   - nbFriends: The number of friends the user has.
     ///   - bestWin: The user's best win.
     public init(username: String, email: String, nbCoins: Int, friendStatus: FriendStatus? = nil, image: String? = nil, nbBets: Int, nbFriends: Int, bestWin: Int) {
+        self.id = UUID().description
         self.username = username
         self.email = email
         self.nbCoins = nbCoins

@@ -80,7 +80,6 @@ struct TrendingBetCard_Previews: PreviewProvider {
                                        isPrivate: true,
                                        status: .inProgress,
                                        invited: [],
-                                       author: "Imri",
-                                       registered: []))
+                                       author: "Imri"))
     }
 }
