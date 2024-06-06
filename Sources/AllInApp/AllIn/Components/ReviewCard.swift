@@ -44,19 +44,16 @@ struct ReviewCard: View {
             VStack(alignment: .center,spacing:0){
                 HStack(){
                     Spacer()
+                    Text((betDetail.userParticipation?.stake.description) ?? "")
+                        .foregroundColor(.white)
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
+                    Image("allcoinWhiteIcon")
+                        .resizable()
+                        .frame(width: 18, height: 20)
                     switch betDetail.bet.status {
-                    case .inProgress:
-                        Text(betDetail)
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
-                    case .waiting:
-                        Text("waiting")
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
-                    case .closing:
-                        Text("bet_finished")
+                    case .waiting, .inProgress, .closing:
+                        Text("bet_status_stake")
                             .foregroundColor(.white)
                             .font(.system(size: 25))
                             .fontWeight(.bold)

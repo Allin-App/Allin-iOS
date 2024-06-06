@@ -150,6 +150,7 @@
 "bet_status_participants_list" = "Liste des participants";
 "bet_status_details_drawer" = "Détails";
 "participation_possible_winnings" = "Gains possibles";
+"bet_status_stake" = "Pariés";
 
 /// Bet history
 
