@@ -191,7 +191,7 @@ struct CreationBetView: View {
                                 DatePicker(
                                     "",
                                     selection: $viewModel.endRegisterDate,
-                                    in: dateRange,
+                                    in: Date()...,
                                     displayedComponents: [.date, .hourAndMinute]
                                 )
                                 .accentColor(AllInColors.lightPurpleColor)
@@ -229,7 +229,7 @@ struct CreationBetView: View {
                                     DatePicker(
                                         "",
                                         selection: $viewModel.endBetDate,
-                                        in: dateRange,
+                                        in:  viewModel.endRegisterDate...,
                                         displayedComponents: [.date, .hourAndMinute]
                                     )
                                     .accentColor(AllInColors.lightPurpleColor)
