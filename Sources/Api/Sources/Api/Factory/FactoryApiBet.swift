@@ -23,7 +23,7 @@ public class FactoryApiBet: FactoryBet {
             "sentenceBet": bet.phrase,
             "endRegistration": formatZonedDateTime(dateTime: bet.endRegisterDate),
             "endBet": formatZonedDateTime(dateTime: bet.endBetDate),
-            "isPrivate": String(bet.isPublic),
+            "isPrivate": String(bet.isPrivate),
             "response": ["Yes","No"],
             "type": betTypeString(fromType: String(describing: type(of: bet)))
         ]

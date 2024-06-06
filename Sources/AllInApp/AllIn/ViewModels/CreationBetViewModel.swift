@@ -15,7 +15,7 @@ class CreationBetViewModel: ObservableObject {
     @Inject var manager: Manager
     @Published var theme: String = ""
     @Published var description: String = ""
-    @Published var isPublic = true
+    @Published var isPrivate = false
     @Published var endRegisterDate = Date()
     @Published var endBetDate = Date()
     @Published var betAdded = false
@@ -38,7 +38,8 @@ class CreationBetViewModel: ObservableObject {
         resetAllFieldErrors()
         
         if let user = AppStateContainer.shared.user {
-            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPublic: isPublic, status: .inProgress, creator: user.username, type: selectedOption)) { statusCode in
+            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPrivate: isPrivate, status: .inProgress, creator: user.username, type: selectedOption)) { statusCode in
+                print(statusCode)
                 switch statusCode {
                 case 201:
                     self.betAdded = true
@@ -113,16 +114,16 @@ class CreationBetViewModel: ObservableObject {
         self.errorMessage = errorMessage
     }
     
-    func toBet(theme: String, description: String, endRegister: Date, endBet: Date, isPublic: Bool, status: BetStatus, creator: String, type: Int) -> Bet {
+    func toBet(theme: String, description: String, endRegister: Date, endBet: Date, isPrivate: Bool, status: BetStatus, creator: String, type: Int) -> Bet {
         switch type {
         case 0:
-            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
+            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [])
         case 1:
-            return MatchBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [], nameTeam1: "", nameTeam2: "")
+            return MatchBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [], nameTeam1: "", nameTeam2: "")
         case 2:
-            return CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
+            return CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [])
         default:
-            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPublic: isPublic, status: status, invited: [], author: creator, registered: [])
+            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [])
         }
     }
 }

@@ -26,7 +26,7 @@ public class Bet: ObservableObject, Identifiable, Codable {
     public private(set) var endBetDate: Date
     
     /// Indicates whether the bet is public or private.
-    public private(set) var isPublic: Bool
+    public private(set) var isPrivate: Bool
     
     /// The current status of the bet.
     public private(set) var status: BetStatus
@@ -46,7 +46,7 @@ public class Bet: ObservableObject, Identifiable, Codable {
         case phrase = "sentenceBet"
         case endRegisterDate = "endRegistration"
         case endBetDate = "endBet"
-        case isPublic = "isPrivate"
+        case isPrivate = "isPrivate"
         case status
         case author = "createdBy"
     }
@@ -63,7 +63,7 @@ public class Bet: ObservableObject, Identifiable, Codable {
         self.endRegisterDate = formatter.date(from: endRegisterDateString)!
         let endBetDateString = try container.decode(String.self, forKey: .endBetDate)
         self.endBetDate = formatter.date(from: endBetDateString)!
-        self.isPublic = try container.decode(Bool.self, forKey: .isPublic)
+        self.isPrivate = try container.decode(Bool.self, forKey: .isPrivate)
         self.status = try container.decode(BetStatus.self, forKey: .status)
         self.author = try container.decode(String.self, forKey: .author)
     }
@@ -81,13 +81,13 @@ public class Bet: ObservableObject, Identifiable, Codable {
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
-    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
+    public init(id: String, theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
         self.id = id
         self.theme = theme
         self.phrase = phrase
         self.endRegisterDate = endRegisterDate
         self.endBetDate = endBetDate
-        self.isPublic = isPublic
+        self.isPrivate = isPrivate
         self.status = status
         self.invited = invited
         self.author = author
@@ -106,13 +106,13 @@ public class Bet: ObservableObject, Identifiable, Codable {
     ///   - invited: List of users who are invited to participate in the bet.
     ///   - author: The user who created the bet.
     ///   - registered: List of users who have registered for the bet.
-    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPublic: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
+    public init(theme: String, phrase: String, endRegisterDate: Date, endBetDate: Date, isPrivate: Bool, status: BetStatus, invited: [User], author: String, registered: [User]) {
         self.id = UUID().uuidString
         self.theme = theme
         self.phrase = phrase
         self.endRegisterDate = endRegisterDate
         self.endBetDate = endBetDate
-        self.isPublic = isPublic
+        self.isPrivate = isPrivate
         self.status = status
         self.invited = invited
         self.author = author
