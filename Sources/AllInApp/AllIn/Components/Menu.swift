@@ -11,24 +11,23 @@ import DependencyInjection
 struct Menu: View {
     
     @Inject var authService: IAuthService
-
+    
     
     let parameters: [(String, String, String, String)] = [
         ("videoGameImage", String(localized: "drawer_create_a_bet"), String(localized: "drawer_create_a_bet_subtitle"), "CreationBet"),
+        ("globeImage", String(localized: "drawer_public_bets"), String(localized: "drawer_public_bets_subtitle"), "Bet"),
+        ("moneyImage", String(localized: "drawer_current_bets"), String(localized: "drawer_current_bets_subtitle"), "Current"),
         ("eyesImage", String(localized: "drawer_bet_history"), String(localized: "drawer_bet_history_subtitle"),"Historic"),
         ("friendsImage", String(localized: "drawer_friends"), String(localized: "drawer_friends_subtitle"), "Friends"),
-        ("moneyImage", String(localized: "drawer_public_bets"), String(localized: "drawer_public_bets_subtitle"), "Bet"),
         ("rankingImage", String(localized: "drawer_ranking"), String(localized: "drawer_ranking_subtitle"), "Ranking"),
-        ("eyesImage", String(localized: "drawer_current_bets"), String(localized: "drawer_current_bets_subtitle"), "Current")
     ]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            
             HStack() {
                 Spacer()
                 VStack(){
-                    UserPicture(username: (AppStateContainer.shared.user?.username)!, size: 100)
+                    UserPicture(picture: AppStateContainer.shared.user?.image, username: (AppStateContainer.shared.user?.username)!,size: 100)
                     Text(AppStateContainer.shared.user?.username.capitalized ?? "")
                         .fontWeight(.medium)
                         .font(.system(size: 17))

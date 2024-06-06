@@ -46,15 +46,13 @@
 "drawer_nb_friends" = "Friends";
 "drawer_friends" = "FRIENDS";
 "drawer_friends_subtitle" = "Challenge your folks by adding them as friends.";
-"drawer_public_bets" = "PUBLIC BETS";
+"drawer_public_bets" = "PARTICIPATE";
 "drawer_public_bets_subtitle" = "Browse the most popular bets of the moment.";
-"drawer_current_bets" = "CURRENT BETS";
-"drawer_current_bets_subtitle" = "View your current bets.";
-"drawer_create_a_bet" = "CREATE A BET";
+"drawer_create_a_bet" = "NEW BET";
 "drawer_create_a_bet_subtitle" = "Create a net bet and get your friends participating.";
-"drawer_bet_history" = "BET HISTORY";
+"drawer_bet_history" = "HISTORY";
 "drawer_bet_history_subtitle" = "View your current and finished bets.";
-"drawer_current_bets" = "CURRENT BETS";
+"drawer_current_bets" = "MY PARTICIPATIONS";
 "drawer_current_bets_subtitle" = "Manage your bets and reward the winners.";
 "drawer_ranking" = "RANKING";
 "drawer_ranking_subtitle" = "Check your ranking among your friends.";
@@ -150,6 +148,7 @@
 "bet_status_participants_list" = "Participants";
 "bet_status_details_drawer" = "Details";
 "participation_possible_winnings" = "Possible winnings";
+"bet_status_stake" = "Gambled";
 
 /// Bet history
 

@@ -28,7 +28,6 @@
 "network_error_text" = "Assurez-vous d\'être bien connecté au réseau puis réessayez.";
 
 /// Bet type
-
 "bet_type_binary" = "Oui / Non";
 "bet_type_match" = "Match sportif";
 "bet_type_custom" = "Réponses personnalisées";
@@ -46,15 +45,13 @@
 "drawer_nb_friends" = "Amis";
 "drawer_friends" = "AMIS";
 "drawer_friends_subtitle" = "Défiez vos proches en les ajoutant en amis.";
-"drawer_public_bets" = "BETS PUBLIQUES";
+"drawer_public_bets" = "PARTICIPER";
 "drawer_public_bets_subtitle" = "Parcourez les bets les plus populaires du moment.";
-"drawer_current_bets" = "BETS EN COURS";
-"drawer_current_bets_subtitle" = "Consultez vos paris en cours.";
-"drawer_create_a_bet" = "CREER UN BET";
+"drawer_create_a_bet" = "NOUVEAU BET";
 "drawer_create_a_bet_subtitle" = "Créez un nouveau bet et faites participer vos amis.";
-"drawer_bet_history" = "HISTORIQUE DES BETS";
+"drawer_bet_history" = "HISTORIQUE";
 "drawer_bet_history_subtitle" = "Consultez vos paris en cours et terminés.";
-"drawer_current_bets" = "BETS EN COURS";
+"drawer_current_bets" = "MES PARTICIPATIONS";
 "drawer_current_bets_subtitle" = "Gérez vos bets et récompensez les gagnants.";
 "drawer_ranking" = "CLASSEMENT";
 "drawer_ranking_subtitle" = "Consultez votre classement parmis vos amis.";
@@ -150,6 +147,7 @@
 "bet_status_participants_list" = "Liste des participants";
 "bet_status_details_drawer" = "Détails";
 "participation_possible_winnings" = "Gains possibles";
+"bet_status_stake" = "Pariés";
 
 /// Bet history
 

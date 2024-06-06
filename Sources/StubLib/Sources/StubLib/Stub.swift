@@ -91,7 +91,7 @@ struct Stub {
     }
     
     public mutating func add(bet: Bet) {
-        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [], finalAnswer: "test")
+        let newBetDetail = BetDetail(bet: bet, answers: [], participations: [])
         self.betsDetail.append(newBetDetail)
     }
 }

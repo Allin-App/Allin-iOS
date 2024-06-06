@@ -44,13 +44,27 @@ struct ReviewCard: View {
             VStack(alignment: .center,spacing:0){
                 HStack(){
                     Spacer()
-                    if(betDetail.bet.endBetDate < Date()){
-                        Text("bet_finished")
+                    if(betDetail.userParticipation != nil){
+                        Text((betDetail.userParticipation?.stake.description ?? ""))
                             .foregroundColor(.white)
                             .font(.system(size: 25))
                             .fontWeight(.bold)
+                        Image("allcoinWhiteIcon")
+                            .resizable()
+                            .frame(width: 18, height: 20)
                     }
-                    else{
+                    switch betDetail.bet.status {
+                    case .waiting, .inProgress:
+                        Text("bet_status_stake")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                    case .closing:
+                        Text("bet_status_finished")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                    case .finished:
                         Text(amountBetted.description)
                             .foregroundColor(.white)
                             .font(.system(size: 25))
@@ -59,6 +73,11 @@ struct ReviewCard: View {
                             .resizable()
                             .frame(width: 20, height: 20, alignment: .bottom)
                         Text(isAWin ? "Gagnés!" : "Perdus!")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                    case .cancelled:
+                        Text("cancelled")
                             .foregroundColor(.white)
                             .font(.system(size: 25))
                             .fontWeight(.bold)
@@ -72,12 +91,19 @@ struct ReviewCard: View {
             }
             .frame(width: .infinity)
             .padding(.all,2)
-            .background(
-                isAWin || betDetail.bet.endBetDate < Date() ?
-                AnyView(AllInColors.primaryGradient) :
-                    AnyView(Color.black)
-            )            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
-                .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+            .background({
+                switch betDetail.bet.status {
+                case .inProgress, .waiting, .closing:
+                    return AllInColors.grey50Color
+                case .finished:
+                    return Color.black
+                case .cancelled:
+                    return Color.red
+                }
+            }())
+
+            .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
+            .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
         .onTapGesture {
             showDetails.toggle()
