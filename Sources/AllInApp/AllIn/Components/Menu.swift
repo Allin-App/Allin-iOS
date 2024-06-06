@@ -11,6 +11,7 @@ import DependencyInjection
 struct Menu: View {
     
     @Inject var authService: IAuthService
+
     
     let parameters: [(String, String, String, String)] = [
         ("videoGameImage", String(localized: "drawer_create_a_bet"), String(localized: "drawer_create_a_bet_subtitle"), "CreationBet"),
@@ -27,10 +28,7 @@ struct Menu: View {
             HStack() {
                 Spacer()
                 VStack(){
-                    AsyncImage(url: URL(string: AppStateContainer.shared.user?.image ?? ""))
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                        .cornerRadius(180)
+                    UserPicture(username: (AppStateContainer.shared.user?.username)!, size: 100)
                     Text(AppStateContainer.shared.user?.username.capitalized ?? "")
                         .fontWeight(.medium)
                         .font(.system(size: 17))

@@ -6,22 +6,19 @@
 //
 
 import SwiftUI
+import Model
 
 struct UsersPreview: View {
+    var users: [User]?
     var body: some View {
-        HStack(spacing: -20){
-            Image("defaultUserImage")
-                .resizable()
-                .frame(width: 35, height: 35)
-            Image("defaultUserImage")
-                .resizable()
-                .frame(width: 35, height: 35)
-            Image("defaultUserImage")
-                .resizable()
-                .frame(width: 35, height: 35)
-            Image("defaultUserImage")
-                .resizable()
-                .frame(width: 35, height: 35)
+        if users != nil {
+            HStack(spacing: -20){
+                ForEach(users!.prefix(4)) { user in
+                    Image("defaultUserImage")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                }
+            }
         }
     }
 }

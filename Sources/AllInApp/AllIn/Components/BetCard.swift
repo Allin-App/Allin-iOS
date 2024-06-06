@@ -44,7 +44,7 @@ struct BetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    UsersPreview()
+                    UsersPreview(users: bet.registered)
                     Text("bet_players_waiting_format \(bet.registered.count.description)")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)

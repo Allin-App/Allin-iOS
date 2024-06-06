@@ -52,7 +52,7 @@ struct DropDownFriends: View {
                                     )
                                     .frame(width: 15, height: 15)
                                     .padding(.trailing, 5)
-                                UserInfo()
+                                UserInfo(username: "", value: 0)
                                     .contentShape(Rectangle())
                             }
                             .padding([.leading, .trailing], 15)

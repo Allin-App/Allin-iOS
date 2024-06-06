@@ -121,9 +121,8 @@ struct DetailsView: View {
                             .fontWeight(.bold)
                             .padding(.bottom, 10)
                         ScrollView(showsIndicators: false) {
-                            ForEach(viewModel.betDetail?.participations ?? [], id: \.self) { participation in
-                                ParticipationCell(participation: participation)
-                                    .padding(.horizontal, 10)
+                            ForEach(viewModel.betDetail?.participations ?? []) { participation in
+                                UserInfo(username: participation.username, value: participation.stake).padding(.horizontal, 10)
                             }
                         }
                         .padding(.bottom, geometry.safeAreaInsets.bottom + 28)
