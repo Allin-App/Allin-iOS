@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct UserPicture: View {
-    var picture: URL?
+    var picture: String?
     var username: String
     var size: CGFloat
     var body: some View {
         ZStack {
             if picture != nil {
                 AsyncImage(
-                    url: picture,
+                    url: URL(string:picture!),
                     content: { image in
                         image
                             .resizable()
