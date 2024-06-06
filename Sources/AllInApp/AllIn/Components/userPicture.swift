@@ -6,41 +6,46 @@
 //
 
 import SwiftUI
-
 struct UserPicture: View {
     var picture: String?
     var username: String
     var size: CGFloat
+    
     var body: some View {
         ZStack {
-            if picture != nil {
-                AsyncImage(
-                    url: URL(string:picture!),
-                    content: { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(Circle())
-                    },
-                    placeholder: {
-                        ProgressView()
-                    }
-                )
+            if let pictureURL = picture {
+                userImage(url: pictureURL)
             } else {
-                Circle()
-                    .foregroundColor(.gray)
-                    .frame(width: size, height: size)
-                    .overlay(
-                        Text(username.prefix(2).uppercased())
-                            .fontWeight(.medium)
-                            .foregroundStyle(.white)
-                            .font(.system(size: fontSize(for: size)))
-                    )
+                placeholderImage
             }
         }
     }
     
-    func fontSize(for diameter: CGFloat) -> CGFloat {
+    @MainActor private func userImage(url: String) -> some View {
+        AsyncCachedImage(url: URL(string: url)) { image in
+            image
+                .resizable()
+                .frame(width: size, height: size)
+                .clipShape(Circle())
+                } placeholder: {
+                    placeholderImage
+                }
+    }
+
+    
+    private var placeholderImage: some View {
+        Circle()
+            .foregroundColor(.gray)
+            .frame(width: size, height: size)
+            .overlay(
+                Text(username.prefix(2).uppercased())
+                    .fontWeight(.medium)
+                    .foregroundStyle(.white)
+                    .font(.system(size: fontSize(for: size)))
+            )
+    }
+    
+    private func fontSize(for diameter: CGFloat) -> CGFloat {
         let fontScaleFactor: CGFloat = 0.45
         return diameter * fontScaleFactor
     }

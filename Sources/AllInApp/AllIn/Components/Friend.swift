@@ -29,7 +29,7 @@ struct Friend: View {
     
     var body: some View {
         HStack{
-            UserPicture(picture: nil,username: user.username, size: 45)
+            UserPicture(picture: user.image,username: user.username, size: 45)
             Text(user.username)
                 .fontWeight(.medium)
                 .padding(.leading, 5)
