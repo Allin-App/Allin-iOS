@@ -60,8 +60,8 @@ struct MainView: View {
                 
                 if self.showMenu {
                     Menu()
-                        .frame(width: geometry.size.width*0.83)
                         .transition(.move(edge: .leading))
+                        .frame(width: geometry.size.width*0.83)
                 }
                 
             }

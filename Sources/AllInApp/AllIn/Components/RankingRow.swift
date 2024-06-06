@@ -10,7 +10,7 @@ import SwiftUI
 struct RankingRow: View {
     
     var number: Int
-    var image: String
+    var image: String?
     var pseudo: String
     var allCoins: Int
     
@@ -18,12 +18,12 @@ struct RankingRow: View {
         HStack(){
             Text(number.description)
                 .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 18)
-                .padding(.leading, 15)
-            UserInfo(username: pseudo, value: allCoins)
+            UserInfo(username: pseudo, picture: image, value: allCoins)
         }
+        .padding(10)
+        .padding(.horizontal, 5)
         .background(AllInColors.componentBackgroundColor)
         .cornerRadius(8)
-        .padding([.leading,.trailing],20)
         .frame(maxWidth: 750)
     }
 }

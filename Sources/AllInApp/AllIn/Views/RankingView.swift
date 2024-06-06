@@ -51,7 +51,7 @@ struct RankingView: View {
                             .cornerRadius(41.5, corners: .topLeft)
                             .cornerRadius(8, corners: .topRight)
                             .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
-                            UserPicture(picture: nil, username: viewModel.friends[0].username, size: 70)
+                            UserPicture(picture: viewModel.friends[0].image, username: viewModel.friends[0].username, size: 70)
                                 .offset(x: 0, y: -55)
                             
                             Text("1")
@@ -95,7 +95,7 @@ struct RankingView: View {
                             .cornerRadius(8, corners: .topLeft)
                             .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                             
-                            UserPicture(picture: nil, username: viewModel.friends[1].username, size: 50)
+                            UserPicture(picture: viewModel.friends[1].image, username: viewModel.friends[1].username, size: 50)
                                 .offset(x: 0, y: -50)
                             
                             Text("2")
@@ -122,13 +122,14 @@ struct RankingView: View {
                             let friend = viewModel.friends[index]
                             RankingRow(
                                 number: index + 1,
-                                image: "defaultUserImage",
+                                image: friend.image,
                                 pseudo: friend.username,
                                 allCoins: friend.nbCoins
                             )
                         }
                     }
                     .padding(.top, 10)
+                    .padding(.horizontal, 20)
                 }
                 Spacer()
             }

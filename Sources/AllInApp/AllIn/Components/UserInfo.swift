@@ -10,10 +10,11 @@ import Model
 
 struct UserInfo: View {
     var username: String
+    var picture: String?
     var value: Int
     var body: some View {
         HStack {
-            UserPicture(username: username, size: 35)
+            UserPicture(picture: picture, username: username, size: 35)
                 .padding(.trailing, 7)
             Text(username)
                 .font(.system(size: 15))
@@ -24,10 +25,10 @@ struct UserInfo: View {
                 .font(.system(size: 18))
                 .foregroundStyle(AllInColors.lightPurpleColor)
                 .fontWeight(.bold)
-                .padding(.trailing, 8)
+                .padding(.trailing, 4)
             Image("PurpleAllCoin")
                 .resizable()
-                .frame(width: 11, height: 12)
+                .frame(width: 15, height: 16)
         }
     }
 }
