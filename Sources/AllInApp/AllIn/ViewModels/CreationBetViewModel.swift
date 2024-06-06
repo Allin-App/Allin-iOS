@@ -15,11 +15,16 @@ class CreationBetViewModel: ObservableObject {
     @Inject var manager: Manager
     @Published var theme: String = ""
     @Published var description: String = ""
-    @Published var isPrivate = false
+    @Published var isPrivate = false {
+        didSet {
+            invited.removeAll()
+        }
+    }
     @Published var endRegisterDate = Date()
     @Published var endBetDate = Date()
     @Published var betAdded = false
     @Published var selectedOption = 0
+    @Published var invited: Set<String> = []
     
     @Published var themeFieldError: String?
     @Published var descriptionFieldError: String?
@@ -28,6 +33,20 @@ class CreationBetViewModel: ObservableObject {
     
     @Published var errorMessage: String?
     @Published var showErrorMessage = false
+    
+    @Published var friends: [User] = []
+    
+    init() {
+        getFriends()
+    }
+    
+    func getFriends() {
+        manager.getFriends() { friends in
+            DispatchQueue.main.async {
+                self.friends = friends
+            }
+        }
+    }
     
     func create() {
         
@@ -38,7 +57,7 @@ class CreationBetViewModel: ObservableObject {
         resetAllFieldErrors()
         
         if let user = AppStateContainer.shared.user {
-            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPrivate: isPrivate, status: .inProgress, creator: user.username, type: selectedOption)) { statusCode in
+            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPrivate: isPrivate, status: .inProgress, creator: user.username, invited: Array(invited), type: selectedOption)) { statusCode in
                 print(statusCode)
                 switch statusCode {
                 case 201:
@@ -114,16 +133,16 @@ class CreationBetViewModel: ObservableObject {
         self.errorMessage = errorMessage
     }
     
-    func toBet(theme: String, description: String, endRegister: Date, endBet: Date, isPrivate: Bool, status: BetStatus, creator: String, type: Int) -> Bet {
+    func toBet(theme: String, description: String, endRegister: Date, endBet: Date, isPrivate: Bool, status: BetStatus, creator: String, invited: [String], type: Int) -> Bet {
         switch type {
         case 0:
-            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [])
+            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator)
         case 1:
-            return MatchBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [], nameTeam1: "", nameTeam2: "")
+            return MatchBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator, nameTeam1: "", nameTeam2: "")
         case 2:
-            return CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [])
+            return CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator)
         default:
-            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: [], author: creator, registered: [])
+            return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator)
         }
     }
 }

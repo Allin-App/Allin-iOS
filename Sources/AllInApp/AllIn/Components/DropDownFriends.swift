@@ -6,25 +6,19 @@
 //
 
 import SwiftUI
+import Model
 
 struct DropDownFriends: View {
     
-    @State private var selectedItems: Set<Int> = []
+    @Binding var selectedItems: Set<String>
     @State var expand = false
-    let friends: [(Int, Int, String, String)] = [
-        (0, 541, "David", "defaultUserImage"),
-        (1, 541, "David", "defaultUserImage"),
-        (2, 541, "David", "defaultUserImage"),
-        (3, 541, "David", "defaultUserImage"),
-        (4, 541, "David", "defaultUserImage"),
-        (5, 541, "David", "defaultUserImage")
-    ]
+    var friends: [User]
     
     var body: some View {
         VStack(spacing: 0, content: {
             Button(action: { self.expand.toggle() }) {
                 HStack(spacing: 3){
-                    Text("41")
+                    Text(friends.count.description)
                         .textStyle(weight: .bold, color: AllInColors.primaryTextColor, size: 15)
                     Text("bet_creation_friends_available_format")
                         .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 15)
@@ -42,33 +36,33 @@ struct DropDownFriends: View {
                     .foregroundColor(AllInColors.delimiterGrey)
                 ScrollView(.vertical) {
                     VStack(spacing: 0) {
-                        ForEach(0..<friends.count, id: \.self) { item in
+                        ForEach(friends, id: \.self) {  (friend: User) in
                             HStack {
                                 Circle()
-                                    .fill(selectedItems.contains(friends[item].0) ? AllInColors.lightPurpleColor : Color.clear)
+                                    .fill(selectedItems.contains(friend.id) ? AllInColors.lightPurpleColor : Color.clear)
                                     .overlay(
                                         Circle()
-                                            .stroke(selectedItems.contains(friends[item].0) ? Color.clear : AllInColors.skyBlueColor, lineWidth: 1)
+                                            .stroke(selectedItems.contains(friend.id) ? Color.clear : AllInColors.skyBlueColor, lineWidth: 1)
                                     )
                                     .frame(width: 15, height: 15)
                                     .padding(.trailing, 5)
-                                UserInfo(username: "", value: 0)
+                                UserInfo(username: friend.username, value: friend.nbCoins)
                                     .contentShape(Rectangle())
                             }
                             .padding([.leading, .trailing], 15)
                             .padding([.top, .bottom], 5)
                             .overlay(
-                                selectedItems.contains(friends[item].0) ?
+                                selectedItems.contains(friend.id) ?
                                         Rectangle()
                                             .fill(AllInColors.lightPurpleColor.opacity(0.13))
                                         : nil
                             )
                             .opacity(1.0)
                             .onTapGesture {
-                                if selectedItems.contains(friends[item].0) {
-                                    selectedItems.remove(friends[item].0)
+                                if selectedItems.contains(friend.id) {
+                                    selectedItems.remove(friend.id)
                                 } else {
-                                    selectedItems.insert(friends[item].0)
+                                    selectedItems.insert(friend.id)
                                 }
                             }
                             Rectangle()
@@ -88,11 +82,5 @@ struct DropDownFriends: View {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .stroke(AllInColors.veryLightPurpleColor, lineWidth: 0.4)
         )
-    }
-}
-
-struct DropDownFriends_Previews: PreviewProvider {
-    static var previews: some View {
-        DropDownFriends()
     }
 }

@@ -132,7 +132,7 @@
 "bet_participate" = "Participer";
 "bet_proposed_by_format %@" = "Proposé par %@";
 "bet_proposed_by_format" = "Proposé par";
-"bet_players_waiting_format %@" = "%@ players waiting";
+"bet_players_waiting_format %@" = "%@ joueurs en attente";
 "bet_players_format" = "joueurs";
 "bet_points_at_stake_format" = "points en jeu";
 
