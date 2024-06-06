@@ -8,14 +8,14 @@
 import Foundation
 import Model
 
-let allInApi = "https://codefirst.iut.uca.fr/containers/AllDev-api/"
-
 public struct UserApiManager: UserDataManager {
     
     public let token: String
+    public let url: String
     
-    public init(withUserToken token: String) {
+    public init(withUserToken token: String, andApiUrl url: String) {
         self.token = token
+        self.url = url
     }
     
     public func getBets(withIndex index: Int, withCount count: Int) -> [Bet] {
@@ -23,7 +23,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getBetsOver(completion : @escaping ([BetDetail])-> ()) {
-        let url = URL(string: allInApi + "bets/toConfirm")!
+        let url = URL(string: url + "bets/toConfirm")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -54,7 +54,7 @@ public struct UserApiManager: UserDataManager {
     
     public func addBet(bet: Bet, completion : @escaping (Int)-> ()) {
         
-        let url = URL(string: allInApi + "bets/add")!
+        let url = URL(string: url + "bets/add")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -75,7 +75,7 @@ public struct UserApiManager: UserDataManager {
     
     public func addFriend(username: String, completion : @escaping (Int)-> ()) {
         
-        let url = URL(string: allInApi + "friends/add")!
+        let url = URL(string: url + "friends/add")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -96,7 +96,7 @@ public struct UserApiManager: UserDataManager {
     
     public func removeFriend(username: String, completion : @escaping (Int)-> ()) {
         
-        let url = URL(string: allInApi + "friends/delete")!
+        let url = URL(string: url + "friends/delete")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -116,7 +116,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getFriends(completion: @escaping ([User]) -> Void) {
-        let url = URL(string: allInApi + "friends/gets")!
+        let url = URL(string: url + "friends/gets")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -130,7 +130,6 @@ public struct UserApiManager: UserDataManager {
                 print ("ALLIN : get friends")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                        print(jsonArray)
                         users = try JSONDecoder().decode([User].self, from: JSONSerialization.data(withJSONObject: jsonArray))
                         print(httpResponse.statusCode)
                         completion(users)
@@ -143,7 +142,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getRequests(completion: @escaping ([User]) -> Void) {
-        let url = URL(string: allInApi + "friends/requests")!
+        let url = URL(string: url + "friends/requests")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -157,7 +156,6 @@ public struct UserApiManager: UserDataManager {
                 print ("ALLIN : get friends")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                        print(jsonArray)
                         users = try JSONDecoder().decode([User].self, from: JSONSerialization.data(withJSONObject: jsonArray))
                         print(httpResponse.statusCode)
                         completion(users)
@@ -170,7 +168,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getUsers(withName name: String, completion: @escaping ([User]) -> Void) {
-        let url = URL(string: allInApi + "friends/search/" + name)!
+        let url = URL(string: url + "friends/search/" + name)!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -184,7 +182,6 @@ public struct UserApiManager: UserDataManager {
                 print ("ALLIN : get friends by search")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                        print(jsonArray)
                         users = try JSONDecoder().decode([User].self, from: JSONSerialization.data(withJSONObject: jsonArray))
                         print(httpResponse.statusCode)
                         completion(users)
@@ -197,7 +194,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getGifts(completion : @escaping (Int, Int)-> ()) {
-        let url = URL(string: allInApi + "users/gift")!
+        let url = URL(string: url + "users/gift")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -222,7 +219,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
-        let url = URL(string: allInApi + "bets/history")!
+        let url = URL(string: url + "bets/history")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -237,7 +234,6 @@ public struct UserApiManager: UserDataManager {
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                         for json in jsonArray {
-                            print(json)
                             if let bet = FactoryApiBet().toBetDetail(from: json) {
                                 bets.append(bet)
                             }
@@ -253,7 +249,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
-        let url = URL(string: allInApi + "bets/current")!
+        let url = URL(string: url + "bets/current")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -268,7 +264,6 @@ public struct UserApiManager: UserDataManager {
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
                         for json in jsonArray {
-                            print(json)
                             if let bet = FactoryApiBet().toBetDetail(from: json) {
                                 bets.append(bet)
                             }
@@ -284,7 +279,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int, completion : @escaping (Int)-> ()) {
-        let url = URL(string: allInApi + "participations/add")!
+        let url = URL(string: url + "participations/add")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -308,7 +303,7 @@ public struct UserApiManager: UserDataManager {
     }
     
     public func addResponse(withIdBet id: String, andResponse responseBet: String) {
-        let url = URL(string: allInApi + "bets/confirm/" + id)!
+        let url = URL(string: url + "bets/confirm/" + id)!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

@@ -22,7 +22,6 @@ struct BetCard: View {
                     Text("bet_proposed_by_format \(bet.author.capitalized)")
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
-                    
                 }
                 Text(bet.theme)
                     .font(.system(size: 15))

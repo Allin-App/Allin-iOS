@@ -21,7 +21,7 @@
 **Description** : Ce dépôt contient l'ensemble du code pour la partie client iOS de l'application *ALL IN*.
 </br>
 
-# Répartition du GitLab
+# Répartition du dépot
 
 [**Sources**](Sources) : **Code de l'application**
 

@@ -5,7 +5,6 @@ struct DetailsView: View {
     
     @Binding var isModalPresented: Bool
     @Binding var isModalParticipated: Bool
-    @State var progressValue: Float = 0.2
     @StateObject private var viewModel: DetailsViewModel
     
     var isFinished: Bool {

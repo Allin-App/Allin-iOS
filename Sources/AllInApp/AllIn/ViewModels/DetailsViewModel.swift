@@ -27,7 +27,12 @@ class DetailsViewModel: ObservableObject {
     
     func getItem(withId id: String) {
         manager.getBet(withId: id) { bet in
-            self.betDetail = bet
+            DispatchQueue.main.async {
+                for par in bet.participations {
+                    print(par.id)
+                }
+                self.betDetail = bet
+            }
         }
     }
     

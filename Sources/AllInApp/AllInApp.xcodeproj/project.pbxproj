@@ -34,6 +34,7 @@
 		EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770A2B24D9160060E34D /* WelcomeView.swift */; };
 		EC30770D2B24DB7A0060E34D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770C2B24DB7A0060E34D /* Extensions.swift */; };
 		EC30770F2B24FCB00060E34D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30770E2B24FCB00060E34D /* RegisterView.swift */; };
+		EC34FDCE2C0DB46C0020A371 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC34FDCD2C0DB46C0020A371 /* Config.swift */; };
 		EC4F0D2C2B4EBF5600853949 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = ECB357342B3E13A400045D41 /* Model */; };
 		EC60C5682B5A83FB00FFD6EF /* StubLib in Frameworks */ = {isa = PBXBuildFile; productRef = EC60C5672B5A83FB00FFD6EF /* StubLib */; };
 		EC650A422B25C817003AFCAD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC650A412B25C817003AFCAD /* Friend.swift */; };
@@ -57,7 +58,6 @@
 		EC6B96B72B24B4CC00FC1C58 /* AllInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96B62B24B4CC00FC1C58 /* AllInUITests.swift */; };
 		EC6B96B92B24B4CC00FC1C58 /* AllInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96B82B24B4CC00FC1C58 /* AllInUITestsLaunchTests.swift */; };
 		EC6B96CC2B24B7E500FC1C58 /* IAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96CB2B24B7E500FC1C58 /* IAuthService.swift */; };
-		EC6B96CF2B24B8D900FC1C58 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96CE2B24B8D900FC1C58 /* Config.swift */; };
 		EC6B96D12B24BAE800FC1C58 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96D02B24BAE800FC1C58 /* AuthService.swift */; };
 		EC6B96D52B24BE0E00FC1C58 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96D42B24BE0E00FC1C58 /* MainView.swift */; };
 		EC6B96D82B24BF2100FC1C58 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6B96D72B24BF2100FC1C58 /* Menu.swift */; };
@@ -174,6 +174,7 @@
 		EC30770A2B24D9160060E34D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		EC30770C2B24DB7A0060E34D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC30770E2B24FCB00060E34D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		EC34FDCD2C0DB46C0020A371 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC650A412B25C817003AFCAD /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		EC650A432B25CDF3003AFCAD /* ParameterMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterMenu.swift; sourceTree = "<group>"; };
 		EC650A452B25D686003AFCAD /* RankingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingRow.swift; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		EC6B96B62B24B4CC00FC1C58 /* AllInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITests.swift; sourceTree = "<group>"; };
 		EC6B96B82B24B4CC00FC1C58 /* AllInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EC6B96CB2B24B7E500FC1C58 /* IAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAuthService.swift; sourceTree = "<group>"; };
-		EC6B96CE2B24B8D900FC1C58 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC6B96D02B24BAE800FC1C58 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EC6B96D42B24BE0E00FC1C58 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EC6B96D72B24BF2100FC1C58 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -367,9 +367,9 @@
 		EC6B96CD2B24B8A300FC1C58 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				EC6B96CE2B24B8D900FC1C58 /* Config.swift */,
 				EC3077082B24CF7F0060E34D /* Colors.swift */,
 				ECDDD48C2BF4A7920009223A /* Localizable.strings */,
+				EC34FDCD2C0DB46C0020A371 /* Config.swift */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -697,9 +697,9 @@
 				EC7A882B2B28D1E0004F226A /* DropDownMenu.swift in Sources */,
 				EC7A882D2B28D8A1004F226A /* CreationBetView.swift in Sources */,
 				ECED90B52B6D9CEC00F50937 /* DailyGiftPage.swift in Sources */,
-				EC6B96CF2B24B8D900FC1C58 /* Config.swift in Sources */,
 				1244EF602B4EC31E00374ABF /* HistoricBetView.swift in Sources */,
 				EC30770B2B24D9160060E34D /* WelcomeView.swift in Sources */,
+				EC34FDCE2C0DB46C0020A371 /* Config.swift in Sources */,
 				EC30770D2B24DB7A0060E34D /* Extensions.swift in Sources */,
 				EC6B96D82B24BF2100FC1C58 /* Menu.swift in Sources */,
 				EC650A4E2B278EDB003AFCAD /* TrendingBetCard.swift in Sources */,

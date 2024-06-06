@@ -11,13 +11,15 @@ import Model
 public struct BetApiManager: BetDataManager {
         
     public let token: String
+    public let url: String
     
-    public init(withUserToken token: String) {
+    public init(withUserToken token: String, andApiUrl url: String) {
         self.token = token
+        self.url = url
     }
     
     public func getBets(withIndex index: Int, withCount count: Int, filters: [BetFilter] = [], completion: @escaping ([Bet]) -> Void) {
-        let url = URL(string: allInApi + "bets/gets")!
+        let url = URL(string: url + "bets/gets")!
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -46,6 +48,7 @@ public struct BetApiManager: BetDataManager {
                                 bets.append(bet)
                             }
                         }
+                        print(httpResponse.statusCode)
                         completion(bets)
                     }
                 } catch {
@@ -61,7 +64,7 @@ public struct BetApiManager: BetDataManager {
     }
     
     public func getBet(withId id: String, completion: @escaping (BetDetail) -> Void) {
-        let url = URL(string: allInApi + "betdetail/get/" + id)!
+        let url = URL(string: url + "betdetail/get/" + id)!
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -73,12 +76,10 @@ public struct BetApiManager: BetDataManager {
                 print ("ALLIN : get bet with id :" + id)
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        
+                        print(httpResponse.statusCode)
                         if let betDetail = FactoryApiBet().toBetDetail(from: json) {
                             completion(betDetail)
                         }
-                        print(httpResponse.statusCode)
-                        print(json)
                     }
                 } catch {
                     print("Error parsing JSON: \(error)")
@@ -88,7 +89,7 @@ public struct BetApiManager: BetDataManager {
     }
     
     public func getPopularBet(completion: @escaping (Bet) -> Void) {
-        let url = URL(string: allInApi + "bets/popular")!
+        let url = URL(string: url + "bets/popular")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

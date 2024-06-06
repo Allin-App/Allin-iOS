@@ -41,7 +41,7 @@ struct Menu: View {
             HStack(spacing: 30) {
                 Spacer()
                 VStack(){
-                    Text("114")
+                    Text(AppStateContainer.shared.user?.bestWin.description ?? "0")
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -51,7 +51,7 @@ struct Menu: View {
                         .foregroundColor(AllInColors.grey600Color)
                 }
                 VStack(){
-                    Text("343")
+                    Text(AppStateContainer.shared.user?.bestWin.description ?? "0")
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -61,7 +61,7 @@ struct Menu: View {
                         .foregroundColor(AllInColors.grey600Color)
                 }
                 VStack(){
-                    Text("5")
+                    Text(AppStateContainer.shared.user?.nbFriends.description ?? "0")
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)

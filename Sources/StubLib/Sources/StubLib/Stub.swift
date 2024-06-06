@@ -21,13 +21,13 @@ struct Stub {
     
     public mutating func loadBets() {
         
-        let user1 = User(username: "Lucas", email: "lucas.delanier@etu.uca.fr", nbCoins: 100)
+        let user1 = User(username: "Lucas", email: "lucas.delanier@etu.uca.fr", nbCoins: 100, nbBets: 0, nbFriends: 0, bestWin: 0)
         users.append(user1)
         
-        let user2 = User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75)
+        let user2 = User(username: "Imri", email: "emre.kartal@etu.uca.fr", nbCoins: 75, nbBets: 0, nbFriends: 0, bestWin: 0)
         users.append(user2)
         
-        let user3 = User(username: "Arthur", email: "arthur.valin@etu.uca.fr", nbCoins: 30)
+        let user3 = User(username: "Arthur", email: "arthur.valin@etu.uca.fr", nbCoins: 30, nbBets: 0, nbFriends: 0, bestWin: 0)
         users.append(user3)
 
         let bet1 = BinaryBet(
@@ -87,10 +87,10 @@ struct Stub {
             self.betsDetail.append(betDetail)
         }
         
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 120, answer: "OUI", username: user1.username, betId: "1"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 20, answer: "NON", username: user2.username, betId: "2"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, answer: "OUI", username: user3.username, betId: "3"))
-        self.betsDetail[0].addParticipation(newParticipation: Participation(id: UUID().uuidString, stake: 320, answer: "OUI", username: user3.username, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 120, answer: "OUI", username: user1.username, betId: "1"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 20, answer: "NON", username: user2.username, betId: "2"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 320, answer: "OUI", username: user3.username, betId: "3"))
+        self.betsDetail[0].addParticipation(newParticipation: Participation(stake: 320, answer: "OUI", username: user3.username, betId: "3"))
         
     }
     
