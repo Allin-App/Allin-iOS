@@ -67,11 +67,14 @@ public struct UserApiManager: UserDataManager {
                 print ("ALLIN : get bets won")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print(jsonArray)
                         for json in jsonArray {
                             if let bet = FactoryApiBet().toBetResultDetail(from: json) {
+                                print(bet)
                                 bets.append(bet)
                             }
                         }
+                        
                         print(httpResponse.statusCode)
                         completion(bets)
                     }

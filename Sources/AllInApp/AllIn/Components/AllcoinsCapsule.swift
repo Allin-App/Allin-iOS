@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AllcoinsCapsule: View {
+    var gains: Int
     var body: some View {
         Text("Vous remportez")
             .foregroundColor(.white)
         HStack{
-            Text("2340")
+            Text(gains.description)
                 .textStyle(weight: .bold, color: .white, size: 60)
             Image("allcoinWhiteIcon")
                 .resizable()
@@ -30,6 +31,6 @@ struct AllcoinsCapsule: View {
 
 struct AllcoinsCapsule_Previews: PreviewProvider {
     static var previews: some View {
-        AllcoinsCapsule()
+        AllcoinsCapsule(gains: 100)
     }
 }

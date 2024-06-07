@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Model
 
 struct RecapBetCard: View {
     
+    var betResult: BetResultDetail
     @GestureState private var longPressTap = false
     @State private var isPressed = false
     @State var showDetails: Bool = false
@@ -19,22 +21,22 @@ struct RecapBetCard: View {
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("bet_proposed_by_format \("Lucas")")
+                    Text("bet_proposed_by_format \(betResult.bet.author)")
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
                     
                 }
-                Text("Etudes")
+                Text(betResult.bet.theme)
                     .font(.system(size: 15))
                     .foregroundColor(AllInColors.grey800Color)
-                Text("Emre va réussir son TP de CI/CD mercredi?")
+                Text(betResult.bet.phrase)
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 HStack{
                     Text("bet_ends")
                         .font(.system(size: 15))
                         .foregroundColor(AllInColors.grey800Color)
-                    TextCapsule(date: Date())
+                    TextCapsule(date: betResult.bet.endBetDate)
                     Spacer()
                 }
             }
@@ -48,7 +50,7 @@ struct RecapBetCard: View {
                     Text("Mise")
                         .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 15)
                     Spacer()
-                    Text("1630")
+                    Text(betResult.participation.stake.description)
                         .textStyle(weight: .regular, color: AllInColors.grey800Color, size: 15)
                     Image("Allcoins")
                         .resizable()
@@ -65,7 +67,7 @@ struct RecapBetCard: View {
                     Text("Gains")
                         .textStyle(weight: .medium, color: AllInColors.lightPurpleColor, size: 15)
                     Spacer()
-                    Text("1630")
+                    Text(betResult.amount.description)
                         .font(.system(size: 15))
                         .fontWeight(.medium)
                         .overlay {
@@ -108,7 +110,7 @@ struct RecapBetCard: View {
         .onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated,id: "1")
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: betResult.bet.id)
         }
         .gesture(
             LongPressGesture(minimumDuration: 0.5)
@@ -116,12 +118,5 @@ struct RecapBetCard: View {
                     state = value
                 }
         )
-    }
-}
-
-struct RecapBetCard_Previews: PreviewProvider {
-    static var previews: some View {
-        RecapBetCard()
-            .preferredColorScheme(.dark)
     }
 }

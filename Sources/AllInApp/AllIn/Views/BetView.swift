@@ -72,7 +72,7 @@ struct BetView: View {
                 viewModel.showingSheetWon = !viewModel.betsWon.isEmpty
             }) {
                 if let firstBetResultDetail = viewModel.betsWon.first {
-                    WinModal()
+                    WinModal(betResult: firstBetResultDetail)
                 }
             }
             Spacer()

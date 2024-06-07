@@ -30,6 +30,7 @@ class BetViewModel: ObservableObject {
         getItems()
         getPopularBet()
         getBetsOver()
+        getBetsWon()
     }
     
     func getItems() {
