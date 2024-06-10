@@ -18,7 +18,7 @@ struct CustomBetLine: View {
     }
     
     var sortedAnswers: [AnswerDetail] {
-        bet.answers.sorted { $0.odds < $1.odds }
+        bet.answers.sorted { $0.totalParticipants > $1.totalParticipants }
     }
     
     func getTextStyle(for answer: AnswerDetail) -> Font.Weight {
