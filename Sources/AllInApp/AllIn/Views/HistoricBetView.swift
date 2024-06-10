@@ -24,8 +24,8 @@ struct HistoricBetView: View {
                     .textStyle(weight: .bold, color: AllInColors.grey500Color, size: 25)
                     .padding([.top],15)
                 VStack(spacing: 20){
-                    ForEach(viewModel.bets, id: \.bet.id) { (bet: BetDetail) in
-                        ReviewCard(betDetail: bet, amountBetted: 110, isAWin: false)
+                    ForEach(viewModel.bets, id: \.bet.id) { (betDetail: BetResultDetail) in
+                        ReviewCard(bet: betDetail.bet, amount: betDetail.participation.stake, isWin: betDetail.won)
                     }
                 }
                 .padding([.trailing, .leading, .bottom],25)

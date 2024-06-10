@@ -18,7 +18,7 @@ public protocol UserDataManager {
     func getRequests(completion: @escaping ([User]) -> Void)
     func getUsers(withName name: String, completion: @escaping ([User]) -> Void)
     func getGifts(completion : @escaping (Int, Int)-> ())
-    func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void)
+    func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetResultDetail]) -> Void)
     func getCurrentBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void)
     func addParticipation(withId id: String, withAnswer answer: String, andStake stake: Int, completion : @escaping (Int)-> ())
     func addResponse(withIdBet id: String, andResponse responseBet: String)

@@ -9,12 +9,12 @@ import Foundation
 
 public class BetResult: Codable {
     
-    public private(set) var id: String
+    public private(set) var betId: String
     
     public private(set) var result: String
     
-    public init(id: String, result: String) {
-        self.id = id
+    public init(betId: String, result: String) {
+        self.betId = betId
         self.result = result
     }
 

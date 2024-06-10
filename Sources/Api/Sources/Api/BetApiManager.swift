@@ -77,6 +77,7 @@ public struct BetApiManager: BetDataManager {
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         print(httpResponse.statusCode)
+                        print(json)
                         if let betDetail = FactoryApiBet().toBetDetail(from: json) {
                             completion(betDetail)
                         }

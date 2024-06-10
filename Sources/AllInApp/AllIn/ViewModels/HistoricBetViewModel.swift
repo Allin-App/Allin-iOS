@@ -13,7 +13,7 @@ class HistoricBetViewModel: ObservableObject {
     
     @Inject var manager: Manager
 
-    @Published private(set) var bets: [BetDetail] = []
+    @Published private(set) var bets: [BetResultDetail] = []
 
     init() {
         getItems()
