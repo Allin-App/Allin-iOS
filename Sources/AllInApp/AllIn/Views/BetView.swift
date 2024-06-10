@@ -59,12 +59,20 @@ struct BetView: View {
             .refreshable {
                 viewModel.getItems()
             }
-            .sheet(isPresented: $viewModel.showingSheet, onDismiss: {
+            .sheet(isPresented: $viewModel.showingSheetOver, onDismiss: {
                 viewModel.betsOver.removeFirst()
-                viewModel.showingSheet = !viewModel.betsOver.isEmpty
+                viewModel.showingSheetOver = !viewModel.betsOver.isEmpty
             }) {
                 if let firstBetDetail = viewModel.betsOver.first {
                     BetEndingValidationView(bet: firstBetDetail)
+                }
+            }
+            .sheet(isPresented: $viewModel.showingSheetWon, onDismiss: {
+                viewModel.betsWon.removeFirst()
+                viewModel.showingSheetWon = !viewModel.betsWon.isEmpty
+            }) {
+                if let firstBetResultDetail = viewModel.betsWon.first {
+                    WinModal(betResult: firstBetResultDetail)
                 }
             }
             Spacer()

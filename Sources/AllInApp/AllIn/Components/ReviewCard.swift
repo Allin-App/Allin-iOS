@@ -12,26 +12,25 @@ struct ReviewCard: View {
     
     @State var showDetails: Bool = false
     @State var showPartipated: Bool = false
-    @State var betDetail: BetDetail
-    
-    var amountBetted: Int
-    var isAWin: Bool
+    var bet: Bet
+    var amount: Int
+    var isWin: Bool
     
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading,spacing: 2){
                 HStack{
                     Spacer()
-                    Text("bet_proposed_by_format \(betDetail.bet.author)")
+                    Text("bet_proposed_by_format \(bet.author)")
                         .font(.system(size: 10))
                         .foregroundColor(AllInColors.grey800Color)
                     
                 }
-                Text(betDetail.bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                Text(betDetail.bet.phrase).font(.system(size: 20)).fontWeight(.bold)
+                Text(bet.theme).font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
+                Text(bet.phrase).font(.system(size: 20)).fontWeight(.bold)
                 HStack{
                     Text("bet_ends").font(.system(size: 15)).foregroundColor(AllInColors.grey800Color)
-                    TextCapsule(date: betDetail.bet.endBetDate)
+                    TextCapsule(date: bet.endBetDate)
                     Spacer()
                     
                 }
@@ -40,20 +39,18 @@ struct ReviewCard: View {
             .padding(.all,15)
             .background(AllInColors.componentBackgroundColor)
             .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
-            
             VStack(alignment: .center,spacing:0){
                 HStack(){
                     Spacer()
-                    if(betDetail.userParticipation != nil){
-                        Text((betDetail.userParticipation?.stake.description ?? ""))
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
-                        Image("allcoinWhiteIcon")
-                            .resizable()
-                            .frame(width: 18, height: 20)
-                    }
-                    switch betDetail.bet.status {
+                    Text(amount.description)
+                        .foregroundColor(.white)
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
+                    Image("allcoinWhiteIcon")
+                        .resizable()
+                        .frame(width: 18, height: 20)
+                    
+                    switch bet.status {
                     case .waiting, .inProgress:
                         Text("bet_status_stake")
                             .foregroundColor(.white)
@@ -65,14 +62,7 @@ struct ReviewCard: View {
                             .font(.system(size: 25))
                             .fontWeight(.bold)
                     case .finished:
-                        Text(amountBetted.description)
-                            .foregroundColor(.white)
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
-                        Image("allcoinWhiteIcon")
-                            .resizable()
-                            .frame(width: 20, height: 20, alignment: .bottom)
-                        Text(isAWin ? "Gagnés!" : "Perdus!")
+                        Text(isWin ? "Gagnés!" : "Perdus!")
                             .foregroundColor(.white)
                             .font(.system(size: 25))
                             .fontWeight(.bold)
@@ -91,24 +81,26 @@ struct ReviewCard: View {
             }
             .frame(width: .infinity)
             .padding(.all,2)
-            .background({
-                switch betDetail.bet.status {
-                case .inProgress, .waiting, .closing:
-                    return AllInColors.grey50Color
-                case .finished:
-                    return Color.black
-                case .cancelled:
-                    return Color.red
-                }
-            }())
-
+            .background(backgroundColor())
+            
             .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
             .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
         }
         .onTapGesture {
             showDetails.toggle()
         }.fullScreenCover(isPresented: $showDetails) {
-            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: betDetail.bet.id)
+            DetailsView(isModalPresented: $showDetails, isModalParticipated: $showPartipated, id: bet.id)
+        }
+    }
+    
+    private func backgroundColor() -> Color {
+        switch bet.status {
+        case .inProgress, .waiting, .closing:
+            return AllInColors.grey50Color
+        case .finished:
+            return Color.black
+        case .cancelled:
+            return Color.red
         }
     }
 }

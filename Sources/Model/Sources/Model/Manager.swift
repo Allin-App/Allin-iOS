@@ -46,6 +46,12 @@ public struct Manager {
         }
     }
     
+    public func getBetsWon(completion: @escaping ([BetResultDetail]) -> Void) {
+        userDataManager.getBetsWon() { bets in
+            completion(bets)
+        }
+    }
+    
     public func getBet(withId id: String, completion: @escaping (BetDetail) -> Void) {
         betDataManager.getBet(withId: id) { bet in
             completion(bet)
@@ -70,7 +76,7 @@ public struct Manager {
         }
     }
     
-    public func getHistoricBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
+    public func getHistoricBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetResultDetail]) -> Void) {
         userDataManager.getOldBets(withIndex: index, withCount: count) { bets in
             completion(bets)
         }

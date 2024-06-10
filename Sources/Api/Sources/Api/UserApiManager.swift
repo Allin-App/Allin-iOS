@@ -52,6 +52,39 @@ public struct UserApiManager: UserDataManager {
         }.resume()
     }
     
+    public func getBetsWon(completion : @escaping ([BetResultDetail])-> ()) {
+        let url = URL(string: url + "bets/getWon")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        var bets: [BetResultDetail] = []
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                print ("ALLIN : get bets won")
+                do {
+                    if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print(jsonArray)
+                        for json in jsonArray {
+                            if let bet = FactoryApiBet().toBetResultDetail(from: json) {
+                                print(bet)
+                                bets.append(bet)
+                            }
+                        }
+                        
+                        print(httpResponse.statusCode)
+                        completion(bets)
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+    
     public func addBet(bet: Bet, completion : @escaping (Int)-> ()) {
         
         let url = URL(string: url + "bets/add")!
@@ -218,7 +251,7 @@ public struct UserApiManager: UserDataManager {
         }.resume()
     }
     
-    public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetDetail]) -> Void) {
+    public func getOldBets(withIndex index: Int, withCount count: Int, completion: @escaping ([BetResultDetail]) -> Void) {
         let url = URL(string: url + "bets/history")!
         
         var request = URLRequest(url: url)
@@ -226,15 +259,16 @@ public struct UserApiManager: UserDataManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        var bets: [BetDetail] = []
+        var bets: [BetResultDetail] = []
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 print ("ALLIN : get old bets")
                 do {
                     if let httpResponse = response as? HTTPURLResponse, let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print(jsonArray)
                         for json in jsonArray {
-                            if let bet = FactoryApiBet().toBetDetail(from: json) {
+                            if let bet = FactoryApiBet().toBetResultDetail(from: json) {
                                 bets.append(bet)
                             }
                         }

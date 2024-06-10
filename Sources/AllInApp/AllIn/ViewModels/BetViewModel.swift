@@ -17,7 +17,9 @@ class BetViewModel: ObservableObject {
     @Published var popularBet: Bet?
     @Published private(set) var bets: [Bet] = []
     @Published var betsOver: [BetDetail] = []
-    @Published var showingSheet: Bool  = false
+    @Published var betsWon: [BetResultDetail] = []
+    @Published var showingSheetOver: Bool  = false
+    @Published var showingSheetWon: Bool  = false
     @Published var filters: Set<BetFilter> = [] {
         didSet {
             getItems()
@@ -28,6 +30,7 @@ class BetViewModel: ObservableObject {
         getItems()
         getPopularBet()
         getBetsOver()
+        getBetsWon()
     }
     
     func getItems() {
@@ -43,7 +46,18 @@ class BetViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.betsOver = bets
                 if !self.betsOver.isEmpty {
-                    self.showingSheet = true
+                    self.showingSheetOver = true
+                }
+            }
+        }
+    }
+    
+    func getBetsWon() {
+        manager.getBetsWon() { bets in
+            DispatchQueue.main.async {
+                self.betsWon = bets
+                if !self.betsWon.isEmpty {
+                    self.showingSheetWon = true
                 }
             }
         }

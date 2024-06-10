@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Model
 
 struct WinModal: View {
     @Environment(\.dismiss) var dismiss
+    var betResult: BetResultDetail
     
     @State var xOffset: CGFloat = 0
     var body: some View {
@@ -35,15 +37,15 @@ struct WinModal: View {
                     }
                     HStack{
                         Text("FÉLICITATIONS").font(.system(size: 20)).foregroundColor(.white).fontWeight(.semibold).italic()
-                        Text("PSEUDO!").padding(.top,9).font(.system(size: 33)).fontWeight(.heavy).foregroundColor(.white)
+                        Text(AppStateContainer.shared.user?.username ?? "").padding(.top,9).font(.system(size: 33)).fontWeight(.heavy).foregroundColor(.white)
                     }
                     .rotationEffect(.degrees(-4))
                     .padding(.top,40)
                     
                     Spacer()
-                    AllcoinsCapsule()
+                    AllcoinsCapsule(gains: betResult.amount)
                     Spacer()
-                    RecapBetCard()
+                    RecapBetCard(betResult: betResult)
                     Spacer()
                 }
                 .padding([.all],20)
@@ -55,12 +57,6 @@ struct WinModal: View {
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         )
-    }
-}
-
-struct WinModal_Previews: PreviewProvider {
-    static var previews: some View {
-        WinModal()
     }
 }
 

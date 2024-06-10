@@ -11,4 +11,5 @@ public protocol FactoryBet {
     func toResponse(bet: Bet) -> [String: Any]
     func toBet(from json: [String: Any]) -> Bet?
     func toBetDetail(from json: [String: Any]) -> BetDetail?
+    func toBetResultDetail(from json: [String: Any]) -> BetResultDetail?
 }

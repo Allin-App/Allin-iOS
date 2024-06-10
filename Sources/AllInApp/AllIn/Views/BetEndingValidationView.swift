@@ -15,10 +15,10 @@ struct BetEndingValidationView: View {
     @Environment(\.dismiss) var dismiss
     
     @StateObject private var viewModel: BetEndingValidationViewModel
-    var bet: BetDetail
+    var betDetail: BetDetail
     
     init(bet: BetDetail) {
-        self.bet = bet
+        self.betDetail = bet
         self._viewModel = StateObject(wrappedValue: BetEndingValidationViewModel(id: bet.bet.id))
     }
     
@@ -48,7 +48,7 @@ struct BetEndingValidationView: View {
                                 dismiss()
                             }
                     }
-                    ReviewCard(betDetail: bet, amountBetted: 0, isAWin: false)
+                    ReviewCard(bet: betDetail.bet, amount: 0, isWin: false)
                         .padding(.top, 20)
                         .padding(.bottom, 10)
                     Text("bet_confirmation_text")
@@ -64,7 +64,7 @@ struct BetEndingValidationView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     VStack(spacing: 14){
-                        ForEach(bet.answers) { answer in
+                        ForEach(betDetail.answers) { answer in
                             ChoiceFinalAnswerCell(selected : answer.response == viewModel.selectedAnswer, answer: answer).onTapGesture {
                                 if(viewModel.selectedAnswer == answer.response){
                                     viewModel.selectedAnswer = nil
