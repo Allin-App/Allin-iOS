@@ -1,13 +1,4 @@
 //
-//  DropDownAnswerMenu.swift
-//  AllIn
-//
-//  Created by Lucas Delanier on 16/01/2024.
-//
-
-import SwiftUI
-
-//
 //  DropDownMenu.swift
 //  AllIn
 //
@@ -15,20 +6,21 @@ import SwiftUI
 //
 
 import SwiftUI
+import Model
 
 struct DropDownAnswerMenu: View {
     
     @State var expand = false
-    @Binding var selectedOption: Int
-    var options: [(Int, String, Float)]
+    @Binding var selectedAnswer: AnswerDetail
+    var answers: [AnswerDetail]
     
     var body: some View {
         VStack(spacing: 0, content: {
-            Button(action: { self.expand.toggle() }) {
+            Button(action: { withTransaction(Transaction(animation: nil)) { self.expand.toggle() } }) {
                 HStack{
-                    Text(options[selectedOption].1.description)
+                    Text(selectedAnswer.response)
                         .textStyle(weight: .bold, color: AllInColors.blueAccentColor, size: 20)
-                    Text(options[selectedOption].2.description)
+                    Text(selectedAnswer.odds.description)
                         .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 10)
                     
                     Spacer()
@@ -43,19 +35,21 @@ struct DropDownAnswerMenu: View {
                     .foregroundColor(AllInColors.delimiterGrey)
                     .padding(.bottom, 18)
                 VStack(spacing: 0) {
-                    ForEach(0..<options.count, id: \.self) { index in
-                        if options[index].0 != selectedOption {
-                            Button(action: {self.selectedOption = options[index].0
-                                self.expand.toggle()}) {
-                                    HStack{
-                                        Text(options[index].1.description)
-                                            .textStyle(weight: .bold, color: AllInColors.blueAccentColor, size: 20)
-                                        Text(options[index].2.description)
-                                            .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 10)
-                                        Spacer()
-                                    }
+                    ForEach(answers) { (answer: AnswerDetail) in
+                        if answer != selectedAnswer {
+                            Button(action: {
+                                self.selectedAnswer = answer
+                                self.expand.toggle()}
+                            ) {
+                                HStack{
+                                    Text(answer.response)
+                                        .textStyle(weight: .bold, color: AllInColors.blueAccentColor, size: 20)
+                                    Text(answer.odds.description)
+                                        .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 10)
+                                    Spacer()
                                 }
-                                .padding(.bottom, 15)
+                            }
+                            .padding(.bottom, 15)
                         }
                     }
                 }
@@ -70,15 +64,3 @@ struct DropDownAnswerMenu: View {
         )
     }
 }
-
-struct DropDownAnswerMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        DropDownAnswerMenu(selectedOption: .constant(0), options: [
-            (0, "questionMarkIcon", 1.2),
-            (1, "footballIcon", 2.2),
-            (2, "paintbrushIcon", 3.3)
-        ])
-        .preferredColorScheme(.dark)
-    }
-}
-

@@ -28,17 +28,6 @@ struct CreationBetView: View {
     }()
     let screenWidth = UIScreen.main.bounds.width
     
-    @State private var response = ""
-    @State private var values: [String] = []
-    
-    let options: [(Int, String, String)] = [
-        (0, "questionMarkIcon", String(localized: "bet_type_binary")),
-        (1, "footballIcon", String(localized: "bet_type_match")),
-        (2, "paintbrushIcon", String(localized: "bet_type_custom"))
-    ]
-    
-    @State var groupedItems: [[String]] = [[String]] ()
-    
     private func updateGroupedItems() {
         
         var updatedGroupedItems: [[String]] = [[String]] ()
@@ -46,7 +35,7 @@ struct CreationBetView: View {
         var width: CGFloat = 0
         var dynamicWidthLimit: CGFloat
         
-        for value in values {
+        for value in viewModel.values {
             let label = UILabel()
             label.text = value
             label.sizeToFit()
@@ -65,7 +54,7 @@ struct CreationBetView: View {
         }
         updatedGroupedItems.append(tempItems)
         
-        groupedItems = updatedGroupedItems
+        viewModel.groupedItems = updatedGroupedItems
     }
     
     var body: some View {
@@ -108,6 +97,7 @@ struct CreationBetView: View {
                                     .foregroundColor(AllInColors.lightGrey300Color)
                                     .font(.system(size: 14))
                                     .fontWeight(.light))
+                                .autocorrectionDisabled(true)
                                 .padding()
                                 .background(
                                     RoundedRectangle(cornerRadius: 9)
@@ -151,6 +141,7 @@ struct CreationBetView: View {
                                 .foregroundColor(AllInColors.lightGrey300Color)
                                 .font(.system(size: 14))
                                 .fontWeight(.light), axis: .vertical)
+                            .autocorrectionDisabled(true)
                             .lineLimit(4, reservesSpace: true)
                             .padding()
                             .background(
@@ -360,14 +351,14 @@ struct CreationBetView: View {
                 VStack(spacing: 5) {
                     
                     VStack() {
-                        DropDownMenu(selectedOption: $viewModel.selectedOption, options: options)
+                        DropDownMenu(selectedOption: $viewModel.selectedTypeBet, options: viewModel.options)
                     }
                     .padding([.bottom], 15)
                     .frame(width: 340)
                     
                     
                     Group {
-                        switch viewModel.selectedOption {
+                        switch viewModel.selectedTypeBet {
                         case 0:
                             Text("bet_creation_yes_no_bottom_text_1")
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
@@ -385,12 +376,18 @@ struct CreationBetView: View {
                                 .textStyle(weight: .bold, color: AllInColors.veryLightPurpleColor, size: 13)
                                 .padding(.bottom, 15)
                             
+                            if let responseError = $viewModel.responsesFieldError.wrappedValue {
+                                Text(responseError)
+                                    .textStyle(weight: .bold, color: .red, size: 10)
+                            }
+                            
                             VStack(spacing: 5) {
                                 HStack(spacing: 0) {
-                                    TextField("", text: $response, prompt: Text("bet_creation_response_title")
+                                    TextField("", text: $viewModel.response, prompt: Text("bet_creation_response_title")
                                         .foregroundColor(AllInColors.lightGrey200Color)
                                         .font(.system(size: 16))
                                         .fontWeight(.medium))
+                                    .autocorrectionDisabled(true)
                                     .padding()
                                     .background(
                                         Rectangle()
@@ -400,17 +397,17 @@ struct CreationBetView: View {
                                     )
                                     .frame(width: 250, height: 38)
                                     .foregroundColor(.black)
-                                    .onChange(of: response) { newValue in
+                                    .onChange(of: viewModel.response) { newValue in
                                         if newValue.count > 20 {
-                                            response = String(newValue.prefix(20))
+                                            viewModel.response = String(newValue.prefix(20))
                                         }
                                     }
                                     
                                     Button(action: {
-                                        if !response.isEmpty && values.count < 5 {
-                                            values.append(response)
+                                        if !viewModel.response.isEmpty && viewModel.values.count < 5 {
+                                            viewModel.values.append(viewModel.response)
                                             updateGroupedItems()
-                                            response = ""
+                                            viewModel.response = ""
                                         }
                                     }) {
                                         Text("generic_add")
@@ -423,12 +420,12 @@ struct CreationBetView: View {
                                 }
                                 HStack {
                                     Spacer()
-                                    Text(String(localized: "bet_creation_max_answers \(5 - values.count)"))
+                                    Text(String(localized: "bet_creation_max_answers \(5 - viewModel.values.count)"))
                                         .textStyle(weight: .regular, color: AllInColors.primaryTextColor, size: 12)
                                     
                                 }
                                 VStack(spacing: 10) {
-                                    ForEach(groupedItems, id: \.self) { items in
+                                    ForEach(viewModel.groupedItems, id: \.self) { items in
                                         HStack {
                                             ForEach(items, id: \.self) { text in
                                                 HStack {
@@ -436,8 +433,8 @@ struct CreationBetView: View {
                                                         .foregroundColor(.white)
                                                         .lineLimit(1)
                                                     Button(action: {
-                                                        if let index = values.firstIndex(of: text) {
-                                                            values.remove(at: index)
+                                                        if let index = viewModel.values.firstIndex(of: text) {
+                                                            viewModel.values.remove(at: index)
                                                             updateGroupedItems()
                                                         }
                                                     }) {

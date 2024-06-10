@@ -23,18 +23,35 @@ class CreationBetViewModel: ObservableObject {
     @Published var endRegisterDate = Date()
     @Published var endBetDate = Date()
     @Published var betAdded = false
-    @Published var selectedOption = 0
+    @Published var selectedTypeBet = 0 {
+        didSet {
+            values.removeAll()
+            groupedItems.removeAll()
+            response = ""
+        }
+    }
+    @Published var values: [String] = []
     @Published var invited: Set<String> = []
     
     @Published var themeFieldError: String?
     @Published var descriptionFieldError: String?
     @Published var endRegisterDateFieldError: String?
     @Published var endBetDateFieldError: String?
+    @Published var responsesFieldError: String?
     
     @Published var errorMessage: String?
     @Published var showErrorMessage = false
     
     @Published var friends: [User] = []
+    
+    let options: [(Int, String, String)] = [
+        (0, "questionMarkIcon", String(localized: "bet_type_binary")),
+        (1, "footballIcon", String(localized: "bet_type_match")),
+        (2, "paintbrushIcon", String(localized: "bet_type_custom"))
+    ]
+    
+    @Published var response = ""
+    @Published var groupedItems: [[String]] = [[String]] ()
     
     init() {
         getFriends()
@@ -50,14 +67,14 @@ class CreationBetViewModel: ObservableObject {
     
     func create() {
         
-        guard checkAndSetError(forTheme: true, forDescription: true, forEndRegisterDate: true, forEndBetDate: true) else {
+        guard checkAndSetError(forTheme: true, forDescription: true, forEndRegisterDate: true, forEndBetDate: true, forResponse: true) else {
             return
         }
         
         resetAllFieldErrors()
         
         if let user = AppStateContainer.shared.user {
-            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPrivate: isPrivate, status: .inProgress, creator: user.username, invited: Array(invited), type: selectedOption)) { statusCode in
+            manager.addBet(bet: toBet(theme: theme, description: description, endRegister: endRegisterDate, endBet: endBetDate, isPrivate: isPrivate, status: .inProgress, creator: user.username, invited: Array(invited), type: selectedTypeBet)) { statusCode in
                 print(statusCode)
                 switch statusCode {
                 case 201:
@@ -72,12 +89,13 @@ class CreationBetViewModel: ObservableObject {
         }
     }
     
-    func checkAndSetError(forTheme checkTheme: Bool, forDescription checkDescription: Bool, forEndRegisterDate checkEndRegisterDate: Bool, forEndBetDate checkEndBetDate: Bool) -> Bool {
+    func checkAndSetError(forTheme checkTheme: Bool, forDescription checkDescription: Bool, forEndRegisterDate checkEndRegisterDate: Bool, forEndBetDate checkEndBetDate: Bool, forResponse checkResponse: Bool) -> Bool {
         
         var newThemeFieldError: String?
         var newDescriptionFieldError: String?
         var newEndRegisterDateFieldError: String?
         var newEndBetDateFieldError: String?
+        var newResponsesFieldError: String?
         
         var hasError = false
         
@@ -105,6 +123,19 @@ class CreationBetViewModel: ObservableObject {
             hasError = true
         }
         
+        if checkResponse, selectedTypeBet == 2 {
+            if values.count < 2 {
+                newResponsesFieldError = "Il doit y'avoir 2 réponses minimum"
+                hasError = true
+            } else {
+                let uniqueValues = Set(values)
+                if uniqueValues.count != values.count {
+                    newResponsesFieldError = "Les réponses doivent être uniques"
+                    hasError = true
+                }
+            }
+        }
+        
         if !hasError {
             // No error
             return true
@@ -115,6 +146,7 @@ class CreationBetViewModel: ObservableObject {
             descriptionFieldError = newDescriptionFieldError
             endRegisterDateFieldError = newEndRegisterDateFieldError
             endBetDateFieldError = newEndBetDateFieldError
+            responsesFieldError = newResponsesFieldError
         }
         return false
     }
@@ -125,6 +157,7 @@ class CreationBetViewModel: ObservableObject {
             descriptionFieldError = nil
             endRegisterDateFieldError = nil
             endBetDateFieldError = nil
+            responsesFieldError = nil
         }
     }
     
@@ -140,7 +173,11 @@ class CreationBetViewModel: ObservableObject {
         case 1:
             return MatchBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator, nameTeam1: "", nameTeam2: "")
         case 2:
-            return CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator)
+            var bet = CustomBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator)
+            for answer in values {
+                bet.addCustomResponse(answer)
+            }
+            return bet
         default:
             return BinaryBet(theme: theme, phrase: description, endRegisterDate: endRegister, endBetDate: endBet, isPrivate: isPrivate, status: status, invited: invited, author: creator)
         }

@@ -6,32 +6,24 @@
 //
 
 import SwiftUI
+import Model
 
 struct ParticipationModal: View {
     
-    @Binding private var selectedOption: Int
-    @Binding private var mise: String
-    private var description: String
-    var participationAddedCallback: (() -> Void)?
+    @Binding var selectedAnswer: AnswerDetail
+    @Binding var mise: String
+    var phrase: String
+    var answers: [AnswerDetail]
+    var participationAddedCallback: () -> Void
+    var checkAndSetError: () -> Bool
+    
     var possibleGain: Int {
-        if let stake = Float(mise), let selectedOption = options.first(where: { $0.0 == self.selectedOption }) {
-            return Int(round(stake * selectedOption.2))
+        if let stake = Float(mise) {
+            return Int(round(stake * selectedAnswer.odds))
         } else {
             return 0
         }
     }
-    
-    init(answer: Binding<Int>, mise: Binding<String>, description: String, participationAddedCallback: (() -> Void)? = nil) {
-        self._selectedOption = answer
-        self._mise = mise
-        self.description = description
-        self.participationAddedCallback = participationAddedCallback
-    }
-    
-    let options: [(Int, String, Float)] = [
-        (0, "OUI", 1.2),
-        (1, "NON", 3.3),
-    ]
     
     var body: some View {
         GeometryReader { geometry in
@@ -56,12 +48,12 @@ struct ParticipationModal: View {
                 }
                 .padding(.leading, 15)
                 VStack(alignment: .leading){
-                    Text(description)
+                    Text(phrase)
                         .font(.system(size: 13))
                         .foregroundColor(AllInColors.primaryTextColor)
                         .fontWeight(.light)
                     
-                    DropDownAnswerMenu(selectedOption: $selectedOption, options: options)
+                    DropDownAnswerMenu(selectedAnswer: $selectedAnswer, answers: answers)
                     
                     TextField("", text: $mise, prompt: Text("generic_stake")
                         .foregroundColor(AllInColors.lightGrey300Color)
@@ -104,7 +96,7 @@ struct ParticipationModal: View {
                     .padding(.top, 10)
                     .padding(.bottom, 0)
                     Button {
-                        participationAddedCallback?()
+                        participationAddedCallback()
                     } label: {
                         Text("Miser")
                             .font(.system(size: 23))
@@ -123,18 +115,6 @@ struct ParticipationModal: View {
                 .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
             }
             .background(AllInColors.underComponentBackgroundColor)
-        }
-    }
-    
-    func checkAndSetError() -> Bool {
-        if let stake = Int(mise) {
-            if stake <= AppStateContainer.shared.user?.nbCoins ?? 0 && stake > 0 {
-                return false
-            } else {
-                return true
-            }
-        } else {
-            return true
         }
     }
 }

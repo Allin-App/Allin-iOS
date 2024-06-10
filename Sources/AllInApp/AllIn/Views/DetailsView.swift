@@ -122,7 +122,6 @@ struct DetailsView: View {
                             .padding(.bottom, 10)
                         ScrollView(showsIndicators: false) {
                             ForEach(viewModel.betDetail?.participations ?? []) { participation in
-                                // TODO
                                 UserInfo(username: participation.username, picture: nil , value: participation.stake).padding(.horizontal, 10)
                             }
                         }
@@ -145,10 +144,11 @@ struct DetailsView: View {
                     .padding(.horizontal, 10)
             }
             .sheet(isPresented: $isModalParticipated) {
-                ParticipationModal(answer: $viewModel.answer, mise: $viewModel.mise, description: viewModel.betDetail?.bet.phrase ?? "Not loaded", participationAddedCallback: {
+                ParticipationModal(selectedAnswer: $viewModel.selectedAnswer, mise: $viewModel.mise, phrase: viewModel.betDetail?.bet.phrase ?? "", answers: viewModel.betDetail?.answers ?? [], participationAddedCallback: {
                     viewModel.addParticipate()
                     isModalParticipated.toggle()
-                })
+                },
+                checkAndSetError: viewModel.checkAndSetError)
                 .presentationDetents([.fraction(0.55)])
             }
             .edgesIgnoringSafeArea(.bottom)
