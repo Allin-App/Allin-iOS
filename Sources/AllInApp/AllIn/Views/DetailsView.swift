@@ -113,8 +113,10 @@ struct DetailsView: View {
                         ResultBanner(finalAnswer: (viewModel.betDetail?.wonParticipation)!, odds: (viewModel.betDetail?.odds)!)
                     }
                     VStack(alignment: .leading, spacing: 5) {
-                        BetLineLoading(participations: viewModel.betDetail?.participations ?? [])
-                            .padding(.vertical,15)
+                        if let bet = viewModel.betDetail{
+                            BetLineLoading(bet: bet).padding(.vertical, 20)
+
+                        }
                         Text("bet_status_participants_list")
                             .font(.system(size: 18))
                             .foregroundStyle(AllInColors.grey100Color)

@@ -8,7 +8,7 @@
 import Foundation
 
 /// A class representing detailed information about a specific answer option for a bet.
-public class AnswerDetail: ObservableObject, Codable, Equatable, Identifiable {
+public class AnswerDetail: ObservableObject, Codable, Equatable, Identifiable, Hashable {
     
     /// The response or outcome associated with this answer.
     public private(set) var response: String
@@ -49,4 +49,11 @@ public class AnswerDetail: ObservableObject, Codable, Equatable, Identifiable {
         lhs.odds == rhs.odds
     }
     
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(response)
+        hasher.combine(totalStakes)
+        hasher.combine(totalParticipants)
+        hasher.combine(highestStake)
+        hasher.combine(odds)
+    }
 }
