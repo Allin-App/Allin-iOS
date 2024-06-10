@@ -82,9 +82,8 @@ struct ReviewCard: View {
             .frame(width: .infinity)
             .padding(.all,2)
             .background(backgroundColor())
-            
             .cornerRadius(20, corners: [.bottomLeft,.bottomRight])
-            .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
+            
         }
         .onTapGesture {
             showDetails.toggle()
@@ -93,14 +92,20 @@ struct ReviewCard: View {
         }
     }
     
-    private func backgroundColor() -> Color {
-        switch bet.status {
-        case .inProgress, .waiting, .closing:
-            return AllInColors.grey50Color
-        case .finished:
-            return Color.black
-        case .cancelled:
-            return Color.red
+    private func backgroundColor() -> some View {
+            Group {
+                if bet.status == .finished && isWin {
+                    AllInColors.primaryGradient
+                } else {
+                    switch bet.status {
+                    case .inProgress, .waiting, .closing:
+                        AllInColors.grey50Color
+                    case .finished:
+                        Color.black
+                    case .cancelled:
+                        Color.red
+                    }
+                }
+            }
         }
-    }
 }
