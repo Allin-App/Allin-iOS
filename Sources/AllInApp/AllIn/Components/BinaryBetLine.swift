@@ -52,13 +52,13 @@ struct BinaryBetLine: View {
                     HStack{
                         Spacer()
                         Rectangle()
-                            .frame(width: min(CGFloat(1-self.value) * geometry.size.width, geometry.size.width), height: 17)
+                            .frame(width: min(CGFloat(1-self.value) * geometry.size.width, geometry.size.width-20), height: 17)
                             .foregroundStyle(AllInColors.PinkBetGradiant).cornerRadius(999)
                     }
                     
                     HStack(spacing: 0) {
                         Rectangle()
-                            .frame(width: min(CGFloat(self.value) * geometry.size.width, geometry.size.width), height: 17)
+                            .frame(width: min(CGFloat(self.value) * geometry.size.width, geometry.size.width-20), height: 17)
                             .foregroundStyle(AllInColors.BlueBetGradiant)
                             .cornerRadius(999)
                         Image("loadingHeartIcon")

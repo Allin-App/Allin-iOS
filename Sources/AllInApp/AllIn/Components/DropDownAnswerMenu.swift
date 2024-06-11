@@ -20,7 +20,7 @@ struct DropDownAnswerMenu: View {
                 HStack{
                     Text(selectedAnswer.response)
                         .textStyle(weight: .bold, color: AllInColors.blueAccentColor, size: 20)
-                    Text(selectedAnswer.odds.description)
+                    Text("\(selectedAnswer.odds, specifier: "%.2f")")
                         .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 10)
                     
                     Spacer()
@@ -44,7 +44,7 @@ struct DropDownAnswerMenu: View {
                                 HStack{
                                     Text(answer.response)
                                         .textStyle(weight: .bold, color: AllInColors.blueAccentColor, size: 20)
-                                    Text(answer.odds.description)
+                                    Text("\(answer.odds, specifier: "%.2f")")
                                         .textStyle(weight: .bold, color: AllInColors.lightPurpleColor, size: 10)
                                     Spacer()
                                 }

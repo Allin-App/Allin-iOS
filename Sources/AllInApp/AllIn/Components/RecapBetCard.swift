@@ -73,7 +73,7 @@ struct RecapBetCard: View {
                         .overlay {
                             AllInColors.primaryGradient.frame(width: 50)
                                 .mask(
-                                    Text("1630").font(.system(size: 15)).fontWeight(.medium)
+                                    Text(betResult.amount.description).font(.system(size: 15)).fontWeight(.medium)
                                 )
                         }
                         .padding(0)
@@ -89,7 +89,8 @@ struct RecapBetCard: View {
                 HStack{
                     Text("Côte totale").font(.system(size: 15)).fontWeight(.medium)
                     Spacer()
-                    Text("3,46")
+                    // TODO bind le odd
+                    Text("1,0")
                         .textStyle(weight: .bold, color: .white, size: 18)
                         .padding([.leading,.trailing],10)
                         .padding([.top,.bottom],5)

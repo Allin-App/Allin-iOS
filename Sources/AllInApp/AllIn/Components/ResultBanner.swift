@@ -19,16 +19,16 @@ struct ResultBanner: View {
             }.frame(height: 80)
             HStack(spacing: 20){
                 HStack{
-                    Image("BlueAllCoinIcon").resizable().frame(maxWidth: 12, maxHeight: 12)
+                    Image("blueAllCoinIcon").resizable().frame(maxWidth: 12, maxHeight: 12)
                     Text(finalAnswer.stake.description).font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
                 }
                 HStack{
-                    Image("BleuePersonIcon").resizable().frame(maxWidth: 15, maxHeight: 12)
+                    Image("bluePersonIcon").resizable().frame(maxWidth: 15, maxHeight: 12)
                     Text(finalAnswer.username).font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
                 }
                 HStack{
-                    Image("BleueTrophyIcon").resizable().frame(maxWidth: 15, maxHeight: 12)
-                    Text(odds.description).font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
+                    Image("blueTrophyIcon").resizable().frame(maxWidth: 15, maxHeight: 12)
+                    Text("\(odds, specifier: "%.2f")").font(.system(size: 16)).fontWeight(.semibold).foregroundStyle(AllInColors.blueGrey800Color)
                 }
             }
         }

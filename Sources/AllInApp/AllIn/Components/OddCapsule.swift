@@ -14,7 +14,7 @@ struct OddCapsule: View {
     var odd: Float = 0.0
     var body: some View {
         HStack(alignment: .center) {
-            Text("x\(odd.description)")
+            Text("x\(odd, specifier: "%.2f")")
                 .fontWeight(.bold)
                 .foregroundColor(foregroundColor)
         }
