@@ -186,3 +186,8 @@
 "empty_bets_title"= "Aucun Bet ne correspond à votre recherche";
 "empty_friends_title" = "Vous n’avez pas encore d’amis";
 "empty_friends_explain" = "Ajoutez les depuis cet écran";
+
+/// Error Messages
+
+"error_title" = "Erreur : Échec du chargement du contenu.";
+"error_message" = "Le contenu que vous essayez de charger n'a pas pu être récupéré. Veuillez vérifier votre connexion internet et réessayer.";

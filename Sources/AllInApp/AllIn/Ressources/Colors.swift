@@ -77,6 +77,12 @@ struct AllInColors {
         endPoint: .trailing
     )
     
+    static let BlueBetLineGradiant = LinearGradient(
+        gradient: Gradient(colors: [AllInColors.blue200, AllInColors.blueAccentColor]),
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+    
     static let PinkBetGradiant = LinearGradient(
         gradient: Gradient(colors: [AllInColors.pink100, AllInColors.pink200]),
         startPoint: .leading,

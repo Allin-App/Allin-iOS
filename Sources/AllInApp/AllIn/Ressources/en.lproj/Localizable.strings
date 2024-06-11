@@ -187,3 +187,8 @@
 "empty_bets_title"= "No bet matches your search";
 "empty_friends_title" = "You don't have any friends yet";
 "empty_friends_explain" = "Add them from this screen";
+
+/// Error Messages
+
+"error_title" = "Error: Failed to Load Content.";
+"error_message" = "The content you are trying to load could not be retrieved. Please check your internet connection and try again";

@@ -8,7 +8,7 @@
 import Foundation
 
 /// A class representing a betting entity, including details about the bet theme, participants, and deadlines.
-public class Bet: ObservableObject, Identifiable, Codable {
+public class Bet: ObservableObject, Codable {
     
     /// The id for the bet.
     public private(set) var id: String
@@ -110,6 +110,13 @@ public class Bet: ObservableObject, Identifiable, Codable {
         self.status = status
         self.invited = invited
         self.author = author
+    }
+    
+    /// Function that returns an empty list of responses
+    ///
+    /// - Returns: An empty list of responses
+    public func getResponses() -> [String] {
+        return []
     }
     
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		120919182B56D0AE00D0FA29 /* ParticipationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919172B56D0AE00D0FA29 /* ParticipationModal.swift */; };
 		1209191A2B56DC6C00D0FA29 /* DropDownAnswerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */; };
+		12228A212C1760D2008524F4 /* BinaryBetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12228A202C1760D2008524F4 /* BinaryBetLine.swift */; };
+		12228A232C176117008524F4 /* CustomBetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12228A222C176117008524F4 /* CustomBetLine.swift */; };
 		123225D92B67B46100D30BB3 /* BetEndingValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */; };
 		123225DB2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */; };
 		123590B42B51792000F7AEBD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123590B32B51792000F7AEBD /* DetailsView.swift */; };
@@ -149,6 +151,8 @@
 		120919192B56DC6C00D0FA29 /* DropDownAnswerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownAnswerMenu.swift; sourceTree = "<group>"; };
 		122278B72B4BDE1100E632AA /* DependencyInjection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyInjection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		122278B92B4BDE9500E632AA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Model/Package.swift; sourceTree = "<group>"; };
+		12228A202C1760D2008524F4 /* BinaryBetLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryBetLine.swift; sourceTree = "<group>"; };
+		12228A222C176117008524F4 /* CustomBetLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBetLine.swift; sourceTree = "<group>"; };
 		123225D82B67B46100D30BB3 /* BetEndingValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetEndingValidationView.swift; sourceTree = "<group>"; };
 		123225DA2B67E41400D30BB3 /* ChoiceFinalAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceFinalAnswerCell.swift; sourceTree = "<group>"; };
 		123590B32B51792000F7AEBD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
@@ -444,6 +448,8 @@
 				129D051C2B6E7FF0003D3E08 /* OddCapsule.swift */,
 				12A9E4932C07132600AB8677 /* EmptyInfo.swift */,
 				123F31DA2C0F26E8009B6D65 /* userPicture.swift */,
+				12228A202C1760D2008524F4 /* BinaryBetLine.swift */,
+				12228A222C176117008524F4 /* CustomBetLine.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -675,6 +681,7 @@
 			files = (
 				EC6B96CC2B24B7E500FC1C58 /* IAuthService.swift in Sources */,
 				ECB26A172B4073F100FE06B3 /* CreationBetViewModel.swift in Sources */,
+				12228A232C176117008524F4 /* CustomBetLine.swift in Sources */,
 				EC3077092B24CF7F0060E34D /* Colors.swift in Sources */,
 				EC6B969E2B24B4CC00FC1C58 /* ContentView.swift in Sources */,
 				EC89F7BD2B250D66003821CE /* LoginView.swift in Sources */,
@@ -721,6 +728,7 @@
 				EC01937E2B25C52E005D81E6 /* TopBar.swift in Sources */,
 				ECA9D1CB2B2DA2320076E0EC /* DropDownFriends.swift in Sources */,
 				123590B82B5541BA00F7AEBD /* ParticipateButton.swift in Sources */,
+				12228A212C1760D2008524F4 /* BinaryBetLine.swift in Sources */,
 				EC01FCC32B56650400BB2390 /* DetailsViewModel.swift in Sources */,
 				ECB26A1B2B40746C00FE06B3 /* FriendsViewModel.swift in Sources */,
 				ECB7BC682B2F1ADF002A6654 /* LoginViewModel.swift in Sources */,
