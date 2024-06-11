@@ -57,89 +57,105 @@ struct DetailsView: View {
                 }
                 .padding(.horizontal, 15)
                 .background(StatusValues.1)
-                
-                VStack(spacing: 0) {
-                    VStack(alignment: .leading, spacing: 5) {
-                        HStack(spacing: 3) {
-                            Spacer()
-                            Text("bet_proposed_by_format")
-                                .font(.system(size: 10))
+                if viewModel.betDetail != nil{
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 5) {
+                            HStack(spacing: 3) {
+                                Spacer()
+                                Text("bet_proposed_by_format")
+                                    .font(.system(size: 10))
+                                    .foregroundColor(AllInColors.grey800Color)
+                                Text((viewModel.betDetail?.bet.author ?? "Unknown").capitalized)
+                                    .font(.system(size: 10))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(AllInColors.primaryTextColor)
+                                
+                            }
+                            Text(viewModel.betDetail?.bet.theme ?? "Not loaded")
+                                .font(.system(size: 15))
                                 .foregroundColor(AllInColors.grey800Color)
-                            Text((viewModel.betDetail?.bet.author ?? "Unknown").capitalized)
-                                .font(.system(size: 10))
-                                .fontWeight(.semibold)
-                                .foregroundColor(AllInColors.primaryTextColor)
-                            
-                        }
-                        Text(viewModel.betDetail?.bet.theme ?? "Not loaded")
-                            .font(.system(size: 15))
-                            .foregroundColor(AllInColors.grey800Color)
-                        Text(viewModel.betDetail?.bet.phrase ?? "Not loaded")
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
-                            .padding(.bottom, 10)
-                        HStack {
+                            Text(viewModel.betDetail?.bet.phrase ?? "Not loaded")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .padding(.bottom, 10)
                             HStack {
+                                HStack {
+                                    Spacer()
+                                    Text("bet_starting")
+                                        .font(.system(size: 15))
+                                        .foregroundColor(AllInColors.grey800Color)
+                                }
+                                .frame(width: 105)
+                                .padding(.trailing, 10)
+                                TextCapsule(date: viewModel.betDetail?.bet.endRegisterDate ?? Date())
                                 Spacer()
-                                Text("bet_starting")
-                                    .font(.system(size: 15))
-                                    .foregroundColor(AllInColors.grey800Color)
-                            }
-                            .frame(width: 105)
-                            .padding(.trailing, 10)
-                            TextCapsule(date: viewModel.betDetail?.bet.endRegisterDate ?? Date())
-                            Spacer()
-                            
-                        }.padding(.bottom, 10)
-                        HStack {
+                                
+                            }.padding(.bottom, 10)
                             HStack {
+                                HStack {
+                                    Spacer()
+                                    Text("bet_ends")
+                                        .font(.system(size: 15))
+                                        .foregroundColor(AllInColors.grey800Color)
+                                }
+                                .frame(width: 105)
+                                .padding(.trailing, 10)
+                                TextCapsule(date: viewModel.betDetail?.bet.endBetDate ?? Date())
                                 Spacer()
-                                Text("bet_ends")
-                                    .font(.system(size: 15))
-                                    .foregroundColor(AllInColors.grey800Color)
                             }
-                            .frame(width: 105)
-                            .padding(.trailing, 10)
-                            TextCapsule(date: viewModel.betDetail?.bet.endBetDate ?? Date())
-                            Spacer()
                         }
-                    }
-                    .padding(.all, 15)
-                    .padding(.vertical, 10)
-                    .background(AllInColors.componentBackgroundColor)
-                    .cornerRadius(20, corners: [.topLeft,.topRight]).padding(.bottom,0)
-                    
-                    if isFinished {
-                        ResultBanner(finalAnswer: (viewModel.betDetail?.wonParticipation)!, odds: (viewModel.betDetail?.odds)!)
-                    }
-                    VStack(alignment: .leading, spacing: 5) {
-                        if let bet = viewModel.betDetail{
-                            BetLineLoading(bet: bet).padding(.vertical, 20)
-
+                        .padding(.all, 15)
+                        .padding(.top, 6)
+                        .border(width: 1, edges: [.bottom], color: AllInColors.delimiterGrey)
+                        .background(AllInColors.componentBackgroundColor)
+                        .cornerRadius(20, corners: [.topLeft,.topRight])
+                        
+                        if isFinished {
+                            ResultBanner(finalAnswer: (viewModel.betDetail?.wonParticipation)!, odds: (viewModel.betDetail?.odds)!)
                         }
-                        Text("bet_status_participants_list")
-                            .font(.system(size: 18))
-                            .foregroundStyle(AllInColors.grey100Color)
-                            .fontWeight(.bold)
-                            .padding(.bottom, 10)
-                        ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            if let bet = viewModel.betDetail{
+                                BetLineLoading(bet: bet).padding(.vertical, 20)
+                                
+                            }
+                            Text("bet_status_participants_list")
+                                .font(.system(size: 18))
+                                .foregroundStyle(AllInColors.grey100Color)
+                                .fontWeight(.bold)
+                                .padding(.bottom, 10)
+                            
                             ForEach(viewModel.betDetail?.participations ?? []) { participation in
                                 UserInfo(username: participation.username, picture: nil , value: participation.stake).padding(.horizontal, 10)
                             }
+                            .padding(.bottom)
+                            
+                            Spacer()
                         }
-                        .padding(.bottom, geometry.safeAreaInsets.bottom + 28)
+                        .padding([.trailing,.leading], 15)
                         
-                        Spacer()
                     }
-                    .padding([.bottom,.trailing,.leading], 15)
+                    .frame(maxWidth: .infinity, maxHeight: (geometry.size.height + geometry.safeAreaInsets.bottom) - 50)
                     .background(AllInColors.underComponentBackgroundColor)
-                    .border(width: 1, edges: [.top], color: AllInColors.delimiterGrey)
-                    Spacer()
-                    
+                    .cornerRadius(15, corners: [.topLeft, .topRight])
                 }
-                .frame(maxWidth: .infinity, maxHeight: (geometry.size.height + geometry.safeAreaInsets.bottom) - 50)
-                .background(AllInColors.componentBackgroundColor)
-                .cornerRadius(15, corners: [.topLeft, .topRight])
+                else{
+                    ScrollView {
+                        HStack(alignment: .center){
+                            Spacer()
+                            Image(systemName: "exclamationmark.triangle.fill").font(.system(size: 45))
+                            VStack(alignment:.leading){
+                                Text("error_title").font(.system(size: 10))
+                                Text("error_message").font(.system(size: 10))
+                            }
+                            Spacer()
+                        }.opacity(0.6)
+                            .padding(.vertical, 20)
+                        
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: (geometry.size.height + geometry.safeAreaInsets.bottom) - 50)
+                    .background(AllInColors.underComponentBackgroundColor)
+                    .cornerRadius(15, corners: [.topLeft, .topRight])
+                }
                 
                 ParticipateButton(isOpen: $isModalPresented, isParticapatedOpen: $isModalParticipated, bet: viewModel.betDetail?.bet)
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 5)
@@ -150,7 +166,7 @@ struct DetailsView: View {
                     viewModel.addParticipate()
                     isModalParticipated.toggle()
                 },
-                checkAndSetError: viewModel.checkAndSetError)
+                                   checkAndSetError: viewModel.checkAndSetError)
                 .presentationDetents([.fraction(0.55)])
             }
             .edgesIgnoringSafeArea(.bottom)
