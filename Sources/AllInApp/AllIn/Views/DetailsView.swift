@@ -6,7 +6,6 @@ struct DetailsView: View {
     @Binding var isModalPresented: Bool
     @Binding var isModalParticipated: Bool
     @StateObject private var viewModel: DetailsViewModel
-    @State private var isLoading = true
     
     var isFinished: Bool {
         viewModel.betDetail?.wonParticipation == nil ? false : true

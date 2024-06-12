@@ -12,7 +12,6 @@ struct Menu: View {
     
     @Inject var authService: IAuthService
     
-    
     let parameters: [(String, String, String, String)] = [
         ("videoGameImage", String(localized: "drawer_create_a_bet"), String(localized: "drawer_create_a_bet_subtitle"), "CreationBet"),
         ("globeImage", String(localized: "drawer_public_bets"), String(localized: "drawer_public_bets_subtitle"), "Bet"),
@@ -40,7 +39,7 @@ struct Menu: View {
             HStack(spacing: 30) {
                 Spacer()
                 VStack(){
-                    Text(AppStateContainer.shared.user?.bestWin.description ?? "0")
+                    Text(AppStateContainer.shared.user?.bestWin ?? 0, format: .number)
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -50,7 +49,7 @@ struct Menu: View {
                         .foregroundColor(AllInColors.grey600Color)
                 }
                 VStack(){
-                    Text(AppStateContainer.shared.user?.bestWin.description ?? "0")
+                    Text(AppStateContainer.shared.user!.bestWin, format: .number)
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -60,7 +59,7 @@ struct Menu: View {
                         .foregroundColor(AllInColors.grey600Color)
                 }
                 VStack(){
-                    Text(AppStateContainer.shared.user?.nbFriends.description ?? "0")
+                    Text(AppStateContainer.shared.user!.nbFriends, format: .number)
                         .fontWeight(.heavy)
                         .font(.system(size: 15))
                         .foregroundColor(.white)
@@ -104,6 +103,9 @@ struct Menu: View {
         .frame(maxWidth: .infinity,alignment: .leading)
         .background(AllInColors.primaryColor)
         .edgesIgnoringSafeArea(.bottom)
+        .onAppear {
+            authService.refreshAuthentication()
+        }
         
     }
 }
