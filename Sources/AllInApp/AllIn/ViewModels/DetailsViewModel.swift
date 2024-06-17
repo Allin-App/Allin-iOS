@@ -26,13 +26,20 @@ class DetailsViewModel: ObservableObject {
     }
     
     func getItem(withId id: String) {
+        let semaphore = DispatchSemaphore(value: 0)
         manager.getBet(withId: id) { bet in
-            DispatchQueue.main.async {
                 self.betDetail = bet
                 if let firstAnswer = bet.answers.first {
                     self.selectedAnswer = firstAnswer
                 }
-            }
+                semaphore.signal()
+        }
+        
+        let result = semaphore.wait(timeout: DispatchTime.now() + .seconds(2))
+            
+        if result == .timedOut {
+            print("The request has exceeded the deadline")
+            return
         }
     }
     

@@ -64,22 +64,26 @@ struct FriendsView: View {
                 }
                 .padding(.top, 50)
                 .tag(0)
-                VStack(alignment: .center, spacing: 0) {
-                    if(viewModel.requests.isEmpty){
-                        EmptyInfo(emoji:"📬", title: "Aucune demande d'amis en attente", explain: "").padding(.top, 40)
-                    }
-                    else{
-                        ScrollView(showsIndicators: false){
-                            ForEach(viewModel.requests, id: \.self) { request in
-                                Friend(user: request, isRequest: true, viewModel: viewModel)
+                ScrollView{
+                    VStack(alignment: .center, spacing: 0) {
+                        if(viewModel.requests.isEmpty){
+                            EmptyInfo(emoji:"📬", title: "Aucune demande d'amis en attente", explain: "").padding(.top, 40)
+                        }
+                        else{
+                            ScrollView(showsIndicators: false){
+                                ForEach(viewModel.requests, id: \.self) { request in
+                                    Friend(user: request, isRequest: true, viewModel: viewModel)
+                                }
                             }
+                            .refreshable {
+                                viewModel.getRequests()
+                            }
+                            .padding(.top, 25)
                         }
-                        .refreshable {
-                            viewModel.getRequests()
-                        }
-                        .padding(.top, 25)
+                        Spacer()
                     }
-                    Spacer()
+                }.refreshable {
+                    viewModel.getRequests()
                 }
                 .padding(.top, 50)
                 .tag(1)

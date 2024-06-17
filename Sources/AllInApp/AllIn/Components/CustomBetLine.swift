@@ -34,7 +34,7 @@ struct CustomBetLine: View {
     }
     
     func getFlameImage(for answer: AnswerDetail) -> String {
-        return answer == sortedAnswers.first ? "PinkFlame" : "BlueFlame"
+        return answer == sortedAnswers.first ? "pinkFlame" : "blueFlame"
     }
     
     var body: some View {
@@ -57,7 +57,7 @@ struct CustomBetLine: View {
                         ZStack(alignment: .leading) {
                             HStack(spacing: 0) {
                                 Rectangle()
-                                    .frame(width: min(percentage * geometry.size.width, geometry.size.width), height: 17)
+                                    .frame(width: min(percentage * geometry.size.width, geometry.size.width-20), height: 17)
                                     .foregroundStyle(getGradiant(for: answer))
                                     .cornerRadius(999, corners: [.topLeft, .bottomLeft])
                                 Image(getFlameImage(for: answer))

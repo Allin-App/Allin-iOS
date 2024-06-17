@@ -59,7 +59,7 @@ struct DetailsView: View {
                 .background(StatusValues.1)
                 if viewModel.betDetail != nil{
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 5) {
+                        VStack(alignment: .leading, spacing: 0) {
                             HStack(spacing: 3) {
                                 Spacer()
                                 Text("bet_proposed_by_format")
@@ -132,6 +132,7 @@ struct DetailsView: View {
                             Spacer()
                         }
                         .padding([.trailing,.leading], 15)
+                        .padding(.bottom, 100)
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: (geometry.size.height + geometry.safeAreaInsets.bottom) - 50)

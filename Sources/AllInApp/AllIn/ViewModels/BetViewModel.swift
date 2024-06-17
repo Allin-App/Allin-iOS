@@ -13,7 +13,7 @@ import Combine
 class BetViewModel: ObservableObject {
     
     @Inject var manager: Manager
-    
+    @Inject var authService: IAuthService
     @Published var popularBet: Bet?
     @Published private(set) var bets: [Bet] = []
     @Published var betsOver: [BetDetail] = []
@@ -58,6 +58,7 @@ class BetViewModel: ObservableObject {
                 self.betsWon = bets
                 if !self.betsWon.isEmpty {
                     self.showingSheetWon = true
+                    self.authService.refreshAuthentication()
                 }
             }
         }

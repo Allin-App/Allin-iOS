@@ -42,13 +42,15 @@ struct ReviewCard: View {
             VStack(alignment: .center,spacing:0){
                 HStack(){
                     Spacer()
-                    Text(amount.description)
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .fontWeight(.bold)
-                    Image("allcoinWhiteIcon")
-                        .resizable()
-                        .frame(width: 18, height: 20)
+                    if bet.status == .finished {
+                        Text(amount.description)
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                        Image("allcoinWhiteIcon")
+                            .resizable()
+                            .frame(width: 18, height: 20)
+                    }
                     
                     switch bet.status {
                     case .waiting, .inProgress:
