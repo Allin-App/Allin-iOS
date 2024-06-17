@@ -28,6 +28,7 @@
 "network_error_text" = "Assurez-vous d\'être bien connecté au réseau puis réessayez.";
 
 /// Bet type
+
 "bet_type_binary" = "Oui / Non";
 "bet_type_match" = "Match sportif";
 "bet_type_custom" = "Réponses personnalisées";

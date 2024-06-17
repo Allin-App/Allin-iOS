@@ -34,7 +34,7 @@ struct CustomBetLine: View {
     }
     
     func getFlameImage(for answer: AnswerDetail) -> String {
-        return answer == sortedAnswers.first ? "PinkFlame" : "BlueFlame"
+        return answer == sortedAnswers.first ? "pinkFlame" : "blueFlame"
     }
     
     var body: some View {
